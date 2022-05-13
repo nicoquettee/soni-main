@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.display.FlxBackdrop;
 #if desktop
 import Discord.DiscordClient;
 import sys.thread.Thread;
@@ -189,6 +190,13 @@ class TitleState extends MusicBeatState
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
+	
+	//soni stuff
+	var soniBG:FlxSprite;
+	var face:FlxBackdrop;
+	var circle:FlxSprite;
+	var soni:FlxSprite;
+	public static var curSoniFrame:Int;
 
 	function startIntro()
 	{
@@ -222,7 +230,7 @@ class TitleState extends MusicBeatState
 			}
 		}
 
-		Conductor.changeBPM(titleJSON.bpm);
+		Conductor.changeBPM(110);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite();
@@ -232,11 +240,28 @@ class TitleState extends MusicBeatState
 		}else{
 			bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		}
-		
-		// bg.antialiasing = ClientPrefs.globalAntialiasing;
-		// bg.setGraphicSize(Std.int(bg.width * 0.6));
-		// bg.updateHitbox();
-		add(bg);
+
+		soniBG = new FlxSprite().loadGraphic(Paths.image('title/bggg'));
+		soniBG.screenCenter();
+		soniBG.antialiasing = ClientPrefs.globalAntialiasing;
+		add(soniBG);
+
+		/*face = new FlxBackdrop(Paths.image('mainmenu/soni/faces/story_mode'), 0.2, 0.2, true, true);
+		face.x -= 35;
+		add(face);
+
+		circle = new FlxSprite().loadGraphic(Paths.image('mainmenu/soni/circle'));
+		//circle.updateHitbox();
+		circle.screenCenter();
+		circle.antialiasing = ClientPrefs.globalAntialiasing;
+		add(circle);*/
+
+		soni = new FlxSprite();
+		soni.frames = Paths.getSparrowAtlas('title/FNWS_logo');
+		soni.animation.addByPrefix('bump', 'Logopro', 24);
+		soni.antialiasing = ClientPrefs.globalAntialiasing;
+		soni.screenCenter();
+		add(soni);
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -256,9 +281,7 @@ class TitleState extends MusicBeatState
 		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 		
-		add(gfDance);
 		gfDance.shader = swagShader.shader;
-		add(logoBl);
 		logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
@@ -283,8 +306,11 @@ class TitleState extends MusicBeatState
 		titleText.antialiasing = ClientPrefs.globalAntialiasing;
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
+		titleText.y += 50;
 		// titleText.screenCenter(X);
 		add(titleText);
+
+		FlxTween.tween(titleText, {alpha: 1}, 0.5, {ease: FlxEase.linear});
 
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
 		logo.screenCenter();
@@ -351,6 +377,13 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
+		/*if(skippedIntro)
+		{
+			face.x += .5*(elapsed/(1/120));
+			face.y += .5*(elapsed/(1/120));
+		}*/
+		//curSoniFrame = soni.animation.curAnim.curFrame;
+
 		#if mobile
 		for (touch in FlxG.touches.list)
 		{
@@ -388,6 +421,7 @@ class TitleState extends MusicBeatState
 				transitioning = true;
 				// FlxG.sound.music.stop();
 
+				FlxTween.tween(titleText, {y: FlxG.height + titleText.height}, 0.5);
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
 					if (mustUpdate) {
@@ -509,6 +543,8 @@ class TitleState extends MusicBeatState
 			else
 				gfDance.animation.play('danceLeft');
 		}
+		if(soni != null)
+			soni.animation.play('bump', true);
 
 		if(!closedState) {
 			sickBeats++;

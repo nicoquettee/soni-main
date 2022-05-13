@@ -57,6 +57,7 @@ class FreeplayState extends MusicBeatState
 		
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
+		PlayState.isCode = false;
 		WeekData.reloadWeekFiles(false);
 
 		#if desktop
@@ -64,7 +65,7 @@ class FreeplayState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		for (i in 0...WeekData.weeksList.length) {
+		/*for (i in 0...WeekData.weeksList.length) {
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var leSongs:Array<String> = [];
 			var leChars:Array<String> = [];
@@ -85,7 +86,7 @@ class FreeplayState extends MusicBeatState
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
 			}
 		}
-		WeekData.loadTheFirstEnabledMod();
+		WeekData.loadTheFirstEnabledMod();*/
 
 		/*		//KIND OF BROKEN NOW AND ALSO PRETTY USELESS//
 
@@ -97,6 +98,23 @@ class FreeplayState extends MusicBeatState
 				addSong(songArray[0], 0, songArray[1], Std.parseInt(songArray[2]));
 			}
 		}*/
+
+		//Soni week
+		addSong('Sonicando', 0, 'soni', FlxColor.fromRGB(0, 14, 226));
+		addSong('Faster Rapper', 0, 'soni', FlxColor.fromRGB(0, 14, 226));
+		addSong('SPED', 0, 'soni', FlxColor.fromRGB(0, 14, 226));
+
+		//bonus codes
+		if(FlxG.save.data.beatedWerhog)
+			addSong('Unleashed', 0, 'werhog', FlxColor.fromRGB(97, 87, 132));
+		if(FlxG.save.data.beatedOu)
+			addSong('ou', 0, 'ou', FlxColor.fromRGB(48, 35, 52));
+		if(FlxG.save.data.beatedNoebeat)
+			addSong('Please', 0, 'neobeat', FlxColor.fromRGB(110, 153, 223));
+		if(FlxG.save.data.beatedBil)
+			addSong('Broken Reality', 0, 'bil', FlxColor.fromRGB(255, 236, 94));
+		if(FlxG.save.data.beatedSonibars)
+			addSong('Sonibars', 0, 'sonibars', FlxColor.fromRGB(54, 0, 217));
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
@@ -361,6 +379,7 @@ class FreeplayState extends MusicBeatState
 
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
 			PlayState.isStoryMode = false;
+			PlayState.isCode = false;
 			PlayState.storyDifficulty = curDifficulty;
 
 			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
@@ -412,7 +431,8 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		PlayState.storyDifficulty = curDifficulty;
-		diffText.text = '< ' + CoolUtil.difficultyString() + ' >';
+		diffText.text = songs[curSelected].songCharacter;
+		diffText.text = diffText.text.toUpperCase();
 		positionHighscore();
 	}
 

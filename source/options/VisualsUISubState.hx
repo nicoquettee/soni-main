@@ -63,6 +63,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Shaders', //Name
+			'If checked, shaders will be turned on', //Description
+			'funnyShaders', //Save data variable name
+			'bool', //Variable type
+			true); //Default value
+		addOption(option);
+
 		var option:Option = new Option('Camera Zooms',
 			"If unchecked, the camera won't zoom in on a beat hit.",
 			'camZooms',

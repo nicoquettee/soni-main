@@ -85,20 +85,36 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Vs Soni'],
+			['JP13XD',				'jp',				'Vs Soni Owner',										'https://twitter.com/XdJp13',			'FFF200'],
+			['ROYAL',				'royal-chino',		'Code literally the whole mod (including this message)','https://twitter.com/CoderRoyal',		'BB00FF'],
+			['Max',					'max',				'Sprites/Menu Artist',									'https://twitter.com/MaxDemon_',		'ED1C24'],
+			['LuisF',				'luis',				'Sprite Artist/Animator',								'https://twitter.com/LuisF_0506',		'FF8741'],
+			['AceDavid',			'ace',				'Sprite Artist/Animator',								'https://twitter.com/AceDavidAnd',		'444444'],
+			['ImLordZark',			'zark',				'Soni BG Artist',										'https://twitter.com/ImLordZark',		'279ADC'],
+			['Jemdder',				'jemdder',			'Sprite Artist/Animator',								'https://twitter.com/JemplaySs',		'6D87AD'],
+			['Monki',				'monki',			'Sprite Artist/Animator',								'https://twitter.com/Monki_Al',			'22110C'],
+			['Fleferss',			'flefers',			'Artist',												'https://twitter.com/Fleferss',			'30527F'],
+			['Yuriana',				'yuri',				'Artist',												'https://twitter.com/ImYuriana',		'687E9B'],
+			['Gosyu',				'gosyu',			'Concept Artist',										'https://mobile.twitter.com/Gosssuss',	'ED1C24'],
+			['Sly',					'sly',				'Sprites/Menu Artist',									'https://twitter.com/SlyOverxd',		'626A63'],
+			['Spainel',				'spainel',			'Icons Credits/Charter/Ou Background',					'https://twitter.com/spainel__',		'543933'],
+			['Donut',				'donut',			'Gameplay Icons/Loading Screens/Menu BG',				'https://twitter.com/ColorousDonut',	'D5EF08'],
+			['DonAlgo',				'don',				'Spriter/Animator/Musician/Vs homr creator omg',		'https://twitter.com/DonAlgoXD',		'B5E61D'],
+			['DoreK',				'dore',				'Epic Musician',										'https://twitter.com/Dore54013670',		'46000B'],
+			['FrankitoLQ',			'frankito',			'Epic Musician but he is not dore',						'https://twitter.com/FrankitoLQ4001',	'C1FF00'],
+			['4RN4uxd',				'4ru',				'Bil Musician idk lmao',								'https://twitter.com/Rn4Uxd',			'FFFFFF'],
+			['Dylan',				'dylan',			'Chromatic scale or flp creator idk nothin about music','https://twitter.com/LabanDylan',		'FECF35'],
+			['Yina',				'yinal',			'Same as before :skull:',								'https://twitter.com/Yina_Tilin',		'BA7F65'],
+			['Lucio',				'lucio',			'Charter',												'https://twitter.com/FantaRana',		'A5F087'],
+			['Farsy',				'farsy',			'Charter',												'https://twitter.com/Farsyyyyy',		'B97A57'],
+			['Mist',				'mist',				'Charter tetona :whenbaldo:',							'https://twitter.com/mistdev2',			'FF00AE'],
+			['ManDuz',				'manduz',			'Soni voice',											'https://twitter.com/ManuxGamerEkisD',	'FFFFFF'],
+			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',						'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',					'https://twitter.com/river_oaken',		'C30085'],
 			['shubs',				'shubs',			'Additional Programmer of Psych Engine',				'https://twitter.com/yoshubs',			'279ADC'],
-			[''],
-			['Former Engine Members'],
-			['bb-panzu',			'bb-panzu',			'Ex-Programmer of Psych Engine',						'https://twitter.com/bbsub3',			'389A58'],
-			[''],
-			['Engine Contributors'],
-			['iFlicky',				'iflicky',			'Delay/Combo Menu Song Composer\nand Dialogue Sounds',	'https://twitter.com/flicky_i',			'AA32FE'],
-			['SqirraRNG',			'gedehari',			'Chart Editor\'s Sound Waveform base',					'https://twitter.com/gedehari',			'FF9300'],
-			['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension',							'https://twitter.com/polybiusproxy',	'FFEAA6'],
-			['Keoiki',				'keoiki',			'Note Splash Animations',								'https://twitter.com/Keoiki_',			'FFFFFF'],
-			['Smokey',				'smokey',			'Spritemap Texture Support',							'https://twitter.com/Smokey_5_',		'4D5DBD'],
 			[''],
 			["Funkin' Crew"],
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",					'https://twitter.com/ninja_muffin99',	'F73838'],
@@ -132,7 +148,7 @@ class CreditsState extends MusicBeatState
 					Paths.currentModDirectory = creditsStuff[i][5];
 				}
 
-				var icon:AttachedSprite = new AttachedSprite('credits/' + creditsStuff[i][1]);
+				var icon:AttachedSprite = new AttachedSprite('credits/paint/' + creditsStuff[i][1]);
 				icon.xAdd = optionText.width + 10;
 				icon.sprTracker = optionText;
 	
