@@ -634,6 +634,8 @@ class PlayState extends MusicBeatState
 				add(bg);
 
 			case 'neobeat':
+				GameOverSubstate.characterName = 'royal';
+
 				camHUD.zoom = 3;
 
 				var blueXD:BGSprite = new BGSprite('whyimakingthishelp/bg', -600, -200);
