@@ -63,7 +63,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.minValue = 0.6;
 		option.maxValue = 1.2;
-		addOption(option);
+		addOption(option); //sexo
 
 		var option:Option = new Option('Opponent Notes',
 			'If unchecked, opponent notes get hidden.',
