@@ -1,63 +1,74 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Idle"
+			"fps": 24,
+			"name": "idle",
+			"indices": []
 		},
 		{
-			"offsets": [
-				34,
-				40
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				32,
+				1
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-30,
-				-32
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-1,
+				-77
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Down"
+			"fps": 24,
+			"name": "down",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-30,
-				45
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				23
+			],
 			"anim": "singUP",
-			"indices": [],
-			"name": "Up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				22,
+				38
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		},
 		{
 			"offsets": [
-				-22,
-				12
+				-8,
+				27
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT",
 			"indices": [],
-			"name": "Right"
+			"fps": 24,
+			"anim": "shoot",
+			"loop": false,
+			"name": "gun"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/ou",
+	"image": "characters/shadow",
 	"position": [
 		0,
 		0
@@ -65,9 +76,9 @@
 	"healthicon": "ou",
 	"flip_x": false,
 	"healthbar_colors": [
-		96,
-		97,
-		110
+		0,
+		0,
+		0
 	],
 	"camera_position": [
 		0,

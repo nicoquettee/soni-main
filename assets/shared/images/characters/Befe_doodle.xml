@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Befe doodle.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="doodle bf  death0000" x="0" y="0" width="128" height="135" frameX="-13" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0001" x="0" y="0" width="128" height="135" frameX="-13" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0002" x="128" y="0" width="123" height="138" frameX="-17" frameY="-79" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0003" x="128" y="0" width="123" height="138" frameX="-17" frameY="-79" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0004" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0005" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0006" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0007" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0008" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0009" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0010" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0011" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0012" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0013" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0014" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0015" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0016" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0017" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0018" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0019" x="251" y="0" width="125" height="137" frameX="-15" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0020" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0021" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0022" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0023" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0024" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0025" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0026" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0027" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0028" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0029" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0030" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0031" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0032" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0033" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0034" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0035" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0036" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0037" x="376" y="0" width="124" height="137" frameX="-17" frameY="-80" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0038" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0039" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0040" x="500" y="0" width="124" height="135" frameX="-16" frameY="-82" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0041" x="624" y="0" width="140" height="163" frameX="0" frameY="-54" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0042" x="764" y="0" width="140" height="162" frameX="0" frameY="-53" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0043" x="904" y="0" width="139" height="163" frameX="0" frameY="-51" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0044" x="1043" y="0" width="139" height="163" frameX="0" frameY="-50" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0045" x="1182" y="0" width="139" height="163" frameX="0" frameY="-48" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0046" x="1321" y="0" width="138" height="163" frameX="0" frameY="-47" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0047" x="1459" y="0" width="138" height="163" frameX="0" frameY="-46" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0048" x="1597" y="0" width="138" height="164" frameX="0" frameY="-44" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0049" x="1735" y="0" width="137" height="163" frameX="0" frameY="-43" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0050" x="1872" y="0" width="137" height="164" frameX="0" frameY="-41" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0051" x="2009" y="0" width="137" height="164" frameX="0" frameY="-40" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0052" x="2146" y="0" width="137" height="164" frameX="0" frameY="-38" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0053" x="2283" y="0" width="136" height="164" frameX="0" frameY="-37" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0054" x="2419" y="0" width="136" height="164" frameX="0" frameY="-36" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0055" x="2555" y="0" width="136" height="164" frameX="0" frameY="-34" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0056" x="2691" y="0" width="135" height="164" frameX="0" frameY="-33" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0057" x="2826" y="0" width="135" height="165" frameX="0" frameY="-31" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0058" x="2961" y="0" width="135" height="164" frameX="0" frameY="-30" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0059" x="3096" y="0" width="134" height="165" frameX="-1" frameY="-28" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0060" x="3230" y="0" width="133" height="165" frameX="-1" frameY="-27" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0061" x="3363" y="0" width="133" height="164" frameX="-1" frameY="-26" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0062" x="3496" y="0" width="133" height="165" frameX="-1" frameY="-24" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0063" x="3629" y="0" width="133" height="165" frameX="-1" frameY="-23" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0064" x="3762" y="0" width="133" height="165" frameX="-1" frameY="-21" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0065" x="3895" y="0" width="133" height="165" frameX="-1" frameY="-20" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0066" x="0" y="165" width="133" height="166" frameX="-1" frameY="-18" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0067" x="133" y="165" width="133" height="165" frameX="-1" frameY="-17" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0068" x="266" y="165" width="133" height="166" frameX="-1" frameY="-15" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0069" x="399" y="165" width="133" height="166" frameX="-1" frameY="-14" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0070" x="532" y="165" width="134" height="165" frameX="-1" frameY="-13" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0071" x="666" y="165" width="134" height="166" frameX="-1" frameY="-11" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0072" x="800" y="165" width="134" height="166" frameX="-1" frameY="-10" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0073" x="934" y="165" width="134" height="167" frameX="-1" frameY="-8" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0074" x="1068" y="165" width="134" height="166" frameX="-1" frameY="-7" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0075" x="1202" y="165" width="134" height="167" frameX="-1" frameY="-5" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0076" x="1336" y="165" width="134" height="167" frameX="-1" frameY="-4" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0077" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0078" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0079" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0080" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0081" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0082" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0083" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0084" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0085" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0086" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0087" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0088" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0089" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0090" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0091" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0092" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0093" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0094" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0095" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0096" x="1470" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0097" x="1604" y="165" width="135" height="166" frameX="-1" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0098" x="1739" y="165" width="134" height="166" frameX="0" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0099" x="1604" y="165" width="135" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0100" x="1739" y="165" width="134" height="166" frameX="0" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0101" x="1604" y="165" width="135" height="166" frameX="-2" frameY="-2" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0102" x="1873" y="165" width="134" height="166" frameX="-1" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0103" x="2007" y="165" width="135" height="167" frameX="-2" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0104" x="2142" y="165" width="134" height="167" frameX="-1" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0105" x="2276" y="165" width="132" height="167" frameX="-2" frameY="0" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0106" x="2408" y="165" width="132" height="167" frameX="-3" frameY="-2" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0107" x="1604" y="165" width="135" height="166" frameX="-1" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0108" x="1739" y="165" width="134" height="166" frameX="0" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0109" x="1604" y="165" width="135" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0110" x="1739" y="165" width="134" height="166" frameX="0" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0111" x="1604" y="165" width="135" height="166" frameX="-2" frameY="-2" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0112" x="1873" y="165" width="134" height="166" frameX="-1" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0113" x="2007" y="165" width="135" height="167" frameX="-2" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0114" x="2142" y="165" width="134" height="167" frameX="-1" frameY="-1" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0115" x="2276" y="165" width="132" height="167" frameX="-2" frameY="0" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0116" x="2408" y="165" width="132" height="167" frameX="-3" frameY="-2" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0117" x="2408" y="165" width="132" height="167" frameX="-3" frameY="-2" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0118" x="2540" y="165" width="134" height="166" frameX="-1" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0119" x="2674" y="165" width="132" height="163" frameX="-1" frameY="-7" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0120" x="2806" y="165" width="128" height="159" frameX="-2" frameY="-12" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0121" x="2934" y="165" width="125" height="156" frameX="-3" frameY="-16" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0122" x="3059" y="165" width="121" height="152" frameX="-4" frameY="-21" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0123" x="3180" y="165" width="118" height="149" frameX="-5" frameY="-25" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0124" x="3298" y="165" width="115" height="144" frameX="-6" frameY="-30" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0125" x="3413" y="165" width="115" height="140" frameX="-6" frameY="-35" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0126" x="3528" y="165" width="113" height="137" frameX="-7" frameY="-39" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0127" x="3641" y="165" width="112" height="133" frameX="-8" frameY="-44" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0128" x="3753" y="165" width="110" height="130" frameX="-9" frameY="-48" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0129" x="3863" y="165" width="108" height="126" frameX="-10" frameY="-53" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0130" x="3971" y="165" width="107" height="122" frameX="-11" frameY="-58" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0131" x="0" y="332" width="105" height="119" frameX="-12" frameY="-61" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0132" x="105" y="332" width="104" height="115" frameX="-12" frameY="-66" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0133" x="209" y="332" width="103" height="112" frameX="-13" frameY="-70" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0134" x="312" y="332" width="101" height="108" frameX="-14" frameY="-75" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0135" x="413" y="332" width="99" height="105" frameX="-15" frameY="-79" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0136" x="512" y="332" width="98" height="101" frameX="-16" frameY="-84" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0137" x="610" y="332" width="96" height="97" frameX="-17" frameY="-89" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0138" x="706" y="332" width="94" height="94" frameX="-18" frameY="-93" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0139" x="800" y="332" width="94" height="89" frameX="-18" frameY="-98" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0140" x="894" y="332" width="92" height="86" frameX="-19" frameY="-102" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0141" x="986" y="332" width="91" height="82" frameX="-20" frameY="-107" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0142" x="1077" y="332" width="89" height="80" frameX="-21" frameY="-110" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0143" x="1166" y="332" width="87" height="78" frameX="-22" frameY="-113" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0144" x="1253" y="332" width="86" height="76" frameX="-23" frameY="-116" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0145" x="1339" y="332" width="84" height="74" frameX="-24" frameY="-119" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0146" x="1423" y="332" width="83" height="73" frameX="-24" frameY="-121" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0147" x="1506" y="332" width="82" height="71" frameX="-25" frameY="-124" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0148" x="1588" y="332" width="80" height="69" frameX="-26" frameY="-127" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0149" x="1668" y="332" width="78" height="67" frameX="-27" frameY="-130" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0150" x="1746" y="332" width="77" height="66" frameX="-28" frameY="-132" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0151" x="1823" y="332" width="75" height="66" frameX="-29" frameY="-135" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0152" x="1898" y="332" width="74" height="66" frameX="-29" frameY="-138" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0153" x="1972" y="332" width="73" height="66" frameX="-30" frameY="-141" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0154" x="2045" y="332" width="73" height="66" frameX="-31" frameY="-144" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0155" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0156" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0157" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0158" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0159" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0160" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0161" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0162" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0163" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0164" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0165" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0166" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0167" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0168" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0169" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death0170" x="2118" y="332" width="73" height="69" frameX="-32" frameY="-146" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death confirm0000" x="2118" y="332" width="73" height="69" frameX="-22" frameY="-68" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death confirm0001" x="2191" y="332" width="75" height="69" frameX="-21" frameY="-68" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0002" x="2266" y="332" width="76" height="69" frameX="-21" frameY="-67" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0003" x="2342" y="332" width="78" height="70" frameX="-20" frameY="-66" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0004" x="2420" y="332" width="78" height="72" frameX="-20" frameY="-64" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0005" x="2498" y="332" width="80" height="74" frameX="-19" frameY="-63" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0006" x="2578" y="332" width="81" height="75" frameX="-19" frameY="-62" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0007" x="2659" y="332" width="83" height="76" frameX="-18" frameY="-61" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0008" x="2742" y="332" width="84" height="77" frameX="-18" frameY="-60" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0009" x="2826" y="332" width="86" height="78" frameX="-17" frameY="-59" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0010" x="2912" y="332" width="88" height="80" frameX="-16" frameY="-57" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0011" x="3000" y="332" width="89" height="81" frameX="-16" frameY="-56" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0012" x="3089" y="332" width="90" height="82" frameX="-15" frameY="-55" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0013" x="3179" y="332" width="91" height="84" frameX="-15" frameY="-53" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0014" x="3270" y="332" width="93" height="87" frameX="-14" frameY="-50" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0015" x="3363" y="332" width="94" height="89" frameX="-14" frameY="-48" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0016" x="3457" y="332" width="96" height="92" frameX="-13" frameY="-45" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0017" x="3553" y="332" width="97" height="96" frameX="-13" frameY="-42" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0018" x="3650" y="332" width="99" height="98" frameX="-12" frameY="-40" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0019" x="3749" y="332" width="100" height="101" frameX="-12" frameY="-37" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0020" x="3849" y="332" width="102" height="104" frameX="-11" frameY="-34" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0021" x="3951" y="332" width="103" height="106" frameX="-10" frameY="-32" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0022" x="0" y="451" width="104" height="109" frameX="-10" frameY="-29" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0023" x="104" y="451" width="106" height="112" frameX="-9" frameY="-26" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0024" x="210" y="451" width="107" height="115" frameX="-9" frameY="-23" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0025" x="317" y="451" width="109" height="119" frameX="-8" frameY="-20" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0026" x="426" y="451" width="110" height="121" frameX="-8" frameY="-18" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0027" x="536" y="451" width="112" height="124" frameX="-7" frameY="-15" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0028" x="648" y="451" width="113" height="127" frameX="-7" frameY="-12" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0029" x="761" y="451" width="114" height="130" frameX="-6" frameY="-9" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0030" x="875" y="451" width="116" height="133" frameX="-5" frameY="-6" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0031" x="991" y="451" width="117" height="136" frameX="-5" frameY="-3" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0032" x="1108" y="451" width="119" height="139" frameX="-4" frameY="0" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0033" x="1108" y="451" width="119" height="139" frameX="-4" frameY="0" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0034" x="1108" y="451" width="119" height="139" frameX="-4" frameY="0" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0035" x="1108" y="451" width="119" height="139" frameX="-4" frameY="0" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0036" x="1108" y="451" width="119" height="139" frameX="-4" frameY="0" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0037" x="1227" y="451" width="126" height="130" frameX="0" frameY="-9" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0038" x="1227" y="451" width="126" height="130" frameX="0" frameY="-9" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0039" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0040" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0041" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0042" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0043" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0044" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0045" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0046" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0047" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0048" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0049" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0050" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0051" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0052" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0053" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0054" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0055" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0056" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0057" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death confirm0058" x="1353" y="451" width="121" height="134" frameX="-2" frameY="-5" frameWidth="126" frameHeight="139"/>
+	<SubTexture name="doodle bf  death looop0000" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0001" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0002" x="1474" y="451" width="79" height="62" frameX="0" frameY="-10" frameWidth="79" frameHeight="72"/>
+	<SubTexture name="doodle bf  death looop0003" x="1474" y="451" width="79" height="62" frameX="0" frameY="-10" frameWidth="79" frameHeight="72"/>
+	<SubTexture name="doodle bf  death looop0004" x="1553" y="451" width="71" height="72" frameX="-4" frameY="0" frameWidth="79" frameHeight="72"/>
+	<SubTexture name="doodle bf  death looop0005" x="1553" y="451" width="71" height="72" frameX="-4" frameY="0" frameWidth="79" frameHeight="72"/>
+	<SubTexture name="doodle bf  death looop0006" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0007" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0008" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0009" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0010" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0011" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0012" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0013" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0014" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0015" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0016" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0017" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0018" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0019" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0020" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0021" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0022" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0023" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf  death looop0024" x="2118" y="332" width="73" height="69" frameX="-3" frameY="-3" frameWidth="141" frameHeight="217"/>
+	<SubTexture name="doodle bf down0000" x="1624" y="451" width="141" height="154" frameX="0" frameY="-3" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0001" x="1624" y="451" width="141" height="154" frameX="0" frameY="-3" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0002" x="1765" y="451" width="132" height="156" frameX="-5" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0003" x="1765" y="451" width="132" height="156" frameX="-5" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0004" x="1897" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0005" x="1897" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0006" x="2027" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0007" x="2027" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0008" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0009" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0010" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0011" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0012" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0013" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0014" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0015" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0016" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0017" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0018" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0019" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0020" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0021" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0022" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0023" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0024" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0025" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0026" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0027" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0028" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0029" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0030" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0031" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0032" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0033" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0034" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0035" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0036" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0037" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0038" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0039" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0040" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0041" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0042" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0043" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0044" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0045" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0046" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0047" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0048" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0049" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0050" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0051" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0052" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0053" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0054" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0055" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0056" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0057" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0058" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0059" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0060" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0061" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0062" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0063" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0064" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0065" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0066" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0067" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0068" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0069" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0070" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0071" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0072" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0073" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0074" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0075" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0076" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0077" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0078" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0079" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0080" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0081" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0082" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0083" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0084" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0085" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0086" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0087" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0088" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0089" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0090" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0091" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0092" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0093" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0094" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0095" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0096" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0097" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0098" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0099" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0100" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0101" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0102" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0103" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0104" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0105" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0106" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0107" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0108" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0109" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0110" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0111" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0112" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0113" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0114" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0115" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0116" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0117" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0118" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0119" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0120" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0121" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0122" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0123" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0124" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0125" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0126" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0127" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0128" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0129" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0130" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0131" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0132" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0133" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0134" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0135" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0136" x="2157" y="451" width="130" height="156" frameX="-6" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0137" x="2287" y="451" width="137" height="153" frameX="-6" frameY="-4" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0138" x="2287" y="451" width="137" height="153" frameX="-6" frameY="-4" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0139" x="2424" y="451" width="117" height="157" frameX="-18" frameY="0" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0140" x="2424" y="451" width="117" height="157" frameX="-18" frameY="0" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0141" x="2541" y="451" width="122" height="156" frameX="-14" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0142" x="2541" y="451" width="122" height="156" frameX="-14" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0143" x="2541" y="451" width="122" height="156" frameX="-14" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0144" x="2541" y="451" width="122" height="156" frameX="-14" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0145" x="2541" y="451" width="122" height="156" frameX="-14" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0146" x="2541" y="451" width="122" height="156" frameX="-14" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down0147" x="2541" y="451" width="122" height="156" frameX="-14" frameY="-1" frameWidth="143" frameHeight="157"/>
+	<SubTexture name="doodle bf down fail0000" x="2663" y="451" width="141" height="154"/>
+	<SubTexture name="doodle bf down fail0001" x="2663" y="451" width="141" height="154"/>
+	<SubTexture name="doodle bf down fail0002" x="2804" y="451" width="107" height="131" frameX="-27" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0003" x="2804" y="451" width="107" height="131" frameX="-27" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0004" x="2911" y="451" width="116" height="131" frameX="-21" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0005" x="2911" y="451" width="116" height="131" frameX="-21" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0006" x="3027" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0007" x="3027" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0008" x="3138" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0009" x="3138" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0010" x="3249" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0011" x="3249" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0012" x="3027" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0013" x="3027" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0014" x="3138" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0015" x="3138" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0016" x="3249" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0017" x="3249" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf down fail0018" x="3027" y="451" width="111" height="131" frameX="-25" frameY="-23" frameWidth="141" frameHeight="154"/>
+	<SubTexture name="doodle bf idle0000" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0001" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0002" x="3499" y="451" width="141" height="162" frameX="-7" frameY="0" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0003" x="3499" y="451" width="141" height="162" frameX="-7" frameY="0" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0004" x="3640" y="451" width="141" height="154" frameX="-2" frameY="-8" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0005" x="3640" y="451" width="141" height="154" frameX="-2" frameY="-8" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0006" x="3781" y="451" width="143" height="152" frameX="0" frameY="-10" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0007" x="3781" y="451" width="143" height="152" frameX="0" frameY="-10" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0008" x="3924" y="451" width="141" height="156" frameX="-5" frameY="-6" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0009" x="3924" y="451" width="141" height="156" frameX="-5" frameY="-6" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0010" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0011" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0012" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0013" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0014" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0015" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0016" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0017" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0018" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0019" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf idle0020" x="3360" y="451" width="139" height="159" frameX="-7" frameY="-3" frameWidth="148" frameHeight="162"/>
+	<SubTexture name="doodle bf left0000" x="0" y="613" width="166" height="140" frameX="0" frameY="0" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0001" x="0" y="613" width="166" height="140" frameX="0" frameY="0" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0002" x="166" y="613" width="163" height="135" frameX="-6" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0003" x="166" y="613" width="163" height="135" frameX="-6" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0004" x="329" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0005" x="329" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0006" x="493" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0007" x="493" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0008" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0009" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0010" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0011" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0012" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0013" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0014" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0015" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0016" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0017" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0018" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left0019" x="657" y="613" width="164" height="135" frameX="-7" frameY="-5" frameWidth="171" frameHeight="140"/>
+	<SubTexture name="doodle bf left fail0000" x="821" y="613" width="166" height="140" frameX="0" frameY="-18" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0001" x="821" y="613" width="166" height="140" frameX="0" frameY="-18" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0002" x="987" y="613" width="141" height="158" frameX="-30" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0003" x="987" y="613" width="141" height="158" frameX="-30" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0004" x="1128" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0005" x="1128" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0006" x="1270" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0007" x="1270" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0008" x="1412" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0009" x="1412" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0010" x="1128" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0011" x="1128" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0012" x="1270" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0013" x="1270" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0014" x="1412" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0015" x="1412" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0016" x="1128" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0017" x="1128" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0018" x="1270" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf left fail0019" x="1270" y="613" width="142" height="158" frameX="-26" frameY="0" frameWidth="171" frameHeight="158"/>
+	<SubTexture name="doodle bf right0000" x="1554" y="613" width="312" height="174" frameX="-2" frameY="-5" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0001" x="1554" y="613" width="312" height="174" frameX="-2" frameY="-5" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0002" x="1866" y="613" width="307" height="178" frameX="0" frameY="-1" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0003" x="1866" y="613" width="307" height="178" frameX="0" frameY="-1" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0004" x="2173" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0005" x="2173" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0006" x="2478" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0007" x="2478" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0008" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0009" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0010" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0011" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0012" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0013" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0014" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0015" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0016" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0017" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0018" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right0019" x="2783" y="613" width="305" height="179" frameX="0" frameY="0" frameWidth="314" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0000" x="3088" y="613" width="312" height="174" frameX="-2" frameY="0" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0001" x="3088" y="613" width="312" height="174" frameX="-2" frameY="0" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0002" x="3400" y="613" width="305" height="170" frameX="0" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0003" x="3400" y="613" width="305" height="170" frameX="0" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0004" x="3705" y="613" width="306" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0005" x="3705" y="613" width="306" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0006" x="0" y="792" width="306" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0007" x="306" y="792" width="305" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0008" x="611" y="792" width="305" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0009" x="916" y="792" width="325" height="174" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0010" x="1241" y="792" width="325" height="174" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0011" x="1566" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0012" x="1892" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0013" x="1892" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0014" x="2218" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0015" x="2218" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0016" x="1566" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0017" x="1566" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0018" x="1892" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0019" x="1892" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0020" x="2218" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0021" x="2218" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf right fail0022" x="1566" y="792" width="326" height="170" frameX="-1" frameY="-5" frameWidth="327" frameHeight="179"/>
+	<SubTexture name="doodle bf up0000" x="2544" y="792" width="128" height="202" frameX="-4" frameY="0" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0001" x="2544" y="792" width="128" height="202" frameX="-4" frameY="0" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0002" x="2672" y="792" width="134" height="191" frameX="0" frameY="-11" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0003" x="2672" y="792" width="134" height="191" frameX="0" frameY="-11" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0004" x="2806" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0005" x="2806" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0006" x="2940" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0007" x="2940" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0008" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0009" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0010" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0011" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0012" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0013" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0014" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0015" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0016" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0017" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0018" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up0019" x="3074" y="792" width="134" height="190" frameX="0" frameY="-12" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0000" x="2544" y="792" width="128" height="202" frameX="-9" frameY="0" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0001" x="2544" y="792" width="128" height="202" frameX="-9" frameY="0" frameWidth="134" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0002" x="3208" y="792" width="139" height="182" frameX="0" frameY="-20" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0003" x="3208" y="792" width="139" height="182" frameX="0" frameY="-20" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0004" x="3347" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0005" x="3347" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0006" x="3483" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0007" x="3483" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0008" x="3619" y="792" width="136" height="181" frameX="-3" frameY="-20" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0009" x="3619" y="792" width="136" height="181" frameX="-3" frameY="-20" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0010" x="3347" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0011" x="3347" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0012" x="3483" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0013" x="3483" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0014" x="3619" y="792" width="136" height="181" frameX="-3" frameY="-20" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0015" x="3619" y="792" width="136" height="181" frameX="-3" frameY="-20" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0016" x="3347" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0017" x="3347" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0018" x="3483" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+	<SubTexture name="doodle bf up fail0019" x="3483" y="792" width="136" height="180" frameX="-3" frameY="-21" frameWidth="139" frameHeight="202"/>
+</TextureAtlas>

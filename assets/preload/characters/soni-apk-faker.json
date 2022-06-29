@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle_S"
+		},
+		{
+			"offsets": [
+				151,
+				26
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left_S"
+		},
+		{
+			"offsets": [
+				-25,
+				-37
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down_S"
+		},
+		{
+			"offsets": [
+				-13,
+				60
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up_S"
+		},
+		{
+			"offsets": [
+				-81,
+				35
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right_S"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/soni_faker",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "soni-apk-faker",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		5,
+		114
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

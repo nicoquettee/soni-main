@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DyY.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DyY0000" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0001" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0002" x="628" y="0" width="644" height="413" frameX="0" frameY="-11" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0003" x="628" y="0" width="644" height="413" frameX="0" frameY="-11" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0004" x="1272" y="0" width="646" height="417" frameX="-1" frameY="-7" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0005" x="1272" y="0" width="646" height="417" frameX="-1" frameY="-7" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0006" x="0" y="424" width="636" height="423" frameX="-2" frameY="-1" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0007" x="636" y="424" width="636" height="423" frameX="-2" frameY="-1" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0008" x="1272" y="424" width="624" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0009" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0010" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0011" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0012" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0013" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+	<SubTexture name="DyY0014" x="0" y="0" width="628" height="424" frameX="-3" frameY="0" frameWidth="647" frameHeight="424"/>
+</TextureAtlas>

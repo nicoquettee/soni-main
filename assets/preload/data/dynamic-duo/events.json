@@ -1,0 +1,289 @@
+{
+	"song": {
+		"speed": 3.2,
+		"stage": "soni",
+		"player1": "befe",
+		"player2": "tais",
+		"player3": null,
+		"events": [
+			[
+				9600,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				19200,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				21600,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				24900,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				26100,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				27300,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				38400,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				49800,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				62400,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				64800,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				76800,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				86400,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				94800,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				105600,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				115200,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				124800,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				134400,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				146400,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				148800,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				152100,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				153300,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				154500,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-n-nuckles"
+					]
+				]
+			],
+			[
+				156000,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				165600,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				176400,
+				[
+					[
+						"Change icon",
+						"p2",
+						"nuckles-sing"
+					]
+				]
+			],
+			[
+				178800,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-sing"
+					]
+				]
+			],
+			[
+				180000,
+				[
+					[
+						"Change icon",
+						"p2",
+						"tais-n-nuckles"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "shawn",
+		"bpm": 200,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Dynamic Duo"
+	}
+}

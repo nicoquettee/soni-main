@@ -3,6 +3,9 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
+import Shaders;
+import openfl.filters.ShaderFilter;
+import openfl.filters.BitmapFilter;
 
 using StringTools;
 
@@ -16,6 +19,8 @@ class StrumNote extends FlxSprite
 	public var sustainReduce:Bool = true;
 	
 	private var player:Int;
+
+	public var yOffset:Float = 0;
 	
 	public var texture(default, set):String = null;
 	private function set_texture(value:String):String {
@@ -89,7 +94,7 @@ class StrumNote extends FlxSprite
 			animation.addByPrefix('red', 'arrowRIGHT');
 
 			antialiasing = ClientPrefs.globalAntialiasing;
-			setGraphicSize(Std.int(width * 0.7));
+			setGraphicSize(Std.int(width * Main.noteDefScale * ClientPrefs.noteScale));
 
 			switch (Math.abs(noteData))
 			{
@@ -121,9 +126,18 @@ class StrumNote extends FlxSprite
 
 	public function postAddedToGroup() {
 		playAnim('static');
-		x += Note.swagWidth * noteData;
 		x += 50;
-		x += ((FlxG.width / 2) * player);
+		var xdis = x;
+		if (player == 1)
+		{
+			x = FlxG.width - Note.swagWidth() * 4 - xdis;
+			if (ClientPrefs.middleScroll)
+			{
+				x = FlxG.width / 2 - Note.swagWidth() * 2;
+			}
+		}
+		x += Note.swagWidth() * noteData;
+		//x += ((FlxG.width / 2) * player);
 		ID = noteData;
 	}
 

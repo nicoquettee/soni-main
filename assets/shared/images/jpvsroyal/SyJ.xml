@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="SyJ.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="SyJ0000" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0001" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0002" x="273" y="0" width="291" height="329" frameX="-10" frameY="-6" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0003" x="273" y="0" width="291" height="329" frameX="-10" frameY="-6" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0004" x="564" y="0" width="285" height="330" frameX="-5" frameY="-4" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0005" x="564" y="0" width="285" height="330" frameX="-5" frameY="-4" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0006" x="0" y="339" width="279" height="335" frameX="-1" frameY="-2" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0007" x="0" y="339" width="279" height="335" frameX="-1" frameY="-2" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0008" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0009" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0010" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0011" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0012" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0013" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+	<SubTexture name="SyJ0014" x="0" y="0" width="273" height="339" frameX="0" frameY="0" frameWidth="301" frameHeight="339"/>
+</TextureAtlas>

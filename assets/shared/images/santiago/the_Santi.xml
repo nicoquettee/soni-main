@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="the_Santi.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Santiago_play0000" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0001" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0002" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0003" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0004" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0005" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0006" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0007" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0008" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0009" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0010" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0011" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0012" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0013" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0014" x="0" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0015" x="348" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0016" x="696" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0017" x="1044" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0018" x="1044" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0019" x="1044" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0020" x="1044" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0021" x="1392" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0022" x="1740" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0023" x="1740" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0024" x="2088" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0025" x="2088" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0026" x="2436" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0027" x="2784" y="0" width="348" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0028" x="3132" y="0" width="350" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0029" x="3132" y="0" width="350" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0030" x="3132" y="0" width="350" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0031" x="3482" y="0" width="344" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0032" x="0" y="469" width="324" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0033" x="324" y="469" width="314" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0034" x="638" y="469" width="316" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0035" x="954" y="469" width="316" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0036" x="1270" y="469" width="316" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0037" x="1586" y="469" width="317" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0038" x="1586" y="469" width="317" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0039" x="1586" y="469" width="317" height="469" frameX="-49" frameY="0" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0040" x="1903" y="469" width="325" height="460" frameX="-45" frameY="-10" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0041" x="1903" y="469" width="325" height="460" frameX="-45" frameY="-10" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0042" x="2228" y="469" width="327" height="454" frameX="-44" frameY="-15" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0043" x="2228" y="469" width="327" height="454" frameX="-44" frameY="-15" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0044" x="2228" y="469" width="327" height="454" frameX="-44" frameY="-15" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0045" x="2555" y="469" width="323" height="447" frameX="-49" frameY="-26" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0046" x="2555" y="469" width="323" height="447" frameX="-49" frameY="-26" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0047" x="2878" y="469" width="341" height="471" frameX="-44" frameY="-24" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0048" x="3219" y="469" width="293" height="471" frameX="-44" frameY="-24" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0049" x="3512" y="469" width="298" height="471" frameX="-39" frameY="-24" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0050" x="0" y="940" width="366" height="467" frameX="0" frameY="-27" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0051" x="0" y="940" width="366" height="467" frameX="0" frameY="-27" frameWidth="399" frameHeight="495"/>
+	<SubTexture name="Santiago_play0052" x="366" y="940" width="366" height="467" frameX="0" frameY="-27" frameWidth="399" frameHeight="495"/>
+</TextureAtlas>

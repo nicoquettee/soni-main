@@ -113,51 +113,54 @@ class Codes extends MusicBeatState
             switch(code.text)
             {
                 case '1811': //Werhog code
-                    PlayState.SONG = Song.loadFromJson('unleashed', 'unleashed');
-                    LoadingState.loadAndSwitchState(new PlayState());
-                    FlxG.mouse.visible = false;
+                    enterToSong('unleashed');
                 case '0907': //ou code (tgt shadow lmao)
-                    PlayState.SONG = Song.loadFromJson('ou', 'ou');
-                    LoadingState.loadAndSwitchState(new PlayState());
-                    FlxG.mouse.visible = false;
-                case '1902': //neobeat oode
-                    PlayState.SONG = Song.loadFromJson('please', 'please');
-                    LoadingState.loadAndSwitchState(new PlayState());
-                    FlxG.mouse.visible = false;
+                    enterToSong('ou');
+                case '1902': //neobeat coode
+                    enterToSong('please');
                 case '2012': //bil billetes cipher
-                    PlayState.SONG = Song.loadFromJson('broken-reality', 'broken-reality');
-                    LoadingState.loadAndSwitchState(new PlayState());
-                    FlxG.mouse.visible = false;
+                    enterToSong('broken-reality');
                 case '0069': //sonibars (best song)
-                    PlayState.SONG = Song.loadFromJson('sonibars', 'sonibars');
-                    LoadingState.loadAndSwitchState(new PlayState());
-                    FlxG.mouse.visible = false;
+                    enterToSong('sonibars');
+                case '1234': //old soni code
+                    enterToSongWithCutscene('origishit');
                 case '7545': //Shadow fucking die bruhhh
-                    FlxG.mouse.visible = false;
-                    FlxG.sound.pause();
-                    canSelect = false;
-					(new FlxVideo(Paths.video('die'))).finishCallback = function() {
-
-                        FlxG.sound.resume();
-                        FlxG.mouse.visible = true;
-                        canSelect = true;
-                    }
-                    code.text = '';
+                    startDaVideo('die');
                 case '6969': //Funni peter griffin running code
-                    FlxG.mouse.visible = false;
-                    FlxG.sound.pause();
-                    canSelect = false;
-					(new FlxVideo(Paths.video('Peter Griffin in City Escape'))).finishCallback = function() {
-
-                        FlxG.sound.resume();
-                        FlxG.mouse.visible = true;
-                        canSelect = true;
-                    }
-                    code.text = '';
+                    startDaVideo('Peter Griffin in City Escape');
+                case '1984': //Soni Real Life OMGG
+                    startDaVideo('Soni Real');
+                case '1993': //Hola amigos estoy aqui con mis amigos
+                    startDaVideo('holamigos');
                 default: //Nothing lol
                     code.text = '';
                     if(canSelect)
                         FlxG.camera.shake(0.015, 0.2);
             }
+    }
+
+    function enterToSong(song:String, ?hasLoad = true)
+    {
+        PlayState.SONG = Song.loadFromJson(song, song);
+        LoadingState.loadAndSwitchState(new PlayState(), true, hasLoad);
+        FlxG.mouse.visible = false;
+    }
+    function startDaVideo(vid:String)
+    {
+        FlxG.mouse.visible = false;
+        FlxG.sound.pause();
+        canSelect = false;
+        (new FlxVideo(Paths.video(vid))).finishCallback = function() {
+            FlxG.sound.resume();
+            FlxG.mouse.visible = true;
+            canSelect = true;
+        }
+        code.text = '';
+    }
+    function enterToSongWithCutscene(song:String) //In PlayState the cutscenes crash the game so uhh
+    {
+        PlayState.SONG = Song.loadFromJson(song, song);
+        LoadingState.loadAndSwitchState(new StoryVideo(), true);
+        FlxG.mouse.visible = false;
     }
 }

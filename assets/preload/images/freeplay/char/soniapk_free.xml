@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="soniapk_free.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="soniapk_free0000" x="0" y="0" width="650" height="596" frameX="0" frameY="0" frameWidth="652" frameHeight="596"/>
+	<SubTexture name="soniapk_free0001" x="650" y="0" width="650" height="596" frameX="0" frameY="0" frameWidth="652" frameHeight="596"/>
+	<SubTexture name="soniapk_free0002" x="1300" y="0" width="652" height="596"/>
+	<SubTexture name="soniapk_free0003" x="0" y="596" width="652" height="596"/>
+</TextureAtlas>

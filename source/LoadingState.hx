@@ -48,7 +48,7 @@ class LoadingState extends MusicBeatState
 
 	var bg:FlxSprite;
 	var loadBar:FlxSprite;
-	var random:Int = FlxG.random.int(1,3);
+	var random:Int = FlxG.random.int(1,4);
 	
 	override function create()
 	{
@@ -254,14 +254,21 @@ class LoadingState extends MusicBeatState
 
 		Paths.setCurrentLevel(directory);
 		trace('Setting asset folder to ' + directory);
-	
+
+		#if NO_PRELOAD_ALL
+		var loaded:Bool = false;
+		if (PlayState.SONG != null) {
+			loaded = isSoundLoaded2(getSongPath()) && (!PlayState.SONG.needsVoices || isSoundLoaded2(getVocalPath())) && isLibraryLoaded2("shared") && isLibraryLoaded2(directory);
+		}
+		
+		if (!loaded)
+			return new LoadingState(target, stopMusic, directory);
+		#end
 		if (stopMusic && FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 		
 		return target;
 	}
-	
-
 	
 	static function isSoundLoaded(path:String):Bool
 	{
@@ -273,6 +280,17 @@ class LoadingState extends MusicBeatState
 		return Assets.getLibrary(library) != null;
 	}
 
+	#if NO_PRELOAD_ALL
+	static function isSoundLoaded2(path:String):Bool
+	{
+		return Assets.cache.hasSound(path);
+	}
+	
+	static function isLibraryLoaded2(library:String):Bool
+	{
+		return Assets.getLibrary(library) != null;
+	}
+	#end
 	
 	override function destroy()
 	{

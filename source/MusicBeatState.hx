@@ -22,6 +22,7 @@ class MusicBeatState extends FlxUIState
 
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
+	public var curDecStep:Float=0;
 
 	private var controls(get, never):Controls;
 
@@ -94,6 +95,8 @@ class MusicBeatState extends FlxUIState
 		}
 
 		curStep = lastChange.stepTime + Math.floor(((Conductor.songPosition - ClientPrefs.noteOffset) - lastChange.songTime) / Conductor.stepCrochet);
+		var shit = (Conductor.songPosition - lastChange.songTime) / lastChange.stepCrochet;
+		curDecStep = lastChange.stepTime + shit;
 	}
 
 	public static function switchState(nextState:FlxState) {

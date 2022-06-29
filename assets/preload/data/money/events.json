@@ -1,0 +1,69 @@
+{
+	"song": {
+		"speed": 2.4,
+		"stage": null,
+		"player1": "befe",
+		"player2": "soni",
+		"player3": null,
+		"events": [
+			[
+				11142.8571428571,
+				[
+					[
+						"Add Camera Zoom",
+						"0.10",
+						"0.03"
+					]
+				]
+			],
+			[
+				35657.1428571429,
+				[
+					[
+						"Add Camera Zoom",
+						"0.10",
+						"0.03"
+					]
+				]
+			],
+			[
+				79542.8571428571,
+				[
+					[
+						"Add Camera Zoom",
+						"0.10",
+						"0.03"
+					]
+				]
+			],
+			[
+				112628.571428571,
+				[
+					[
+						"Add Camera Zoom",
+						"0.10",
+						"0.03"
+					]
+				]
+			],
+			[
+				167314.285714286,
+				[
+					[
+						"Add Camera Zoom",
+						"0.10",
+						"0.03"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gifiend",
+		"bpm": 175,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Money"
+	}
+}

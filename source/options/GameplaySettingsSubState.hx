@@ -56,6 +56,22 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
+		var option:Option = new Option('Notes Scale', 'Changes how big the HUD receptors and notes are.\nDefault is 1.',
+		'noteScale', 'float', 1.0);
+		option.displayFormat = 'x%v';
+		option.scrollSpeed = 20;
+		option.changeValue = 0.1;
+		option.minValue = 0.6;
+		option.maxValue = 1.2;
+		addOption(option);
+
+		var option:Option = new Option('Opponent Notes',
+			'If unchecked, opponent notes get hidden.',
+			'opponentStrums',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Ghost Tapping',
 			"If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.",
 			'ghostTapping',

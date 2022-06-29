@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="sas toy.png">
+	<!-- Created with Adobe Animate version 19.0.0.326 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="sas toy down0000" x="0" y="0" width="1187" height="310" frameX="0" frameY="-249" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0001" x="0" y="0" width="1187" height="310" frameX="0" frameY="-249" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0002" x="1187" y="0" width="777" height="465" frameX="-203" frameY="-154" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0003" x="1187" y="0" width="777" height="465" frameX="-203" frameY="-154" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0004" x="1964" y="0" width="367" height="660" frameX="-407" frameY="0" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0005" x="1964" y="0" width="367" height="660" frameX="-407" frameY="0" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0006" x="2331" y="0" width="448" height="513" frameX="-352" frameY="-102" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0007" x="2331" y="0" width="448" height="513" frameX="-352" frameY="-102" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0008" x="2331" y="0" width="448" height="513" frameX="-352" frameY="-102" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0009" x="2331" y="0" width="448" height="513" frameX="-352" frameY="-102" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0010" x="2331" y="0" width="448" height="513" frameX="-352" frameY="-102" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy down0011" x="2331" y="0" width="448" height="513" frameX="-352" frameY="-102" frameWidth="1187" frameHeight="660"/>
+	<SubTexture name="sas toy idle0000" x="2779" y="0" width="724" height="232" frameX="0" frameY="-152" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0001" x="2779" y="0" width="724" height="232" frameX="0" frameY="-152" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0002" x="0" y="660" width="621" height="319" frameX="-50" frameY="-83" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0003" x="0" y="660" width="621" height="319" frameX="-50" frameY="-83" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0004" x="621" y="660" width="276" height="415" frameX="-224" frameY="0" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0005" x="621" y="660" width="276" height="415" frameX="-224" frameY="0" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0006" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0007" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0008" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0009" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0010" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0011" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0012" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0013" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy idle0014" x="897" y="660" width="292" height="389" frameX="-216" frameY="-21" frameWidth="724" frameHeight="415"/>
+	<SubTexture name="sas toy left0000" x="1189" y="660" width="793" height="487"/>
+	<SubTexture name="sas toy left0001" x="1189" y="660" width="793" height="487"/>
+	<SubTexture name="sas toy left0002" x="1982" y="660" width="644" height="487" frameX="-114" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0003" x="1982" y="660" width="644" height="487" frameX="-114" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0004" x="2626" y="660" width="408" height="487" frameX="-311" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0005" x="2626" y="660" width="408" height="487" frameX="-311" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0006" x="3034" y="660" width="378" height="487" frameX="-319" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0007" x="3034" y="660" width="378" height="487" frameX="-319" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0008" x="3034" y="660" width="378" height="487" frameX="-319" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0009" x="3034" y="660" width="378" height="487" frameX="-319" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0010" x="3034" y="660" width="378" height="487" frameX="-319" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy left0011" x="3034" y="660" width="378" height="487" frameX="-319" frameY="0" frameWidth="793" frameHeight="487"/>
+	<SubTexture name="sas toy right0000" x="0" y="1147" width="861" height="562"/>
+	<SubTexture name="sas toy right0001" x="0" y="1147" width="861" height="562"/>
+	<SubTexture name="sas toy right0002" x="861" y="1147" width="727" height="562" frameX="-38" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0003" x="861" y="1147" width="727" height="562" frameX="-38" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0004" x="1588" y="1147" width="523" height="562" frameX="-80" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0005" x="1588" y="1147" width="523" height="562" frameX="-80" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0006" x="2111" y="1147" width="480" height="562" frameX="-110" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0007" x="2111" y="1147" width="480" height="562" frameX="-110" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0008" x="2111" y="1147" width="480" height="562" frameX="-110" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0009" x="2111" y="1147" width="480" height="562" frameX="-110" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0010" x="2111" y="1147" width="480" height="562" frameX="-110" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy right0011" x="2111" y="1147" width="480" height="562" frameX="-110" frameY="0" frameWidth="861" frameHeight="562"/>
+	<SubTexture name="sas toy up0000" x="2591" y="1147" width="1149" height="431" frameX="0" frameY="-42" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0001" x="2591" y="1147" width="1149" height="431" frameX="0" frameY="-42" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0002" x="0" y="1709" width="804" height="418" frameX="-155" frameY="-65" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0003" x="0" y="1709" width="804" height="418" frameX="-155" frameY="-65" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0004" x="804" y="1709" width="367" height="660" frameX="-374" frameY="0" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0005" x="804" y="1709" width="367" height="660" frameX="-374" frameY="0" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0006" x="1171" y="1709" width="448" height="513" frameX="-345" frameY="-42" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0007" x="1171" y="1709" width="448" height="513" frameX="-345" frameY="-42" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0008" x="1171" y="1709" width="448" height="513" frameX="-345" frameY="-42" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0009" x="1171" y="1709" width="448" height="513" frameX="-345" frameY="-42" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0010" x="1171" y="1709" width="448" height="513" frameX="-345" frameY="-42" frameWidth="1149" frameHeight="660"/>
+	<SubTexture name="sas toy up0011" x="1171" y="1709" width="448" height="513" frameX="-345" frameY="-42" frameWidth="1149" frameHeight="660"/>
+</TextureAtlas>

@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Doodle Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				33,
+				-55
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Doodle Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-47,
+				-61
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Doodle right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				103,
+				-73
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "doodle down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				40,
+				38
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "doodle up",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Soni_doodle",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "drawe soni",
+	"flip_x": false,
+	"healthbar_colors": [
+		50,
+		0,
+		255
+	],
+	"camera_position": [
+		0,
+		-160
+	],
+	"sing_duration": 6.1,
+	"scale": 2
+}

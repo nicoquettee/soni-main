@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Coño_e_tu_mae.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Lypsing0000" x="0" y="0" width="378" height="449" frameX="-110" frameY="-32" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0001" x="378" y="0" width="392" height="444" frameX="-102" frameY="-37" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0002" x="770" y="0" width="394" height="466" frameX="-98" frameY="-23" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0003" x="1164" y="0" width="514" height="463" frameX="0" frameY="-26" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0004" x="1678" y="0" width="545" height="462" frameX="-10" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0005" x="2223" y="0" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0006" x="2764" y="0" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0007" x="3305" y="0" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0008" x="0" y="466" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0009" x="541" y="466" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0010" x="1082" y="466" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0011" x="1623" y="466" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0012" x="2164" y="466" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0013" x="2705" y="466" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0014" x="3246" y="466" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0015" x="0" y="928" width="541" height="462" frameX="-11" frameY="-27" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0016" x="541" y="928" width="547" height="458" frameX="-9" frameY="-31" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0017" x="1088" y="928" width="549" height="457" frameX="-9" frameY="-32" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0018" x="1637" y="928" width="538" height="459" frameX="-8" frameY="-20" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0019" x="2175" y="928" width="482" height="479" frameX="-32" frameY="0" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0020" x="2175" y="928" width="482" height="479" frameX="-32" frameY="0" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0021" x="2657" y="928" width="497" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0022" x="3154" y="928" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0023" x="0" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0024" x="0" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0025" x="502" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0026" x="1004" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0027" x="1506" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0028" x="1506" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0029" x="2008" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0030" x="2008" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0031" x="2008" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0032" x="2008" y="1407" width="502" height="476" frameX="-17" frameY="-3" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0033" x="2510" y="1407" width="508" height="467" frameX="-14" frameY="-12" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0034" x="2510" y="1407" width="508" height="467" frameX="-14" frameY="-12" frameWidth="558" frameHeight="489"/>
+	<SubTexture name="Lypsing0035" x="3018" y="1407" width="523" height="459" frameX="-7" frameY="-21" frameWidth="558" frameHeight="489"/>
+</TextureAtlas>

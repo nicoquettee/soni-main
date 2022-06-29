@@ -9,6 +9,7 @@ import Controls;
 class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
+	public static var opponentStrums:Bool = true;
 	public static var showFPS:Bool = true;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
@@ -24,12 +25,18 @@ class ClientPrefs {
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
+	public static var disableLyrics:Bool = false;
+	public static var lyricsLanguage:String = 'English';
+	public static var lyricsColor:String = 'White';
+	public static var lyricsAlpha:Float = 1;
 	public static var scoreZoom:Bool = true;
+	public static var hideNoteCombo:Bool = false;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = false;
 	public static var pauseMusic:String = 'Tea Time';
 	public static var funnyShaders:Bool = true;
+	public static var noteScale:Float = 1;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -51,7 +58,7 @@ class ClientPrefs {
 		'opponentplay' => false
 	];
 
-	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
+	public static var comboOffset:Array<Int> = [0, 0, 0, 0, 0, 0]; //this is stupid lmao
 	public static var ratingOffset:Int = 0;
 	public static var sickWindow:Int = 45;
 	public static var goodWindow:Int = 90;
@@ -93,6 +100,7 @@ class ClientPrefs {
 	public static function saveSettings() {
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
+		FlxG.save.data.opponentStrums = opponentStrums;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.flashing = flashing;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
@@ -109,6 +117,7 @@ class ClientPrefs {
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.scoreZoom = scoreZoom;
+		FlxG.save.data.hideNoteCombo = hideNoteCombo;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
 		FlxG.save.data.comboOffset = comboOffset;
@@ -124,6 +133,13 @@ class ClientPrefs {
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.funnyShaders = funnyShaders;
+
+		FlxG.save.data.disableLyrics = disableLyrics;
+		FlxG.save.data.lyricsLanguage = lyricsLanguage;
+		FlxG.save.data.lyricsColor = lyricsColor;
+		FlxG.save.data.lyricsAlpha = lyricsAlpha;
+
+		FlxG.save.data.noteScale = noteScale;
 	
 		FlxG.save.flush();
 
@@ -140,6 +156,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
+		}
+		if(FlxG.save.data.opponentStrums != null) {
+			opponentStrums = FlxG.save.data.opponentStrums;
 		}
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;
@@ -196,6 +215,9 @@ class ClientPrefs {
 		if(FlxG.save.data.scoreZoom != null) {
 			scoreZoom = FlxG.save.data.scoreZoom;
 		}
+		if(FlxG.save.data.hideNoteCombo != null) {
+			hideNoteCombo = FlxG.save.data.hideNoteCombo;
+		}
 		if(FlxG.save.data.noReset != null) {
 			noReset = FlxG.save.data.noReset;
 		}
@@ -229,6 +251,21 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.funnyShaders != null) {
 			funnyShaders = FlxG.save.data.funnyShaders;
+		}
+		if(FlxG.save.data.disableLyrics != null) {
+			disableLyrics = FlxG.save.data.disableLyrics;
+		}
+		if(FlxG.save.data.lyricsLanguage != null) {
+			lyricsLanguage = FlxG.save.data.lyricsLanguage;
+		}
+		if(FlxG.save.data.lyricsColor != null) {
+			lyricsColor = FlxG.save.data.lyricsColor;
+		}
+		if(FlxG.save.data.lyricsAlpha != null) {
+			lyricsAlpha = FlxG.save.data.lyricsAlpha;
+		}
+		if (FlxG.save.data.noteScale != null) {
+			noteScale = FlxG.save.data.noteScale;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{

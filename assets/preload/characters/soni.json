@@ -1,63 +1,63 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Idle_S",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle_S"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				140,
-				11
+				12
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Left_S",
-			"indices": []
+			"indices": [],
+			"name": "Left_S"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-41,
-				-25
+				-39,
+				-26
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Down_S",
-			"indices": []
+			"indices": [],
+			"name": "Down_S"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				29,
-				37
+				28,
+				35
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Up_S",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up_S"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				2,
+				1,
 				0
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Right_S",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right_S"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/soni",
+	"image": "characters/Soni",
 	"position": [
 		0,
 		0

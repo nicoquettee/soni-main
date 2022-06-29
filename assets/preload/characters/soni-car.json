@@ -14,7 +14,7 @@
 		{
 			"offsets": [
 				0,
-				-8
+				-9
 			],
 			"loop": false,
 			"fps": 24,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				-40
+				2,
+				-41
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				23
+				2,
+				3
 			],
 			"loop": false,
 			"fps": 24,
@@ -47,7 +47,7 @@
 		{
 			"offsets": [
 				0,
-				-19
+				-21
 			],
 			"loop": false,
 			"fps": 24,
@@ -56,102 +56,96 @@
 			"name": "Right_S"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle-loop",
-			"fps": 24,
-			"name": "Idle_S",
 			"indices": [
-				6,
-				7,
-				8,
-				9,
 				10,
-				11
-			]
+				11,
+				12,
+				13,
+				14
+			],
+			"fps": 24,
+			"anim": "idle-loop",
+			"loop": true,
+			"name": "Idle_S"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
-				-8
+				-21
 			],
-			"anim": "singLEFT-loop",
-			"fps": 24,
-			"name": "Left_S",
 			"indices": [
-				3,
 				4,
 				5,
 				6,
 				7,
 				8,
 				9
-			]
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				-40
 			],
-			"anim": "singDOWN-loop",
 			"fps": 24,
-			"name": "Down_S",
-			"indices": [
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9
-			]
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				23
-			],
-			"anim": "singUP-loop",
-			"fps": 24,
-			"name": "Up_S",
-			"indices": [
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9
-			]
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				-19
-			],
 			"anim": "singRIGHT-loop",
-			"fps": 24,
-			"name": "Right_S",
+			"loop": true,
+			"name": "Right_S"
+		},
+		{
+			"offsets": [
+				0,
+				-9
+			],
 			"indices": [
-				3,
 				4,
 				5,
 				6,
 				7,
 				8,
 				9
-			]
+			],
+			"fps": 24,
+			"anim": "singLEFT-loop",
+			"loop": true,
+			"name": "Left_S"
+		},
+		{
+			"offsets": [
+				2,
+				-41
+			],
+			"indices": [
+				4,
+				5,
+				6,
+				7,
+				8,
+				9
+			],
+			"fps": 24,
+			"anim": "singDOWN-loop",
+			"loop": true,
+			"name": "Down_S"
+		},
+		{
+			"offsets": [
+				2,
+				3
+			],
+			"indices": [
+				5,
+				6,
+				7,
+				8,
+				9
+			],
+			"fps": 24,
+			"anim": "singUP-loop",
+			"loop": true,
+			"name": "Up_S"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/sonicarro",
+	"image": "characters/soni_car",
 	"position": [
 		0,
 		0

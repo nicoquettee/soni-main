@@ -36,6 +36,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
+import haxe.macro.Context;
 
 using StringTools;
 typedef TitleData =
@@ -78,16 +79,35 @@ class TitleState extends MusicBeatState
 	
 	public static var updateVersion:String = '';
 
+	public static var isDebug:Bool = false;
+
 	override public function create():Void
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+		/*var http = new haxe.Http("https://ipinfo.io/json");
+        http.onData = function (data:String) {
+        	var result = haxe.Json.parse(data);
+        	trace('Your IP-address: ${result.ip}');
+        }
+        http.onError = function (error) {
+            trace('error: $error');
+        }
+        http.request();
+		#if cpp
+		trace('PC Name: ${Sys.environment()["COMPUTERNAME"]}');
+		#end*/ //TROLLFACE LMAO
 
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
 		
 		//trace(path, FileSystem.exists(path));
 		titleJSON = Json.parse(Paths.getTextFromFile('images/gfDanceTitle.json'));
+
+		if(FlxG.save.data.leftDaGameInTheMiddlee)
+			PlayState.storyWeek = FlxG.save.data.weekWhereYouLeave;
+		//trace(FlxG.save.data.leftInTheMiddle);
 
 		/*#if (polymod && !html5)
 		if (sys.FileSystem.exists('mods/')) {
@@ -182,6 +202,10 @@ class TitleState extends MusicBeatState
 				startIntro();
 			});
 		}
+		#end
+
+		#if debug
+		isDebug = true;
 		#end
 	}
 
@@ -377,6 +401,9 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
+		/*if(FlxG.keys.justPressed.L)
+			openSubState(new LeftGameSubstate());
+
 		/*if(skippedIntro)
 		{
 			face.x += .5*(elapsed/(1/120));
@@ -487,6 +514,12 @@ class TitleState extends MusicBeatState
 		{
 			if(controls.UI_LEFT) swagShader.hue -= elapsed * 0.1;
 			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
+		}
+
+		if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.D)
+		{
+			isDebug = !isDebug;
+			FlxG.sound.play(Paths.sound('confirmMenu', 'preload'));
 		}
 
 		super.update(elapsed);

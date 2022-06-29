@@ -1,0 +1,579 @@
+{
+	"song": {
+		"speed": 2.7,
+		"stage": "grillby",
+		"player1": "befe",
+		"player2": "sas",
+		"player3": null,
+		"events": [
+			[
+				27000,
+				[
+					[
+						"Undertale Start",
+						"",
+						""
+					],
+					[
+						"Change Character",
+						"gf",
+						"sasses-alt"
+					],
+					[
+						"Change Character",
+						"bf",
+						"befe-sas"
+					],
+					[
+						"Play Animation",
+						"spawn",
+						"gf"
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas-alt"
+					],
+					[
+						"Set Cam Zoom",
+						"1",
+						""
+					],
+					[
+						"Camera Follow Pos",
+						"778",
+						"488"
+					]
+				]
+			],
+			[
+				28875,
+				[
+					[
+						"Play Animation",
+						"pistol1",
+						"dad"
+					]
+				]
+			],
+			[
+				29625,
+				[
+					[
+						"Camera Follow Pos",
+						"542.5",
+						"393"
+					]
+				]
+			],
+			[
+				31125,
+				[
+					[
+						"Play Animation",
+						"pistol2",
+						"dad"
+					],
+					[
+						"Play Animation",
+						"die",
+						"gf"
+					],
+					[
+						"Screen Shake",
+						"0.07, 0.05",
+						"camGame"
+					],
+					[
+						"Screen Shake",
+						"0.07, 0.05",
+						"camHUD"
+					],
+					[
+						"Screen Shake",
+						"0.07, 0.05",
+						"camNotes"
+					]
+				]
+			],
+			[
+				32250,
+				[
+					[
+						"Play Animation",
+						"trollface",
+						"dad"
+					],
+					[
+						"Camera Follow Pos",
+						"",
+						""
+					]
+				]
+			],
+			[
+				32625,
+				[
+					[
+						"Alt Idle Animation",
+						"gf",
+						"-alt"
+					]
+				]
+			],
+			[
+				36000,
+				[
+					[
+						"Undertale End",
+						"",
+						""
+					],
+					[
+						"Change Character",
+						"bf",
+						"befe"
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas"
+					],
+					[
+						"Change Character",
+						"gf",
+						"sasses"
+					],
+					[
+						"Set Cam Zoom",
+						"0.75",
+						""
+					]
+				]
+			],
+			[
+				38625,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				48000,
+				[
+					[
+						"Undertale Start",
+						"",
+						""
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas-alt"
+					],
+					[
+						"Change Character",
+						"bf",
+						"befe-sas"
+					],
+					[
+						"Change Character",
+						"gf",
+						"sasses-alt"
+					]
+				]
+			],
+			[
+				50250,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				50625,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				57000,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				57750,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				60000,
+				[
+					[
+						"Change Character",
+						"gf",
+						"sasses"
+					],
+					[
+						"Undertale End",
+						"",
+						""
+					],
+					[
+						"Change Character",
+						"bf",
+						"befe"
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas"
+					]
+				]
+			],
+			[
+				66000,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				71625,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				72000,
+				[
+					[
+						"Set Cam Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				84000,
+				[
+					[
+						"Undertale Start",
+						"",
+						""
+					],
+					[
+						"Change Character",
+						"bf",
+						"befe-sas"
+					],
+					[
+						"Set Cam Zoom",
+						"0.95",
+						""
+					],
+					[
+						"Change Character",
+						"gf",
+						"sasses-alt"
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas-alt"
+					]
+				]
+			],
+			[
+				96000,
+				[
+					[
+						"Set Cam Zoom",
+						"0.7",
+						""
+					],
+					[
+						"Undertale End",
+						"",
+						""
+					],
+					[
+						"Change Character",
+						"bf",
+						"befe"
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas"
+					],
+					[
+						"Change Character",
+						"gf",
+						"sasses"
+					],
+					[
+						"Set Cam Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				108000,
+				[
+					[
+						"Change Character",
+						"bf",
+						"befe-sas"
+					],
+					[
+						"Undertale Start",
+						"",
+						""
+					],
+					[
+						"Set Cam Zoom",
+						"1",
+						""
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas-alt"
+					],
+					[
+						"Change Character",
+						"gf",
+						"sasses-alt"
+					]
+				]
+			],
+			[
+				108750,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				110250,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				114000,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				114750,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				120000,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					],
+					[
+						"Set Cam Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				120375,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				121125,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				126750,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				127125,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				130500,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				131250,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				132000,
+				[
+					[
+						"Set Cam Zoom",
+						"0.75",
+						""
+					]
+				]
+			],
+			[
+				133500,
+				[
+					[
+						"Undertale End",
+						"",
+						""
+					],
+					[
+						"Change Character",
+						"bf",
+						"befe"
+					],
+					[
+						"Change Character",
+						"dad",
+						"sas"
+					],
+					[
+						"Change Character",
+						"gf",
+						"sasses"
+					]
+				]
+			],
+			[
+				138000,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				143250,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				143625,
+				[
+					[
+						"Play Animation",
+						"singLEFT-alt",
+						"dad"
+					]
+				]
+			],
+			[
+				156750,
+				[
+					[
+						"Play Animation",
+						"singRIGHT-alt",
+						"dad"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gifiend",
+		"bpm": 160,
+		"arrowSkin": "",
+		"needsVoices": true,
+		"song": "Cheese"
+	}
+}

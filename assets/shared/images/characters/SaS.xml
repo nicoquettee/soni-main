@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="SaS.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Down0000" x="0" y="0" width="657" height="592" frameX="-34" frameY="-34" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0001" x="657" y="0" width="590" height="660" frameX="-67" frameY="0" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0002" x="1247" y="0" width="706" height="624" frameX="-9" frameY="-18" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0003" x="1953" y="0" width="674" height="582" frameX="-25" frameY="-39" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0004" x="1953" y="0" width="674" height="582" frameX="-25" frameY="-39" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0005" x="2627" y="0" width="548" height="580" frameX="-88" frameY="-40" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0006" x="3175" y="0" width="563" height="474" frameX="-81" frameY="-93" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0007" x="3175" y="0" width="563" height="474" frameX="-81" frameY="-93" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0008" x="3738" y="0" width="725" height="564" frameX="0" frameY="-48" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0009" x="3738" y="0" width="725" height="564" frameX="0" frameY="-48" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0010" x="4463" y="0" width="682" height="630" frameX="-21" frameY="-15" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0011" x="5145" y="0" width="662" height="642" frameX="-31" frameY="-9" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0012" x="0" y="0" width="657" height="592" frameX="-34" frameY="-34" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Down0013" x="657" y="0" width="590" height="660" frameX="-67" frameY="0" frameWidth="725" frameHeight="660"/>
+	<SubTexture name="Left0000" x="5807" y="0" width="807" height="866" frameX="0" frameY="0" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0001" x="5807" y="0" width="807" height="866" frameX="0" frameY="0" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0002" x="6614" y="0" width="794" height="858" frameX="-12" frameY="-7" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0003" x="6614" y="0" width="794" height="858" frameX="-12" frameY="-7" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0004" x="0" y="866" width="789" height="850" frameX="-17" frameY="-18" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0005" x="789" y="866" width="789" height="848" frameX="-17" frameY="-19" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0006" x="1578" y="866" width="786" height="848" frameX="-19" frameY="-19" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0007" x="1578" y="866" width="786" height="848" frameX="-19" frameY="-19" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0008" x="1578" y="866" width="786" height="848" frameX="-19" frameY="-19" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0009" x="1578" y="866" width="786" height="848" frameX="-19" frameY="-19" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0010" x="1578" y="866" width="786" height="848" frameX="-19" frameY="-19" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Left0011" x="1578" y="866" width="786" height="848" frameX="-19" frameY="-19" frameWidth="807" frameHeight="868"/>
+	<SubTexture name="Right0000" x="2364" y="866" width="628" height="856" frameX="-49" frameY="-9" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0001" x="2364" y="866" width="628" height="856" frameX="-49" frameY="-9" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0002" x="2992" y="866" width="612" height="863" frameX="-3" frameY="-3" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0003" x="2992" y="866" width="612" height="863" frameX="-3" frameY="-3" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0004" x="3604" y="866" width="608" height="864" frameX="-2" frameY="-1" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0005" x="4212" y="866" width="607" height="864" frameX="0" frameY="-1" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0006" x="4819" y="866" width="602" height="865" frameX="0" frameY="0" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0007" x="4819" y="866" width="602" height="865" frameX="0" frameY="0" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0008" x="4819" y="866" width="602" height="865" frameX="0" frameY="0" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0009" x="4819" y="866" width="602" height="865" frameX="0" frameY="0" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0010" x="4819" y="866" width="602" height="865" frameX="0" frameY="0" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Right0011" x="4819" y="866" width="602" height="865" frameX="0" frameY="0" frameWidth="677" frameHeight="866"/>
+	<SubTexture name="Up0000" x="5421" y="866" width="753" height="922"/>
+	<SubTexture name="Up0001" x="5421" y="866" width="753" height="922"/>
+	<SubTexture name="Up0002" x="6174" y="866" width="708" height="888" frameX="-2" frameY="-34" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0003" x="6174" y="866" width="708" height="888" frameX="-2" frameY="-34" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0004" x="6882" y="866" width="706" height="884" frameX="-3" frameY="-37" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0005" x="0" y="1788" width="704" height="883" frameX="-4" frameY="-38" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0006" x="704" y="1788" width="702" height="881" frameX="-4" frameY="-38" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0007" x="704" y="1788" width="702" height="881" frameX="-4" frameY="-38" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0008" x="704" y="1788" width="702" height="881" frameX="-4" frameY="-38" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0009" x="704" y="1788" width="702" height="881" frameX="-4" frameY="-38" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0010" x="704" y="1788" width="702" height="881" frameX="-4" frameY="-38" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="Up0011" x="704" y="1788" width="702" height="881" frameX="-4" frameY="-38" frameWidth="753" frameHeight="922"/>
+	<SubTexture name="idle0000" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0001" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0002" x="1918" y="1788" width="513" height="834" frameX="-6" frameY="-5" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0003" x="1918" y="1788" width="513" height="834" frameX="-6" frameY="-5" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0004" x="2431" y="1788" width="508" height="824" frameX="-18" frameY="-16" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0005" x="2431" y="1788" width="508" height="824" frameX="-18" frameY="-16" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0006" x="2939" y="1788" width="494" height="812" frameX="-43" frameY="-27" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0007" x="2939" y="1788" width="494" height="812" frameX="-43" frameY="-27" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0008" x="3433" y="1788" width="502" height="814" frameX="-27" frameY="-25" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0009" x="3433" y="1788" width="502" height="814" frameX="-27" frameY="-25" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0010" x="3935" y="1788" width="507" height="826" frameX="-10" frameY="-13" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0011" x="4442" y="1788" width="506" height="826" frameX="-10" frameY="-13" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0012" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0013" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0014" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0015" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0016" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0017" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="idle0018" x="1406" y="1788" width="512" height="839" frameX="0" frameY="0" frameWidth="537" frameHeight="840"/>
+	<SubTexture name="sas brazo abajo0000" x="4948" y="1788" width="525" height="809" frameX="0" frameY="-26" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo abajo0001" x="5473" y="1788" width="483" height="809" frameX="0" frameY="-26" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo abajo0002" x="5956" y="1788" width="464" height="815" frameX="-5" frameY="-20" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo abajo0003" x="5956" y="1788" width="464" height="815" frameX="-5" frameY="-20" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo abajo0004" x="6420" y="1788" width="458" height="818" frameX="-12" frameY="-17" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo abajo0005" x="6878" y="1788" width="458" height="818" frameX="-12" frameY="-17" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo abajo0006" x="7336" y="1788" width="456" height="822" frameX="-14" frameY="-13" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo abajo0007" x="0" y="2671" width="448" height="835" frameX="-25" frameY="0" frameWidth="525" frameHeight="835"/>
+	<SubTexture name="sas brazo arriba0000" x="448" y="2671" width="515" height="840" frameX="0" frameY="-30" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo arriba0001" x="448" y="2671" width="515" height="840" frameX="0" frameY="-30" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo arriba0002" x="963" y="2671" width="521" height="870" frameX="-12" frameY="0" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo arriba0003" x="963" y="2671" width="521" height="870" frameX="-12" frameY="0" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo arriba0004" x="1484" y="2671" width="524" height="865" frameX="-9" frameY="-5" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo arriba0005" x="2008" y="2671" width="530" height="865" frameX="-9" frameY="-5" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo arriba0006" x="2538" y="2671" width="537" height="862" frameX="-5" frameY="-8" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo arriba0007" x="3075" y="2671" width="548" height="855" frameX="0" frameY="-15" frameWidth="548" frameHeight="870"/>
+	<SubTexture name="sas brazo derecha0000" x="3623" y="2671" width="512" height="839" frameX="-10" frameY="0" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo derecha0001" x="4135" y="2671" width="510" height="839" frameX="-10" frameY="0" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo derecha0002" x="4645" y="2671" width="575" height="835" frameX="0" frameY="-4" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo derecha0003" x="4645" y="2671" width="575" height="835" frameX="0" frameY="-4" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo derecha0004" x="5220" y="2671" width="619" height="833" frameX="-16" frameY="-6" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo derecha0005" x="5839" y="2671" width="620" height="833" frameX="-16" frameY="-6" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo derecha0006" x="6459" y="2671" width="613" height="832" frameX="-23" frameY="-7" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo derecha0007" x="7072" y="2671" width="613" height="832" frameX="-23" frameY="-7" frameWidth="636" frameHeight="839"/>
+	<SubTexture name="sas brazo izquierda0000" x="0" y="3541" width="512" height="839"/>
+	<SubTexture name="sas brazo izquierda0001" x="512" y="3541" width="511" height="839" frameX="0" frameY="0" frameWidth="512" frameHeight="839"/>
+	<SubTexture name="sas brazo izquierda0002" x="1023" y="3541" width="468" height="829" frameX="-16" frameY="-10" frameWidth="512" frameHeight="839"/>
+	<SubTexture name="sas brazo izquierda0003" x="1023" y="3541" width="468" height="829" frameX="-16" frameY="-10" frameWidth="512" frameHeight="839"/>
+	<SubTexture name="sas brazo izquierda0004" x="1491" y="3541" width="421" height="833" frameX="-8" frameY="-6" frameWidth="512" frameHeight="839"/>
+	<SubTexture name="sas brazo izquierda0005" x="1912" y="3541" width="427" height="833" frameX="-2" frameY="-6" frameWidth="512" frameHeight="839"/>
+	<SubTexture name="sas brazo izquierda0006" x="2339" y="3541" width="440" height="836" frameX="-2" frameY="-3" frameWidth="512" frameHeight="839"/>
+	<SubTexture name="sas brazo izquierda0007" x="2779" y="3541" width="447" height="839" frameX="-2" frameY="0" frameWidth="512" frameHeight="839"/>
+	<SubTexture name="sas buscando pistol0000" x="3226" y="3541" width="512" height="840" frameX="0" frameY="0" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0001" x="3738" y="3541" width="510" height="840" frameX="-1" frameY="0" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0002" x="3738" y="3541" width="510" height="840" frameX="-1" frameY="0" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0003" x="4248" y="3541" width="490" height="834" frameX="-11" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0004" x="4248" y="3541" width="490" height="834" frameX="-11" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0005" x="4738" y="3541" width="469" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0006" x="4738" y="3541" width="469" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0007" x="5207" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0008" x="5646" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0009" x="6085" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0010" x="6085" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0011" x="6524" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0012" x="6963" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0013" x="6963" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0014" x="7402" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0015" x="7402" y="3541" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0016" x="0" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0017" x="0" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0018" x="439" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0019" x="439" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0020" x="878" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0021" x="1317" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0022" x="1317" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0023" x="1317" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0024" x="1756" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0025" x="1756" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0026" x="2195" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0027" x="2195" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0028" x="2634" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0029" x="2634" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0030" x="2634" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0031" x="3073" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0032" x="3073" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0033" x="3512" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0034" x="3512" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0035" x="3512" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0036" x="3951" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0037" x="3951" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0038" x="3951" y="4381" width="439" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0039" x="4390" y="4381" width="447" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0040" x="4390" y="4381" width="447" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0041" x="4837" y="4381" width="620" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0042" x="4837" y="4381" width="620" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0043" x="5457" y="4381" width="664" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0044" x="5457" y="4381" width="664" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0045" x="6121" y="4381" width="684" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0046" x="6805" y="4381" width="684" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0047" x="7489" y="4381" width="672" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0048" x="0" y="5214" width="671" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0049" x="0" y="5214" width="671" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0050" x="671" y="5214" width="666" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0051" x="671" y="5214" width="666" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0052" x="1337" y="5214" width="667" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas buscando pistol0053" x="2004" y="5214" width="668" height="833" frameX="-8" frameY="-6" frameWidth="692" frameHeight="840"/>
+	<SubTexture name="sas disparando animation0000" x="2672" y="5214" width="668" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0001" x="2672" y="5214" width="668" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0002" x="3340" y="5214" width="697" height="828" frameX="-20" frameY="-6" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0003" x="3340" y="5214" width="697" height="828" frameX="-20" frameY="-6" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0004" x="4037" y="5214" width="692" height="831" frameX="-29" frameY="-3" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0005" x="4037" y="5214" width="692" height="831" frameX="-29" frameY="-3" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0006" x="4729" y="5214" width="682" height="833" frameX="-42" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0007" x="4729" y="5214" width="682" height="833" frameX="-42" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0008" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0009" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0010" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0011" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0012" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0013" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0014" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0015" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0016" x="5411" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0017" x="6087" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0018" x="6087" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0019" x="6763" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0020" x="6763" y="5214" width="676" height="833" frameX="-49" frameY="-1" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0021" x="7439" y="5214" width="725" height="834"/>
+	<SubTexture name="sas disparando animation0022" x="0" y="6048" width="676" height="834" frameX="-49" frameY="0" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0023" x="0" y="6048" width="676" height="834" frameX="-49" frameY="0" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0024" x="676" y="6048" width="676" height="834" frameX="-49" frameY="0" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0025" x="1352" y="6048" width="676" height="834" frameX="-49" frameY="0" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0026" x="2028" y="6048" width="676" height="834" frameX="-49" frameY="0" frameWidth="725" frameHeight="834"/>
+	<SubTexture name="sas disparando animation0027" x="2704" y="6048" width="676" height="834" frameX="-49" frameY="0" frameWidth="725" frameHeight="834"/>
+</TextureAtlas>

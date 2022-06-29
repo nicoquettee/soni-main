@@ -7561,24 +7561,64 @@
 				"bpm": 130
 			},
 			{
-				"gfSection": false,
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
 				"bpm": 130,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
 				"bpm": 130,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 130,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 130,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 130
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 130
 			},
 			{
 				"gfSection": false,
@@ -8126,11 +8166,6 @@
 				132576.923076923,
 				[
 					[
-						"Set Cam Zoom",
-						"7",
-						"7"
-					],
-					[
 						"Shader",
 						"invert",
 						""
@@ -8172,8 +8207,8 @@
 					],
 					[
 						"Flip Cam",
-						"",
-						"y"
+						"hud",
+						"x"
 					]
 				]
 			],
@@ -8187,7 +8222,7 @@
 					],
 					[
 						"Shader",
-						"gray",
+						"prota",
 						""
 					]
 				]
@@ -8197,7 +8232,7 @@
 				[
 					[
 						"Shader",
-						"",
+						"invert",
 						""
 					]
 				]
@@ -8207,8 +8242,8 @@
 				[
 					[
 						"Flip Cam",
-						"",
-						""
+						"game",
+						"x"
 					]
 				]
 			],
@@ -8217,12 +8252,12 @@
 				[
 					[
 						"Shader",
-						"",
+						"gray",
 						""
 					],
 					[
 						"Flip Cam",
-						"game",
+						"hud",
 						"x"
 					]
 				]
@@ -8237,8 +8272,8 @@
 					],
 					[
 						"Flip Cam",
-						"hud",
-						"x"
+						"game",
+						"y"
 					]
 				]
 			],
@@ -8252,8 +8287,8 @@
 					],
 					[
 						"Flip Cam",
-						"game",
-						""
+						"hud",
+						"x"
 					]
 				]
 			],
@@ -8262,7 +8297,7 @@
 				[
 					[
 						"Shader",
-						"",
+						"invert",
 						""
 					]
 				]

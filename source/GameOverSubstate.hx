@@ -1,5 +1,6 @@
 package;
 
+import lime.app.Application;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSubState;
@@ -37,6 +38,9 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		instance = this;
 		PlayState.instance.callOnLuas('onGameOverStart', []);
+
+		if(isEnding)
+			isEnding = false;
 
 		super.create();
 	}
@@ -83,6 +87,9 @@ class GameOverSubstate extends MusicBeatSubstate
 			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 		}
 
+		if(PlayState.isStoryMode)
+			Application.current.window.onClose.add(function(){FlxG.save.data.leftDaGameInTheMiddlee=true;FlxG.save.data.weekWhereYouLeave=PlayState.storyWeek;});
+
 		if (controls.ACCEPT)
 		{
 			endBullshit();
@@ -101,6 +108,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			PlayState.instance.callOnLuas('onGameOverConfirm', [false]);
+
+			if(PlayState.isStoryMode)
+				FlxG.save.data.leftInTheMiddlee = true;
 		}
 
 		if (boyfriend.animation.curAnim.name == 'firstDeath')

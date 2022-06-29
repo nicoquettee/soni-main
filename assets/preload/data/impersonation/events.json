@@ -1,0 +1,44 @@
+{
+	"song": {
+		"speed": 3,
+		"stage": "stage",
+		"player1": "befe",
+		"player2": "santiago",
+		"player3": null,
+		"events": [
+			[
+				11103.8961038961,
+				[
+					[
+						"Change Character",
+						"dad",
+						"santiago_cono"
+					],
+					[
+						"Play Animation",
+						"cono",
+						"dad"
+					]
+				]
+			],
+			[
+				12467.5324675325,
+				[
+					[
+						"Change Character",
+						"dad",
+						"santiago"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gifiend",
+		"bpm": 154,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Impersonation"
+	}
+}

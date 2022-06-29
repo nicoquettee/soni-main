@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-38,
+				-9
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Tais_Dead_IDLE"
+		},
+		{
+			"offsets": [
+				105,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Tais_Dead_LEFT"
+		},
+		{
+			"offsets": [
+				-21,
+				-54
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Tais_Dead_DOWN"
+		},
+		{
+			"offsets": [
+				11,
+				32
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Tais_Dead_UP"
+		},
+		{
+			"offsets": [
+				-62,
+				-12
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Tais_Dead_RIGHT"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/tais_apk",
+	"position": [
+		950,
+		230
+	],
+	"healthicon": "soni-apk",
+	"flip_x": false,
+	"healthbar_colors": [
+		8,
+		12,
+		98
+	],
+	"camera_position": [
+		-200,
+		-20
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

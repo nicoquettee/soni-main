@@ -1,0 +1,158 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-1,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				9,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "sas brazo derecha"
+		},
+		{
+			"offsets": [
+				-1,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "sas brazo izquierda"
+		},
+		{
+			"offsets": [
+				6,
+				-4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "sas brazo abajo"
+		},
+		{
+			"offsets": [
+				-1,
+				31
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "sas brazo arriba"
+		},
+		{
+			"offsets": [
+				2,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "pistol1",
+			"indices": [],
+			"name": "sas buscando pistol"
+		},
+		{
+			"offsets": [
+				43,
+				-4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "pistol2",
+			"indices": [],
+			"name": "sas disparando animation"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				43,
+				-4
+			],
+			"anim": "trollface",
+			"fps": 24,
+			"name": "sas disparando animation",
+			"indices": [
+				26,
+				27
+			]
+		},
+		{
+			"offsets": [
+				120,
+				-230
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				81,
+				80
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-14,
+				22
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				260,
+				30
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Left",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Sas_Alt",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "sas-alt",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

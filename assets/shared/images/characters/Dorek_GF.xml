@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Dorek_GF.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Dorek_GF0000" x="0" y="0" width="712" height="457" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0001" x="0" y="0" width="712" height="457" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0002" x="712" y="0" width="712" height="434" frameX="0" frameY="-23" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0003" x="712" y="0" width="712" height="434" frameX="0" frameY="-23" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0004" x="0" y="457" width="712" height="445" frameX="0" frameY="-17" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0005" x="0" y="457" width="712" height="445" frameX="0" frameY="-17" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0006" x="712" y="457" width="712" height="453" frameX="0" frameY="-8" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0007" x="0" y="910" width="712" height="450" frameX="0" frameY="-8" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0008" x="712" y="910" width="712" height="455" frameX="0" frameY="-3" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0009" x="712" y="910" width="712" height="455" frameX="0" frameY="-3" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0010" x="0" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0011" x="0" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0012" x="712" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0013" x="712" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0014" x="712" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0015" x="712" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0016" x="712" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+	<SubTexture name="Dorek_GF0017" x="712" y="1365" width="712" height="458" frameX="0" frameY="0" frameWidth="712" frameHeight="462"/>
+</TextureAtlas>

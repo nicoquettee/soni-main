@@ -213,6 +213,28 @@ class StoryMenuState extends MusicBeatState
 		changeWeek();
 		changeDifficulty();
 
+		/*if(PlayState.storyWeek == (FlxG.save.data.leftInTheMiddlee ? curWeek : FlxG.save.data.weekWhereYouLeave) && (FlxG.save.data.leftInTheMiddlee || FlxG.save.data.leftDaGameInTheMiddlee))
+		{
+			lockInput = true;
+			openSubState(new LeftGameSubstate());
+			LeftGameSubstate.whenAccept = function()
+			{
+				if(FlxG.save.data.leftInTheMiddlee)
+					FlxG.save.data.leftInTheMiddlee = false;
+				else if(FlxG.save.data.leftDaGameInTheMiddlee)
+					FlxG.save.data.leftDaGameInTheMiddlee = false;
+				LoadingState.loadAndSwitchState(new PlayState());
+			}
+			LeftGameSubstate.whenDenied = function()
+			{
+				if(FlxG.save.data.leftInTheMiddlee)
+					FlxG.save.data.leftInTheMiddlee = false;
+				else if(FlxG.save.data.leftDaGameInTheMiddlee)
+					FlxG.save.data.leftDaGameInTheMiddlee = false;
+				lockInput = false;
+			}
+		}*/
+
 		super.create();
 	}
 
@@ -234,7 +256,7 @@ class StoryMenuState extends MusicBeatState
 
 		difficultySelectors.visible = !weekIsLocked(curWeek);
 
-		if (!movedBack && !selectedWeek)
+		if (!movedBack && !selectedWeek && !lockInput)
 		{
 			var upP = controls.UI_UP_P;
 			var downP = controls.UI_DOWN_P;
@@ -277,7 +299,7 @@ class StoryMenuState extends MusicBeatState
 			}
 		}
 
-		if (controls.BACK && !movedBack && !selectedWeek)
+		if (controls.BACK && !movedBack && !selectedWeek && !lockInput)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
@@ -286,6 +308,29 @@ class StoryMenuState extends MusicBeatState
 
 		super.update(elapsed);
 
+		/*if(PlayState.storyWeek == curWeek && (FlxG.save.data.leftInTheMiddlee || FlxG.save.data.leftDaGameInTheMiddlee))
+		{
+			lockInput = true;
+			openSubState(new LeftGameSubstate());
+			LeftGameSubstate.whenAccept = function()
+			{
+				if(FlxG.save.data.leftInTheMiddlee)
+					FlxG.save.data.leftInTheMiddlee = false;
+				else if(FlxG.save.data.leftDaGameInTheMiddlee)
+					FlxG.save.data.leftDaGameInTheMiddlee = false;
+				LoadingState.loadAndSwitchState(new PlayState());
+			}
+			LeftGameSubstate.whenDenied = function()
+			{
+				if(FlxG.save.data.leftInTheMiddlee)
+					FlxG.save.data.leftInTheMiddlee = false;
+				else if(FlxG.save.data.leftDaGameInTheMiddlee)
+					FlxG.save.data.leftDaGameInTheMiddlee = false;
+				lockInput = false;
+				closeSubState();
+			}
+		}*/
+
 		grpLocks.forEach(function(lock:FlxSprite)
 		{
 			lock.y = grpWeekText.members[lock.ID].y;
@@ -293,6 +338,9 @@ class StoryMenuState extends MusicBeatState
 		});
 	}
 
+	var lockInput:Bool = false;
+	var leftDuringWeek:Bool = FlxG.save.data.leftInTheMiddlee;
+	var leftDaGameDuringWeek:Bool = FlxG.save.data.leftDaGameInTheMiddlee;
 	var movedBack:Bool = false;
 	var selectedWeek:Bool = false;
 	var stopspamming:Bool = false;

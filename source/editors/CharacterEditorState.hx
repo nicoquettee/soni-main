@@ -78,6 +78,11 @@ class CharacterEditorState extends MusicBeatState
 	var cameraFollowPointer:FlxSprite;
 	var healthBarBG:FlxSprite;
 
+	//test sas
+	var bf:Character;
+	var gf:Character;
+	var dad:Character;
+
 	override function create()
 	{
 		//FlxG.sound.playMusic(Paths.music('breakfast'), 0.5);
@@ -98,6 +103,24 @@ class CharacterEditorState extends MusicBeatState
 		charLayer = new FlxTypedGroup<Character>();
 		add(charLayer);
 
+		dad = new Character(400, 0, "santiago");
+        dad.color = 0xFF000000;
+        dad.alpha = 1 / 3;
+        dad.visible = true;
+		add(dad);
+		
+		bf = new Character(400, 350, "befe");
+		bf.color = 0xFF000000;
+        bf.alpha = 1 / 3;
+        bf.visible = false;
+		add(bf);
+
+		gf = new Character(400, 0, "gifiend");
+		gf.color = 0xFF000000;
+        gf.alpha = 1 / 3;
+        gf.visible = false;
+		add(gf);
+
 		var pointer:FlxGraphic = FlxGraphic.fromClass(GraphicCursorCross);
 		cameraFollowPointer = new FlxSprite().loadGraphic(pointer);
 		cameraFollowPointer.setGraphicSize(40, 40);
@@ -112,7 +135,7 @@ class CharacterEditorState extends MusicBeatState
 		});
 		changeBGbutton.cameras = [camMenu];
 
-		loadChar(!daAnim.startsWith('bf'), false);
+		loadChar(!daAnim.startsWith('befe'), false);
 
 		healthBarBG = new FlxSprite(30, FlxG.height - 75).loadGraphic(Paths.image('healthBar'));
 		healthBarBG.scrollFactor.set();
@@ -414,7 +437,7 @@ class CharacterEditorState extends MusicBeatState
 		tab_group.name = "Settings";
 
 		var check_player = new FlxUICheckBox(10, 60, null, null, "Playable Character", 100);
-		check_player.checked = daAnim.startsWith('bf');
+		check_player.checked = daAnim.startsWith('BF');
 		check_player.callback = function()
 		{
 			char.isPlayer = !char.isPlayer;
@@ -427,7 +450,7 @@ class CharacterEditorState extends MusicBeatState
 		charDropDown = new FlxUIDropDownMenuCustom(10, 30, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(character:String)
 		{
 			daAnim = characterList[Std.parseInt(character)];
-			check_player.checked = daAnim.startsWith('bf');
+			check_player.checked = daAnim.startsWith('BF');
 			loadChar(!check_player.checked);
 			updatePresence();
 			reloadCharacterDropDown();
@@ -855,7 +878,7 @@ class CharacterEditorState extends MusicBeatState
 				}
 			}
 		} else {
-			char.quickAnimAdd('idle', 'BF idle dance');
+			char.quickAnimAdd('idle', 'Bf');
 		}
 		
 		if(lastAnim != '') {
@@ -1083,6 +1106,8 @@ class CharacterEditorState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		bf.flipX = !char.isPlayer;
+
 		if(char.animationsArray[curAnim] != null) {
 			textAnim.text = char.animationsArray[curAnim].anim;
 

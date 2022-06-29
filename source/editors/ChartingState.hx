@@ -76,6 +76,7 @@ class ChartingState extends MusicBeatState
 		['Hey!', "Plays the \"Hey!\" animation from Bopeebo,\nValue 1: BF = Only Boyfriend, GF = Only Girlfriend,\nSomething else = Both.\nValue 2: Custom animation duration,\nleave it blank for 0.6s"],
 		['Set GF Speed', "Sets GF head bopping speed,\nValue 1: 1 = Normal speed,\n2 = 1/2 speed, 4 = 1/4 speed etc.\nUsed on Fresh during the beatbox parts.\n\nWarning: Value must be integer!"],
 		['Blammed Lights', "Value 1: 0 = Turn off, 1 = Blue, 2 = Green,\n3 = Pink, 4 = Red, 5 = Orange, Anything else = Random.\n\nNote to modders: This effect is starting to get \nREEEEALLY overused, this isn't very creative bro smh."],
+		['Funny Glow', "Value 1: 0/1/2 = OFF/ON/Reset Gradient"],
 		['Kill Henchmen', "For Mom's songs, don't use this please, i love them :("],
 		['Add Camera Zoom', "Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."],
 		['BG Freaks Expression', "Should be used only in \"school\" Stage!"],
@@ -92,7 +93,18 @@ class ChartingState extends MusicBeatState
 		['Bil Hacks'],
 		['Bil Reset'],
 		['Flip Cam', "Value 1: game or hud (Other seems random)\nValue 2: X or Y (Other seems randoms)"],
-		['Shader', "Value 1: gray, invert, deuter, prota, trita. (Other seems random)"]
+		['Shader', "Value 1: gray, invert, deuter, prota, trita. (Other seems random)"],
+		['Change icon', "Value 1: change the p1 (bf) or the p2 (opponent) icon\nValue2: name of the new icon"],
+		['Undertale Start'],
+		['Undertale End'],
+		['Error Apk', "Value 1: name of the window\nValue2: name of the error"],
+		['Aesthetic', "Value 1: how big is the bar\nValue2: bar appear time"],
+		['Epic Spotlight', "Value 1: 0/1 = OFF/ON,\n2 = Target Opponent\n3 = Target Player"],
+		['Set Property', "Value 1: Variable name\nValue 2: New value"],
+		['Song Event'],
+		['Movistar Effect', "Value 1: effect strength (1 = disable)\nValue 2: (dad, bf, gf, stage)"],
+		['Black Screen', "A black screen appears.\nValue 1: visibility (true or false)"],
+		['Flash', "Value 1: camera to flash (hud, game, notes, other)\nValue 2: flash duration"]
 	];
 
 	var _file:FileReference;

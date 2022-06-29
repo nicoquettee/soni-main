@@ -66,6 +66,8 @@ class MainMenuState extends MusicBeatState
 
 		WeekData.loadTheFirstEnabledMod();
 
+		Conductor.changeBPM(110);
+
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -300,7 +302,10 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
+										//if(!FlxG.save.data.leftDaGameInTheMiddleBRUH)
+											MusicBeatState.switchState(new StoryMenuState());
+										//else
+											//MusicBeatState.switchState(new EndMyLife());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
 									#if MODS_ALLOWED
@@ -396,6 +401,7 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
+			FlxTween.cancelTweensOf(spr);
 			if(spr.y != 549)
 			{
 				FlxTween.tween(spr, {y: 549}, 0.1, {ease: FlxEase.smootherStepInOut});

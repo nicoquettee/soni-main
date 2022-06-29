@@ -1,0 +1,361 @@
+{
+	"song": {
+		"speed": 2.9,
+		"stage": "soni",
+		"player1": "befe",
+		"player2": "soni",
+		"player3": null,
+		"events": [
+			[
+				142962.962962963,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"1.5625",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"1.953125",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"1.953125",
+						"stage"
+					],
+					[
+						"Movistar Effect",
+						"0.78125",
+						"bf"
+					]
+				]
+			],
+			[
+				144444.444444444,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				145925.925925926,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"1.5625",
+						"bf"
+					],
+					[
+						"Movistar Effect",
+						"3.125",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"3.90625",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"3.90625",
+						"stage"
+					]
+				]
+			],
+			[
+				147407.407407407,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				148981.481481481,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"7.8125",
+						"stage"
+					],
+					[
+						"Movistar Effect",
+						"6.25",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"7.8125",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"3.125",
+						"bf"
+					]
+				]
+			],
+			[
+				150092.592592592,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				151574.074074074,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"6.25",
+						"bf"
+					],
+					[
+						"Movistar Effect",
+						"15.625",
+						"stage"
+					],
+					[
+						"Movistar Effect",
+						"12.5",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"15.625",
+						"gf"
+					]
+				]
+			],
+			[
+				152314.814814815,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				153796.296296296,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"31.25",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"12.5",
+						"bf"
+					],
+					[
+						"Movistar Effect",
+						"31.25",
+						"stage"
+					],
+					[
+						"Movistar Effect",
+						"25",
+						"dad"
+					]
+				]
+			],
+			[
+				154537.037037037,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				156018.518518518,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"50",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"62.5",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"25",
+						"bf"
+					],
+					[
+						"Movistar Effect",
+						"62.5",
+						"stage"
+					]
+				]
+			],
+			[
+				156851.851851852,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				158333.333333333,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"125",
+						"stage"
+					],
+					[
+						"Movistar Effect",
+						"100",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"125",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"50",
+						"bf"
+					]
+				]
+			],
+			[
+				159074.074074074,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				160555.555555555,
+				[
+					[
+						"Black Screen",
+						"true"
+					],
+					[
+						"Movistar Effect",
+						"100",
+						"bf"
+					],
+					[
+						"Movistar Effect",
+						"200",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"250",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"250",
+						"stage"
+					]
+				]
+			],
+			[
+				161296.296296296,
+				[
+					[
+						"Black Screen",
+						"false",
+						null
+					]
+				]
+			],
+			[
+				162870.37037037,
+				[
+					[
+						"Movistar Effect",
+						"0.0001",
+						"stage"
+					],
+					[
+						"Movistar Effect",
+						"0.0001",
+						"gf"
+					],
+					[
+						"Movistar Effect",
+						"0.0001",
+						"dad"
+					],
+					[
+						"Movistar Effect",
+						"0.0001",
+						"bf"
+					],
+					[
+						"Flash",
+						"other",
+						"0.1"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gifiend",
+		"bpm": 162,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Ovaloader Star Silvagunner Edition"
+	}
+}

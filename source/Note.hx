@@ -7,6 +7,7 @@ import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 import flash.display.BitmapData;
 import editors.ChartingState;
+import flixel.math.FlxPoint;
 
 using StringTools;
 
@@ -46,7 +47,7 @@ class Note extends FlxSprite
 	public var gfNote:Bool = false;
 	private var earlyHitMult:Float = 0.5;
 
-	public static var swagWidth:Float = 160 * 0.7;
+	//public static var swagWidth:Float = 160 * 0.7;
 	public static var PURP_NOTE:Int = 0;
 	public static var GREEN_NOTE:Int = 2;
 	public static var BLUE_NOTE:Int = 1;
@@ -63,6 +64,10 @@ class Note extends FlxSprite
 	public var offsetY:Float = 0;
 	public var offsetAngle:Float = 0;
 	public var multAlpha:Float = 1;
+	public var multSpeed(default, set):Float = 1;
+
+	public var tail:Array<Note> = []; // for sustains
+	public var parent:Note;
 
 	public var copyX:Bool = true;
 	public var copyY:Bool = true;
@@ -71,12 +76,42 @@ class Note extends FlxSprite
 
 	public var hitHealth:Float = 0.023;
 	public var missHealth:Float = 0.0475;
+	public var rating:String = 'unknown';
+	public var ratingMod:Float = 0; //9 = unknown, 0.25 = shit, 0.5 = bad, 0.75 = good, 1 = sick
+	public var ratingDisabled:Bool = false;
 
 	public var texture(default, set):String = null;
 
 	public var noAnimation:Bool = false;
 	public var hitCausesMiss:Bool = false;
 	public var distance:Float = 2000;//plan on doing scroll directions soon -bb
+
+	public var modAngle:Float = 0; //stolen from andromeda -royal
+	public var baseAngle:Float = 0; //same
+	public var noteAngles:Array<Float>=[0,0,0,0]; //same lol
+	public var initialPos:Float = 0; //:skull:
+	public var scaleDefault:FlxPoint;
+
+	public static function swagWidth():Float
+	{
+		return(Main.noteWidth * Main.noteDefScale * ClientPrefs.noteScale);
+	}
+
+	private function set_multSpeed(value:Float):Float {
+		resizeByRatio(value / multSpeed);
+		multSpeed = value;
+		trace('fuck cock');
+		return value;
+	}
+
+	public function resizeByRatio(ratio:Float) //haha funny twitter shit
+	{
+		if(isSustainNote && !animation.curAnim.name.endsWith('end'))
+		{
+			scale.y *= ratio;
+			updateHitbox();
+		}
+	}
 
 	private function set_texture(value:String):String {
 		if(texture != value) {
@@ -117,10 +152,16 @@ class Note extends FlxSprite
 		noteSplashHue = colorSwap.hue;
 		noteSplashSat = colorSwap.saturation;
 		noteSplashBrt = colorSwap.brightness;
+
+		if(!isSustainNote)
+			baseAngle = noteAngles[noteData];
+		else
+			baseAngle = 0;
+
 		return value;
 	}
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false)
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false, ?initialPos:Float)
 	{
 		super();
 
@@ -131,20 +172,23 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 		this.inEditor = inEditor;
 
-		x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
+		scaleDefault = FlxPoint.get();
+
+		x += (PlayState.isMiddlescroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
 		this.strumTime = strumTime;
 		if(!inEditor) this.strumTime += ClientPrefs.noteOffset;
 
 		this.noteData = noteData;
+		this.initialPos = initialPos;
 
 		if(noteData > -1) {
 			texture = '';
 			colorSwap = new ColorSwap();
 			shader = colorSwap.shader;
 
-			x += swagWidth * (noteData % 4);
+			x += swagWidth() * (noteData % 4);
 			if(!isSustainNote) { //Doing this 'if' check to fix the warnings on Senpai songs
 				var animToPlay:String = '';
 				switch (noteData % 4)
@@ -206,7 +250,7 @@ class Note extends FlxSprite
 						prevNote.animation.play('redhold');
 				}
 
-				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.05;
+				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.05 * ClientPrefs.noteScale;
 				if(PlayState.instance != null)
 				{
 					prevNote.scale.y *= PlayState.instance.songSpeed;
@@ -216,6 +260,7 @@ class Note extends FlxSprite
 					prevNote.scale.y *= 1.19;
 					prevNote.scale.y *= (6 / height); //Auto adjust note size
 				}
+				prevNote.scaleDefault.set(prevNote.scale.x,prevNote.scale.y);
 				prevNote.updateHitbox();
 				// prevNote.setGraphicSize();
 			}
@@ -224,6 +269,8 @@ class Note extends FlxSprite
 				scale.y *= PlayState.daPixelZoom;
 				updateHitbox();
 			}
+
+			scaleDefault.set(scale.x,scale.y);
 		} else if(!isSustainNote) {
 			earlyHitMult = 1;
 		}
@@ -293,6 +340,7 @@ class Note extends FlxSprite
 		if(isSustainNote) {
 			scale.y = lastScaleY;
 		}
+		scaleDefault.set(scale.x,scale.y);
 		updateHitbox();
 
 		if(animName != null)
@@ -323,7 +371,7 @@ class Note extends FlxSprite
 			animation.addByPrefix('bluehold', 'blue hold piece');
 		}
 
-		setGraphicSize(Std.int(width * 0.7));
+		setGraphicSize(Std.int(width * Main.noteDefScale * ClientPrefs.noteScale));
 		updateHitbox();
 	}
 
@@ -344,10 +392,13 @@ class Note extends FlxSprite
 			animation.add('blueScroll', [BLUE_NOTE + 4]);
 			animation.add('purpleScroll', [PURP_NOTE + 4]);
 		}
+		scaleDefault.set(scale.x,scale.y);
 	}
 
 	override function update(elapsed:Float)
 	{
+		angle = baseAngle + modAngle;
+
 		super.update(elapsed);
 
 		if (mustPress)

@@ -12,6 +12,11 @@ import sys.FileSystem;
 
 using StringTools;
 
+typedef VelocityChange = {
+	var startTime:Float;
+	var multiplier:Float;
+}
+
 typedef SwagSong =
 {
 	var song:String;
@@ -30,6 +35,8 @@ typedef SwagSong =
 	var arrowSkin:String;
 	var splashSkin:String;
 	var validScore:Bool;
+	@:optional var sliderVelocities:Array<VelocityChange>;
+	@:optional var initialSpeed:Float;
 }
 
 class Song
@@ -42,6 +49,8 @@ class Song
 	public var arrowSkin:String;
 	public var splashSkin:String;
 	public var speed:Float = 1;
+	public var initialSpeed:Float = 1;
+	public var sliderVelocities:Array<VelocityChange>=[];
 	public var stage:String;
 
 	public var player1:String = 'bf';
@@ -140,7 +149,23 @@ class Song
 
 	public static function parseJSONshit(rawJson:String):SwagSong
 	{
+		var cumData = Json.parse(rawJson);
 		var swagShit:SwagSong = cast Json.parse(rawJson).song;
+		swagShit.initialSpeed=1;
+		if(cumData.sliderVelocities!=null){
+			var shit:Array<VelocityChange> = cast cumData.sliderVelocities;
+			shit.sort((a,b)->Std.int(a.startTime-b.startTime));
+			swagShit.sliderVelocities = shit;
+
+		}else{
+			trace("SLIDERS");
+			swagShit.sliderVelocities = [
+				{
+					startTime:0,
+					multiplier:1
+				}
+			];
+		}
 		swagShit.validScore = true;
 		return swagShit;
 	}

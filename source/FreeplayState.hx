@@ -1,5 +1,7 @@
 package;
 
+import flixel.tweens.FlxEase;
+import flixel.group.FlxSpriteGroup;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -24,6 +26,26 @@ import sys.FileSystem;
 
 using StringTools;
 
+
+class BBTrail extends FlxSprite
+{
+	var life:Float = 0.2;
+
+	override function update(elapsed:Float)
+	{
+		x += 1.2 * elapsed * 60;
+		life -= elapsed;
+		if (life <= 0)
+		{
+			alpha -= elapsed * 0.5;
+			if (alpha <= 0)
+			{
+				kill();
+			}
+		}
+		super.update(elapsed);
+	}
+}
 class FreeplayState extends MusicBeatState
 {
 	var songs:Array<SongMetadata> = [];
@@ -49,6 +71,17 @@ class FreeplayState extends MusicBeatState
 	var bg:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
+
+	var sc:Float = 1280 / 1920;
+	var btt:Array<FlxSprite> = [];
+	var bttPos:Array<Dynamic> = [];
+	var grpBoy:FlxTypedGroup<FlxSprite>;
+	var oGroup:FlxSpriteGroup;
+	var oTimer:Float = 0;
+	var choosenChar:String;
+	var enaChooseColor:Bool = false;
+	var charChoosen:String;
+	var color:FlxColor;
 
 	override function create()
 	{
@@ -120,6 +153,12 @@ class FreeplayState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
+
+		oGroup = new FlxSpriteGroup();
+		oGroup.scrollFactor.set();
+		add(oGroup);
+
+		//loadImages(grpBoy);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -232,6 +271,61 @@ class FreeplayState extends MusicBeatState
 		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
 	}
 
+	function loadImages(grp:FlxTypedGroup<FlxSprite>) {
+		for(j in 0...songs.length)
+		{
+			for(i in 0...songs[j].songCharacter.length)
+			{
+				var spr:FlxSprite = new FlxSprite();
+				spr.frames =  Paths.getSparrowAtlas('freeplay/char/${choosenChar}_free');
+				spr.animation.addByPrefix('idle', '${choosenChar}_free');
+				spr.animation.play('idle');
+				spr.antialiasing = ClientPrefs.globalAntialiasing;
+				if(i != 0)
+					spr.alpha = 0;
+				grp.add(spr);
+				spr.ID = i;
+			}
+		}
+	}
+
+	function charTransition(grp:FlxTypedGroup<FlxSprite>) {
+		for (spr in grp) {
+			FlxTween.cancelTweensOf(spr);
+			if (spr.ID == curSelected) {
+				FlxTween.tween(spr, {x: 800, y: 0}, 0.1, {
+					ease: FlxEase.linear,
+					onComplete: function(twn:FlxTween)
+					{
+						FlxTween.tween(spr, {alpha: 1}, 0.1, {
+							ease: FlxEase.linear,
+							onComplete: function(twn:FlxTween)
+							{
+								FlxTween.tween(spr, {x: 30, y: 0}, 0.8, {
+								ease: FlxEase.cubeOut,
+								onComplete: function(twn:FlxTween)
+								{
+									//spr.kill();
+								}
+								});
+							}
+						});
+					}
+				});
+			} else {
+				FlxTween.tween(spr, {x: 1600, y: 0}, 0.74, {
+					ease: FlxEase.cubeIn,
+					onComplete: function(twn:FlxTween)
+					{
+						FlxTween.tween(spr, {alpha: 0}, 0.1, {
+						ease: FlxEase.linear,
+						});
+					}
+				});
+			}
+		}
+	}
+
 	/*public function addWeek(songs:Array<String>, weekNum:Int, weekColor:Int, ?songCharacters:Array<String>)
 	{
 		if (songCharacters == null)
@@ -257,6 +351,9 @@ class FreeplayState extends MusicBeatState
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
+
+		choosenChar = songs[curSelected].songCharacter;
+		color = songs[curSelected].color;
 
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 24, 0, 1)));
 		lerpRating = FlxMath.lerp(lerpRating, intendedRating, CoolUtil.boundTo(elapsed * 12, 0, 1));
@@ -459,6 +556,8 @@ class FreeplayState extends MusicBeatState
 				}
 			});
 		}
+
+		//charTransition(grpBoy);
 
 		// selector.y = (70 * curSelected) + 30;
 

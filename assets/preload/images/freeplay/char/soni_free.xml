@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="soni_free.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="soni_free0000" x="0" y="0" width="664" height="532"/>
+	<SubTexture name="soni_free0001" x="664" y="0" width="664" height="532"/>
+	<SubTexture name="soni_free0002" x="1328" y="0" width="664" height="532"/>
+	<SubTexture name="soni_free0003" x="0" y="532" width="664" height="532"/>
+</TextureAtlas>

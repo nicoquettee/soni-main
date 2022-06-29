@@ -1,0 +1,67 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				81,
+				-313
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Sasses_Dead",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				174,
+				151
+			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "IdleSasses",
+			"indices": []
+		},
+		{
+			"offsets": [
+				176,
+				385
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "spawn",
+			"loop": false,
+			"name": "Spawn"
+		},
+		{
+			"offsets": [
+				153,
+				202
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "die",
+			"loop": false,
+			"name": "sasses_disp"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Sasses",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [
+		161,
+		161,
+		161
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
