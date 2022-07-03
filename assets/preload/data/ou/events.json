@@ -446,7 +446,7 @@
 				[
 					[
 						"Set Property",
-						"health",
+						"healthDisplay",
 						"2"
 					]
 				]
@@ -481,7 +481,7 @@
 					],
 					[
 						"Set Property",
-						"health",
+						"healthDisplay",
 						"1.6"
 					]
 				]
@@ -496,7 +496,7 @@
 					],
 					[
 						"Set Property",
-						"health",
+						"healthDisplay",
 						"1.2"
 					]
 				]
@@ -511,7 +511,7 @@
 					],
 					[
 						"Set Property",
-						"health",
+						"healthDisplay",
 						"0.8"
 					]
 				]
@@ -526,7 +526,7 @@
 					],
 					[
 						"Set Property",
-						"health",
+						"healthDisplay",
 						"0.4"
 					]
 				]
@@ -541,7 +541,7 @@
 					],
 					[
 						"Set Property",
-						"health",
+						"healthDisplay",
 						"0.0000001"
 					]
 				]

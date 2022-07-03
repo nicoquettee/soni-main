@@ -27,9 +27,11 @@ typedef CharacterFile = {
 	var sing_duration:Float;
 	var healthicon:String;
 
+	var daIconOffset:Float;
 	var position:Array<Float>;
 	var camera_position:Array<Float>;
 
+	var charSplitFrames:Array<String>;
 	var flip_x:Bool;
 	var no_antialiasing:Bool;
 	var healthbar_colors:Array<Int>;
@@ -63,6 +65,7 @@ class Character extends FlxSprite
 	public var danceIdle:Bool = false; //Character use "danceLeft" and "danceRight" instead of "idle"
 	public var skipDance:Bool = false;
 
+	public var daIconOffsets:Float = 0;
 	public var healthIcon:String = 'face';
 	public var animationsArray:Array<AnimArray> = [];
 
@@ -161,7 +164,7 @@ class Character extends FlxSprite
 						frames = Paths.getPackerAtlas(json.image);
 					
 					case "sparrow":
-						frames = Paths.getSparrowAtlas(json.image);
+						if (json.charSplitFrames != null) frames = CoolUtil.joinFrames(json.charSplitFrames); else frames = Paths.getSparrowAtlas(json.image);
 					
 					case "texture":
 						frames = AtlasFrameMaker.construct(json.image);
@@ -179,6 +182,7 @@ class Character extends FlxSprite
 
 				healthIcon = json.healthicon;
 				singDuration = json.sing_duration;
+				daIconOffsets = json.daIconOffset;
 				flipX = !!json.flip_x;
 				if(json.no_antialiasing) {
 					antialiasing = false;

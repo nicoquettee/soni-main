@@ -105,6 +105,10 @@ class OptionsState extends MusicBeatState
 		if (controls.UI_DOWN_P) {
 			changeSelection(1);
 		}
+		if(FlxG.mouse.wheel != 0)
+		{
+			changeSelection(-FlxG.mouse.wheel);
+		}
 
 		if (controls.BACK) {
 			if (PlayState.instance != null && PlayState.instance.backOutfromOptions)

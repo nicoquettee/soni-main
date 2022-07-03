@@ -102,6 +102,7 @@ class ChartingState extends MusicBeatState
 		['Epic Spotlight', "Value 1: 0/1 = OFF/ON,\n2 = Target Opponent\n3 = Target Player"],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"],
 		['Song Event'],
+		['Change BG'],
 		['Movistar Effect', "Value 1: effect strength (1 = disable)\nValue 2: (dad, bf, gf, stage)"],
 		['Black Screen', "A black screen appears.\nValue 1: visibility (true or false)"],
 		['Flash', "Value 1: camera to flash (hud, game, notes, other)\nValue 2: flash duration"]

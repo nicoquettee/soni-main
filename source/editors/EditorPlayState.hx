@@ -314,6 +314,7 @@ class EditorPlayState extends MusicBeatState
 		LoadingState.loadAndSwitchState(new editors.ChartingState());
 	}
 
+	public var noteKillOffset:Float = 350;
 	override function update(elapsed:Float) {
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
@@ -451,10 +452,7 @@ class EditorPlayState extends MusicBeatState
 					}
 				}
 
-				var doKill:Bool = daNote.y < -daNote.height;
-				if(ClientPrefs.downScroll) doKill = daNote.y > FlxG.height;
-
-				if (doKill)
+				if (Conductor.songPosition > (noteKillOffset / PlayState.SONG.speed) + daNote.strumTime)
 				{
 					if (daNote.mustPress)
 					{
@@ -938,7 +936,7 @@ class EditorPlayState extends MusicBeatState
 		for (i in 0...4)
 		{
 			// FlxG.log.add(i);
-			var targetAlpha:Float = 1;
+			var targetAlpha:Float = ClientPrefs.noteTransparencySoniNose;
 			if (player < 1 && PlayState.isMiddlescroll) targetAlpha = 0.35;
 
 			var babyArrow:StrumNote = new StrumNote(PlayState.isMiddlescroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X, strumLine.y, i, player);

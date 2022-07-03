@@ -205,6 +205,7 @@ class PlayState extends MusicBeatState
 	public var instakillOnMiss:Bool = false;
 	public var cpuControlled:Bool = false;
 	public var practiceMode:Bool = false;
+	public var mechanics:Bool = true;
 
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
@@ -310,6 +311,10 @@ class PlayState extends MusicBeatState
 	// Options
 	public var backOutfromOptions:Bool = false;
 
+	// Pause
+	public var backOutfromPause:Bool = false;
+	var pauseTween:FlxTween;
+
 	// Debug buttons
 	private var debugKeysChart:Array<FlxKey>;
 	private var debugKeysCharacter:Array<FlxKey>;
@@ -320,6 +325,11 @@ class PlayState extends MusicBeatState
 
 	//Soni things for potatoes pc
 	var dead:FlxSprite;
+	var clouds:BGSprite;
+	var tree:BGSprite;
+	var goldenFlower:BGSprite;
+	var bgAnim:BGSprite;
+	var smoke:Smoke;
 	var grpSoniStage:FlxTypedGroup<FlxSprite>;
 
 	//bil-letes
@@ -398,13 +408,15 @@ class PlayState extends MusicBeatState
 	var elShader = new PixelateShader();
 	var blackScreen:FlxSprite;
 	var lyricsTxt:FlxText;
+	var funny:FlxSprite;
 
 	//checkpoints
 	public static var songWhereYouAre = -1;
 
 	//Debug Stuff
 	var canDie:Bool = true;
-	var songPitch:Float = 1;
+	public var songPitch:Float = 1;
+	var focusing:Bool = true;
 
 	override public function create()
 	{
@@ -452,6 +464,7 @@ class PlayState extends MusicBeatState
 		instakillOnMiss = ClientPrefs.getGameplaySetting('instakill', false);
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
+		mechanics = ClientPrefs.mechanics;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -472,6 +485,7 @@ class PlayState extends MusicBeatState
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		healthTween = FlxTween.tween(this, {}, 0);
+		pauseTween = FlxTween.tween(this, {}, 0);
 
 		FlxCamera.defaultCameras = [camGame];
 		CustomFadeTransition.nextCamera = camOther;
@@ -631,11 +645,13 @@ class PlayState extends MusicBeatState
 				bg.antialiasing = ClientPrefs.globalAntialiasing;
 				grpSoniStage.add(bg);
 
-				var clouds:BGSprite = new BGSprite('soni/Nubes', 0, 0, .4, 1);
-				clouds.scale.set(2, 2);
-				clouds.antialiasing = ClientPrefs.globalAntialiasing;
 				if(!ClientPrefs.lowQuality)
+				{
+					clouds = new BGSprite('soni/Nubes', 0, 0, .4, 1);
+					clouds.scale.set(2, 2);
+					clouds.antialiasing = ClientPrefs.globalAntialiasing;
 					grpSoniStage.add(clouds);
+				}
 				
 				var mountains:BGSprite = new BGSprite('soni/Montanas', 0, 0, .6, 1);
 				mountains.scale.set(2, 2);
@@ -657,14 +673,17 @@ class PlayState extends MusicBeatState
 				treesBG.antialiasing = ClientPrefs.globalAntialiasing;
 				grpSoniStage.add(treesBG);
 
-				var tree:BGSprite = new BGSprite('soni/Arbolprincipal', 0, 0, .85, 1);
-				tree.scale.set(2, 2);
-				tree.antialiasing = ClientPrefs.globalAntialiasing;
-				grpSoniStage.add(tree);
+				if(!ClientPrefs.lowQuality)
+				{
+					tree = new BGSprite('soni/Arbolprincipal', 0, 0, .85, 1);
+					tree.scale.set(2, 2);
+					tree.antialiasing = ClientPrefs.globalAntialiasing;
+					grpSoniStage.add(tree);
 
-				var goldenFlower:BGSprite = new BGSprite('soni/FlorDorada', 0, 0, .9, 1);
-				goldenFlower.scale.set(2, 2);
-				grpSoniStage.add(goldenFlower);
+					goldenFlower = new BGSprite('soni/FlorDorada', 0, 0, .9, 1);
+					goldenFlower.scale.set(2, 2);
+					grpSoniStage.add(goldenFlower);
+				}
 
 				var floor:BGSprite = new BGSprite('soni/Piso', 0, 0, 1, 1);
 				floor.scale.set(2, 2);
@@ -674,62 +693,54 @@ class PlayState extends MusicBeatState
 				purpFlower.scale.set(2, 2);
 				grpSoniStage.add(purpFlower);
 
-				var bgAnim:BGSprite = new BGSprite('soni/BackgroundA', -170, -250, .75, .75, ['BackgroundA'], true);
-				bgAnim.scale.set(2, 2);
-				bgAnim.visible = false;
-				grpSoniStage.add(bgAnim);
-
-				dead = new FlxSprite();
-				dead.frames = Paths.getSparrowAtlas('soni/dead tais reported !!!!'); //Soni is the sus?!?! ding ding ding ding ding ding ding- ding ding ding tuntun
-				dead.animation.addByPrefix('report', 'me muero', 24, false);
-				dead.screenCenter();
-				dead.antialiasing = ClientPrefs.globalAntialiasing;
-				dead.cameras = [camOther];
-				dead.visible = false;
-				add(dead);
-
-				var smoke:Smoke;
-				smoke = new Smoke();
-				smoke.cameras = [camOther];
-
-				var soniBeats:Int = 0; //BRUHHH
-				curBeatSection = function()
+				if(Paths.formatToSongPath(SONG.song) == 'sped')
 				{
-					soniBeats++;
-					if(Paths.formatToSongPath(SONG.song) == 'sped') 
-					{
-						switch(soniBeats)
-						{
-							/*case 328:
-								add(funny);
-								FlxTween.tween(funny, {alpha: .3}, 27.43, {ease: FlxEase.quadInOut});
-							case 392:
-								FlxTween.tween(funny, {alpha: 0}, 1.34, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){remove(funny);}});*/
-							case 739:
-								add(smoke);
-							case 741:
-								GameOverSubstate.characterName = 'befe-moto';
-								GameOverSubstate.deathSoundName = 'moto-loss';
-								bgAnim.visible = true;
-								bgAnim.dance();
-								gf.visible = false;
-								remove(bg);
-								if(!ClientPrefs.lowQuality)
-									remove(clouds);
-								remove(mountains);
-								remove(rocoFloor);
-								remove(river);
-								remove(treesBG);
-								remove(tree);
-								remove(goldenFlower);
-								remove(floor);
-								remove(purpFlower);
-								dadGroup.x = -168;
-								dadGroup.y = -13; //cuanto mas me la mamas mas me crece, aquí tiene pa que me la bese, entre más me la beses más me crece, busca un cura pa que me la rece, y trae un martillo pa que me la endereces, por el chiquito se te aparece toas las veces y cuando te estreses aquí te tengo éste pa que te desestreses, con este tallo el culo se te esflorece, se cumple el ciclo hasta que anochece, todos los días y todas las veces, de tanto entablar la raja del culo se te desaparece, porque este sable no se compadece, si pides ñapa se te ofrece, y si repites se te agradece, no te hace rico pero tampoco te empobrece, no te hace inteligente pero tampoco te embrutece, y no paro aquí compa que éste nuevamente se endurece, hasta que amanece, cambie esa cara que parece que se entristece, si te haces viejo éste te rejuvenece, no te hago bulla porque depronto te ensordece, y eso cuadro no te favorece, pero tranquilo que éste te abastece, porque allá abajo se te humedece, viendo como el que me cuelga resplandece, si a ti te da miedo a mí me enorgullece, y así toas las vece ¿que te parece?, y tranquilo mijo que aquí éste reaparece, no haga fuerza porque éste se sobrecrece, una fresadora te traigo pa que me la freses, así se fortalece y de nuevo la historia se establece, que no se te nuble la vista porque éste te la aclarece, y sino le entendiste nuevamente la explicación se te ofrece, pa que por el chiquito éste de nuevo te empiece... Aquí tienes para que me la beses, entre más me la beses más me crece, busca un cura para que me la rece, un martillo para que me la endereces, un chef para que me la aderece, 8000 pijas por el culo se te aparecen, si me la sobas haces que se me espese, si quieres la escaneas y te la llevas para que en tu hoja de vida la anexes, me culeo a tu maldita madre y qué te parece le meti la pija a tú mamá hace 9 meses y después la puse a escuchar René de Calle 13 Te la meto por debajo del agua como los peces, y aquella flor de pija que en tu culo crece
-								boyfriendGroup.x = 962;
-								boyfriendGroup.y = 77; //OMG I LOVE U YOSHI ENGINE STAGE EDITOR UWUWUUWU
-							}
-					}
+					precacheList.set('soni/BackgroundA', 'image');
+					precacheList.set('soni/dead tais reported !!!!', 'image');
+					precacheList.set('soni/Humo', 'image');
+
+					bgAnim = new BGSprite('soni/BackgroundA', -170, -250, .75, .75, ['BackgroundA'], true);
+					bgAnim.scale.set(2, 2);
+					bgAnim.visible = false;
+					bgAnim.active = false;
+					add(bgAnim);
+	
+					dead = new FlxSprite();
+					dead.frames = Paths.getSparrowAtlas('soni/dead tais reported !!!!'); //Soni is the sus?!?! ding ding ding ding ding ding ding- ding ding ding tuntun
+					dead.animation.addByPrefix('report', 'me muero', 24, false);
+					dead.screenCenter();
+					dead.antialiasing = ClientPrefs.globalAntialiasing;
+					dead.cameras = [camOther];
+					dead.visible = false;
+					dead.active = false;
+					add(dead);
+	
+					smoke = new Smoke();
+					smoke.cameras = [camOther];
+					add(smoke);
+				}
+
+				songEvent = function()
+				{
+					smoke.startSoniCar();
+				}
+
+				changeBG = function()
+				{
+					GameOverSubstate.characterName = 'befe-moto';
+					GameOverSubstate.deathSoundName = 'moto-loss';
+					bgAnim.visible = true;
+					bgAnim.active = true;
+					bgAnim.dance();
+					gf.alpha = 0;
+					//remove(bg);
+					//grpSoniStage.kill();
+					remove(grpSoniStage);
+					grpSoniStage.destroy();
+					dadGroup.x = -168;
+					dadGroup.y = -13; //cuanto mas me la mamas mas me crece, aquí tiene pa que me la bese, entre más me la beses más me crece, busca un cura pa que me la rece, y trae un martillo pa que me la endereces, por el chiquito se te aparece toas las veces y cuando te estreses aquí te tengo éste pa que te desestreses, con este tallo el culo se te esflorece, se cumple el ciclo hasta que anochece, todos los días y todas las veces, de tanto entablar la raja del culo se te desaparece, porque este sable no se compadece, si pides ñapa se te ofrece, y si repites se te agradece, no te hace rico pero tampoco te empobrece, no te hace inteligente pero tampoco te embrutece, y no paro aquí compa que éste nuevamente se endurece, hasta que amanece, cambie esa cara que parece que se entristece, si te haces viejo éste te rejuvenece, no te hago bulla porque depronto te ensordece, y eso cuadro no te favorece, pero tranquilo que éste te abastece, porque allá abajo se te humedece, viendo como el que me cuelga resplandece, si a ti te da miedo a mí me enorgullece, y así toas las vece ¿que te parece?, y tranquilo mijo que aquí éste reaparece, no haga fuerza porque éste se sobrecrece, una fresadora te traigo pa que me la freses, así se fortalece y de nuevo la historia se establece, que no se te nuble la vista porque éste te la aclarece, y sino le entendiste nuevamente la explicación se te ofrece, pa que por el chiquito éste de nuevo te empiece... Aquí tienes para que me la beses, entre más me la beses más me crece, busca un cura para que me la rece, un martillo para que me la endereces, un chef para que me la aderece, 8000 pijas por el culo se te aparecen, si me la sobas haces que se me espese, si quieres la escaneas y te la llevas para que en tu hoja de vida la anexes, me culeo a tu maldita madre y qué te parece le meti la pija a tú mamá hace 9 meses y después la puse a escuchar René de Calle 13 Te la meto por debajo del agua como los peces, y aquella flor de pija que en tu culo crece
+					boyfriendGroup.x = 962;
+					boyfriendGroup.y = 77; //OMG I LOVE U YOSHI ENGINE STAGE EDITOR UWUWUUWU
 				}
 
 			case 'ou':
@@ -849,23 +860,11 @@ class PlayState extends MusicBeatState
 				var bg:FlxSprite = new FlxSprite().makeGraphic(5000,5000,FlxColor.WHITE);
 				add(bg);
 
-				/*var perg:BGSprite = new BGSprite('bil-letes/pergamine', gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
-				perg.visible = false;
-				add(perg);*/
-
-				var bilBeats:Int = 0;
-				curBeatSection = function()
+				songEvent = function()
 				{
-					bilBeats++;
-					if(Paths.formatToSongPath(SONG.song) == 'broken-reality')
-					{
-						switch(bilBeats)
-						{
-							case 223:
-								for (i in opponentStrums) {
-									FlxTween.tween(i, {alpha: 0}, 1.39, {ease: FlxEase.linear});
-								}
-						}
+					bilStarted = true;
+					for (i in opponentStrums) {
+						FlxTween.tween(i, {alpha: 0}, 1.39, {ease: FlxEase.linear});
 					}
 				}
 
@@ -1926,7 +1925,7 @@ class PlayState extends MusicBeatState
 				noteComboN1.frames = Paths.getSparrowAtlas('numbers');
 				//noteComboN1.scrollFactor.set(.5,.5);
 				noteComboN1.scale.set(camGame.zoom-0.01,camGame.zoom-0.01);
-				noteComboN1.x = noteCombo.x+70+i*160;
+				noteComboN1.x = noteCombo.x+70+160*i;
 				noteComboN1.y = noteCombo.y+110-i*50;
 				for (j in 0...10)
 				{
@@ -2979,6 +2978,15 @@ class PlayState extends MusicBeatState
 				funnyGlowParticles = new FlxTypedGroup<FunnyGlow.FunnyGlowParticle>();
 				funnyGlowParticles.visible = false;
 				insert(members.indexOf(funnyGlowGradient) + 1, funnyGlowParticles);
+
+			case 'Sex Mod':
+				precacheList.set('funny', 'image');
+				funny = new FlxSprite().loadGraphic(Paths.image('funny'));
+				funny.screenCenter();
+				funny.antialiasing = ClientPrefs.globalAntialiasing;
+				funny.alpha = 0;
+				funny.cameras = [camOther];
+				add(funny);
 		}
 
 		if(!eventPushedMap.exists(event.event)) {
@@ -3019,7 +3027,7 @@ class PlayState extends MusicBeatState
 	{
 		for (i in 0...4)
 		{
-			var targetAlpha:Float = 1;
+			var targetAlpha:Float = ClientPrefs.noteTransparencySoniNose;
 			if (player < 1)
 			{
 				if(!ClientPrefs.opponentStrums) targetAlpha = 0;
@@ -3047,7 +3055,7 @@ class PlayState extends MusicBeatState
 			else
 			{
 				modchartObjects.set("opponentStrum" + i, babyArrow);
-				if(ClientPrefs.middleScroll)
+				if(isMiddlescroll)
 				{
 					babyArrow.x += 310;
 					if(i > 1) { //Up and Right
@@ -3185,11 +3193,16 @@ class PlayState extends MusicBeatState
 	override public function onFocus():Void
 	{
 		#if desktop
-		if (health > 0 && !paused)
+		if (health > 0 && !paused  && ClientPrefs.autoPause)
 		{
 			if (Conductor.songPosition > 0.0)
 			{
-				DiscordClient.changePresence(detailsText, SONG.song, iconP2.getCharacter(), true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, SONG.song, 
+					iconP2.getCharacter(), 
+					true,
+					songLength
+					- Conductor.songPosition
+					- ClientPrefs.noteOffset);
 			}
 			else
 			{
@@ -3200,11 +3213,11 @@ class PlayState extends MusicBeatState
 
 		super.onFocus();
 	}
-	
+
 	override public function onFocusLost():Void
 	{
 		#if desktop
-		if (health > 0 && !paused)
+		if (health > 0 && !paused && ClientPrefs.autoPause)
 		{
 			DiscordClient.changePresence(detailsPausedText, SONG.song, iconP2.getCharacter());
 		}
@@ -3232,6 +3245,7 @@ class PlayState extends MusicBeatState
 
 	var bilY:Float = 1720;
 	var coverMeInPiss:Int;
+	var disappearHits:Int;
 
 	override public function update(elapsed:Float)
 	{
@@ -3273,6 +3287,10 @@ class PlayState extends MusicBeatState
 			var num:Int = noteHits % 10;
 			var num2:Int = Math.floor(noteHits / 10) % 10;
 			var num3:Int = Math.floor(noteHits / 100) % 10;
+
+			var disNum:Int = disappearHits%10;
+			var disNum2:Int = Math.floor(disappearHits/10)%10;
+			var disNum3:Int = Math.floor(disappearHits/100)%10;
 			//trace('1: $num 2: $num2 3: $num3');
 			/*seperatedNoteHits.push(noteHits % 10);
 			seperatedNoteHits.push(Math.floor(noteHits / 10) % 10);
@@ -3295,12 +3313,14 @@ class PlayState extends MusicBeatState
 
 						noteComboN2.visible = true;
 						noteComboN2.active = true;
+						noteComboN2.x = noteComboN1.x-noteComboN2.width+70;
 						noteComboN2.animation.play(Std.string(num2)+'a');
 
 						if(noteHits >= 100)
 						{
 							noteComboN3.visible = true;
 							noteComboN3.active = true;
+							noteComboN3.x = noteComboN2.x-noteComboN2.width+70;
 							noteComboN3.animation.play(Std.string(num3)+'a');
 						} else
 						{
@@ -3308,6 +3328,7 @@ class PlayState extends MusicBeatState
 							noteComboN3.active = false;
 						}
 
+						disappearHits = noteHits;
 						noteHits = 0;
 					}
 				}
@@ -3317,11 +3338,11 @@ class PlayState extends MusicBeatState
 			{
 				if(noteCombo.animation.curAnim.name == 'appear')
 				{
-					noteComboN1.animation.play('0d');
-					noteComboN2.animation.play('0d');
+					noteComboN1.animation.play('${Std.string(disNum)}d');
+					noteComboN2.animation.play('${Std.string(disNum2)}d');
 					if(noteComboN3.active)
 					{
-						noteComboN3.animation.play('0d'); //more juicy
+						noteComboN3.animation.play('${Std.string(disNum3)}d'); //more juicy
 					}
 				} else if(noteCombo.animation.curAnim.name == 'disappear')
 				{
@@ -3510,6 +3531,16 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		Application.current.window.onFocusOut.add(function(){focusing = false;}); //this pause the game when you minimize the window
+		Application.current.window.onFocusIn.add(function(){focusing = true;});
+
+		if(backOutfromPause && ClientPrefs.slowdownPause)
+		{
+			pitchChange(1,1);
+			backOutfromPause = false;
+		}
+		//trace(songPitch);
+
 		super.update(elapsed);
 
 		/*if(isDownscroll)
@@ -3564,7 +3595,7 @@ class PlayState extends MusicBeatState
 		/*if(FlxG.keys.justPressed.X)
 			bilHacks();*/
 
-		if (controls.PAUSE && startedCountdown && canPause)
+		if ((controls.PAUSE && startedCountdown && canPause) || (!focusing && startedCountdown))
 		{
 			var ret:Dynamic = callOnLuas('onPause', []);
 			if(ret != FunkinLua.Function_Stop) {
@@ -3611,8 +3642,8 @@ class PlayState extends MusicBeatState
 
 		var iconOffset:Int = 26;
 
-		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
-		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
+		iconP1.x = healthBar.x + boyfriend.daIconOffsets + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
+		iconP2.x = healthBar.x + dad.daIconOffsets + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
 
 		if (health > 2)
 			health = 2;
@@ -3751,7 +3782,7 @@ class PlayState extends MusicBeatState
 				strumAngle += daNote.offsetAngle;
 				strumAlpha *= daNote.multAlpha;
 
-				if((Paths.formatToSongPath(SONG.song) == 'scrapped-mouse' && curStep > 504 && curStep < 640) || (Paths.formatToSongPath(SONG.song) == 'broken-reality' && (curBeat > 224 && curBeat < 288))) //huh
+				if((Paths.formatToSongPath(SONG.song) == 'scrapped-mouse') || (Paths.formatToSongPath(SONG.song) == 'broken-reality')) //huh
 				{
 					for(i in 0...playerStrums.length)
 					{
@@ -4051,6 +4082,12 @@ class PlayState extends MusicBeatState
 		{
 			healthDisplay = v;
 		});
+	}
+
+	function pitchChange(amount:Float, time:Float)
+	{
+		pauseTween.cancel();
+		pauseTween = FlxTween.tween(this, {songPitch: songPitch+amount}, time, {ease: FlxEase.linear});
 	}
 
 	function openChartEditor()
@@ -4674,31 +4711,27 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'Spongebob':
+				precacheList.set('cryaboutit', 'image');
 				var cry:FlxSprite = new FlxSprite().loadGraphic(Paths.image('cryaboutit'));
 				cry.screenCenter();
 				cry.antialiasing = ClientPrefs.globalAntialiasing;
 				cry.alpha = 0;
 				cry.cameras = [camOther];
 				add(cry);
-				FlxTween.tween(cry, {alpha: 1}, 0.25, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){FlxTween.tween(cry, {alpha: 0}, 0.25, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){remove(cry);}});}});
+				FlxTween.tween(cry, {alpha: 1}, 0.25, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){FlxTween.tween(cry, {alpha: 0}, 0.25, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){cry.kill();remove(cry);cry.destroy();}});}});
 			
 			case 'Tais Sus':
 				dead.visible = true;
+				dead.active = true;
 				dead.animation.play('report');
-				FlxTween.tween(dead, {x: dead.x - (FlxG.width + dead.width)}, 0.3, {ease: FlxEase.smootherStepInOut, onComplete: function(twn:FlxTween){remove(dead);}, startDelay: 1.72});
+				FlxTween.tween(dead, {x: dead.x - (FlxG.width + dead.width)}, 0.3, {ease: FlxEase.smootherStepInOut, onComplete: function(twn:FlxTween){dead.kill();remove(dead);dead.destroy();}, startDelay: 1.72});
 
 			case 'Sex Mod':
-				var funny:FlxSprite = new FlxSprite().loadGraphic(Paths.image('funny'));
-				funny.screenCenter();
-				funny.antialiasing = ClientPrefs.globalAntialiasing;
-				funny.alpha = 0;
-				funny.cameras = [camOther];
-				add(funny);
-
-				FlxTween.tween(funny, {alpha: .3}, 27.43, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){FlxTween.tween(funny, {alpha: 0}, 1.34, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){remove(funny);}});}});
+				FlxTween.tween(funny, {alpha: .3}, 27.43, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){FlxTween.tween(funny, {alpha: 0}, 1.34, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween){funny.kill();remove(funny);funny.destroy();}});}});
 
 			case 'Bil Hacks':
-				bilHacks();
+				if(ClientPrefs.mechanics)
+					bilHacks();
 
 			case 'Bil Reset':
 				resetBil();
@@ -4973,6 +5006,9 @@ class PlayState extends MusicBeatState
 			case 'Song Event':
 				if(songEvent != null)
 					songEvent();
+			case 'Change BG':
+				if(changeBG != null)
+					changeBG();
 			case 'Movistar Effect':
 				#if (openfl >= "8.0.0")
 				elShader.data.uBlocksize.value = [value1, value1];
@@ -5120,6 +5156,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 	var bilStarted:Bool = false;
+	var bilAngle:Float = 0;
 	function bilHacks() {
 		for (i in opponentStrums)
 			i.alpha = 0;
@@ -5144,15 +5181,26 @@ class PlayState extends MusicBeatState
 		}
 		bilSucks = 0.015;
 		FlxTween.tween(this, {bilSucks: 0}, 0.07);
+		camHUD.angle = FlxG.random.float(-15, 15);
+		if(ClientPrefs.funnyShaders)
+			addShaderLmao('');
+		var randX:Int = FlxG.random.int(-25, 25);
+		var randY:Int = FlxG.random.int(-28, 28);
+		Lib.application.window.move(Lib.application.window.x + randX,Lib.application.window.y + randY);
+		new FlxTimer().start(0.2, function(tmr:FlxTimer)
+		{
+			Lib.application.window.move(Lib.application.window.x - randX,Lib.application.window.y - randY);
+		});
 		bilStarted = true;
 	}
 	function resetBil() {
+		camOther.flash(FlxColor.WHITE, 0.1);
 		for (i in opponentStrums)
 			if(ClientPrefs.opponentStrums)
 				if(isMiddlescroll)
 					i.alpha = 0.35;
 				else
-					i.alpha = 1;
+					i.alpha = ClientPrefs.noteTransparencySoniNose;
 		
 		playerStrums.members[0].x = defaultPlayerStrumX1;
 		playerStrums.members[1].x = defaultPlayerStrumX2;
@@ -5181,6 +5229,8 @@ class PlayState extends MusicBeatState
 		camGame.filtersEnabled = false;
 		camHUD.filtersEnabled = false;
 		camNotes.filtersEnabled = false;
+
+		camHUD.angle = 0;
 
 		isDownscroll = ClientPrefs.downScroll;
 	}
@@ -5216,6 +5266,23 @@ class PlayState extends MusicBeatState
 			0.06, 0.88, 0.18, 0, 0,
 			   0,    0,    0, 1, 0,
 		];
+		if(shad == '' || shad == null)
+		{
+			var randomize = FlxG.random.int(0,4);
+			switch(randomize)
+			{
+				case 0:
+					shad = 'gray';
+				case 1:
+					shad = 'invert';
+				case 2:
+					shad = 'deuter';
+				case 3:
+					shad = 'prota';
+				case 4:
+					shad = 'trita';
+			}
+		}
 		switch(shad)
 		{
 			case 'gray':
@@ -5228,21 +5295,6 @@ class PlayState extends MusicBeatState
 				shader = new ColorMatrixFilter(prota);
 			case 'trita':
 				shader = new ColorMatrixFilter(trita);
-			default:
-				var randomize = FlxG.random.int(0,4);
-				switch(randomize)
-				{
-					case 0:
-						shad = 'gray';
-					case 1:
-						shad = 'invert';
-					case 2:
-						shad = 'deuter';
-					case 3:
-						shad = 'prota';
-					case 4:
-						shad = 'trita';
-				}
 		}
 		filters.push(shader);
 	}

@@ -64,10 +64,9 @@ class LyricsSubState extends BaseOptionsMenu
 			'percent',
 			1);
 		option.scrollSpeed = 1.6;
-		option.minValue = 0.1;
+		option.minValue = 0.05;
 		option.maxValue = 1;
-		option.changeValue = 0.1;
-		option.decimals = 1;
+		option.changeValue = 0.05;
 		addOption(option);
 
 		super();

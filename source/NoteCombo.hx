@@ -10,7 +10,7 @@ class NoteCombo extends FlxSprite
 
         frames = Paths.getSparrowAtlas('Note_kombo_soni', 'shared');
         //scrollFactor.set(.5,.5);
-        scale.set(PlayState.instance.camGame.zoom-0.1,PlayState.instance.camGame.zoom-0.1);
+        scale.set(PlayState.instance.camGame.zoom,PlayState.instance.camGame.zoom);
         //screenCenter();
         //y += 300;
         //x -= 300;

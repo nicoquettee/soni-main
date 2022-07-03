@@ -47,6 +47,8 @@ class Note extends FlxSprite
 	public var gfNote:Bool = false;
 	private var earlyHitMult:Float = 0.5;
 
+	public var spawned:Bool = false;
+
 	//public static var swagWidth:Float = 160 * 0.7;
 	public static var PURP_NOTE:Int = 0;
 	public static var GREEN_NOTE:Int = 2;

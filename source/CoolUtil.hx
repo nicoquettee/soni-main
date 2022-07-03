@@ -142,4 +142,21 @@ class CoolUtil
 		FlxG.openURL(site);
 		#end
 	}
+
+	public static function joinFrames(joinedSprites:Array<String>, ?directory:String):flixel.graphics.frames.FlxAtlasFrames
+	{
+		var framesArray:Array<flixel.graphics.frames.FlxAtlasFrames> = [];
+		var returnFrames = Paths.getSparrowAtlas(joinedSprites[0], directory);
+		joinedSprites.remove(joinedSprites[0]);
+		for (sprite in joinedSprites)
+			framesArray.push(Paths.getSparrowAtlas(sprite, directory));
+
+		for (sprite in framesArray)
+		{
+			for (frame in sprite.frames)
+				returnFrames.pushFrame(frame);
+		}
+
+		return returnFrames;
+	}
 }

@@ -131,7 +131,7 @@ class StrumNote extends FlxSprite
 		if (player == 1)
 		{
 			x = FlxG.width - Note.swagWidth() * 4 - xdis;
-			if (ClientPrefs.middleScroll)
+			if (PlayState.isMiddlescroll)
 			{
 				x = FlxG.width / 2 - Note.swagWidth() * 2;
 			}

@@ -143,6 +143,10 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		{
 			changeSelection(1);
 		}
+		if(FlxG.mouse.wheel != 0)
+		{
+			changeSelection(-FlxG.mouse.wheel);
+		}
 
 		if (controls.BACK) {
 			close();
@@ -337,7 +341,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			boyfriend.destroy();
 		}
 
-		boyfriend = new Character(840, 170, 'bf', true);
+		boyfriend = new Character(840, 170, 'befe', true);
 		boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
 		boyfriend.updateHitbox();
 		boyfriend.dance();

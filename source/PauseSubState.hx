@@ -14,13 +14,14 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.FlxCamera;
 import flixel.util.FlxStringUtil;
+import flixel.effects.FlxFlicker;
 
 class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Go To Options', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Go To Options', 'Toggle Botplay', 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -51,6 +52,18 @@ class PauseSubState extends MusicBeatSubstate
 			menuItemsOG.insert(3 + num, 'End Song');
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
 			menuItemsOG.insert(5 + num, 'Toggle Botplay');
+		}
+		if(TitleState.isDebug)
+		{
+			var num:Int = 0;
+			if(!PlayState.instance.startingSong)
+			{
+				num = 1;
+				menuItemsOG.insert(2, 'Skip Time');
+			}
+			menuItemsOG.insert(2 + num, 'End Song');
+			menuItemsOG.insert(3 + num, 'Toggle Practice Mode');
+			menuItemsOG.insert(4 + num, 'Toggle Botplay');
 		}
 		menuItems = menuItemsOG;
 
@@ -210,7 +223,31 @@ class PauseSubState extends MusicBeatSubstate
 			switch (daSelected)
 			{
 				case "Resume":
-					close();
+					FlxG.sound.play(Paths.sound('confirmMenu'));
+					grpMenuShit.forEach(function(spr:Alphabet)
+						{
+							if(curSelected != spr.ID)
+							{
+								FlxTween.tween(spr, {alpha: 0}, 0.4, {
+									ease: FlxEase.quadOut,
+									onComplete: function(twn:FlxTween)
+									{
+										spr.kill();
+									}
+								});
+							}
+							else
+							{
+								FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+								{
+									PlayState.instance.backOutfromPause = true;
+									if(ClientPrefs.slowdownPause)
+										PlayState.instance.songPitch = 0;
+									close();
+								});
+							}
+						}
+					);
 				case 'Change Difficulty':
 					menuItems = difficultyChoices;
 					regenMenu();
@@ -342,6 +379,7 @@ class PauseSubState extends MusicBeatSubstate
 			var item = new Alphabet(0, 70 * i + 30, menuItems[i], true, false);
 			item.isMenuItem = true;
 			item.targetY = i;
+			item.ID = i;
 			grpMenuShit.add(item);
 
 			if(menuItems[i] == 'Skip Time')

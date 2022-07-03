@@ -37,6 +37,7 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 import haxe.macro.Context;
+import ColorblindFilters;
 
 using StringTools;
 typedef TitleData =
@@ -224,6 +225,8 @@ class TitleState extends MusicBeatState
 
 	function startIntro()
 	{
+		ColorblindFilters.applyFiltersOnGame();
+		FlxG.autoPause = ClientPrefs.autoPause;
 		if (!initialized)
 		{
 			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);

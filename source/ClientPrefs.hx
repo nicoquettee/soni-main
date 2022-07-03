@@ -37,6 +37,8 @@ class ClientPrefs {
 	public static var pauseMusic:String = 'Tea Time';
 	public static var funnyShaders:Bool = true;
 	public static var noteScale:Float = 1;
+	public static var noteTransparencySoniNose:Float = 1;
+	public static var mechanics:Bool = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -64,6 +66,10 @@ class ClientPrefs {
 	public static var goodWindow:Int = 90;
 	public static var badWindow:Int = 135;
 	public static var safeFrames:Float = 10;
+
+	public static var autoPause:Bool = false;
+	public static var colorblindMode:String = 'None';
+	public static var slowdownPause:Bool = true;
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -140,6 +146,13 @@ class ClientPrefs {
 		FlxG.save.data.lyricsAlpha = lyricsAlpha;
 
 		FlxG.save.data.noteScale = noteScale;
+		FlxG.save.data.noteTransparencySoniNose = noteTransparencySoniNose;
+
+		FlxG.save.data.mechanics = mechanics;
+
+		FlxG.save.data.autoPause = autoPause;
+		FlxG.save.data.colorblindMode = colorblindMode;
+		FlxG.save.data.slowdownPause = slowdownPause;
 	
 		FlxG.save.flush();
 
@@ -266,6 +279,21 @@ class ClientPrefs {
 		}
 		if (FlxG.save.data.noteScale != null) {
 			noteScale = FlxG.save.data.noteScale;
+		}
+		if (FlxG.save.data.noteTransparencySoniNose != null) {
+			noteTransparencySoniNose = FlxG.save.data.noteTransparencySoniNose;
+		}
+		if (FlxG.save.data.mechanics != null) {
+			mechanics = FlxG.save.data.mechanics;
+		}
+		if(FlxG.save.data.autoPause != null) {
+			autoPause = FlxG.save.data.autoPause;
+		}
+		if(FlxG.save.data.colorblindMode != null) {
+			colorblindMode = FlxG.save.data.colorblindMode;
+		}
+		if(FlxG.save.data.slowdownPause != null) {
+			slowdownPause = FlxG.save.data.slowdownPause;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{

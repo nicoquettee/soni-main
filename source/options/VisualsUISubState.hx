@@ -24,6 +24,7 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
+import ColorblindFilters;
 
 using StringTools;
 
@@ -46,6 +47,15 @@ class VisualsUISubState extends BaseOptionsMenu
 			'hideHud',
 			'bool',
 			false);
+		addOption(option);
+
+		var option:Option = new Option('Colorblind Filter:',
+			'If you are a colorblind person take care to enable this.',
+			'colorblindMode',
+			'string',
+			'None', 
+			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
+		option.onChange = ColorblindFilters.applyFiltersOnGame;
 		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',

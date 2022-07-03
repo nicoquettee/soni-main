@@ -411,6 +411,13 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 
+		if(FlxG.mouse.wheel != 0)
+		{
+			FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
+			changeSelection(-shiftMult * FlxG.mouse.wheel, false);
+			changeDiff();
+		}
+
 		if (controls.UI_LEFT_P)
 			changeDiff(-1);
 		else if (controls.UI_RIGHT_P)

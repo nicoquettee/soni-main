@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "SHAWN-IDLE",
-			"indices": []
+			"indices": [],
+			"name": "SHAWN-IDLE"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				166,
-				38
+				199,
+				45
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Shawn Left",
-			"indices": []
+			"indices": [],
+			"name": "Shawn Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				1,
-				-39
+				5,
+				-45
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Shawn-down pose",
-			"indices": []
+			"indices": [],
+			"name": "Shawn-down pose"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				30,
-				110
+				29,
+				123
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "shawn up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "shawn up"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-21,
+				-26,
 				-3
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Shawn Right pose",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Shawn Right pose"
 		}
 	],
 	"no_antialiasing": false,
@@ -73,6 +73,6 @@
 		0,
 		0
 	],
-	"sing_duration": 6.1,
-	"scale": 1
+	"sing_duration": 4.00000000000001,
+	"scale": 1.2
 }

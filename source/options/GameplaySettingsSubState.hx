@@ -56,13 +56,21 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
-		var option:Option = new Option('Notes Scale', 'Changes how big the HUD receptors and notes are.\nDefault is 1.',
+		var option:Option = new Option('Notes Scale:', 'Changes how big the HUD receptors and notes are.\nDefault is 1',
 		'noteScale', 'float', 1.0);
 		option.displayFormat = 'x%v';
 		option.scrollSpeed = 20;
 		option.changeValue = 0.1;
-		option.minValue = 0.6;
+		option.minValue = 0.8;
 		option.maxValue = 1.2;
+		addOption(option); //sexo
+
+		var option:Option = new Option('Notes Transparency:', 'Changes how transparent the HUD receptors and notes are.\nDefault is 1',
+		'noteTransparencySoniNose', 'percent', 1);
+		option.scrollSpeed = 1.6;
+		option.changeValue = 0.05;
+		option.minValue = 0.5;
+		option.maxValue = 1;
 		addOption(option); //sexo
 
 		var option:Option = new Option('Opponent Notes',
@@ -72,11 +80,34 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Enable Mechanics',
+			'If unchecked, mechanics and modcharts will be turned off.',
+			'mechanics',
+			'bool',
+			true);
+		addOption(option);
+
+		var option:Option = new Option('Slow Down Pause',
+			'If checked, when you resume the game after pause it the song will be relentized 1 second.',
+			'slowdownPause',
+			'bool',
+			true);
+		option.onChange = reloadAutopause;
+		addOption(option);
+
 		var option:Option = new Option('Ghost Tapping',
 			"If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.",
 			'ghostTapping',
 			'bool',
 			true);
+		addOption(option);
+
+		var option:Option = new Option('Auto Pause',
+			'If checked, the game will stop when minimizing the window.',
+			'autoPause',
+			'bool',
+			true);
+		option.onChange = reloadAutopause;
 		addOption(option);
 
 		var option:Option = new Option('Disable Reset Button',
@@ -153,5 +184,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		super();
+	}
+
+	function reloadAutopause() {
+		FlxG.autoPause = ClientPrefs.autoPause;
+	}
+
+	public function reloadBotplay(value:Dynamic)
+	{
+		ClientPrefs.gameplaySettings.set('botplay', value);
 	}
 }
