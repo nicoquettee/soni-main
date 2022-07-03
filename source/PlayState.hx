@@ -446,9 +446,6 @@ class PlayState extends MusicBeatState
 		isDownscroll = ClientPrefs.downScroll;
 		isMiddlescroll = ClientPrefs.middleScroll;
 
-		if(Paths.formatToSongPath(SONG.song) == 'scrapped-mouse')
-			isMiddlescroll = true;
-
 		// For the "Just the Two of Us" achievement
 		for (i in 0...keysArray.length)
 		{
@@ -465,6 +462,9 @@ class PlayState extends MusicBeatState
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
 		mechanics = ClientPrefs.mechanics;
+
+		if(Paths.formatToSongPath(SONG.song) == 'scrapped-mouse' && mechanics)
+			isMiddlescroll = true;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();

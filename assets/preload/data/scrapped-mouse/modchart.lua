@@ -15,6 +15,10 @@ local songPos;
 function onUpdate(elapsed)
 	songPos = getSongPosition()
 	--setProperty('health', 2);
+	if mechanics == true then
+		setProperty('healthGain', 1.5);
+		setProperty('healthLoss', 0.5);
+	end
 end
 
 function onStepHit()
@@ -31,7 +35,7 @@ function onStepHit()
 			noteTweenX('Movement X 6', 6, defaultOpponentStrumX2, 7.38, 'quadOut')
 			noteTweenX('Movement X 7', 7, defaultOpponentStrumX3, 7.38, 'quadOut')
 			for i = 4,7 do noteTweenAlpha('Alpha ' .. i, i, 0.35, 7.38, 'quadOut') end
-			for j = 0,3 do noteTweenAlpha('Alpha ' .. j, j, 1, 7.38, 'quadOut') end
+			for j = 0,3 do for i = 4,7 do noteTweenAlpha('Alpha ' .. j, j, defaultNotePos[i+1][3], 7.38, 'quadOut') end end
 		end
 		if curStep == 188 then
 			noteTweenX('Movement X 0', 0, defaultOpponentStrumX0, 0.46, 'quadOut')
@@ -49,7 +53,7 @@ function onStepHit()
 				noteTweenAlpha('Alpha ' .. j, j, 0.35, 0.46, 'quadOut')
 			end
 			for k = 4,7 do 
-				noteTweenAlpha('Alpha ' .. k, k, 1, 0.46, 'quadOut')
+				noteTweenAlpha('Alpha ' .. k, k, defaultNotePos[k+1][3], 0.46, 'quadOut')
 			end
 		end
 		if curStep == 252 then
@@ -62,7 +66,7 @@ function onStepHit()
 			end
 			for i = 0,3 do
 				noteTweenAngle('Angle ' .. i, i, 0, 0.46)
-				noteTweenAlpha('Alpha ' .. i, i, 1, 0.46, 'quadOut')
+				for j = 4,7 do noteTweenAlpha('Alpha ' .. i, i, defaultNotePos[j+1][3], 0.46, 'quadOut') end
 			end
 		end
 		if curStep == 316 then
@@ -80,8 +84,6 @@ function onStepHit()
 			noteTweenY('Movement Y 3', 3, (downscroll and defaultNotePos[3 + 1][2]-50 or defaultNotePos[3 + 1][2]+50), 0.46, 'quadOut') 
 			noteTweenAngle('Angle 3', 3, (downscroll and -25 or 25), 0.46)
 			noteTweenAngle('Angle 0', 0, 25, 0.46)
-			noteTweenDirection('Dir 3', 3, (downscroll and 25 or -25), 0.46)
-			noteTweenDirection('Dir 0', 0, 25, 0.46)
 		end
 		if curStep == 504 then
 			for i = 0,3 do
@@ -91,8 +93,7 @@ function onStepHit()
 				noteTweenX('Movement X 2', 2, defaultPlayerStrumX2, 0.46, 'quadOut')
 				noteTweenX('Movement X 3', 3, defaultPlayerStrumX3, 0.46, 'quadOut')
 				noteTweenY('Movement Y '..i, i, (downscroll and 50 or 570), 0.46, 'quadOut')
-				noteTweenAlpha('Alpha ' .. i, i, 1, 0.46, 'quadOut')
-				noteTweenDirection('Dir '..i, i, 90, 0.46)
+				for j = 4,7 do noteTweenAlpha('Alpha ' .. i, i, defaultNotePos[j+1][3], 0.46, 'quadOut') end
 			end
 		end
 		if curStep == 576 then
@@ -136,7 +137,7 @@ function onStepHit()
 		end
 		if curStep == 702 then 
 			for i = 4,7 do noteTweenAlpha('Alpha ' .. i, i, 0, 0.23, 'quadOut') end
-			for i = 0,3 do noteTweenAlpha('Alpha ' .. i, i, 1, 0.23, 'quadOut') end
+			for i = 0,3 do for j = 4,7 do noteTweenAlpha('Alpha ' .. i, i, defaultNotePos[j+1][3], 0.23, 'quadOut') end end
 		end
 		if curStep == 716 then
 			noteTweenX('Movement X 4', 4, defaultPlayerStrumX0, 0.00001, 'quadOut') 
@@ -145,7 +146,7 @@ function onStepHit()
 			noteTweenX('Movement X 7', 7, defaultPlayerStrumX3, 0.00001, 'quadOut') 
 		end
 		if curStep == 732 then
-			for i = 4,7 do noteTweenAlpha('Alpha ' .. i, i, 1, 0.46, 'quadOut') end
+			for i = 4,7 do noteTweenAlpha('Alpha ' .. i, i, defaultNotePos[i+1][3], 0.46, 'quadOut') end
 			for i = 0,3 do noteTweenAlpha('Alpha ' .. i, i, 0, 0.46, 'quadOut') end
 		end
 		if curStep == 748 then
