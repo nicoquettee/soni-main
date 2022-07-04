@@ -37,7 +37,7 @@ class ClientPrefs {
 	public static var pauseMusic:String = 'Tea Time';
 	public static var funnyShaders:Bool = true;
 	public static var noteScale:Float = 1;
-	public static var noteTransparencySoniNose:Float = 1;
+	public static var noteTransparencySoniNose:Float = 0.75;
 	public static var mechanics:Bool = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,

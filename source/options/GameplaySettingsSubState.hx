@@ -65,11 +65,11 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.maxValue = 1.2;
 		addOption(option); //sexo
 
-		var option:Option = new Option('Notes Transparency:', 'Changes how transparent the HUD receptors and notes are.\nDefault is 1',
-		'noteTransparencySoniNose', 'percent', 1);
+		var option:Option = new Option('Notes Transparency:', 'Changes how transparent the HUD receptors and notes are.\nDefault is 75%',
+		'noteTransparencySoniNose', 'percent', 0.75);
 		option.scrollSpeed = 1.6;
 		option.changeValue = 0.05;
-		option.minValue = 0.5;
+		option.minValue = 0.35;
 		option.maxValue = 1;
 		addOption(option); //sexo
 

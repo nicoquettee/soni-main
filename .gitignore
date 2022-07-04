@@ -4,6 +4,8 @@ APIStuff.hx
 art/build_x32-officialrelease.bat
 art/build_x64-officialrelease.bat
 art/test_x64-debug-officialrelease.bat
+# File used for the GJ API. Should not be shared with others.
+source/GJKeys.hx
 
 ### VS Code
 export/*

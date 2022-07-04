@@ -162,7 +162,7 @@ class PlayState extends MusicBeatState
 	public var playerStrums:FlxTypedGroup<StrumNote>;
 	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 
-	public var camZooming:Bool = false;
+	public var camZooming:Bool = true;
 	private var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
@@ -358,6 +358,9 @@ class PlayState extends MusicBeatState
 	var funnyGlowGradient:FunnyGlow.FunnyGlowGradient;
 	var funnyGlowParticles:FlxTypedGroup<FunnyGlow.FunnyGlowParticle>;
 	var particleSufix:String = '';
+	var camSwaymult:Float = 1;
+	var box:Float = 100;
+	var boy:Float = 100;
 
 	//sasses?!?!?!
 	var shader2:BitmapFilter;
@@ -609,6 +612,8 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'werhog':
+				boy = 60;
+
 				var bg:BGSprite = new BGSprite('werhog/Sky_Werhog', -500, -400, .3, .3);
 				add(bg);
 
@@ -741,24 +746,26 @@ class PlayState extends MusicBeatState
 					dadGroup.y = -13; //cuanto mas me la mamas mas me crece, aquí tiene pa que me la bese, entre más me la beses más me crece, busca un cura pa que me la rece, y trae un martillo pa que me la endereces, por el chiquito se te aparece toas las veces y cuando te estreses aquí te tengo éste pa que te desestreses, con este tallo el culo se te esflorece, se cumple el ciclo hasta que anochece, todos los días y todas las veces, de tanto entablar la raja del culo se te desaparece, porque este sable no se compadece, si pides ñapa se te ofrece, y si repites se te agradece, no te hace rico pero tampoco te empobrece, no te hace inteligente pero tampoco te embrutece, y no paro aquí compa que éste nuevamente se endurece, hasta que amanece, cambie esa cara que parece que se entristece, si te haces viejo éste te rejuvenece, no te hago bulla porque depronto te ensordece, y eso cuadro no te favorece, pero tranquilo que éste te abastece, porque allá abajo se te humedece, viendo como el que me cuelga resplandece, si a ti te da miedo a mí me enorgullece, y así toas las vece ¿que te parece?, y tranquilo mijo que aquí éste reaparece, no haga fuerza porque éste se sobrecrece, una fresadora te traigo pa que me la freses, así se fortalece y de nuevo la historia se establece, que no se te nuble la vista porque éste te la aclarece, y sino le entendiste nuevamente la explicación se te ofrece, pa que por el chiquito éste de nuevo te empiece... Aquí tienes para que me la beses, entre más me la beses más me crece, busca un cura para que me la rece, un martillo para que me la endereces, un chef para que me la aderece, 8000 pijas por el culo se te aparecen, si me la sobas haces que se me espese, si quieres la escaneas y te la llevas para que en tu hoja de vida la anexes, me culeo a tu maldita madre y qué te parece le meti la pija a tú mamá hace 9 meses y después la puse a escuchar René de Calle 13 Te la meto por debajo del agua como los peces, y aquella flor de pija que en tu culo crece
 					boyfriendGroup.x = 962;
 					boyfriendGroup.y = 77; //OMG I LOVE U YOSHI ENGINE STAGE EDITOR UWUWUUWU
+					box = 350;
+					boy = -10;
 				}
 
 			case 'ou':
 				GameOverSubstate.characterName = 'befe-ou';
 				GameOverSubstate.deathSoundName = 'loss_troll';
 
-				var bg:BGSprite = new BGSprite('ou/ou-back', -650, -600, .8,.8);
+				var bg:BGSprite = new BGSprite('ou/ou-back', -650, -590, .8,.8);
 				add(bg);
 
-				var floor:BGSprite = new BGSprite('ou/ou-floor', -650, -550, 1,1);
+				var floor:BGSprite = new BGSprite('ou/ou-floor', -650, -540, 1,1);
 				add(floor);
 
-				var guy1:BGSprite = new BGSprite('ou/CharacterOu1', -250, 350, .9,.9, ['Character_Ou_2']);
+				var guy1:BGSprite = new BGSprite('ou/CharacterOu1', -250, 340, .9,.9, ['Character_Ou_2']);
 				//guy1.dance();
 				guy1.scale.set(1.3,1.3);
 				add(guy1);
 
-				var guy2:BGSprite = new BGSprite('ou/CharacterOu2', 1800, 300, .9,.9, ['Character_Ou_1']);
+				var guy2:BGSprite = new BGSprite('ou/CharacterOu2', 1800, 310, .9,.9, ['Character_Ou_1']);
 				guy2.scale.set(1.3,1.3);
 				add(guy2);
 
@@ -860,6 +867,8 @@ class PlayState extends MusicBeatState
 				var bg:FlxSprite = new FlxSprite().makeGraphic(5000,5000,FlxColor.WHITE);
 				add(bg);
 
+				camSwaymult = 2.5;
+
 				songEvent = function()
 				{
 					bilStarted = true;
@@ -906,6 +915,7 @@ class PlayState extends MusicBeatState
 				GameOverSubstate.characterName = 'drawe-befe';
 				GameOverSubstate.deathSoundName = 'loss_drawe';
 				GameOverSubstate.endSoundName = 'accept_drawe';
+				box = 450;
 
 				var white:FlxSprite = new FlxSprite(-1500,-730).makeGraphic(5000,3840,FlxColor.WHITE);
 				add(white);
@@ -1011,6 +1021,7 @@ class PlayState extends MusicBeatState
 			case 'shawn':
 				var directory:String = 'shawn/';
 				var pelotudo:String = '_pelotudo';
+				box = 120;
 
 				var sky:BGSprite = new BGSprite('${directory}Cielo$pelotudo', -610, -405, .3, .3);
 				add(sky);
@@ -1942,7 +1953,7 @@ class PlayState extends MusicBeatState
 				noteComboN2.frames = Paths.getSparrowAtlas('numbers');
 				//noteComboN2.scrollFactor.set(.5,.5);
 				noteComboN2.scale.set(camGame.zoom-0.01,camGame.zoom-0.01);
-				noteComboN2.x = noteComboN1.x-noteComboN2.width+70;
+				noteComboN2.x = noteComboN1.x-450+2*160;
 				noteComboN2.y = noteComboN1.y+20;
 				for (j in 0...10)
 				{
@@ -1959,7 +1970,7 @@ class PlayState extends MusicBeatState
 				noteComboN3.frames = Paths.getSparrowAtlas('numbers');
 				//noteComboN3.scrollFactor.set(.5,.5);
 				noteComboN3.scale.set(camGame.zoom-0.01,camGame.zoom-0.01);
-				noteComboN3.x = noteComboN2.x-noteComboN2.width+70;
+				noteComboN3.x = noteComboN2.x-450+3*160;
 				noteComboN3.y = noteComboN2.y+20;
 				for (j in 0...10)
 				{
@@ -3313,14 +3324,14 @@ class PlayState extends MusicBeatState
 
 						noteComboN2.visible = true;
 						noteComboN2.active = true;
-						noteComboN2.x = noteComboN1.x-noteComboN2.width+70;
+						//noteComboN2.x = noteComboN1.x-noteComboN2.width+70;
 						noteComboN2.animation.play(Std.string(num2)+'a');
 
 						if(noteHits >= 100)
 						{
 							noteComboN3.visible = true;
 							noteComboN3.active = true;
-							noteComboN3.x = noteComboN2.x-noteComboN2.width+70;
+							//noteComboN3.x = noteComboN2.x-noteComboN2.width+70;
 							noteComboN3.animation.play(Std.string(num3)+'a');
 						} else
 						{
@@ -5414,7 +5425,7 @@ class PlayState extends MusicBeatState
 		timeTxt.visible = false;
 		canPause = false;
 		endingSong = true;
-		camZooming = false;
+		camZooming = true;
 		inCutscene = false;
 		updateTime = false;
 
@@ -6107,8 +6118,27 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
-		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
-			camZooming = true;
+		var camSwayX:Float = 0;
+		var camSwayY:Float = 0;
+		
+		switch (note.noteData)
+		{
+			case 0:
+				camSwayX = -20 * camSwaymult;
+			case 1:
+				camSwayY = 20 * camSwaymult;
+			case 2:
+				camSwayY = -20 * camSwaymult;
+			case 3:
+				camSwayX = 20 * camSwaymult;
+		}
+
+		if (curStep >= 1 && !SONG.notes[Math.floor(curStep / 16)].mustHitSection)
+		{
+			isCameraOnForcedPos = true;
+			camFollow.x = dad.getMidpoint().x + 150 + dad.cameraPosition[0] + camSwayX;
+			camFollow.y = dad.getMidpoint().y - 100 + dad.cameraPosition[1] + camSwayY;
+		}
 
 		if(note.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
 			dad.playAnim('hey', true);
@@ -6196,6 +6226,28 @@ class PlayState extends MusicBeatState
 			healthChange((note.hitHealth * 1) * healthGain);
 
 			if(!note.noAnimation) {
+				var camSwayX:Float = 0;
+				var camSwayY:Float = 0;
+	
+				switch (note.noteData)
+				{
+					case 0:
+						camSwayX = -20 * camSwaymult;
+					case 1:
+						camSwayY = 20 * camSwaymult;
+					case 2:
+						camSwayY = -20 * camSwaymult;
+					case 3:
+						camSwayX = 20 * camSwaymult;
+				}
+
+				if (curStep >= 1 && SONG.notes[Math.floor(curStep / 16)].mustHitSection)
+				{
+					isCameraOnForcedPos = true;
+					camFollow.x = boyfriend.getMidpoint().x - box - boyfriend.cameraPosition[0] + camSwayX;
+					camFollow.y = boyfriend.getMidpoint().y - boy + boyfriend.cameraPosition[1] + camSwayY;
+				}
+
 				var daAlt = '';
 				if(note.noteType == 'Alt Animation') daAlt = '-alt';
 	
@@ -6577,10 +6629,12 @@ class PlayState extends MusicBeatState
 		if (curBeat % boyfriend.danceEveryNumBeats == 0 && boyfriend.animation.curAnim != null && !boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.stunned)
 		{
 			boyfriend.dance();
+			isCameraOnForcedPos = false;
 		}
 		if (curBeat % dad.danceEveryNumBeats == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 		{
 			dad.dance();
+			isCameraOnForcedPos = false;
 		}
 
 		switch (curStage)

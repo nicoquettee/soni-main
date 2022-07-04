@@ -19,6 +19,7 @@ import sys.io.File;
 import sys.io.Process;
 import lime.app.Application;
 import haxe.io.Path;
+import GameJolt;
 
 class Main extends Sprite
 {
@@ -33,6 +34,7 @@ class Main extends Sprite
 	public static var noteWidth:Float = 160;
 	public static var noteDefScale:Float = 0.7;
 	var focusMusicTween:FlxTween;
+	public static var gjToastManager:GJToastManager; //gamejolt 
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -66,7 +68,7 @@ class Main extends Sprite
 		// Lower global volume when unfocused
 		if (focusMusicTween != null)
 			focusMusicTween.cancel();
-		focusMusicTween = FlxTween.tween(FlxG.sound, {volume: 0.1}, 0.5);
+		focusMusicTween = FlxTween.tween(FlxG.sound, {volume: 0.05}, 0.5);
 	}
 
 	function onWindowFocusIn()
@@ -130,6 +132,9 @@ class Main extends Sprite
 		#if html5
 		FlxG.mouse.visible = false;
 		#end
+
+		gjToastManager = new GJToastManager(); //gamejolt
+		addChild(gjToastManager);
 	}
 
 	function onCrash(e:UncaughtErrorEvent):Void

@@ -38,6 +38,7 @@ import lime.app.Application;
 import openfl.Assets;
 import haxe.macro.Context;
 import ColorblindFilters;
+import GameJolt.GameJoltAPI;
 
 using StringTools;
 typedef TitleData =
@@ -86,6 +87,9 @@ class TitleState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+		GameJoltAPI.connect();
+		GameJoltAPI.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
 
 		/*var http = new haxe.Http("https://ipinfo.io/json");
         http.onData = function (data:String) {
