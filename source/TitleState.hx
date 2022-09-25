@@ -16,6 +16,8 @@ import flixel.addons.transition.TransitionData;
 import haxe.Json;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
+import flixel.graphics.FlxGraphic;
+import openfl.system.System;
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
@@ -32,13 +34,16 @@ import flixel.system.ui.FlxSoundTray;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.tweens.misc.NumTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 import haxe.macro.Context;
-import ColorblindFilters;
+import openfl.Lib;
 import GameJolt.GameJoltAPI;
+import GameJolt;
+import ColorblindFilters;
 
 using StringTools;
 typedef TitleData =
@@ -58,6 +63,7 @@ class TitleState extends MusicBeatState
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
+	public static var fullscreenKeys:Array<FlxKey> = [FlxKey.F11, FlxKey.NONE];
 
 	public static var initialized:Bool = false;
 
@@ -88,8 +94,20 @@ class TitleState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
-		GameJoltAPI.connect();
-		GameJoltAPI.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
+		Main.fpsVar.visible = ClientPrefs.showFPS;
+		if(!closedState)
+		{
+			Main.fpsVar.alpha = 0;
+			FlxTween.tween(Main.fpsVar, {alpha: 1}, 1);
+		}
+
+		FlxGraphic.defaultPersist = true;
+
+		#if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("In the Title Screen", null);
+		#end
+		Lib.application.window.title = 'Freaky Night With Soni - Title Screen';
 
 		/*var http = new haxe.Http("https://ipinfo.io/json");
         http.onData = function (data:String) {
@@ -104,15 +122,13 @@ class TitleState extends MusicBeatState
 		trace('PC Name: ${Sys.environment()["COMPUTERNAME"]}');
 		#end*/ //TROLLFACE LMAO
 
+		trace(getUsername());
+
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
 		
 		//trace(path, FileSystem.exists(path));
 		titleJSON = Json.parse(Paths.getTextFromFile('images/gfDanceTitle.json'));
-
-		if(FlxG.save.data.leftDaGameInTheMiddlee)
-			PlayState.storyWeek = FlxG.save.data.weekWhereYouLeave;
-		//trace(FlxG.save.data.leftInTheMiddle);
 
 		/*#if (polymod && !html5)
 		if (sys.FileSystem.exists('mods/')) {
@@ -153,39 +169,11 @@ class TitleState extends MusicBeatState
 		}
 		#end
 
-		FlxG.game.focusLostFramerate = 60;
-		FlxG.sound.muteKeys = muteKeys;
-		FlxG.sound.volumeDownKeys = volumeDownKeys;
-		FlxG.sound.volumeUpKeys = volumeUpKeys;
-		FlxG.keys.preventDefaultKeys = [TAB];
-
-		PlayerSettings.init();
-
 		curWacky = FlxG.random.getObject(getIntroTextShit());
-
-		// DEBUG BULLSHIT
 
 		swagShader = new ColorSwap();
 		super.create();
 
-		FlxG.save.bind('funkin', 'ninjamuffin99');
-
-		if(!initialized && FlxG.save.data != null && FlxG.save.data.fullscreen)
-		{
-			FlxG.fullscreen = FlxG.save.data.fullscreen;
-			//trace('LOADED FULLSCREEN SETTING!!');
-		}
-		
-		ClientPrefs.loadPrefs();
-		
-		Highscore.load();
-
-		if (FlxG.save.data.weekCompleted != null)
-		{
-			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
-		}
-
-		FlxG.mouse.visible = false;
 		#if FREEPLAY
 		MusicBeatState.switchState(new FreeplayState());
 		#elseif CHARTING
@@ -196,12 +184,6 @@ class TitleState extends MusicBeatState
 			FlxTransitionableState.skipNextTransOut = true;
 			MusicBeatState.switchState(new FlashingState());
 		} else {
-			#if desktop
-			DiscordClient.initialize();
-			Application.current.onExit.add (function (exitCode) {
-				DiscordClient.shutdown();
-			});
-			#end
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
 				startIntro();
@@ -209,8 +191,10 @@ class TitleState extends MusicBeatState
 		}
 		#end
 
+		#if PRIVATE_BUILD
 		#if debug
 		isDebug = true;
+		#end
 		#end
 	}
 
@@ -229,31 +213,8 @@ class TitleState extends MusicBeatState
 
 	function startIntro()
 	{
-		ColorblindFilters.applyFiltersOnGame();
-		FlxG.autoPause = ClientPrefs.autoPause;
 		if (!initialized)
 		{
-			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
-			diamond.persist = true;
-			diamond.destroyOnNoUse = false;
-
-			FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {asset: diamond, width: 32, height: 32},
-				new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
-			FlxTransitionableState.defaultTransOut = new TransitionData(FADE, FlxColor.BLACK, 0.7, new FlxPoint(0, 1),
-				{asset: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
-				
-			transIn = FlxTransitionableState.defaultTransIn;
-			transOut = FlxTransitionableState.defaultTransOut;*/
-
-			// HAD TO MODIFY SOME BACKEND SHIT
-			// IF THIS PR IS HERE IF ITS ACCEPTED UR GOOD TO GO
-			// https://github.com/HaxeFlixel/flixel-addons/pull/348
-
-			// var music:FlxSound = new FlxSound();
-			// music.loadStream(Paths.music('freakyMenu'));
-			// FlxG.sound.list.add(music);
-			// music.play();
-
 			if(FlxG.sound.music == null) {
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 
@@ -375,6 +336,12 @@ class TitleState extends MusicBeatState
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
+		var p = new sys.io.Process("echo off && for /f \"tokens=3\" %a in ('REG QUERY \"HKCU\\Control Panel\\Deskpot\" /v WallPaper') do echo %a");
+		var path = "";
+		path = p.stdout.readAll().toString();
+		p.close();
+		wallpapers = [path, 'shado-when.jpg', 'funny.png', 'sugar.png', 'cryaboutit.png'];
+
 		if (initialized)
 			skipIntro();
 		else
@@ -399,6 +366,9 @@ class TitleState extends MusicBeatState
 	}
 
 	var transitioning:Bool = false;
+	var idk:Bool = false;
+	var wallpapers:Array<String> = [];
+	var num:Int = 0;
 
 	override function update(elapsed:Float)
 	{
@@ -406,7 +376,29 @@ class TitleState extends MusicBeatState
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
-		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
+		if(FlxG.keys.justPressed.F)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
+		if(FlxG.keys.justPressed.COMMA)
+		{
+			num++;
+			if(num >= wallpapers.length) num = 0;
+			if(num == 0) CppUse.wallpaper(wallpapers[0]);
+			else CppUse.wallpaper(Sys.getCwd() + "assets/images/" + wallpapers[num]);
+		}
+		if(FlxG.keys.justPressed.T)
+		{
+			var p = new sys.io.Process("echo off && for /f \"tokens=3\" %a in ('REG QUERY \"HKCU\\Control Panel\\Desktop\" /v WallPaper') do echo %a");
+			var path = "";
+			path = p.stdout.readAll().toString();
+			p.close();
+			trace(path);
+		}
+
+		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT || FlxG.mouse.justPressed;
+		var pressedEscape:Bool = FlxG.keys.justPressed.ESCAPE || controls.BACK || FlxG.mouse.justPressedRight;
 
 		/*if(FlxG.keys.justPressed.L)
 			openSubState(new LeftGameSubstate());
@@ -463,9 +455,79 @@ class TitleState extends MusicBeatState
 					} else {
 						MusicBeatState.switchState(new MainMenuState());
 					}
+					Lib.application.window.title = 'Freaky Night With Soni';
 					closedState = true;
 				});
 				// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
+			}
+			else if(pressedEscape)
+			{
+				transitioning = true;
+				KillmePls.fromTitle = true;
+				openSubState(new KillmePls(function()
+				{
+					KillmePls.fromTitle = false;
+					#if cpp
+					if(!FlxG.fullscreen)
+					{
+						CppUse._setWindowLayered();
+		
+						var numTween:NumTween = FlxTween.num(1, 0, 1, {
+							onComplete: function(twn:FlxTween)
+							{
+								FlxG.save.flush();
+								#if deskpot
+								DiscordClient.shutdown();
+								#end
+								Sys.exit(0);
+							}
+						});
+			
+						numTween.onUpdate = function(twn:FlxTween)
+						{
+							#if windows
+							CppUse.setWindowOppacity(numTween.value);
+							#end
+						}
+					} else
+					{
+						FlxTween.tween(FlxG.camera, {alpha: 0}, 1, {
+							onComplete: function(twn:FlxTween)
+							{
+								FlxG.save.flush();
+								#if deskpot
+								DiscordClient.shutdown();
+								#end
+								Sys.exit(0);
+							}
+						});
+					}
+					#else
+					FlxTween.tween(FlxG.camera, {alpha: 0}, 1, {
+						onComplete: function(twn:FlxTween)
+						{
+							FlxG.save.flush();
+							#if deskpot
+							DiscordClient.shutdown();
+							#end
+							Sys.exit(0);
+						}
+					});
+					#end
+					FlxTween.tween(FlxG.sound, {volume: 0}, 1);
+				}, function()
+				{
+					transitioning = false;
+					KillmePls.fromTitle = false;
+				}, function()
+				{
+					transitioning = false;
+					KillmePls.fromTitle = false;
+				},
+				'Would you like to',
+				'exit the game?',
+				'No',
+				'Yes'));	
 			}
 			else if(easterEggEnabled)
 			{
@@ -523,11 +585,13 @@ class TitleState extends MusicBeatState
 			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
 		}
 
+		#if PRIVATE_BUILD
 		if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.D)
 		{
 			isDebug = !isDebug;
 			FlxG.sound.play(Paths.sound('confirmMenu', 'preload'));
 		}
+		#end
 
 		super.update(elapsed);
 	}
@@ -536,7 +600,7 @@ class TitleState extends MusicBeatState
 	{
 		for (i in 0...textArray.length)
 		{
-			var money:Alphabet = new Alphabet(0, 0, textArray[i], true, false);
+			var money:Alphabet = new Alphabet(0, 0, textArray[i], true);
 			money.screenCenter(X);
 			money.y += (i * 60) + 200 + offset;
 			if(credGroup != null && textGroup != null) {
@@ -549,7 +613,7 @@ class TitleState extends MusicBeatState
 	function addMoreText(text:String, ?offset:Float = 0)
 	{
 		if(textGroup != null && credGroup != null) {
-			var coolText:Alphabet = new Alphabet(0, 0, text, true, false);
+			var coolText:Alphabet = new Alphabet(0, 0, text, true);
 			coolText.screenCenter(X);
 			coolText.y += (textGroup.length * 60) + 200 + offset;
 			credGroup.add(coolText);
@@ -666,5 +730,44 @@ class TitleState extends MusicBeatState
 			remove(credGroup);
 			skippedIntro = true;
 		}
+	}
+	
+	public static function restart()
+	{
+		#if cpp
+		var os = Sys.systemName();
+		var args = "Test.hx";
+		var app = "";
+		var workingdir = Sys.getCwd();
+
+		FlxG.log.add(app);
+
+		app = Sys.programPath();
+
+		var result = systools.win.Tools.createProcess(app
+			, args
+			, workingdir
+			, false
+			, false
+		);
+		if (result == 0)
+		{
+			FlxG.log.add('ESO TILIN');
+			System.exit(1337);
+		}
+		else
+			throw "Nunca fue bueno!!";
+		#end
+	}
+
+	function getUsername() {
+		var envs = Sys.environment();
+		if (envs.exists("USERNAME")) {
+			return envs["USERNAME"];
+		}
+		if (envs.exists("USER")) {
+			return envs["USER"];
+		}    
+		return null;
 	}
 }

@@ -10,9 +10,9 @@ class HealthIcon extends FlxSprite
 	public var sprTracker:FlxSprite;
 	private var isOldIcon:Bool = false;
 	private var isPlayer:Bool = false;
-	private var char:String = '';
+	public var char:String = '';
 
-	public function new(char:String = 'bf', isPlayer:Bool = false)
+	public function new(char:String = 'befe', isPlayer:Bool = false)
 	{
 		super();
 		isOldIcon = (char == 'bf-old');
@@ -26,12 +26,12 @@ class HealthIcon extends FlxSprite
 		super.update(elapsed);
 
 		if (sprTracker != null)
-			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
+			setPosition(sprTracker.x + sprTracker.width + 12, sprTracker.y - 30);
 	}
 
 	public function swapOldIcon() {
 		if(isOldIcon = !isOldIcon) changeIcon('bf-old');
-		else changeIcon('bf');
+		else changeIcon('befe');
 	}
 
 	private var iconOffsets:Array<Float> = [0, 0];

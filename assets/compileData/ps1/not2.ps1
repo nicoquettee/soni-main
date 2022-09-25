@@ -1,0 +1,1 @@
+New-BurntToastNotification -Text 'Se van a morir cabrones', 'soni el puto ese' -AppLogo 'https://i.im.ge/2022/09/24/15ACvr.imagen-2022-09-23-211415496.png'

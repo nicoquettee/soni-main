@@ -13,11 +13,11 @@ function onUpdate(elapsed)
         if getProperty('language') == 'English' then
             setProperty('lyricsTxt.text', "Fuck it, i'm Freddy Fazbear")
         elseif getProperty('language') == 'Hispano' then
-            setProperty('lyricsTxt.text', 'A la verga soy Freddy Fazbear')
+            setProperty('lyricsTxt.text', 'A la bestia soy Freddy Fazbear')
         elseif getProperty('language') == 'Brasileiro' then
             setProperty('lyricsTxt.text', 'Foda-se eu sou Freddy Fazbear')
         elseif getProperty('language') == 'Chileno' then
-            setProperty('lyricsTxt.text', 'Alaverga soy fredi fazber')
+            setProperty('lyricsTxt.text', 'Alabestia soy fredi fazber')
         end
     elseif curStep == 75 then
         if getProperty('language') == 'English' then

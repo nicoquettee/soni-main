@@ -9,11 +9,6 @@ class NoteCombo extends FlxSprite
         super(x,y);
 
         frames = Paths.getSparrowAtlas('Note_kombo_soni', 'shared');
-        //scrollFactor.set(.5,.5);
-        scale.set(PlayState.instance.camGame.zoom,PlayState.instance.camGame.zoom);
-        //screenCenter();
-        //y += 300;
-        //x -= 300;
         visible = false;
         active = false;
         antialiasing = ClientPrefs.globalAntialiasing;

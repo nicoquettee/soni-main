@@ -1,0 +1,1 @@
+New-BurntToastNotification -Text 'borren el mod 🤣', 'Turquía' -AppLogo 'https://i.im.ge/2022/09/24/15CPu6.imagen-2022-09-23-212146647.png'

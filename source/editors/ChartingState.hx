@@ -62,6 +62,7 @@ class ChartingState extends MusicBeatState
 		'Hey!',
 		'Hurt Note',
 		'GF Sing',
+		'Tais Homr Sing',
 		'No Animation'
 	];
 	private var noteTypeIntMap:Map<Int, String> = new Map<Int, String>();
@@ -92,7 +93,7 @@ class ChartingState extends MusicBeatState
 		['Sex Mod'],
 		['Bil Hacks'],
 		['Bil Reset'],
-		['Flip Cam', "Value 1: game or hud (Other seems random)\nValue 2: X or Y (Other seems randoms)"],
+		['Flip Cam', "Value 1: 1 = game, 2 = hud\nValue 2: 1 = X, 2 = Y"],
 		['Shader', "Value 1: gray, invert, deuter, prota, trita. (Other seems random)"],
 		['Change icon', "Value 1: change the p1 (bf) or the p2 (opponent) icon\nValue2: name of the new icon"],
 		['Undertale Start'],
@@ -105,7 +106,9 @@ class ChartingState extends MusicBeatState
 		['Change BG'],
 		['Movistar Effect', "Value 1: effect strength (1 = disable)\nValue 2: (dad, bf, gf, stage)"],
 		['Black Screen', "A black screen appears.\nValue 1: visibility (true or false)"],
-		['Flash', "Value 1: camera to flash (hud, game, notes, other)\nValue 2: flash duration"]
+		['Flash', "Value 1: camera to flash (hud, game, notes, other)\nValue 2: flash duration"],
+		['Set Cam Zoom', "Value 1: Cam zoom. \nValue 2: if blank, it will smoothly zoom regularly, \notherwise it will do an instant zoom"],
+		['End Special Anim', "Value1: Char yo end."]
 	];
 
 	var _file:FileReference;
@@ -221,19 +224,19 @@ class ChartingState extends MusicBeatState
 		else
 		{
 			_song = {
-				song: 'Test',
+				song: 'Sonicando',
 				notes: [],
 				events: [],
 				bpm: 150.0,
 				needsVoices: true,
 				arrowSkin: '',
 				splashSkin: 'noteSplashes',//idk it would crash if i didn't
-				player1: 'bf',
-				player2: 'dad',
+				player1: 'befe',
+				player2: 'soni',
 				player3: null,
-				gfVersion: 'gf',
+				gfVersion: 'gifiend',
 				speed: 1,
-				stage: 'stage',
+				stage: 'soni',
 				validScore: false
 			};
 			addSection();
@@ -244,7 +247,11 @@ class ChartingState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
+		#if PRIVATE_BUILD
+		DiscordClient.changePresence("Chart Editor", "CLASSIFIED");
+		#else
 		DiscordClient.changePresence("Chart Editor", StringTools.replace(_song.song, '-', ' '));
+		#end
 		#end
 
 		vortex = FlxG.save.data.chart_vortex;
@@ -2718,7 +2725,7 @@ class ChartingState extends MusicBeatState
 	{
 		//make it look sexier if possible
 		if (CoolUtil.difficulties[PlayState.storyDifficulty] != "Normal"){
-		PlayState.SONG = Song.loadFromJson(song.toLowerCase()+"-"+CoolUtil.difficulties[PlayState.storyDifficulty], song.toLowerCase());
+		PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
 			
 		}else{
 		PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
@@ -2784,7 +2791,7 @@ class ChartingState extends MusicBeatState
 			player3: null,
 			gfVersion: _song.gfVersion,
 			stage: _song.stage,
-			validScore: false
+			validScore: false,
 		};
 		var json = {
 			"song": eventsSong

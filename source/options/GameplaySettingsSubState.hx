@@ -87,6 +87,22 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Botplay',
+			'If checked, botplay will be turned on.',
+			'',
+			'bool',
+			false);
+		option.onChange = reloadBotplay;
+		addOption(option);
+
+		var option:Option = new Option('Practice Mode',
+			'If checked, practice mode will be turned on.',
+			'',
+			'bool',
+			false);
+		option.onChange = reloadPractice;
+		addOption(option);
+
 		var option:Option = new Option('Slow Down Pause',
 			'If checked, when you resume the game after pause it the song will be relentized 1 second.',
 			'slowdownPause',
@@ -100,14 +116,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'ghostTapping',
 			'bool',
 			true);
-		addOption(option);
-
-		var option:Option = new Option('Auto Pause',
-			'If checked, the game will stop when minimizing the window.',
-			'autoPause',
-			'bool',
-			true);
-		option.onChange = reloadAutopause;
 		addOption(option);
 
 		var option:Option = new Option('Disable Reset Button',
@@ -190,8 +198,17 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		FlxG.autoPause = ClientPrefs.autoPause;
 	}
 
-	public function reloadBotplay(value:Dynamic)
+	var bot:Bool = ClientPrefs.gameplaySettings.get('botplay');
+	public function reloadBotplay()
 	{
-		ClientPrefs.gameplaySettings.set('botplay', value);
+		bot = !bot;
+		ClientPrefs.gameplaySettings.set('botplay', bot);
+	}
+
+	var pra:Bool = ClientPrefs.gameplaySettings.get('practice');
+	public function reloadPractice()
+	{
+		pra = !pra;
+		ClientPrefs.gameplaySettings.set('practice', pra);
 	}
 }

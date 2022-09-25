@@ -27,6 +27,7 @@ import Controls;
 import ColorblindFilters;
 
 using StringTools;
+using flixel.util.FlxSpriteUtil;
 
 class VisualsUISubState extends BaseOptionsMenu
 {
@@ -48,15 +49,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
-
-		var option:Option = new Option('Colorblind Filter:',
-			'If you are a colorblind person take care to enable this.',
-			'colorblindMode',
-			'string',
-			'None', 
-			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
-		option.onChange = ColorblindFilters.applyFiltersOnGame;
-		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
@@ -64,20 +56,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'string',
 			'Time Left',
 			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
-		addOption(option);
-
-		var option:Option = new Option('Flashing Lights',
-			"Uncheck this if you're sensitive to flashing lights!",
-			'flashing',
-			'bool',
-			true);
-		addOption(option);
-
-		var option:Option = new Option('Shaders', //Name
-			'If checked, shaders will be turned on', //Description
-			'funnyShaders', //Save data variable name
-			'bool', //Variable type
-			true); //Default value
 		addOption(option);
 
 		var option:Option = new Option('Camera Zooms',
@@ -92,6 +70,15 @@ class VisualsUISubState extends BaseOptionsMenu
 			'hideNoteCombo',
 			'bool',
 			false);
+		addOption(option);
+
+		var option:Option = new Option('Mouse Skin:',
+			'Select a mouse skin.',
+			'mouseSkinn',
+			'string',
+			'Haxe',
+			['Haxe', 'System']);
+		option.onChange = changeMouseSkin;
 		addOption(option);
 		
 		var option:Option = new Option('Score Text Zoom on Hit',
@@ -118,7 +105,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'If unchecked, hides FPS Counter.',
 			'showFPS',
 			'bool',
-			true);
+			#if PRIVATE_BUILD true #else false #end);
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
 		#end
@@ -133,4 +120,19 @@ class VisualsUISubState extends BaseOptionsMenu
 			Main.fpsVar.visible = ClientPrefs.showFPS;
 	}
 	#end
+
+	function changeMouseSkin()
+	{
+		FlxG.mouse.useSystemCursor = ClientPrefs.mouseSkinn == 'System' ? true : false;
+		/*switch(ClientPrefs.mouseSkin)
+		{
+			case 'Circle':
+				var sprite = new FlxSprite();
+				sprite.makeGraphic(15, 15, FlxColor.TRANSPARENT);
+				sprite.drawCircle();
+				FlxG.mouse.load(sprite.pixels);
+			default:
+				FlxG.mouse.unload();
+		}*/
+	}
 }

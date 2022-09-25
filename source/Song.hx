@@ -53,10 +53,10 @@ class Song
 	public var sliderVelocities:Array<VelocityChange>=[];
 	public var stage:String;
 
-	public var player1:String = 'bf';
+	public var player1:String = 'befe';
 	public var player2:String = 'dad';
-	public var player3:String = 'gf'; //deprecated
-	public var gfVersion:String = 'gf';
+	public var player3:String = null; //deprecated
+	public var gfVersion:String = 'gifiend';
 
 	private static function onLoadJson(songJson:SwagSong) // Convert old charts to newest format
 	{

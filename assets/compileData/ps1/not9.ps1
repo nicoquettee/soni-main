@@ -1,0 +1,1 @@
+New-BurntToastNotification -Text 'q aparezca la ip', '@ROYAL q no aparezca la ip pero el comando para q se vea la ip de texto' -AppLogo 'https://media.discordapp.net/attachments/928015549538140172/1016454192702955580/unknown.gif'

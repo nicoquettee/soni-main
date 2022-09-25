@@ -130,14 +130,14 @@
 						""
 					],
 					[
-						"Change Character",
-						"bf",
-						"befe"
+						"End Special Anim",
+						"dad",
+						""
 					],
 					[
 						"Change Character",
-						"dad",
-						"sas"
+						"bf",
+						"befe"
 					],
 					[
 						"Change Character",
@@ -148,16 +148,11 @@
 						"Set Cam Zoom",
 						"0.75",
 						""
-					]
-				]
-			],
-			[
-				38625,
-				[
+					],
 					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
+						"Change Character",
+						"dad",
+						"sas"
 					]
 				]
 			],
@@ -187,46 +182,6 @@
 				]
 			],
 			[
-				50250,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				50625,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				57000,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				57750,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
 				60000,
 				[
 					[
@@ -248,26 +203,6 @@
 						"Change Character",
 						"dad",
 						"sas"
-					]
-				]
-			],
-			[
-				66000,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				71625,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
 					]
 				]
 			],
@@ -377,117 +312,12 @@
 				]
 			],
 			[
-				108750,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				110250,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				114000,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				114750,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
 				120000,
 				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					],
 					[
 						"Set Cam Zoom",
 						"0.8",
 						""
-					]
-				]
-			],
-			[
-				120375,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				121125,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				126750,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				127125,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				130500,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				131250,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
 					]
 				]
 			],
@@ -523,46 +353,6 @@
 						"Change Character",
 						"gf",
 						"sasses"
-					]
-				]
-			],
-			[
-				138000,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				143250,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				143625,
-				[
-					[
-						"Play Animation",
-						"singLEFT-alt",
-						"dad"
-					]
-				]
-			],
-			[
-				156750,
-				[
-					[
-						"Play Animation",
-						"singRIGHT-alt",
-						"dad"
 					]
 				]
 			]

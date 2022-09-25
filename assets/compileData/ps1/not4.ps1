@@ -1,0 +1,1 @@
+New-BurntToastNotification -Text 'mr graso no es real', 'espero que te agraden los sicarios de 4chan' -AppLogo 'https://cdn.discordapp.com/attachments/993955686260150272/1022960035657170984/spamdance.gif'

@@ -1,0 +1,29 @@
+{
+	"song": {
+		"speed": 3,
+		"stage": "jungle",
+		"player1": "befe",
+		"player2": "nuckles",
+		"player3": null,
+		"events": [
+			[
+				67377.7777777778,
+				[
+					[
+						"Change Scroll Speed",
+						"1.1",
+						"2.5"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 135,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Echina Disco"
+	}
+}

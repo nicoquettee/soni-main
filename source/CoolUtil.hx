@@ -111,6 +111,14 @@ class CoolUtil
 		return maxKey;
 	}
 
+	public static function wrapFloat(value:Float, min:Float, max:Float) {
+		if (value < min)
+			return min;
+		if (value > max)
+			return max;
+		return value;
+	}
+
 	public static function numberArray(max:Int, ?min = 0):Array<Int>
 	{
 		var dumbArray:Array<Int> = [];
@@ -122,17 +130,31 @@ class CoolUtil
 	}
 
 	//uhhhh does this even work at all? i'm starting to doubt
-	public static function precacheSound(sound:String, ?library:String = null):Void {
+	public static function precacheSound(sound:String, ?library:String = null):Void
+	{
 		precacheSoundFile(Paths.sound(sound, library));
 	}
 
-	public static function precacheMusic(sound:String, ?library:String = null):Void {
+	public static function precacheImage(image:String, ?library:String = null):Void
+	{
+		precacheImageFile(Paths.image(image, library));
+	}
+
+	public static function precacheMusic(sound:String, ?library:String = null):Void
+	{
 		precacheSoundFile(Paths.music(sound, library));
 	}
 
-	private static function precacheSoundFile(file:Dynamic):Void {
+	private static function precacheSoundFile(file:Dynamic):Void
+	{
 		if (Assets.exists(file, SOUND) || Assets.exists(file, MUSIC))
 			Assets.getSound(file, true);
+	}
+
+	private static function precacheImageFile(file:Dynamic):Void
+	{
+		if (Assets.exists(file, IMAGE))
+			LimeAssets.getImage(file, true);
 	}
 
 	public static function browserLoad(site:String) {

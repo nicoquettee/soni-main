@@ -1,63 +1,74 @@
 {
 	"animations": [
 		{
+			"offsets": [
+				-74,
+				-28
+			],
 			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				-40,
+				-21
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				-67,
+				56
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-42,
+				-12
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "rigth"
+		},
+		{
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Tais_Idle",
-			"indices": []
+			"indices": [],
+			"name": "idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				160,
-				-11
+				-25,
+				-15
 			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Tais_Left",
-			"indices": []
-		},
-		{
 			"loop": false,
-			"offsets": [
-				-9,
-				-19
-			],
-			"anim": "singDOWN",
 			"fps": 24,
-			"name": "Tais_Down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				7,
-				33
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "Tais_Up",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-28,
-				6
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "Tais_right",
-			"indices": []
+			"anim": "idle-alt",
+			"indices": [],
+			"name": "Tais_Idle"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Tais",
+	"image": "characters/tails_para_el_trailer",
 	"position": [
 		0,
 		0

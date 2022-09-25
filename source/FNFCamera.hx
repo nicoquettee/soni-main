@@ -45,7 +45,7 @@ class FNFCamera extends FlxCamera {
         _filters.remove(filter);
     }
 
-    override function updateFollow(){
+    override function updateFollow(elapsed:Float){
         // Either follow the object closely,
             // or double check our deadzone and update accordingly.
             if (deadzone == null)

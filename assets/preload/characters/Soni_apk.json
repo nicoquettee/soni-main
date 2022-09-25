@@ -1,77 +1,88 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				-40,
 				-10
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Idle_S",
-			"indices": []
+			"indices": [],
+			"name": "soni.apk instancia 1"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-10,
-				-2
+				39,
+				-80
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Left_S",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-11,
-				-105
-			],
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Down_S",
-			"indices": []
+			"indices": [],
+			"name": "down instancia 1"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				59,
-				57
+				28,
+				33
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Up_S",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "up instancia 1"
+		},
+		{
+			"offsets": [
+				-6,
+				-31
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "laugh",
+			"indices": [],
+			"name": "Soni.apk laughing instancia 1"
 		},
 		{
 			"loop": false,
 			"offsets": [
-				34,
-				-17
+				27,
+				-11
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Right_S",
+			"name": "left instancia 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				146,
+				-24
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "right instancia 1",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Soni_apk",
+	"image": "characters/Soni.apk",
 	"position": [
-		0,
+		50,
 		20
 	],
 	"healthicon": "soni-apk",
 	"flip_x": false,
 	"healthbar_colors": [
-		54,
-		0,
-		217
+		8,
+		12,
+		98
 	],
 	"camera_position": [
-		-140,
-		90
+		0,
+		100
 	],
 	"sing_duration": 6.1,
 	"scale": 1

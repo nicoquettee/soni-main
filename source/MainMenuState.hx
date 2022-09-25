@@ -1,5 +1,7 @@
 package;
 
+import openfl.display.Sprite;
+import flixel.math.FlxPoint;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -22,6 +24,10 @@ import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxBackdrop;
+import GameJolt.GameJoltAPI;
+import GameJolt;
+import window.*;
+import openfl.Lib;
 
 using StringTools;
 
@@ -31,8 +37,10 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
+	var overItems:FlxTypedGroup<FlxSprite>; //for the mouse shit
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
+	public static var gjConnected:Bool = false;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -58,19 +66,33 @@ class MainMenuState extends MusicBeatState
 	var face:FlxBackdrop;
 
 	var codes:FlxSprite;
+	var oldPos:FlxPoint;
+
+	/*@:native("SetWindowLongA") @:extern
+	private static function setWindowLong(hWnd:HWND, nIndex:Int, dwNewLong:LONG) : LONG return null;*/
 
 	override function create()
 	{
-		if(FlxG.save.data.beatedSoni)
-			FlxG.mouse.visible = true;
-
 		WeekData.loadTheFirstEnabledMod();
+
+		FlxG.mouse.visible = true;
+		oldPos = FlxG.mouse.getScreenPosition();
+
+		if(GameJoltAPI.getStatus() && !gjConnected)
+		{
+			Main.gjToastManager.createToast('sign', GameJoltAPI.getUserInfo() + " SIGNED IN!", "CONNECTED TO GAMEJOLT", false);
+			gjConnected = true;
+		}
 
 		Conductor.changeBPM(110);
 
+		//CppUse.transWindowColor(0,0,0,0);
+
+		//setWindowLong(3, 0, 1700);
+
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("In the Main Menu", null);
 		#end
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
@@ -87,6 +109,8 @@ class MainMenuState extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		persistentUpdate = persistentDraw = true;
+
+		Lib.application.window.title = 'Freaky Night With Soni - Main Menu';
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mainmenu/soni/bg'));
@@ -134,8 +158,7 @@ class MainMenuState extends MusicBeatState
 		codes.setGraphicSize(261,158);
 		codes.updateHitbox();
 		codes.antialiasing = ClientPrefs.globalAntialiasing;
-		if(FlxG.save.data.beatedSoni)
-			add(codes);
+		if(Progression.beatedSoni) add(codes);
 
 		arrow = new FlxSprite(110, 481).loadGraphic(Paths.image('mainmenu/soni/arrow'));
 		arrow.updateHitbox();
@@ -150,6 +173,9 @@ class MainMenuState extends MusicBeatState
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
+
+		overItems = new FlxTypedGroup<FlxSprite>();
+		add(overItems);
 
 		var scale:Float = 1;
 		/*if(optionShit.length > 6) {
@@ -168,18 +194,15 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+			menuItem.x = 320*i;
 
-			switch(menuItem.ID)
-			{
-				case 0:
-					menuItem.x = 0;
-				case 1:
-					menuItem.x = 319;
-				case 2:
-					menuItem.x = 647;
-				case 3:
-					menuItem.x = 958;
-			}
+			var overItem:FlxSprite = new FlxSprite(0,583).makeGraphic(257,110,FlxColor.TRANSPARENT);
+			overItem.visible = false;
+			overItem.ID = i;
+			overItems.add(overItem);
+			overItem.scrollFactor.set(0, scr);
+			overItem.updateHitbox();
+			overItem.x = 33+320*i;
 		}
 
 		add(arrow);
@@ -237,15 +260,46 @@ class MainMenuState extends MusicBeatState
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
-		if(FlxG.mouse.overlaps(codes))
-			if(FlxG.mouse.justPressed)
+		for(i in 0...optionShit.length) {overItems.members[i].y=menuItems.members[i].y+34;}
+
+		if((FlxG.mouse.getScreenPosition().x != oldPos.x || FlxG.mouse.getScreenPosition().y != oldPos.y) && !selectedSomethin)
+		{
+			oldPos = FlxG.mouse.getScreenPosition();
+			for(i in 0...menuItems.length)
 			{
-				selectedSomethin = true;
-				MusicBeatState.switchState(new Codes());
+				if(FlxG.mouse.overlaps(overItems.members[i]))
+				{
+					if(curSelected != i)
+					{
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+						curSelected = i;
+						changeItem();
+						break;
+					}
+				}
 			}
+		}
 
 		if (!selectedSomethin)
 		{
+			overItems.forEach(function(spr:FlxSprite)
+			{
+				if(FlxG.mouse.overlaps(spr))
+				{
+					if(FlxG.mouse.justPressed)
+					{
+						select();
+					}
+				}
+			});
+			if(FlxG.mouse.overlaps(codes) && Progression.beatedSoni)
+			{
+				if(FlxG.mouse.justPressed)
+				{
+					selectedSomethin = true;
+					MusicBeatState.switchState(new Codes());
+				}
+			}
 			if (controls.UI_LEFT_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -257,76 +311,24 @@ class MainMenuState extends MusicBeatState
 				changeItem(1);
 			}
 			else if (controls.UI_RIGHT_P && controls.UI_LEFT_P){}
+			
+			if(FlxG.mouse.wheel != 0)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+				changeItem(-FlxG.mouse.wheel);
+				changeItem();
+			}
 
-			if (controls.BACK)
+			if (controls.BACK || FlxG.mouse.justPressedRight)
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState(new TransitionData(NONE), new TransitionData(NONE)));
+				Lib.application.window.title = 'Freaky Night With Soni';
+				MusicBeatState.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT)
-			{
-				if (optionShit[curSelected] == 'donate')
-				{
-					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
-				}
-				else
-				{
-					selectedSomethin = true;
-					FlxG.sound.play(Paths.sound('confirmMenu'));
+			if (controls.ACCEPT) select();
 
-					menuItems.forEach(function(spr:FlxSprite)
-					{
-						if (curSelected != spr.ID)
-						{
-							FlxTween.tween(spr, {alpha: 0}, 0.4, {
-								ease: FlxEase.quadOut,
-								onComplete: function(twn:FlxTween)
-								{
-									spr.kill();
-								}
-							});
-						}
-						else
-						{
-							FlxTween.tween(arrow, {y: 502}, 0.4, {ease: FlxEase.smoothStepInOut, onComplete: function(twn:FlxTween)
-								{
-									FlxTween.tween(arrow, {y: arrow.height * -1}, 0.5, {ease: FlxEase.expoIn});
-								}
-							});
-							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
-							{
-								var daChoice:String = optionShit[curSelected];
-
-								switch (daChoice)
-								{
-									case 'story_mode':
-										//if(!FlxG.save.data.leftDaGameInTheMiddleBRUH)
-											MusicBeatState.switchState(new StoryMenuState());
-										//else
-											//MusicBeatState.switchState(new EndMyLife());
-									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
-									#if MODS_ALLOWED
-									case 'mods':
-										MusicBeatState.switchState(new ModsMenuState());
-									#end
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
-									case 'options':
-										LoadingState.loadAndSwitchState(new options.OptionsState(), false, false);
-								}
-
-								if(FlxG.save.data.beatedSoni)
-									FlxG.mouse.visible = false;
-							});
-						}
-					});
-				}
-			}
 			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
@@ -334,9 +336,68 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
 			#end
+
+			#if PRIVATE_BUILD
+			if(TitleState.isDebug && FlxG.keys.justPressed.K)
+			{
+				Progression.all();
+				GJAchievements.gotAll();
+				MusicBeatState.resetState();
+			}
+			if(TitleState.isDebug && FlxG.keys.justPressed.T)
+			{
+				Progression.reset();
+				MusicBeatState.resetState();
+			}
+			#end
 		}
 
 		super.update(elapsed);
+	}
+
+	function select()
+	{
+		selectedSomethin = true;
+		FlxG.sound.play(Paths.sound('confirmMenu'));
+		Lib.application.window.title = 'Freaky Night With Soni';
+
+		menuItems.forEach(function(spr2:FlxSprite)
+		{
+			if (curSelected != spr2.ID)
+			{
+				FlxTween.tween(spr2, {alpha: 0}, 0.4, {
+					ease: FlxEase.quadOut,
+					onComplete: function(twn:FlxTween)
+					{
+						spr2.kill();
+					}
+				});
+			}
+			else
+			{
+				FlxTween.tween(arrow, {y: 502}, 0.4, {ease: FlxEase.smoothStepInOut, onComplete: function(twn:FlxTween)
+					{
+						FlxTween.tween(arrow, {y: arrow.height * -1}, 0.5, {ease: FlxEase.expoIn});
+					}
+				});
+				FlxFlicker.flicker(spr2, 1, 0.06, false, false, function(flick:FlxFlicker)
+				{
+					var daChoice:String = optionShit[curSelected];
+
+					switch (daChoice)
+					{
+						case 'story_mode':
+								MusicBeatState.switchState(new StoryMenuState());
+						case 'freeplay':
+							MusicBeatState.switchState(new FreeplayState());
+						case 'credits':
+							MusicBeatState.switchState(new CreditsSoniState());
+						case 'options':
+							LoadingState.loadAndSwitchState(new options.OptionsState(), false, false);
+					}
+				});
+			}
+		});
 	}
 
 	function changeItem(huh:Int = 0)
@@ -410,6 +471,7 @@ class MainMenuState extends MusicBeatState
 
 			if (spr.ID == curSelected)
 			{
+				FlxTween.cancelTweensOf(arrow);
 				FlxTween.tween(arrow, {x: spr.x + 110}, 0.1, {ease: FlxEase.smootherStepInOut});
 				FlxTween.tween(spr, {y: spr.y - 10}, 0.1, {ease: FlxEase.smootherStepInOut});
 			}

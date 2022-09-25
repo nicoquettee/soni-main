@@ -1,6 +1,7 @@
 package;
 
 // GameJolt things
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.addons.ui.FlxUIState;
 import haxe.iterators.StringIterator;
 import tentools.api.FlxGameJolt as GJApi;
@@ -15,6 +16,7 @@ import flixel.util.FlxColor;
 import lime.system.System;
 import flixel.FlxSprite;
 import flixel.ui.FlxBar;
+import flixel.system.FlxSound;
 
 // Toast things
 import flixel.util.FlxTimer;
@@ -28,6 +30,10 @@ import openfl.Lib;
 import flixel.FlxG;
 import openfl.display.Sprite;
 
+#if desktop
+import Discord.DiscordClient;
+#end
+
 using StringTools;
 
 class GameJoltAPI // Connects to tentools.api.FlxGameJolt
@@ -38,10 +44,6 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
      */
     static var userLogin:Bool = false;
 
-    /**
-     * Inline variable to see if the user wants to submit scores.
-     */
-    public static var leaderboardToggle:Bool;
     /**
      * Grabs user data and returns as a string, true for Username, false for Token
      * @param username Bool value
@@ -69,11 +71,7 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
     public static function connect() 
     {
         trace("Grabbing API keys...");
-        GJApi.init(Std.int(GJKeys.id), Std.string(GJKeys.key), function(data:Bool){
-            #if debug
-            Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Game " + (data ? "authenticated!" : "not authenticated..."), (!data ? "If you are a developer, check GJKeys.hx\nMake sure the id and key are formatted correctly!" : "Yay!"), false);
-            #end
-        });
+        GJApi.init(Std.int(GJKeys.id), Std.string(GJKeys.key), false);
     }
 
     /**
@@ -84,40 +82,37 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
      */
     public static function authDaUser(in1, in2, ?loginArg:Bool = false)
     {
-        if(!userLogin)
-        {
-        GJApi.authUser(in1, in2, function(v:Bool)
-            {
-                trace("user: "+(in1 == "" ? "n/a" : in1));
-                trace("token:"+in2);
-                if(v)
-                    {
-                        Main.gjToastManager.createToast(GameJoltInfo.imagePath, in1 + " signed in!", "Time: " + Date.now() + "\nGame ID: " + GJKeys.id + "\nScore Submitting: " + (GameJoltAPI.leaderboardToggle? "Enabled" : "Disabled"), false);
-                        trace("User authenticated!");
-                        FlxG.save.data.gjUser = in1;
-                        FlxG.save.data.gjToken = in2;
-                        FlxG.save.flush();
-                        userLogin = true;
-                        startSession();
-                        if(loginArg)
-                        {
-                            GameJoltLogin.login=true;
-                            FlxG.switchState(new GameJoltLogin());
-                        }
-                    }
-                else 
-                    {
-                        if(loginArg)
-                        {
-                            GameJoltLogin.login=true;
-                            FlxG.switchState(new GameJoltLogin());
-                        }
-                        Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Not signed in!\nSign in to save GameJolt Trophies and Leaderboard Scores!", "", false);
-                        trace("User login failure!");
-                        // FlxG.switchState(new GameJoltLogin());
-                    }
-            });
-        }
+       if (!userLogin)
+		{
+			GJApi.authUser(in1, in2, function(v:Bool)
+			{
+				trace("user: " + (in1 == "" ? "n/a" : in1));
+				trace("token: " + in2);
+				if (v)
+				{
+					trace("User authenticated!");
+					FlxG.save.data.gjUser = in1;
+					FlxG.save.data.gjToken = in2;
+					FlxG.save.flush();
+					userLogin = true;
+					startSession();
+					if (loginArg)
+					{
+						GameJoltLogin.login = true;
+						FlxG.switchState(new GameJoltLogin());
+					}
+				}
+				else
+				{
+					if (loginArg)
+					{
+						GameJoltLogin.login = true;
+						FlxG.switchState(new GameJoltLogin());
+					}
+					trace("User login failure!");
+				}
+			});
+		}
     }
     
     /**
@@ -134,7 +129,7 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
         FlxG.save.flush();
         trace(FlxG.save.data.gjUser + FlxG.save.data.gjToken);
         trace("Logged out!");
-        System.exit(0);
+        TitleState.restart();
     }
 
     /**
@@ -143,16 +138,10 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
      */
     public static function getTrophy(trophyID:Int) /* Awards a trophy to the user! */
     {
-        if(userLogin)
-        {
-            GJApi.addTrophy(trophyID, function(data:Map<String,String>){
-                trace(data);
-                var bool:Bool = false;
-                if (data.exists("message"))
-                    bool = true;
-                Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Unlocked a new trophy"+(bool ? "... again?" : "!"), "Thank you for testing this out!\nCheck out Vs. King, it's cool", true);
-            });
-        }
+        if (userLogin)
+		{
+			GJApi.addTrophy(trophyID);
+		}
     }
 
     /**
@@ -181,29 +170,6 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
             returnable = data;
         });
         return returnable;
-    }
-
-    /**
-     * Add a score to a table!
-     * @param score Score of the song. **Can only be an int value!**
-     * @param tableID ID of the table you want to add the score to!
-     * @param extraData (Optional) You could put accuracy or any other details here!
-     */
-    public static function addScore(score:Int, tableID:Int, ?extraData:String)
-    {
-        if (GameJoltAPI.leaderboardToggle)
-        {
-            trace("Trying to add a score");
-            var formData:String = extraData.split(" ").join("%20");
-            GJApi.addScore(score+"%20Points", score, tableID, false, null, formData, function(data:Map<String, String>){
-                trace("Score submitted with a result of: " + data.get("success"));
-                Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Score submitted!", "Score: " + score + "\nExtra Data: "+extraData, true);
-            });
-        }
-        else
-        {
-            Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Score not submitted!", "Score: " + score + "Extra Data: " +extraData+"\nScore was not submitted due to score submitting being disabled!", true);
-        }
     }
 
     /**
@@ -274,13 +240,13 @@ class GameJoltInfo extends MusicBeatSubstate
     * 
     * Don't make it a NULL variable. Worst mistake of my life.
     */
-    public static var fontPath:String = "assets/fonts/vcr.ttf";
+    public static var fontPath:String = "assets/fonts/#44.ttf";
     /**
     * Image to show for notifications. Leave NULL for no image, it's all good :)
     * 
     * Example: Paths.getLibraryPath("images/stepmania-icon.png")
     */
-    public static var imagePath:String = null; 
+    public static var imagePath:String = "sign"; 
 
     /* Other things that shouldn't be messed with are below this line! */
 
@@ -298,6 +264,10 @@ class GameJoltLogin extends MusicBeatState
     var loginTexts:FlxTypedGroup<FlxText>;
     var loginBoxes:FlxTypedGroup<FlxUIInputText>;
     var loginButtons:FlxTypedGroup<FlxButton>;
+
+    var buttons:FlxTypedSpriteGroup<FlxSprite>;
+    var buttonsSpr:FlxTypedSpriteGroup<FlxSprite>;
+
     var usernameText:FlxText;
     var tokenText:FlxText;
     var usernameBox:FlxUIInputText;
@@ -318,18 +288,25 @@ class GameJoltLogin extends MusicBeatState
     var baseX:Int = -190;
     public static var login:Bool = false;
     // static var trophyCheck:Bool = false;
+    public static var fromOptions:Bool = false;
+
+    var buttonsName:Array<String> = [
+        'si',
+        'gt'
+    ];
+
     override function create()
     {
-        if (FlxG.save.data.lbToggle != null)
-        {
-            GameJoltAPI.leaderboardToggle = FlxG.save.data.lbToggle;
-        }
+        //FlxG.sound.playMusic(Paths.music('freakyMenu'));
+        super.create();
 
-        if(!login)
-        {
-            FlxG.sound.playMusic(Paths.music('freakyMenu'),0);
-            FlxG.sound.music.fadeIn(2, 0, 0.85);
-        }
+		persistentUpdate = true;
+
+        #if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("In the Gamejolt Menu", null);
+		#end
+        Lib.application.window.title = 'Freaky Night With Soni - Gamejolt Menu';
 
         trace(GJApi.initialized);
         FlxG.mouse.visible = true;
@@ -357,6 +334,10 @@ class GameJoltLogin extends MusicBeatState
         loginTexts = new FlxTypedGroup<FlxText>(2);
         add(loginTexts);
 
+        buttons = new FlxTypedSpriteGroup<FlxSprite>();
+        add(buttons);
+        for(i in 0...1){}
+
         usernameText = new FlxText(0, 125, 300, "Username:", 20);
 
         tokenText = new FlxText(0, 225, 300, "Token:", 20);
@@ -379,7 +360,6 @@ class GameJoltLogin extends MusicBeatState
         loginBoxes.add(tokenBox);
         loginBoxes.forEach(function(item:FlxUIInputText){
             item.screenCenter(X);
-            item.x += baseX;
             item.font = GameJoltInfo.font;
         });
 
@@ -403,17 +383,10 @@ class GameJoltLogin extends MusicBeatState
         {
             if (!GameJoltAPI.getStatus())
                 openLink('https://youtu.be/FAz-hu1oebs');
-            else
-            {
-                GameJoltAPI.leaderboardToggle = !GameJoltAPI.leaderboardToggle;
-                trace(GameJoltAPI.leaderboardToggle);
-                FlxG.save.data.lbToggle = GameJoltAPI.leaderboardToggle;
-                Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Score Submitting", "Score submitting is now " + (GameJoltAPI.leaderboardToggle ? "Enabled":"Disabled"), false);
-            }
         });
         helpBox.color = FlxColor.fromRGB(84,155,149);
 
-        logOutBox = new FlxButton(0, 625, "Log Out & Close", function()
+        logOutBox = new FlxButton(0, 550, "Log Out", function()
         {
             GameJoltAPI.deAuthDaUser();
         });
@@ -422,24 +395,44 @@ class GameJoltLogin extends MusicBeatState
         cancelBox = new FlxButton(0,625, "Not Right Now", function()
         {
             FlxG.save.flush();
-            FlxG.sound.play(Paths.sound('confirmMenu'), 0.7, false, null, true, function(){
-                FlxG.save.flush();
-                FlxG.sound.music.stop();
-                FlxG.switchState(GameJoltInfo.changeState);
+            FlxG.sound.play(Paths.sound('cancelMenu'));
+            var durag:Float = 0;
+            if (GameJoltLogin.fromOptions)
+            {
+                durag = 0.5;
+                if (FlxG.sound.music != null)
+                {
+                    FlxG.sound.music.fadeOut(0.5, 0);
+                }
+            }
+            new FlxTimer().start(durag, (tmr)->{
+                GameJoltLogin.fromOptions = false;
+                Lib.application.window.title = 'Freaky Night With Soni';
+                MusicBeatState.switchState(new MainMenuState());
             });
         });
 
         if(!GameJoltAPI.getStatus())
         {
             loginButtons.add(signInBox);
+            loginButtons.add(helpBox);
+            #if desktop
+            // Updating Discord Rich Presence
+            DiscordClient.changePresence("In the Gamejolt Menu - Login", null);
+            #end
+            Lib.application.window.title = 'Freaky Night With Soni - Gamejolt Menu - Login';
         }
         else
         {
             cancelBox.y = 475;
             cancelBox.text = "Continue";
             loginButtons.add(logOutBox);
+            #if desktop
+            // Updating Discord Rich Presence
+            DiscordClient.changePresence("In the Gamejolt Menu - Loged", null);
+            #end
+            Lib.application.window.title = 'Freaky Night With Soni - Gamejolt Menu - Loged';
         }
-        loginButtons.add(helpBox);
         loginButtons.add(cancelBox);
 
         loginButtons.forEach(function(item:FlxButton){
@@ -478,32 +471,26 @@ class GameJoltLogin extends MusicBeatState
 
     override function update(elapsed:Float)
     {
-        if (FlxG.save.data.lbToggle == null)
-        {
-            FlxG.save.data.lbToggle = false;
-            FlxG.save.flush();
-        }
-
-        if (GameJoltAPI.getStatus())
-        {
-            helpBox.text = "Leaderboards:\n" + (GameJoltAPI.leaderboardToggle ? "Enabled" : "Disabled");
-            helpBox.color = (GameJoltAPI.leaderboardToggle ? FlxColor.GREEN : FlxColor.RED);
-        }
-
         if (FlxG.sound.music != null)
             Conductor.songPosition = FlxG.sound.music.time;
 
         if (!FlxG.sound.music.playing)
-        {
-            FlxG.sound.playMusic(Paths.music('freakyMenu'));
-        }
+		{
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+		}
 
         if (FlxG.keys.justPressed.ESCAPE)
         {
             FlxG.save.flush();
-            FlxG.mouse.visible = false;
-            FlxG.switchState(GameJoltInfo.changeState);
+            GameJoltLogin.fromOptions = false;
+            Lib.application.window.title = 'Freaky Night With Soni';
+            MusicBeatState.switchState(GameJoltInfo.changeState);
         }
+
+        /*loginButtons.forEach(function(item:FlxButton){
+            trace('w: '+item.width);
+            trace('h: '+item.height);
+        });*/
 
         super.update(elapsed);
     }
@@ -533,9 +520,10 @@ class GameJoltLogin extends MusicBeatState
 class GJToastManager extends Sprite
 {
     public static var ENTER_TIME:Float = 0.5;
-    public static var DISPLAY_TIME:Float = 3.0;
-    public static var LEAVE_TIME:Float = 0.5;
-    public static var TOTAL_TIME:Float = ENTER_TIME + DISPLAY_TIME + LEAVE_TIME;
+	public static var DISPLAY_TIME:Float = 2.0;
+	public static var LEAVE_TIME:Float = 0.5;
+	public static var TOTAL_TIME:Float = ENTER_TIME + DISPLAY_TIME + LEAVE_TIME;
+    public static var leSound:FlxSound;
 
     var playTime:FlxTimer = new FlxTimer();
 
@@ -544,6 +532,9 @@ class GJToastManager extends Sprite
         super();
         FlxG.signals.postStateSwitch.add(onStateSwitch);
         FlxG.signals.gameResized.add(onWindowResized);
+        leSound = new FlxSound().loadEmbedded(Paths.sound('confirmMenu'));
+		leSound.persist = true;
+		leSound.volume = 1;
     }
 
     /**
@@ -555,119 +546,143 @@ class GJToastManager extends Sprite
      * @param description Description for the toast
      * @param sound Want to have an alert sound? Set this to **true**! Defaults to **false**.
      */
-    public function createToast(iconPath:String, title:String, description:String, ?sound:Bool = false):Void
+    public function createToast(iconPath:String, title:String, description:String, ?sound:Bool = false, ?color:String = '#3848CC'):Void
     {
-        if (sound)FlxG.sound.play(Paths.sound('confirmMenu')); 
-        
-        var toast = new Toast(iconPath, title, description);
+        var toast = new Toast(iconPath, title, description, color);
         addChild(toast);
 
-        playTime.start(TOTAL_TIME);
-        playToasts();
+        if (sound)
+		{
+			leSound.play();
+			new FlxTimer().start(0.4, function(tmr:FlxTimer)
+			{
+				loadToast();
+			});
+		}
+		else
+		{
+			loadToast();
+		}
     }
+
+    function loadToast()
+	{
+		playTime.start(TOTAL_TIME);
+		playToasts();
+	}
 
     public function playToasts():Void
     {
         for (i in 0...numChildren)
-        {
-            var child = getChildAt(i);
-            FlxTween.cancelTweensOf(child);
-            FlxTween.tween(child, {y: (numChildren - 1 - i) * child.height}, ENTER_TIME, {ease: FlxEase.quadOut,
-                onComplete: function(tween:FlxTween)
-                {
-                    FlxTween.cancelTweensOf(child);
-                    FlxTween.tween(child, {y: (i + 1) * -child.height}, LEAVE_TIME, {ease: FlxEase.quadOut, startDelay: DISPLAY_TIME,
-                        onComplete: function(tween:FlxTween)
-                        {
-                            cast(child, Toast).removeChildren();
-                            removeChild(child);
-                        }
-                    });
-                }
-            });
-        }
+		{
+			var child = getChildAt(i);
+			FlxTween.cancelTweensOf(child);
+			FlxTween.tween(child, {y: (numChildren - 1 - i) * child.height}, ENTER_TIME, {
+				ease: FlxEase.quadOut,
+				onComplete: function(tween:FlxTween)
+				{
+					FlxTween.cancelTweensOf(child);
+					FlxTween.tween(child, {y: (i + 1) * -child.height}, ((LEAVE_TIME / 2) * numChildren), {
+						ease: FlxEase.quadIn,
+						startDelay: DISPLAY_TIME,
+						onComplete: function(tween:FlxTween)
+						{
+							cast(child, Toast).removeChildren();
+							removeChild(child);
+						}
+					});
+				}
+			});
+		}
     }
 
     public function collapseToasts():Void
     {
         for (i in 0...numChildren)
-        {
-            var child = getChildAt(i);
-            FlxTween.tween(child, {y: (i + 1) * -child.height}, LEAVE_TIME, {ease: FlxEase.quadOut,
-                onComplete: function(tween:FlxTween)
-                {
-                    cast(child, Toast).removeChildren();
-                    removeChild(child);
-                }
-            });
-        }
+		{
+			var child = getChildAt(i);
+			FlxTween.tween(child, {y: (i + 1) * -child.height}, ((LEAVE_TIME / 2) * numChildren), {
+				ease: FlxEase.quadIn,
+				onComplete: function(tween:FlxTween)
+				{
+					cast(child, Toast).removeChildren();
+					removeChild(child);
+				}
+			});
+		}
     }
 
     public function onStateSwitch():Void
     {
         if (!playTime.active)
-            return;
+			return;
 
-        var elapsedSec = playTime.elapsedTime / 1000;
-        if (elapsedSec < ENTER_TIME)
-        {
-            for (i in 0...numChildren)
-            {
-                var child = getChildAt(i);
-                FlxTween.cancelTweensOf(child);
-                FlxTween.tween(child, {y: (numChildren - 1 - i) * child.height}, ENTER_TIME - elapsedSec, {ease: FlxEase.quadOut,
-                    onComplete: function(tween:FlxTween)
-                    {
-                        FlxTween.cancelTweensOf(child);
-                        FlxTween.tween(child, {y: (i + 1) * -child.height}, LEAVE_TIME, {ease: FlxEase.quadOut, startDelay: DISPLAY_TIME,
-                            onComplete: function(tween:FlxTween)
-                            {
-                                cast(child, Toast).removeChildren();
-                                removeChild(child);
-                            }
-                        });
-                    }
-                });
-            }
-        }
-        else if (elapsedSec < DISPLAY_TIME)
-        {
-            for (i in 0...numChildren)
-            {
-                var child = getChildAt(i);
-                FlxTween.cancelTweensOf(child);
-                FlxTween.tween(child, {y: (i + 1) * -child.height}, LEAVE_TIME, {ease: FlxEase.quadOut, startDelay: DISPLAY_TIME - (elapsedSec - ENTER_TIME),
-                    onComplete: function(tween:FlxTween)
-                    {
-                        cast(child, Toast).removeChildren();
-                        removeChild(child);
-                    }
-                });
-            }
-        }
-        else if (elapsedSec < LEAVE_TIME)
-        {
-            for (i in 0...numChildren)
-            {
-                var child = getChildAt(i);
-                FlxTween.tween(child, {y: (i + 1) * -child.height}, LEAVE_TIME -  (elapsedSec - ENTER_TIME - DISPLAY_TIME), {ease: FlxEase.quadOut,
-                    onComplete: function(tween:FlxTween)
-                    {
-                        cast(child, Toast).removeChildren();
-                        removeChild(child);
-                    }
-                });
-            }
-        }
+		var elapsedSec = playTime.elapsedTime / 1000;
+		if (elapsedSec < ENTER_TIME)
+		{
+			for (i in 0...numChildren)
+			{
+				var child = getChildAt(i);
+				FlxTween.cancelTweensOf(child);
+				FlxTween.tween(child, {y: (numChildren - 1 - i) * child.height}, ENTER_TIME - elapsedSec, {
+					ease: FlxEase.quadOut,
+					onComplete: function(tween:FlxTween)
+					{
+						FlxTween.cancelTweensOf(child);
+						FlxTween.tween(child, {y: (i + 1) * -child.height}, ((LEAVE_TIME / 2) * numChildren), {
+							ease: FlxEase.quadIn,
+							startDelay: DISPLAY_TIME,
+							onComplete: function(tween:FlxTween)
+							{
+								cast(child, Toast).removeChildren();
+								removeChild(child);
+							}
+						});
+					}
+				});
+			}
+		}
+		else if (elapsedSec < DISPLAY_TIME)
+		{
+			for (i in 0...numChildren)
+			{
+				var child = getChildAt(i);
+				FlxTween.cancelTweensOf(child);
+				FlxTween.tween(child, {y: (i + 1) * -child.height}, ((LEAVE_TIME / 2) * numChildren), {
+					ease: FlxEase.quadIn,
+					startDelay: DISPLAY_TIME - (elapsedSec - ENTER_TIME),
+					onComplete: function(tween:FlxTween)
+					{
+						cast(child, Toast).removeChildren();
+						removeChild(child);
+					}
+				});
+			}
+		}
+		else if (elapsedSec < LEAVE_TIME)
+		{
+			for (i in 0...numChildren)
+			{
+				var child = getChildAt(i);
+				FlxTween.tween(child, {y: (i + 1) * -child.height}, ((LEAVE_TIME / 2) * numChildren) - (elapsedSec - ENTER_TIME - DISPLAY_TIME), {
+					ease: FlxEase.quadIn,
+					onComplete: function(tween:FlxTween)
+					{
+						cast(child, Toast).removeChildren();
+						removeChild(child);
+					}
+				});
+			}
+		}
     }
 
     public function onWindowResized(x:Int, y:Int):Void
     {
         for (i in 0...numChildren)
-        {
-            var child = getChildAt(i);
-            child.x = Lib.current.stage.stageWidth - child.width;
-        }
+		{
+			var child = getChildAt(i);
+			child.x = Lib.current.stage.stageWidth - child.width;
+		}
     }
 }
 
@@ -678,24 +693,26 @@ class Toast extends Sprite
     var title:TextField;
     var desc:TextField;
 
-    public function new(iconPath:String, titleText:String, description:String)
+    public function new(iconPath:String, titleText:String, description:String, ?color:String = '#3848CC')
     {
         super();
         back = new Bitmap(new BitmapData(500, 125, true, 0xFF000000));
         back.alpha = 0.9;
         back.x = 0;
         back.y = 0;
-
+            
         if(iconPath != null)
         {
-            icon = new Bitmap(BitmapData.fromFile(iconPath));
+            icon = new Bitmap(BitmapData.fromFile("assets/achievements/images/" + iconPath + ".png"));
             icon.x = 10;
             icon.y = 10;
+            icon.width = 100;
+            icon.height = 100;
         }
 
         title = new TextField();
-        title.text = titleText;
-        title.setTextFormat(new TextFormat(openfl.utils.Assets.getFont(GameJoltInfo.fontPath).fontName, 24, 0xFFFF00, true));
+        title.text = titleText.toUpperCase();
+        title.setTextFormat(new TextFormat(openfl.utils.Assets.getFont(GameJoltInfo.fontPath).fontName, 30, FlxColor.fromString(color), true));
         title.wordWrap = true;
         title.width = 360;
         if(iconPath!=null){title.x = 120;}
@@ -703,14 +720,14 @@ class Toast extends Sprite
         title.y = 5;
 
         desc = new TextField();
-        desc.text = description;
-        desc.setTextFormat(new TextFormat(openfl.utils.Assets.getFont(GameJoltInfo.fontPath).fontName, 18, 0xFFFFFF));
+        desc.text = description.toUpperCase();
+        desc.setTextFormat(new TextFormat(openfl.utils.Assets.getFont(GameJoltInfo.fontPath).fontName, 24, FlxColor.WHITE));
         desc.wordWrap = true;
         desc.width = 360;
         desc.height = 95;
         if(iconPath!=null){desc.x = 120;}
         else{desc.x = 5;}
-        desc.y = 30;
+        desc.y = 35;
         if (titleText.length >= 25 || titleText.contains("\n"))
         {   
             desc.y += 25;

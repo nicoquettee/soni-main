@@ -20,6 +20,7 @@ import lime.utils.Assets;
 import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
 import WeekData;
+import openfl.Lib;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
@@ -93,9 +94,11 @@ class FreeplayState extends MusicBeatState
 		PlayState.isCode = false;
 		WeekData.reloadWeekFiles(false);
 
+		FlxG.mouse.visible = true;
+
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("In the Freeplay Menu", null);
 		#end
 
 		/*for (i in 0...WeekData.weeksList.length) {
@@ -132,22 +135,25 @@ class FreeplayState extends MusicBeatState
 			}
 		}*/
 
-		//Soni week
+		//Main weeks
 		addSong('Sonicando', 0, 'soni', FlxColor.fromRGB(0, 14, 226));
 		addSong('Faster Rapper', 0, 'soni', FlxColor.fromRGB(0, 14, 226));
 		addSong('SPED', 0, 'soni', FlxColor.fromRGB(0, 14, 226));
 
 		//bonus codes
-		if(FlxG.save.data.beatedWerhog)
-			addSong('Unleashed', 0, 'werhog', FlxColor.fromRGB(97, 87, 132));
-		if(FlxG.save.data.beatedOu)
-			addSong('ou', 0, 'ou', FlxColor.fromRGB(48, 35, 52));
-		if(FlxG.save.data.beatedNoebeat)
-			addSong('Please', 0, 'neobeat', FlxColor.fromRGB(110, 153, 223));
-		if(FlxG.save.data.beatedBil)
-			addSong('Broken Reality', 0, 'bil', FlxColor.fromRGB(255, 236, 94));
-		if(FlxG.save.data.beatedSonibars)
-			addSong('Sonibars', 0, 'sonibars', FlxColor.fromRGB(54, 0, 217));
+		addSong('Unleashed', 0, 'werhog', FlxColor.fromRGB(97, 87, 132), Progression.beatedWerhog);
+		addSong('ou', 0, 'ou', FlxColor.fromRGB(48, 35, 52), Progression.beatedOu);
+		addSong('Broken Reality', 0, 'bil', FlxColor.fromRGB(255, 236, 94), Progression.beatedBil);
+		addSong('Sonibars', 0, 'sonibars', FlxColor.fromRGB(54, 0, 217), Progression.beatedSonibars);
+		addSong('Origishit', 0, 'drawe soni', FlxColor.fromRGB(50, 0, 255), Progression.beatedOrigishit);
+		addSong('Cheese', 0, 'sas', FlxColor.fromRGB(255, 174, 0), Progression.beatedSas);
+		addSong('Impersonation', 0, 'santiago', FlxColor.fromRGB(0, 161, 255), Progression.beatedSantiago);
+		addSong('Spines', 0, 'soni.apk', FlxColor.fromRGB(0, 5, 114), Progression.beatedApk);
+		addSong('Dev Troubles', 0, 'jp vs royal', FlxColor.fromRGB(154, 107, 248), Progression.beatedRoyal);
+		addSong('Ovaloader Star', 0, 'letal soni', FlxColor.fromRGB(3, 14, 164), Progression.beatedLetal);
+		addSong('Scrapped Mouse', 0, 'shawn', FlxColor.fromRGB(230, 232, 244), Progression.beatedShawn);
+		addSong('Rude', 0, 'scourg', FlxColor.fromRGB(26, 224, 26), Progression.beatedScourg);
+		addSong('Pico', 0, 'chile', FlxColor.fromRGB(34, 58, 213), Progression.beatedChile);
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
@@ -165,27 +171,23 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
+			var songText:Alphabet = new Alphabet(90, 320, songs[i].unlocked ? songs[i].songName : "???", true);
 			songText.isMenuItem = true;
 			songText.targetY = i;
+			songText.targetY = i - curSelected;
 			grpSongs.add(songText);
 
-			if (songText.width > 980)
+			var maxWidth = 980;
+			if (songText.width > maxWidth)
 			{
-				var textScale:Float = 980 / songText.width;
-				songText.scale.x = textScale;
-				for (letter in songText.lettersArray)
-				{
-					letter.x *= textScale;
-					letter.offset.x *= textScale;
-				}
-				//songText.updateHitbox();
-				//trace(songs[i].songName + ' new scale: ' + textScale);
+				songText.scaleX = maxWidth / songText.width;
 			}
+			songText.snapToPosition();
 
 			Paths.currentModDirectory = songs[i].folder;
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
 			icon.sprTracker = songText;
+			icon.color = songs[i].unlocked ? FlxColor.WHITE : FlxColor.BLACK;
 
 			// using a FlxGroup is too much fuss!
 			iconArray.push(icon);
@@ -212,6 +214,7 @@ class FreeplayState extends MusicBeatState
 
 		if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
+		diffText.color = songs[curSelected].color;
 		intendedColor = bg.color;
 
 		if(lastDifficultyName == '')
@@ -260,15 +263,25 @@ class FreeplayState extends MusicBeatState
 		super.create();
 	}
 
+	function MipapaqueacesvYoviendoyaoiricolino7w7MipapalevoyadeciratumamavYogentesincultura7n7()
+	{
+		trace('
+			Mi papa: que aces >:v
+			Yo: viendo yaoi ricolino 7w7
+			Mi papa: le voy a decir a tu mama >:v
+			Yo: gente sin cultura 7n7
+		');
+	}
+
 	override function closeSubState() {
 		changeSelection(0, false);
 		persistentUpdate = true;
 		super.closeSubState();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
+	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, unlocked:Bool = true)
 	{
-		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
+		songs.push(new SongMetadata(songName, weekNum, songCharacter, color, unlocked));
 	}
 
 	function loadImages(grp:FlxTypedGroup<FlxSprite>) {
@@ -377,7 +390,7 @@ class FreeplayState extends MusicBeatState
 
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
-		var accepted = controls.ACCEPT;
+		var accepted = controls.ACCEPT || FlxG.mouse.justPressed;
 		var space = FlxG.keys.justPressed.SPACE;
 		var ctrl = FlxG.keys.justPressed.CONTROL;
 
@@ -396,8 +409,23 @@ class FreeplayState extends MusicBeatState
 				changeSelection(shiftMult);
 				holdTime = 0;
 			}
+			if (controls.UI_LEFT_P)
+			{
+				changeSelection(-shiftMult);
+				holdTime = 0;
+			}
+			if (controls.UI_RIGHT_P)
+			{
+				changeSelection(shiftMult);
+				holdTime = 0;
+			}
+			if(FlxG.mouse.wheel != 0)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
+				changeSelection(-shiftMult * FlxG.mouse.wheel, false);
+			}
 
-			if(controls.UI_DOWN || controls.UI_UP)
+			if(controls.UI_DOWN || controls.UI_UP || controls.UI_RIGHT || controls.UI_LEFT)
 			{
 				var checkLastHold:Int = Math.floor((holdTime - 0.5) * 10);
 				holdTime += elapsed;
@@ -405,33 +433,26 @@ class FreeplayState extends MusicBeatState
 
 				if(holdTime > 0.5 && checkNewHold - checkLastHold > 0)
 				{
-					changeSelection((checkNewHold - checkLastHold) * (controls.UI_UP ? -shiftMult : shiftMult));
+					changeSelection((checkNewHold - checkLastHold) * (controls.UI_UP || controls.UI_LEFT ? -shiftMult : shiftMult));
 					changeDiff();
 				}
 			}
 		}
 
-		if(FlxG.mouse.wheel != 0)
-		{
-			FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
-			changeSelection(-shiftMult * FlxG.mouse.wheel, false);
-			changeDiff();
-		}
+		if (upP || downP || FlxG.mouse.wheel != 0) changeDiff();
 
-		if (controls.UI_LEFT_P)
-			changeDiff(-1);
-		else if (controls.UI_RIGHT_P)
-			changeDiff(1);
-		else if (upP || downP) changeDiff();
-
-		if (controls.BACK)
+		if (controls.BACK  || FlxG.mouse.justPressedRight)
 		{
 			persistentUpdate = false;
 			if(colorTween != null) {
 				colorTween.cancel();
 			}
+			if(diffText != null) {
+				FlxTween.cancelTweensOf(diffText);
+			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
+			Lib.application.window.title = 'Freaky Night With Soni';
 		}
 
 		if(ctrl)
@@ -439,7 +460,7 @@ class FreeplayState extends MusicBeatState
 			persistentUpdate = false;
 			openSubState(new GameplayChangersSubstate());
 		}
-		else if(space)
+		else if(space && songs[curSelected].unlocked)
 		{
 			if(instPlaying != curSelected)
 			{
@@ -464,44 +485,58 @@ class FreeplayState extends MusicBeatState
 				#end
 			}
 		}
-
 		else if (accepted)
 		{
-			persistentUpdate = false;
-			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
-			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			/*#if MODS_ALLOWED
-			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
-			#else
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-			#end
-				poop = songLowercase;
-				curDifficulty = 1;
-				trace('Couldnt find file');
-			}*/
-			trace(poop);
-
-			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-			PlayState.isStoryMode = false;
-			PlayState.isCode = false;
-			PlayState.storyDifficulty = curDifficulty;
-
-			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-			if(colorTween != null) {
-				colorTween.cancel();
+			if(songs[curSelected].unlocked)
+			{
+				persistentUpdate = false;
+				var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+				var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+				/*#if MODS_ALLOWED
+				if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
+				#else
+				if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
+				#end
+					poop = songLowercase;
+					curDifficulty = 1;
+					trace('Couldnt find file');
+				}*/
+				trace(poop);
+	
+				FlxG.mouse.visible = false;
+	
+				PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+				PlayState.isStoryMode = false;
+				PlayState.isCode = false;
+				PlayState.storyDifficulty = curDifficulty;
+	
+				trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
+				if(colorTween != null) {
+					colorTween.cancel();
+				}
+				if(diffText != null) {
+					FlxTween.cancelTweensOf(diffText);
+				}
+				
+				Lib.application.window.title = 'Freaky Night With Soni';
+				if (FlxG.keys.pressed.SHIFT){
+					LoadingState.loadAndSwitchState(new ChartingState());
+				}else{
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+	
+				FlxG.sound.music.volume = 0;
+						
+				destroyFreeplayVocals();
 			}
-			
-			if (FlxG.keys.pressed.SHIFT){
-				LoadingState.loadAndSwitchState(new ChartingState());
-			}else{
-				LoadingState.loadAndSwitchState(new PlayState());
+			else
+			{
+				if(ClientPrefs.shake)
+					FlxG.camera.shake(0.008, 0.08);
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 			}
-
-			FlxG.sound.music.volume = 0;
-					
-			destroyFreeplayVocals();
 		}
-		else if(controls.RESET)
+		else if(controls.RESET && songs[curSelected].unlocked)
 		{
 			persistentUpdate = false;
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
@@ -535,8 +570,6 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		PlayState.storyDifficulty = curDifficulty;
-		diffText.text = songs[curSelected].songCharacter;
-		diffText.text = diffText.text.toUpperCase();
 		positionHighscore();
 	}
 
@@ -550,11 +583,21 @@ class FreeplayState extends MusicBeatState
 			curSelected = songs.length - 1;
 		if (curSelected >= songs.length)
 			curSelected = 0;
+
+		var opp:String = songs[curSelected].unlocked ? songs[curSelected].songCharacter : "???";
+		diffText.text = '< ${opp} >';
+		diffText.text = diffText.text.toUpperCase();
+
+		var nam:String = songs[curSelected].unlocked ? songs[curSelected].songName : "???";
+		Lib.application.window.title = 'Freaky Night With Soni - Freeplay - $nam';
 			
 		var newColor:Int = songs[curSelected].color;
 		if(newColor != intendedColor) {
 			if(colorTween != null) {
 				colorTween.cancel();
+			}
+			if(diffText != null) {
+				FlxTween.cancelTweensOf(diffText);
 			}
 			intendedColor = newColor;
 			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
@@ -562,6 +605,7 @@ class FreeplayState extends MusicBeatState
 					colorTween = null;
 				}
 			});
+			FlxTween.color(diffText, 1, diffText.color, intendedColor);
 		}
 
 		//charTransition(grpBoy);
@@ -658,8 +702,9 @@ class SongMetadata
 	public var songCharacter:String = "";
 	public var color:Int = -7179779;
 	public var folder:String = "";
+	public var unlocked:Bool = true;
 
-	public function new(song:String, week:Int, songCharacter:String, color:Int)
+	public function new(song:String, week:Int, songCharacter:String, color:Int, unlocked:Bool)
 	{
 		this.songName = song;
 		this.week = week;
@@ -667,5 +712,6 @@ class SongMetadata
 		this.color = color;
 		this.folder = Paths.currentModDirectory;
 		if(this.folder == null) this.folder = '';
+		this.unlocked = unlocked;
 	}
 }

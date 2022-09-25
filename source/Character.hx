@@ -18,6 +18,8 @@ import openfl.utils.Assets;
 import haxe.Json;
 import haxe.format.JsonParser;
 
+import ChromaticAberration;
+
 using StringTools;
 
 typedef CharacterFile = {
@@ -81,8 +83,13 @@ class Character extends FlxSprite
 	public var originalFlipX:Bool = false;
 	public var healthColorArray:Array<Int> = [255, 0, 0];
 
-	public static var DEFAULT_CHARACTER:String = 'bf'; //In case a character is missing, it will use BF on its place
-	public function new(x:Float, y:Float, ?character:String = 'bf', ?isPlayer:Bool = false)
+	// Shader effects
+	public var chrom:ChromaticAberration;
+	public var chromEnabled:Bool = false;
+	public var chromIntensity:Float = 0;
+
+	public static var DEFAULT_CHARACTER:String = 'befe'; //In case a character is missing, it will use BF on its place
+	public function new(x:Float, y:Float, ?character:String = 'befe', ?isPlayer:Bool = false)
 	{
 		super(x, y);
 
@@ -214,7 +221,7 @@ class Character extends FlxSprite
 						}
 					}
 				} else {
-					quickAnimAdd('idle', 'BF idle dance');
+					quickAnimAdd('idle', 'Bf');
 				}
 				//trace('Loaded file to character ' + curCharacter);
 		}
@@ -290,6 +297,28 @@ class Character extends FlxSprite
 				playAnim(animation.curAnim.name + '-loop');
 			}
 		}
+
+		if (chromEnabled)
+		{
+			if (chrom.gOffset.value[0] < 0)
+			{
+				chrom.gOffset.value[0] += 0.01 * elapsed;
+			}
+			else if (chrom.gOffset.value[0] > 0)
+			{
+				chrom.gOffset.value[0] = 0;
+			}
+
+			if (chrom.bOffset.value[0] > 0)
+			{
+				chrom.bOffset.value[0] -= 0.01 * elapsed;
+			}
+			else if (chrom.bOffset.value[0] < 0)
+			{
+				chrom.bOffset.value[0] = 0;
+			}
+		}
+
 		super.update(elapsed);
 	}
 
@@ -314,11 +343,24 @@ class Character extends FlxSprite
 			else if(animation.getByName('idle' + idleSuffix) != null) {
 					playAnim('idle' + idleSuffix);
 			}
+
+			if (chromEnabled)
+			{
+				chrom.gOffset.value = [-0.002, 0];
+				chrom.bOffset.value = [0.002, 0];
+			}
 		}
 	}
 
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void
 	{
+
+		if (chromEnabled && AnimName != animation.name)
+		{
+			chrom.gOffset.value = [-chromIntensity, 0];
+			chrom.bOffset.value = [chromIntensity, 0];
+		}
+
 		specialAnim = false;
 		animation.play(AnimName, Force, Reversed, Frame);
 
@@ -330,7 +372,7 @@ class Character extends FlxSprite
 		else
 			offset.set(0, 0);
 
-		if (curCharacter.startsWith('gf'))
+		if (curCharacter.startsWith('gf') || curCharacter.startsWith('gifiend'))
 		{
 			if (AnimName == 'singLEFT')
 			{

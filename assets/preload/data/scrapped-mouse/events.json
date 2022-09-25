@@ -1,0 +1,54 @@
+{
+	"song": {
+		"speed": 3.1,
+		"stage": "shawn",
+		"player1": "befe",
+		"player2": "shawn",
+		"player3": null,
+		"events": [
+			[
+				88615.3846153846,
+				[
+					[
+						"Flash",
+						"other",
+						"0.2"
+					],
+					[
+						"Scroll_Type",
+						"Left",
+						"Undyne"
+					]
+				]
+			],
+			[
+				95999.9999999999,
+				[
+					[
+						"Scroll_Type",
+						"Undyne",
+						"Right"
+					]
+				]
+			],
+			[
+				103384.615384615,
+				[
+					[
+						"Flash",
+						"other",
+						"0.3"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gifiend",
+		"bpm": 130,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Scrapped Mouse"
+	}
+}

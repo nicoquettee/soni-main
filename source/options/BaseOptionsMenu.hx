@@ -23,6 +23,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
+import openfl.Lib;
 import Controls;
 
 using StringTools;
@@ -38,15 +39,20 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	private var grpTexts:FlxTypedGroup<AttachedText>;
 
 	private var boyfriend:Character = null;
+	private var lyrics:FlxText = null;
 	private var descBox:FlxSprite;
 	private var descText:FlxText;
 
 	public var title:String;
 	public var rpcTitle:String;
 
+	public static var instance:BaseOptionsMenu;
+
 	public function new()
 	{
 		super();
+
+		instance = this;
 
 		if(title == null) title = 'Options';
 		if(rpcTitle == null) rpcTitle = 'Options Menu';
@@ -75,9 +81,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		descBox.alpha = 0.6;
 		add(descBox);
 
-		var titleText:Alphabet = new Alphabet(0, 0, title, true, false, 0, 0.6);
-		titleText.x += 60;
-		titleText.y += 40;
+		var titleText:Alphabet = new Alphabet(75, 40, title, true);
+		titleText.scaleX = 0.6;
+		titleText.scaleY = 0.6;
 		titleText.alpha = 0.4;
 		add(titleText);
 
@@ -89,13 +95,18 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
 		for (i in 0...optionsArray.length)
 		{
-			var optionText:Alphabet = new Alphabet(0, 70 * i, optionsArray[i].name, false, false);
+			var optionText:Alphabet = new Alphabet(290, 260, optionsArray[i].name, optionsArray[i].section);
 			optionText.isMenuItem = true;
-			optionText.x += 300;
 			/*optionText.forceX = 300;
 			optionText.yMult = 90;*/
-			optionText.xAdd = 200;
 			optionText.targetY = i;
+			if(optionsArray[i].section)
+			{
+				optionText.scaleX = 1.2;
+				optionText.scaleY = 1.2;
+				optionText.startPosition.x = optionText.x - 70;
+			}
+			optionText.ID = i;
 			grpOptions.add(optionText);
 
 			if(optionsArray[i].type == 'bool') {
@@ -105,7 +116,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				checkboxGroup.add(checkbox);
 			} else {
 				optionText.x -= 80;
-				optionText.xAdd -= 80;
+				optionText.startPosition.x -= 80;
 				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 80);
 				valueText.sprTracker = optionText;
 				valueText.copyAlpha = true;
@@ -133,24 +144,52 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	var nextAccept:Int = 5;
 	var holdTime:Float = 0;
 	var holdValue:Float = 0;
+	var changed:Bool = false;
+	var loaded:Bool = false;
 	override function update(elapsed:Float)
 	{
 		if (controls.UI_UP_P)
 		{
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 			changeSelection(-1);
 		}
 		if (controls.UI_DOWN_P)
 		{
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 			changeSelection(1);
 		}
 		if(FlxG.mouse.wheel != 0)
 		{
+			FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 			changeSelection(-FlxG.mouse.wheel);
 		}
 
-		if (controls.BACK) {
+		if(optionsArray[curSelected].section)
+		{
+			changed = false;
+			if(lastBack)
+			{
+				if(!changed)
+				{
+					changeSelection(-1);
+					changed = true;
+				}
+			}
+			else
+			{
+				if(!changed)
+				{
+					changeSelection(1);
+					changed = true;
+				}
+			}
+		}
+
+		if (controls.BACK || FlxG.mouse.justPressedRight) {
+			enableLyrics(false);
 			close();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
+			Lib.application.window.title = 'Freaky Night With Soni - Options';
 		}
 
 		if(nextAccept <= 0)
@@ -163,7 +202,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
 			if(usesCheckbox)
 			{
-				if(controls.ACCEPT)
+				if((controls.ACCEPT || FlxG.mouse.justPressed) && !optionsArray[curSelected].locked)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					curOption.setValue((curOption.getValue() == true) ? false : true);
@@ -171,7 +210,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 					reloadCheckboxes();
 				}
 			} else {
-				if(controls.UI_LEFT || controls.UI_RIGHT) {
+				if((controls.UI_LEFT || controls.UI_RIGHT) && !optionsArray[curSelected].locked) {
 					var pressed = (controls.UI_LEFT_P || controls.UI_RIGHT_P);
 					if(holdTime > 0.5 || pressed) {
 						if(pressed) {
@@ -215,7 +254,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 							}
 							updateTextFrom(curOption);
 							curOption.change();
-							FlxG.sound.play(Paths.sound('scrollMenu'));
+							if(!curOption.name.contains('GameJolt')) FlxG.sound.play(Paths.sound('scrollMenu'));
 						} else if(curOption.type != 'string') {
 							holdValue += curOption.scrollSpeed * elapsed * (controls.UI_LEFT ? -1 : 1);
 							if(holdValue < curOption.minValue) holdValue = curOption.minValue;
@@ -237,8 +276,16 @@ class BaseOptionsMenu extends MusicBeatSubstate
 					if(curOption.type != 'string') {
 						holdTime += elapsed;
 					}
-				} else if(controls.UI_LEFT_R || controls.UI_RIGHT_R) {
+				} else if((controls.UI_LEFT_R || controls.UI_RIGHT_R) && !optionsArray[curSelected].locked) {
 					clearHold();
+				} else if((controls.ACCEPT || FlxG.mouse.justPressed || FlxG.keys.justPressed.ENTER) && !optionsArray[curSelected].locked)
+				{
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+					Reflect.setProperty(ClientPrefs, curOption.variable, curOption.options[curOption.curOption]);
+					curOption.press();
+					/*if(curOption.name == 'Window Color Mode:') 
+					if(Reflect.getProperty(ClientPrefs, curOption.variable) == curOption.options[curOption.curOption]) 
+					TitleState.restart();*/
 				}
 			}
 
@@ -261,6 +308,45 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				reloadCheckboxes();
 			}
+		}
+
+		if(!loaded)
+		{
+			loaded = true;
+			if(optionsArray[curSelected].showLyrics)
+			{
+				if(!lyricsEnabled)
+				{
+					enableLyrics(true);
+					loadLyricsPrefs();
+				}
+			}
+			else
+			{
+				if(lyricsEnabled)
+					enableLyrics(false);
+			}
+		}
+
+		for(item in grpOptions.members)
+		{
+			if(optionsArray[item.ID].locked)
+				item.alpha = .4;
+			else
+				item.alpha = item.targetY == 0 ? 1 : .6;
+
+			for(i in 0...optionsArray.length)
+			if(optionsArray[curSelected].section) item.alpha = .6;
+		}
+		for(text in grpTexts)
+		{
+			if(optionsArray[text.ID].locked)
+				text.alpha = .4;
+			else
+				text.alpha = text.ID == curSelected ? 1 : .6;
+
+			for(i in 0...optionsArray.length)
+			if(optionsArray[curSelected].section) text.alpha = 0;
 		}
 
 		if(boyfriend != null && boyfriend.animation.curAnim.finished) {
@@ -289,8 +375,16 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		holdTime = 0;
 	}
 	
+	var lastBack:Bool = false;
 	function changeSelection(change:Int = 0)
 	{
+		if(change < 0)
+			lastBack = true;
+		else
+			lastBack = false;
+
+		loaded = false;
+
 		curSelected += change;
 		if (curSelected < 0)
 			curSelected = optionsArray.length - 1;
@@ -307,15 +401,17 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
-			item.alpha = 0.6;
 			if (item.targetY == 0) {
-				item.alpha = 1;
+				item.alpha = optionsArray[item.ID].locked ? 0.4 : 1;
+			} else {
+				item.alpha = optionsArray[item.ID].locked ? 0.4 : 0.6;
 			}
 		}
 		for (text in grpTexts) {
-			text.alpha = 0.6;
 			if(text.ID == curSelected) {
-				text.alpha = 1;
+				text.alpha = optionsArray[text.ID].locked ? 0.4 : 1;
+			} else {
+				text.alpha = optionsArray[text.ID].locked ? 0.4 : 0.6;
 			}
 		}
 
@@ -327,8 +423,8 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		{
 			boyfriend.visible = optionsArray[curSelected].showBoyfriend;
 		}
+		
 		curOption = optionsArray[curSelected]; //shorter lol
-		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
 	public function reloadBoyfriend()
@@ -347,6 +443,96 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		boyfriend.dance();
 		insert(1, boyfriend);
 		boyfriend.visible = wasVisible;
+	}
+
+	var lyricsEnabled:Bool = false;
+	public function enableLyrics(enable:Bool = true)
+	{
+		if(enable)
+		{
+			lyrics = new FlxText(800, 70, Std.int(FlxG.width * 0.4), '', 30);
+			lyrics.font = Paths.font('vcr.ttf');
+			lyrics.size = 120;
+			lyrics.alignment = CENTER;
+			lyrics.borderStyle = OUTLINE;
+			lyrics.borderColor = FlxColor.BLACK;
+			lyrics.antialiasing = false;
+			insert(1, lyrics);
+			lyricsEnabled = true;
+		}
+		else
+		{
+			if(lyrics != null)
+			{
+				lyrics.kill();
+				remove(lyrics);
+				lyrics.destroy();
+			}
+			lyricsEnabled = false;
+		}
+	}
+
+	public function loadLyricsPrefs()
+	{
+		for(i in 0...optionsArray.length)
+		{
+			switch(optionsArray[i].name)
+			{
+				case 'Language:' | 'Lyrics Color:' | 'Lyrics Transparency:':
+					optionsArray[i].locked = ClientPrefs.disableLyrics;
+			}
+		}
+		if(lyrics != null)
+		{
+			lyrics.alpha = ClientPrefs.lyricsAlpha;
+			lyrics.visible = !ClientPrefs.disableLyrics;
+
+			switch (ClientPrefs.lyricsColorr)
+			{
+				case 'White':
+					lyrics.color = FlxColor.WHITE;
+				case 'Gray':
+					lyrics.color = FlxColor.GRAY;
+				case 'Black':
+					lyrics.color = FlxColor.BLACK;
+				case 'Green':
+					lyrics.color = FlxColor.GREEN;
+				case 'Lime':
+					lyrics.color = FlxColor.LIME;
+				case 'Yellow':
+					lyrics.color = FlxColor.YELLOW;
+				case 'Orange':
+					lyrics.color = FlxColor.ORANGE;
+				case 'Red':
+					lyrics.color = FlxColor.RED;
+				case 'Purple':
+					lyrics.color = FlxColor.PURPLE;
+				case 'Blue':
+					lyrics.color = FlxColor.BLUE;
+				case 'Brown':
+					lyrics.color = FlxColor.BROWN;
+				case 'Pink':
+					lyrics.color = FlxColor.PINK;
+				case 'Magenta':
+					lyrics.color = FlxColor.MAGENTA;
+				case 'Cyan':
+					lyrics.color = FlxColor.CYAN;
+			}
+			if(ClientPrefs.lyricsColorr == 'Black') lyrics.borderColor = FlxColor.WHITE;
+			else lyrics.borderColor = FlxColor.BLACK;
+
+			switch (ClientPrefs.lyricsLanguagee)
+			{
+				case 'English':
+					lyrics.text = 'TEXT';
+				case 'Hispano':
+					lyrics.text = 'TEXTO';
+				case 'Brasileiro':
+					lyrics.text = 'TEXTO';
+				case 'Chileno':
+					lyrics.text = 'SHDOHASOIDASGUOASGHOFUGOHNY9U7EC7SYUJDUHGASUFNLUAYODBCGFOBCFHKDSGBFUICGIUGFISKLG734RGBVDFGSKASF Ayuda llevo programando mas de 1500 horas este mod ya no se como se ve el sol';
+			}
+		}
 	}
 
 	function reloadCheckboxes() {

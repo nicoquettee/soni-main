@@ -1,7 +1,7 @@
 {
 	"song": {
 		"speed": 3.2,
-		"stage": "soni",
+		"stage": "jungle",
 		"player1": "befe",
 		"player2": "tais",
 		"player3": null,
@@ -280,7 +280,7 @@
 		"notes": [],
 		"splashSkin": null,
 		"validScore": false,
-		"gfVersion": "shawn",
+		"gfVersion": "nuckles",
 		"bpm": 200,
 		"arrowSkin": null,
 		"needsVoices": true,

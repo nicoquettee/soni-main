@@ -20,7 +20,9 @@ import Discord.DiscordClient;
 #end
 
 import haxe.io.Path;
+import openfl.Lib;
 
+//LOADINGS SCREENS SCRIPT BY: ROYAL
 class LoadingState extends MusicBeatState
 {
 	inline static var MIN_TIME = 1.0;
@@ -52,10 +54,7 @@ class LoadingState extends MusicBeatState
 	
 	override function create()
 	{
-		#if desktop
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Loading Song", null);
-		#end
+		Lib.application.window.title = 'Freaky Night With Soni - Loading';
 
 		var blackScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), 0xFF83ff00);
 		if(hasLoad)
@@ -210,6 +209,7 @@ class LoadingState extends MusicBeatState
 	
 	inline static public function loadAndSwitchState(target:FlxState, stopMusic = false, ?loadingScreen:Bool = true)
 	{
+		Main.dumping = false;
 		FlxG.switchState(getNextState(target, stopMusic, loadingScreen));
 	}
 	
@@ -241,6 +241,7 @@ class LoadingState extends MusicBeatState
 
 	inline static public function loadAndSwitchState2(target:FlxState, stopMusic = false)
 	{
+		Main.dumping = false;
 		FlxG.switchState(getNextState2(target, stopMusic));
 	}
 	
@@ -418,7 +419,7 @@ class MultiCallback
 		if (logId != null)
 			trace('$logId: $msg');
 	}
-	
+
 	public function getFired() return fired.copy();
 	public function getUnfired() return [for (id in unfired.keys()) id];
 }

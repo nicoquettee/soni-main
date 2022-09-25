@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "chilli idle"
+		},
+		{
+			"offsets": [
+				57,
+				25
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "chilli left"
+		},
+		{
+			"offsets": [
+				1,
+				15
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "chilli right"
+		},
+		{
+			"offsets": [
+				20,
+				-15
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "chilli down"
+		},
+		{
+			"offsets": [
+				10,
+				87
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "chilli up"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/chilli_soni",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "soni-tm",
+	"flip_x": false,
+	"healthbar_colors": [
+		74,
+		83,
+		212
+	],
+	"camera_position": [
+		220,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

@@ -8,6 +8,7 @@ import openfl.display.ShaderInput;
 import openfl.utils.Assets;
 import flixel.FlxG;
 import openfl.Lib;
+import openfl.filters.ShaderFilter;
 using StringTools;
 typedef ShaderEffect = {
   var shader:Dynamic;
@@ -143,6 +144,51 @@ class TiltshiftEffect extends Effect{
 	}
 	
 	
+}
+
+class TransWindow extends FlxShader
+{
+	@:glFragmentSource('
+		#pragma header
+		//https://github.com/bbpanzu/FNF-Sunday/blob/main/source_sunday/RadialBlur.hx
+		//https://www.shadertoy.com/view/XsfSDs
+		uniform float cx = 0.5; //center x (0.0 - 1.0)
+		uniform float cy = 0.5; //center y (0.0 - 1.0)
+		uniform float blurWidth = 0.5; // blurAmount 
+		
+		const int nsamples = 30; //samples
+		
+		void main(){
+			vec4 color = texture2D(bitmap, openfl_TextureCoordv);
+				vec2 res;
+				res = openfl_TextureCoordv;
+			vec2 pp;
+			pp = vec2(cx, cy);
+			vec2 center = pp;
+			float blurStart = 1.0;
+	
+			
+			vec2 uv = openfl_TextureCoordv.xy;
+			
+			uv -= center;
+			float precompute = blurWidth * (1.0 / float(nsamples - 1));
+			
+			for(int i = 0; i < nsamples; i++)
+			{
+				float scale = blurStart + (float(i)* precompute);
+			color += texture2D(bitmap, uv * scale + center);
+			}
+			
+			
+			color /= float(nsamples);
+			
+			gl_FragColor = color; 
+		
+		}')
+	public function new()
+	{
+		super();
+	}
 }
 
 class Tiltshift extends FlxShader
@@ -570,51 +616,113 @@ class Grain extends FlxShader
 	
 }
 
+class VignetteEffect extends Effect
+{
+	public static var shader:ShaderFilter = new ShaderFilter(new VignetteShader());
+	public function new()
+	{	
+	}
+
+	public static function setVignette(f:Float)
+	{
+		shader.shader.data.vignetteOpacity.value = [f];
+	}
+}
+
+class VignetteShader extends FlxShader
+{
+	@:glFragmentSource('
+		#pragma header
+
+		uniform float vignetteOpacity = 0.4;
+		float lerp(float v1, float v2, float ratio) {
+			return v1 + ((v2 - v1) * ratio);
+		}
+
+		uniform vec4 _camSize;
+		vec2 getCamPos(vec2 pos) {
+			return (pos * openfl_TextureSize / vec2(_camSize.z, _camSize.w)) + vec2(_camSize.x / _camSize.z, _camSize.y / _camSize.z);
+		}
+		vec2 camToOg(vec2 pos) {
+			return ((pos - vec2(_camSize.x / _camSize.z, _camSize.y / _camSize.z)) * vec2(_camSize.z, _camSize.w) / openfl_TextureSize);
+		}
+		vec4 textureCam(sampler2D bitmap, vec2 pos) {
+			return texture2D(bitmap, camToOg(pos));
+		}
+		
+		void main() {
+			vec2 pos = getCamPos(openfl_TextureCoordv);
+			vec2 camPos = (pos - 0.5) * 2;
+			float dist = sqrt(pow(camPos.x, 2) + pow(camPos.y, 2));
+			float secondThing = max(abs(camPos.x), abs(camPos.y));
+		
+			float m = pow(lerp(dist, secondThing, 0.5), 2);
+		
+			vec2 pos1 = vec2(0.5, 0.5) + (camPos / 2 * (0.9 + (0.095 * vignetteOpacity * m)));
+			vec2 pos2 = vec2(0.5, 0.5) + (camPos / 2 * (0.9 + (0.1 * vignetteOpacity * m)));
+			vec2 pos3 = vec2(0.5, 0.5) + (camPos / 2 * (0.9 + (0.105 * vignetteOpacity * m)));
+			gl_FragColor = textureCam(bitmap, pos1);
+			vec4 color2 = textureCam(bitmap, pos2);
+			vec4 color3 = textureCam(bitmap, pos3);
+			gl_FragColor.r = lerp(gl_FragColor.r, 0, vignetteOpacity * m);
+			gl_FragColor.g = lerp(color2.g, 0, vignetteOpacity * m);
+			gl_FragColor.b = lerp(color3.b, 0, vignetteOpacity * m);
+		}
+	')
+	public function new()
+	{
+	  super();
+	}
+}
+
 class VCRDistortionEffect extends Effect
 {
-  public var shader:VCRDistortionShader = new VCRDistortionShader();
-  public function new(glitchFactor:Float,distortion:Bool=true,perspectiveOn:Bool=true,vignetteMoving:Bool=true){
-    shader.iTime.value = [0];
-    shader.vignetteOn.value = [true];
-    shader.perspectiveOn.value = [perspectiveOn];
-    shader.distortionOn.value = [distortion];
-    shader.scanlinesOn.value = [true];
-    shader.vignetteMoving.value = [vignetteMoving];
-    shader.glitchModifier.value = [glitchFactor];
-    shader.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
-   // var noise = Assets.getBitmapData(Paths.image("noise2"));
-   // shader.noiseTex.input = noise;
-   PlayState.instance.shaderUpdates.push(update);
-  }
+	public static var shader:ShaderFilter = new ShaderFilter(new VCRDistortionShader());
+	public function new()
+	{	
+	}
 
-  public function update(elapsed:Float){
-    shader.iTime.value[0] += elapsed;
-    shader.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
-  }
+	public static function setVCR(glitchFactor:Float,distortion:Bool,perspectiveOn:Bool,vignetteMoving:Bool)
+	{
+		shader.shader.data.iTime.value = [0];
+		shader.shader.data.vignetteOn.value = [true];
+		shader.shader.data.perspectiveOn.value = [perspectiveOn];
+		shader.shader.data.distortionOn.value = [distortion];
+		shader.shader.data.scanlinesOn.value = [true];
+		shader.shader.data.vignetteMoving.value = [vignetteMoving];
+		shader.shader.data.glitchModifier.value = [glitchFactor];
+		shader.shader.data.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
+		PlayState.instance.shaderUpdates.push(update);
+	}
 
-  public function setVignette(state:Bool){
-    shader.vignetteOn.value[0] = state;
-  }
+	public static function update(elapsed:Float){
+		//shader.shader.data.iTime.value[0] += elapsed;
+		shader.shader.data.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
+	}
 
-  public function setPerspective(state:Bool){
-    shader.perspectiveOn.value[0] = state;
-  }
+	public static function setVignette(state:Bool){
+		shader.shader.data.vignetteOn.value[0] = state;
+	}
 
-  public function setGlitchModifier(modifier:Float){
-    shader.glitchModifier.value[0] = modifier;
-  }
+	public static function setPerspective(state:Bool){
+		shader.shader.data.perspectiveOn.value[0] = state;
+	}
 
-  public function setDistortion(state:Bool){
-    shader.distortionOn.value[0] = state;
-  }
+	public static function setGlitchModifier(modifier:Float){
+		shader.shader.data.glitchModifier.value[0] = modifier;
+	}
 
-  public function setScanlines(state:Bool){
-    shader.scanlinesOn.value[0] = state;
-  }
+	public static function setDistortion(state:Bool){
+		shader.shader.data.distortionOn.value[0] = state;
+	}
 
-  public function setVignetteMoving(state:Bool){
-    shader.vignetteMoving.value[0] = state;
-  }
+	public static function setScanlines(state:Bool){
+		shader.shader.data.scanlinesOn.value[0] = state;
+	}
+
+	public static function setVignetteMoving(state:Bool){
+		shader.shader.data.vignetteMoving.value[0] = state;
+	}
 }
 
 class VCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV and https://www.shadertoy.com/view/Ms23DR and https://www.shadertoy.com/view/MsXGD4 and https://www.shadertoy.com/view/Xtccz4
@@ -728,11 +836,11 @@ class VCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ld
 
     	float vignette = (1.-vigAmt*(uv.y-.5)*(uv.y-.5))*(1.-vigAmt*(uv.x-.5)*(uv.x-.5));
 
-      if(vignetteOn)
-    	 video *= vignette;
+      /*if(vignetteOn)
+    	 video *= vignette;*/
 
 
-      gl_FragColor = mix(video,vec4(noise(uv * 75.)),.05);
+        gl_FragColor = mix(video,vec4(noise(uv * 75.)),.05);
 
       if(curUV.x<0 || curUV.x>1 || curUV.y<0 || curUV.y>1){
         gl_FragColor = vec4(0,0,0,0);

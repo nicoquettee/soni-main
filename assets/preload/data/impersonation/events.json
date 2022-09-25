@@ -30,6 +30,46 @@
 						"santiago"
 					]
 				]
+			],
+			[
+				104805.194805195,
+				[
+					[
+						"Set Cam Zoom",
+						"1.2",
+						""
+					],
+					[
+						"Camera Follow Pos",
+						"100",
+						"100"
+					],
+					[
+						"Change Scroll Speed",
+						"0.1",
+						"1.16"
+					]
+				]
+			],
+			[
+				105974.025974026,
+				[
+					[
+						"Set Cam Zoom",
+						"0.9",
+						""
+					],
+					[
+						"Camera Follow Pos",
+						"",
+						""
+					],
+					[
+						"Change Scroll Speed",
+						"1",
+						"0.07"
+					]
+				]
 			]
 		],
 		"notes": [],

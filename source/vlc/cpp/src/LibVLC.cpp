@@ -1,8 +1,7 @@
 #include <mutex>
 #include <iostream>
 #include <string>
-#include <StdInt.h>
-#include <windows.h> 
+#include <stdint.h>
 
 using std::string;
 using namespace std;
@@ -379,17 +378,14 @@ void LibVLC::setXwindow(uint32_t drawable)
 {
 	libvlc_media_player_set_xwindow(*this, drawable);
 }
-
 uint32_t LibVLC::xwindow()
 {
 	return libvlc_media_player_get_xwindow(*this);
 }
-
 void LibVLC::setHwnd(void * drawable)
 {
 	libvlc_media_player_set_hwnd(*this, drawable);
 }
-
 void* LibVLC::hwnd()
 {
 	return libvlc_media_player_get_hwnd(*this);
@@ -401,13 +397,14 @@ void LibVLC::useHWacceleration(bool hwAcc)
 {
 	if (hwAcc)
 	{
-		libvlc_media_add_option(libVlcMediaItem, ":hwdec=vaapi");
-		libvlc_media_add_option(libVlcMediaItem, ":ffmpeg-hw");
-		libvlc_media_add_option(libVlcMediaItem, ":avcodec-hw=dxva2.lo");
-		libvlc_media_add_option(libVlcMediaItem, ":avcodec-hw=any");
+		//libvlc_media_add_option(libVlcMediaItem, ":hwdec=vaapi");
+		//-libvlc_media_add_option(libVlcMediaItem, ":ffmpeg-hw");
+		//libvlc_media_add_option(libVlcMediaItem, ":avcodec-hw=dxva2.lo");
+		//-libvlc_media_add_option(libVlcMediaItem, ":avcodec-hw=any");
 		libvlc_media_add_option(libVlcMediaItem, ":avcodec-hw=dxva2");
-		libvlc_media_add_option(libVlcMediaItem, "--avcodec-hw=dxva2");
-		libvlc_media_add_option(libVlcMediaItem, ":avcodec-hw=vaapi");
+		std::cout << "libVLC: Using HW acceleration [DirectX Video Acceleration 2]" << std::endl;
+		//libvlc_media_add_option(libVlcMediaItem, "--avcodec-hw=dxva2");
+		//libvlc_media_add_option(libVlcMediaItem, ":avcodec-hw=vaapi");
 	}
 }
 

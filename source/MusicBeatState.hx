@@ -12,6 +12,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.util.FlxGradient;
 import openfl.filters.ShaderFilter;
+import Shaders;
 import flixel.FlxState;
 import flixel.FlxBasic;
 
@@ -23,6 +24,8 @@ class MusicBeatState extends FlxUIState
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
 	public var curDecStep:Float=0;
+
+	var dumpAddt:Bool = true;
 
 	private var controls(get, never):Controls;
 
@@ -45,6 +48,20 @@ class MusicBeatState extends FlxUIState
 
 	public function setChrome(daChrome:Float):Void
 		ChromaHandler.setChrome(daChrome);
+
+	public var vcrDistortion(get, never):ShaderFilter;
+	inline function get_vcrDistortion():ShaderFilter
+		return VCRDistortionEffect.shader;
+
+	public function setVCR(daVCR:Float,distortion:Bool,perspectiveOn:Bool,vignetteMoving:Bool):Void
+		VCRDistortionEffect.setVCR(daVCR, distortion, perspectiveOn, vignetteMoving);
+
+	public var vignette(get, never):ShaderFilter;
+	inline function get_vignette():ShaderFilter
+		return VignetteEffect.shader;
+
+	public function setVignette(v:Float):Void
+		VignetteEffect.setVignette(v);
 	
 	#if (VIDEOS_ALLOWED && windows)
 	override public function onFocus():Void
@@ -101,6 +118,7 @@ class MusicBeatState extends FlxUIState
 
 	public static function switchState(nextState:FlxState) {
 		// Custom made Trans in
+		Main.dumping = true;
 		var curState:Dynamic = FlxG.state;
 		var leState:MusicBeatState = curState;
 		if(!FlxTransitionableState.skipNextTransIn) {

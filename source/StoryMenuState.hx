@@ -17,6 +17,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 import flixel.graphics.FlxGraphic;
+import openfl.Lib;
 import WeekData;
 
 using StringTools;
@@ -33,7 +34,7 @@ class StoryMenuState extends MusicBeatState
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
 
-	private static var curWeek:Int = 0;
+	public static var curWeek:Int = 0;
 
 	var txtTracklist:FlxText;
 
@@ -57,6 +58,8 @@ class StoryMenuState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+		FlxG.mouse.visible = true;
 
 		PlayState.isStoryMode = true;
 		PlayState.isCode = false;
@@ -150,7 +153,7 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("In the Story Menu", null);
 		#end
 
 		for (i in 0...WeekData.weeksList.length)
@@ -213,28 +216,6 @@ class StoryMenuState extends MusicBeatState
 		changeWeek();
 		changeDifficulty();
 
-		/*if(PlayState.storyWeek == (FlxG.save.data.leftInTheMiddlee ? curWeek : FlxG.save.data.weekWhereYouLeave) && (FlxG.save.data.leftInTheMiddlee || FlxG.save.data.leftDaGameInTheMiddlee))
-		{
-			lockInput = true;
-			openSubState(new LeftGameSubstate());
-			LeftGameSubstate.whenAccept = function()
-			{
-				if(FlxG.save.data.leftInTheMiddlee)
-					FlxG.save.data.leftInTheMiddlee = false;
-				else if(FlxG.save.data.leftDaGameInTheMiddlee)
-					FlxG.save.data.leftDaGameInTheMiddlee = false;
-				LoadingState.loadAndSwitchState(new PlayState());
-			}
-			LeftGameSubstate.whenDenied = function()
-			{
-				if(FlxG.save.data.leftInTheMiddlee)
-					FlxG.save.data.leftInTheMiddlee = false;
-				else if(FlxG.save.data.leftDaGameInTheMiddlee)
-					FlxG.save.data.leftDaGameInTheMiddlee = false;
-				lockInput = false;
-			}
-		}*/
-
 		super.create();
 	}
 
@@ -256,10 +237,39 @@ class StoryMenuState extends MusicBeatState
 
 		difficultySelectors.visible = !weekIsLocked(curWeek);
 
-		if (!movedBack && !selectedWeek && !lockInput)
+		if (!movedBack && !selectedWeek)
 		{
 			var upP = controls.UI_UP_P;
 			var downP = controls.UI_DOWN_P;
+			var overlapin = FlxG.mouse.overlaps(rightArrow) || FlxG.mouse.overlaps(leftArrow);
+
+			if(FlxG.mouse.overlaps(rightArrow))
+			{
+				if(FlxG.mouse.pressed)
+					rightArrow.scale.set(.9,.9);
+				else
+					rightArrow.scale.set(1,1);
+
+				if(FlxG.mouse.justPressed)
+				{
+					changeWeek(-1);
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+				}
+			}
+			else if(FlxG.mouse.overlaps(leftArrow))
+			{
+				if(FlxG.mouse.pressed)
+					leftArrow.scale.set(.9,.9);
+				else
+					leftArrow.scale.set(1,1);
+
+				if(FlxG.mouse.justPressed)
+				{
+					changeWeek(1);
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+				}
+			}
+
 			if (controls.UI_RIGHT_P)
 			{
 				changeWeek(-1);
@@ -304,39 +314,21 @@ class StoryMenuState extends MusicBeatState
 			{
 				selectWeek();
 			}
+			else if (FlxG.mouse.justPressed && !overlapin)
+			{
+				selectWeek();
+			}
 		}
 
-		if (controls.BACK && !movedBack && !selectedWeek && !lockInput)
+		if ((controls.BACK || FlxG.mouse.justPressedRight) && !movedBack && !selectedWeek)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
+			Lib.application.window.title = 'Freaky Night With Soni';
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
 		super.update(elapsed);
-
-		/*if(PlayState.storyWeek == curWeek && (FlxG.save.data.leftInTheMiddlee || FlxG.save.data.leftDaGameInTheMiddlee))
-		{
-			lockInput = true;
-			openSubState(new LeftGameSubstate());
-			LeftGameSubstate.whenAccept = function()
-			{
-				if(FlxG.save.data.leftInTheMiddlee)
-					FlxG.save.data.leftInTheMiddlee = false;
-				else if(FlxG.save.data.leftDaGameInTheMiddlee)
-					FlxG.save.data.leftDaGameInTheMiddlee = false;
-				LoadingState.loadAndSwitchState(new PlayState());
-			}
-			LeftGameSubstate.whenDenied = function()
-			{
-				if(FlxG.save.data.leftInTheMiddlee)
-					FlxG.save.data.leftInTheMiddlee = false;
-				else if(FlxG.save.data.leftDaGameInTheMiddlee)
-					FlxG.save.data.leftDaGameInTheMiddlee = false;
-				lockInput = false;
-				closeSubState();
-			}
-		}*/
 
 		grpLocks.forEach(function(lock:FlxSprite)
 		{
@@ -345,9 +337,6 @@ class StoryMenuState extends MusicBeatState
 		});
 	}
 
-	var lockInput:Bool = false;
-	var leftDuringWeek:Bool = FlxG.save.data.leftInTheMiddlee;
-	var leftDaGameDuringWeek:Bool = FlxG.save.data.leftDaGameInTheMiddlee;
 	var movedBack:Bool = false;
 	var selectedWeek:Bool = false;
 	var stopspamming:Bool = false;
@@ -356,17 +345,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		if (!weekIsLocked(curWeek))
 		{
-			if (stopspamming == false)
-			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
-
-				grpWeekText.members[curWeek].startFlashing();
-
-				var bf:MenuCharacter = grpWeekCharacters.members[1];
-				if(bf.character != '' && bf.hasConfirmAnimation) grpWeekCharacters.members[1].animation.play('confirm');
-				stopspamming = true;
-			}
-
+			selectedWeek = true;
 			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
 			var songArray:Array<String> = [];
 			var leWeek:Array<Dynamic> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).songs;
@@ -374,28 +353,62 @@ class StoryMenuState extends MusicBeatState
 				songArray.push(leWeek[i][0]);
 			}
 
-			// Nevermind that's stupid lmao
-			PlayState.storyPlaylist = songArray;
-			PlayState.isStoryMode = true;
-			PlayState.isCode = false;
-			selectedWeek = true;
-
-			var diffic = CoolUtil.getDifficultyFilePath(curDifficulty);
-			if(diffic == null) diffic = '';
-
-			PlayState.storyDifficulty = curDifficulty;
-
-			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
-			PlayState.campaignScore = 0;
-			PlayState.campaignMisses = 0;
-			new FlxTimer().start(1, function(tmr:FlxTimer)
+			if (Progression.weekProgress.exists(WeekData.weeksList[curWeek]))
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
-				FreeplayState.destroyFreeplayVocals();
-			});
+				openSubState(new KillmePls(function()
+				{
+					PlayState.campaignMisses = 0;
+					PlayState.campaignScore = 0;
+					startWeek(songArray);
+				}, function()
+				{
+					var resumeInfo = Progression.weekProgress.get(WeekData.weeksList[curWeek]);
+
+					if (!songArray.contains(resumeInfo.song))
+						songArray[songArray.length] = resumeInfo.song;
+
+					songArray = songArray.slice(songArray.indexOf(resumeInfo.song));
+					PlayState.campaignMisses = resumeInfo.weekMisses;
+					PlayState.campaignScore = resumeInfo.weekScore;
+
+					startWeek(songArray);
+				}, function()
+				{
+					selectedWeek = false;
+				}));
+			}
+			else
+			{
+				PlayState.campaignMisses = 0;
+				PlayState.campaignScore = 0;
+				startWeek(songArray);
+			}
 		} else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
+	}
+
+	function startWeek(songs:Array<String>)
+	{
+		FlxG.sound.play(Paths.sound('confirmMenu'));
+		PlayState.storyPlaylist = songs;
+		PlayState.isStoryMode = true;
+		PlayState.isCode = false;
+		selectedWeek = true;
+
+		var diffic = CoolUtil.getDifficultyFilePath(curDifficulty);
+		if(diffic == null) diffic = '';
+
+		PlayState.storyDifficulty = curDifficulty;
+
+		PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+		new FlxTimer().start(1, function(tmr:FlxTimer)
+		{
+			FlxG.mouse.visible = false;
+			LoadingState.loadAndSwitchState(new PlayState(), true);
+			Lib.application.window.title = 'Freaky Night With Soni';
+			FreeplayState.destroyFreeplayVocals();
+		});
 	}
 
 	var tweenDifficulty:FlxTween;
@@ -526,6 +539,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			curDifficulty = newPos;
 		}
+		Lib.application.window.title = 'Freaky Night With Soni - Story Mode - ${WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).storyName}';
 		updateText();
 	}
 

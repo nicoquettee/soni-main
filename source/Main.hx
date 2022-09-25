@@ -1,40 +1,53 @@
 package;
 
-import flixel.graphics.FlxGraphic;
+import GameJolt.GJToastManager;
+import GameJolt;
 import flixel.FlxG;
 import flixel.FlxGame;
-import flixel.tweens.FlxTween;
 import flixel.FlxState;
+import flixel.graphics.FlxGraphic;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import haxe.CallStack.StackItem;
+import haxe.CallStack;
+import haxe.io.Path;
+import lime.app.Application;
+import flixel.input.keyboard.FlxKey;
+import Controls;
 import openfl.Assets;
 import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
-import openfl.events.Event;
 import openfl.display.StageScaleMode;
+import openfl.events.Event;
 import openfl.events.UncaughtErrorEvent;
-import haxe.CallStack.StackItem;
-import haxe.CallStack;
+import openfl.system.System;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
-import lime.app.Application;
-import haxe.io.Path;
-import GameJolt;
 
 class Main extends Sprite
 {
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
-	var initialState:Class<FlxState> = TitleState; // The FlxState the game starts with.
+
+	public static var initialState:Class<FlxState> = TitleState; // The FlxState the game starts with.
+
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
+
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
+	public static var canToggleFullScreen:Bool = false; // Will be set true in Init to make sure everything is ready
+
 	public static var fpsVar:FPS;
 	public static var noteWidth:Float = 160;
 	public static var noteDefScale:Float = 0.7;
+
 	var focusMusicTween:FlxTween;
-	public static var gjToastManager:GJToastManager; //gamejolt 
+
+	public static var gjToastManager:GJToastManager; // gamejolt
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -48,8 +61,6 @@ class Main extends Sprite
 		super();
 
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
-		Application.current.window.onFocusOut.add(onWindowFocusOut);
-		Application.current.window.onFocusIn.add(onWindowFocusIn);
 
 		if (stage != null)
 		{
@@ -59,26 +70,6 @@ class Main extends Sprite
 		{
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
-	}
-
-	function onWindowFocusOut()
-	{
-		trace("Game unfocused");
-
-		// Lower global volume when unfocused
-		if (focusMusicTween != null)
-			focusMusicTween.cancel();
-		focusMusicTween = FlxTween.tween(FlxG.sound, {volume: 0.05}, 0.5);
-	}
-
-	function onWindowFocusIn()
-	{
-		trace("Game focused");
-
-		// Normal global volume when focused
-		if (focusMusicTween != null)
-			focusMusicTween.cancel();
-		focusMusicTween = FlxTween.tween(FlxG.sound, {volume: FlxG.save.data.volume}, 0.5);
 	}
 
 	private function init(?E:Event):Void
@@ -108,20 +99,19 @@ class Main extends Sprite
 		#if !debug
 		initialState = TitleState;
 		#end
-	
-		ClientPrefs.loadDefaultKeys();
 		// fuck you, persistent caching stays ON during sex
 		FlxGraphic.defaultPersist = true;
 		// the reason for this is we're going to be handling our own cache smartly
-		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, gameHeight, Init, zoom, framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
-		if(fpsVar != null) {
-			fpsVar.visible = ClientPrefs.showFPS;
+		if (fpsVar != null)
+		{
+			fpsVar.visible = false;
 		}
 		#end
 
@@ -133,22 +123,96 @@ class Main extends Sprite
 		FlxG.mouse.visible = false;
 		#end
 
-		gjToastManager = new GJToastManager(); //gamejolt
+		#if debug
+		// debugging shit
+		FlxG.console.registerObject("Paths", Paths);
+		FlxG.console.registerObject("Conductor", Conductor);
+		FlxG.console.registerObject("PlayState", PlayState);
+		FlxG.console.registerObject("Note", Note);
+		FlxG.console.registerObject("PlayStateChangeables", PlayStateChangeables);
+
+		FlxG.console.registerObject("MainMenuState", MainMenuState);
+		#end
+
+		gjToastManager = new GJToastManager(); // gamejolt
 		addChild(gjToastManager);
+
+		Application.current.window.onFocusOut.add(onWindowFocusOut);
+		Application.current.window.onFocusIn.add(onWindowFocusIn);
 	}
 
+	var oldVol:Float = 1.0;
+	var newVol:Float = 0.3;
+
+	public static var focused:Bool = true;
+
+	function onWindowFocusOut()
+	{
+		focused = false;
+
+		if (Type.getClass(FlxG.state) != PlayState)
+		{
+			oldVol = FlxG.sound.volume;
+			if (oldVol > 0.3)
+			{
+				newVol = 0.3;
+			}
+			else
+			{
+				if (oldVol > 0.1)
+				{
+					newVol = 0.1;
+				}
+				else
+				{
+					newVol = 0;
+				}
+			}
+
+			if (focusMusicTween != null)
+				focusMusicTween.cancel();
+			focusMusicTween = FlxTween.tween(FlxG.sound, {volume: newVol}, 0.5);
+		}
+
+		FlxG.drawFramerate = 30; //Optimization
+	}
+
+	function onWindowFocusIn()
+	{
+		new FlxTimer().start(0.2, function(tmr:FlxTimer)
+		{
+			focused = true;
+		});
+
+		if (Type.getClass(FlxG.state) != PlayState)
+		{
+			if (focusMusicTween != null)
+				focusMusicTween.cancel();
+
+			focusMusicTween = FlxTween.tween(FlxG.sound, {volume: oldVol}, 0.5);
+		}
+
+		FlxG.drawFramerate = ClientPrefs.framerate;
+	}
+
+	/*public function setTransparency(windName:String)
+		{
+			Transparency.setTransparency(windName);
+	}*/
 	function onCrash(e:UncaughtErrorEvent):Void
 	{
 		var errMsg:String = "";
 		var path:String;
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
 		var dateNow:String = Date.now().toString();
-	
+
 		dateNow = StringTools.replace(dateNow, " ", "_");
 		dateNow = StringTools.replace(dateNow, ":", "'");
-	
-		path = "./crash/" + "Soni_" + dateNow + ".txt";
-	
+
+		path = "./crash/" + "FNWS_" + dateNow + ".txt";
+
+		errMsg = "Version: " + Lib.application.meta["version"] + "\n";
+
 		for (stackItem in callStack)
 		{
 			switch (stackItem)
@@ -159,27 +223,27 @@ class Main extends Sprite
 					Sys.println(stackItem);
 			}
 		}
-	
-		errMsg += "\nError: " + e.error + "\nJAJA se te crasheo el mod por imbecil, reporta el bug en nuestro discord: https://discord.gg/5fmj2VVa2k";
-	
+
+		errMsg += "\nUncaught Error: " + e.error + "\nReport the error here: https://discord.gg/5fmj2VVa2k";
+
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");
-	
+
 		File.saveContent(path, errMsg + "\n");
-	
+
 		Sys.println(errMsg);
 		Sys.println("Crash dump saved in " + Path.normalize(path));
-	
-		var crashDialoguePath:String = "Soni-CrashDialog";
-	
+
+		var crashDialoguePath:String = "sexo";
+
 		#if windows
 		crashDialoguePath += ".exe";
 		#end
-	
-		if (FileSystem.exists("./" + crashDialoguePath)) //quiero hacer como el indio crosover
+
+		if (FileSystem.exists("./" + crashDialoguePath))
 		{
 			Sys.println("Found crash dialog: " + crashDialoguePath);
-	
+
 			#if linux
 			crashDialoguePath = "./" + crashDialoguePath;
 			#end
@@ -187,27 +251,52 @@ class Main extends Sprite
 		}
 		else
 		{
+			Sys.println("No crash dialog found! Making a simple alert instead...");
 			Application.current.window.alert(errMsg, "Error!");
 		}
-	
+
 		Sys.exit(1);
 	}
 
+	public static var persistentAssets:Array<FlxGraphic> = [];
+	public static var idk:Array<String> = ['', 'assets/'];
+
 	public static function dumpCache()
 	{
-		///* SPECIAL THANKS TO HAYA
-		@:privateAccess
-		for (key in FlxG.bitmap._cache.keys())
+		// /*
+		if (Main.dumping)
 		{
-			var obj = FlxG.bitmap._cache.get(key);
-			if (obj != null)
+			trace('removed ur mom');
+			// haya's stuff again lol
+			@:privateAccess
+			for (key in FlxG.bitmap._cache.keys())
 			{
-				Assets.cache.removeBitmapData(key);
-				FlxG.bitmap._cache.remove(key);
-				obj.destroy();
+				var obj = FlxG.bitmap._cache.get(key);
+				if (obj != null && !persistentAssets.contains(obj))
+				{
+					Assets.cache.removeBitmapData(key);
+					FlxG.bitmap._cache.remove(key);
+					obj.destroy();
+					openfl.Assets.cache.removeBitmapData(key);
+				}
 			}
+
+			// clear gpu vram
+			GPUFunctions.disposeAllTextures();
+			// clear songs
+			for (i in 0...idk.length)
+			{
+				Assets.cache.clear(idk[i] + "songs");
+				Assets.cache.clear(idk[i] + "shared/sounds");
+			}
+			openfl.Assets.cache.clear("songs");
+			openfl.Assets.cache.clear("assets/songs");
+			// garbage disposal
+			System.gc();
 		}
-		Assets.cache.clear("songs");
+		Main.dumping = false;
 		// */
 	}
+
+	public static var dumping:Bool = false;
 }

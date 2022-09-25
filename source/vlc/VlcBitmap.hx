@@ -357,7 +357,8 @@ class VlcBitmap extends Bitmap
 	{
 		var cTime = Lib.getTimer();
 
-		if ((cTime - oldTime) > 8.3) // min 8.3 ms between renders, but this is not a good way to do it...
+		// with fast gpu rendering now i think we can make the fps higher (35 to 60)
+		if ((cTime - oldTime) > 16) // min 28 ms between renders, but this is not a good way to do it...
 		{
 			oldTime = cTime;
 
@@ -474,9 +475,7 @@ class VlcBitmap extends Bitmap
 			onProgress();
 	}
 
-	function statusOnPositionChanged(newPos:Int)
-	{
-	}
+	function statusOnPositionChanged(newPos:Int) {}
 
 	function statusOnSeekableChanged(newPos:Int)
 	{
@@ -484,13 +483,9 @@ class VlcBitmap extends Bitmap
 			onSeek();
 	}
 
-	function statusOnForward()
-	{
-	}
+	function statusOnForward() {}
 
-	function statusOnBackward()
-	{
-	}
+	function statusOnBackward() {}
 
 	function onDisplay()
 	{

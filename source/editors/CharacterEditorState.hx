@@ -106,7 +106,7 @@ class CharacterEditorState extends MusicBeatState
 		dad = new Character(400, 0, "santiago");
         dad.color = 0xFF000000;
         dad.alpha = 1 / 3;
-        dad.visible = true;
+        dad.visible = false;
 		add(dad);
 		
 		bf = new Character(400, 350, "befe");
@@ -1100,7 +1100,11 @@ class CharacterEditorState extends MusicBeatState
 	function updatePresence() {
 		#if desktop
 		// Updating Discord Rich Presence
+		#if PRIVATE_BUILD
+		DiscordClient.changePresence("Character Editor", "CLASSIFIED", 'face');
+		#else
 		DiscordClient.changePresence("Character Editor", "Character: " + daAnim, leHealthIcon.getCharacter());
+		#end
 		#end
 	}
 

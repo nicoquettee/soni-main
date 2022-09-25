@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="chilli_soni.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="chilli down0000" x="0" y="0" width="488" height="369" frameX="0" frameY="-11" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0001" x="0" y="0" width="488" height="369" frameX="0" frameY="-11" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0002" x="488" y="0" width="496" height="377" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0003" x="488" y="0" width="496" height="377" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0004" x="984" y="0" width="508" height="379" frameX="-2" frameY="0" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0005" x="1492" y="0" width="508" height="379" frameX="-2" frameY="0" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0006" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0007" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0008" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0009" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0010" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0011" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0012" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli down0013" x="2000" y="0" width="510" height="376" frameX="-2" frameY="-3" frameWidth="512" frameHeight="380"/>
+	<SubTexture name="chilli idle0000" x="2510" y="0" width="490" height="381" frameX="-1" frameY="-13" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0001" x="2510" y="0" width="490" height="381" frameX="-1" frameY="-13" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0002" x="3000" y="0" width="486" height="384" frameX="-7" frameY="-10" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0003" x="3000" y="0" width="486" height="384" frameX="-7" frameY="-10" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0004" x="3486" y="0" width="488" height="390" frameX="-3" frameY="-4" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0005" x="3486" y="0" width="488" height="390" frameX="-3" frameY="-4" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0006" x="0" y="390" width="486" height="393" frameX="-1" frameY="-1" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0007" x="0" y="390" width="486" height="393" frameX="-1" frameY="-1" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0008" x="486" y="390" width="482" height="394" frameX="0" frameY="0" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0009" x="486" y="390" width="482" height="394" frameX="0" frameY="0" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0010" x="486" y="390" width="482" height="394" frameX="0" frameY="0" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0011" x="486" y="390" width="482" height="394" frameX="0" frameY="0" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0012" x="486" y="390" width="482" height="394" frameX="0" frameY="0" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli idle0013" x="486" y="390" width="482" height="394" frameX="0" frameY="0" frameWidth="493" frameHeight="394"/>
+	<SubTexture name="chilli left0000" x="968" y="390" width="497" height="415" frameX="0" frameY="-3" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0001" x="968" y="390" width="497" height="415" frameX="0" frameY="-3" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0002" x="1465" y="390" width="507" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0003" x="1465" y="390" width="507" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0004" x="1972" y="390" width="511" height="417" frameX="-9" frameY="-1" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0005" x="2483" y="390" width="511" height="417" frameX="-9" frameY="-1" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0006" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0007" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0008" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0009" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0010" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0011" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0012" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli left0013" x="2994" y="390" width="503" height="418" frameX="-9" frameY="0" frameWidth="520" frameHeight="418"/>
+	<SubTexture name="chilli right0000" x="3497" y="390" width="509" height="379" frameX="-2" frameY="-10" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0001" x="3497" y="390" width="509" height="379" frameX="-2" frameY="-10" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0002" x="0" y="808" width="511" height="383" frameX="0" frameY="-6" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0003" x="0" y="808" width="511" height="383" frameX="0" frameY="-6" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0004" x="511" y="808" width="512" height="389"/>
+	<SubTexture name="chilli right0005" x="1023" y="808" width="512" height="389"/>
+	<SubTexture name="chilli right0006" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0007" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0008" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0009" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0010" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0011" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0012" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli right0013" x="1535" y="808" width="510" height="387" frameX="-1" frameY="-2" frameWidth="512" frameHeight="389"/>
+	<SubTexture name="chilli up0000" x="2045" y="808" width="458" height="477" frameX="-1" frameY="0" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0001" x="2045" y="808" width="458" height="477" frameX="-1" frameY="0" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0002" x="2503" y="808" width="455" height="474" frameX="0" frameY="-4" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0003" x="2503" y="808" width="455" height="474" frameX="0" frameY="-4" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0004" x="2958" y="808" width="454" height="462" frameX="-2" frameY="-16" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0005" x="3412" y="808" width="454" height="462" frameX="-2" frameY="-16" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0006" x="0" y="1285" width="481" height="411" frameX="-3" frameY="-71" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0007" x="481" y="1285" width="481" height="411" frameX="-3" frameY="-71" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0008" x="962" y="1285" width="480" height="413" frameX="-3" frameY="-67" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0009" x="962" y="1285" width="480" height="413" frameX="-3" frameY="-67" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0010" x="962" y="1285" width="480" height="413" frameX="-3" frameY="-67" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0011" x="962" y="1285" width="480" height="413" frameX="-3" frameY="-67" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0012" x="962" y="1285" width="480" height="413" frameX="-3" frameY="-67" frameWidth="484" frameHeight="482"/>
+	<SubTexture name="chilli up0013" x="962" y="1285" width="480" height="413" frameX="-3" frameY="-67" frameWidth="484" frameHeight="482"/>
+</TextureAtlas>

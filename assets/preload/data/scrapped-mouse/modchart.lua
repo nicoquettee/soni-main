@@ -1,3 +1,9 @@
+local noteOffsetX = 25;
+local SustainNoteOffsetX = 10;
+
+local noteOffsetY = 0;
+local SustainNoteOffsetY = -32;
+
 local defaultNotePos = {};
 
 function onSongStart()
@@ -12,6 +18,7 @@ function onSongStart()
 end
 
 local songPos;
+local downScrollValue = -1;
 function onUpdate(elapsed)
 	songPos = getSongPosition()
 	--setProperty('health', 2);
@@ -19,6 +26,12 @@ function onUpdate(elapsed)
 		setProperty('healthGain', 1.5);
 		setProperty('healthLoss', 0.5);
 	end
+
+	if downscroll then
+        downScrollValue = 1
+    else
+        downScrollValue = -1
+    end
 end
 
 function onStepHit()
@@ -155,6 +168,9 @@ function onStepHit()
 		if curStep == 764 then
 			for i = 0,3 do noteTweenAlpha('Alpha ' .. i, i, 0.35, 0.46, 'quadOut') end
 		end
+		if curStep == 896 then
+			resetStrums(true, true, true, true, 0, 7, 0.1)
+		end
 	end
 end
 
@@ -165,4 +181,14 @@ end
 
 function lerp(a, b, t)
 	return a + (b - a) * t
+end
+
+function resetStrums(resetX, resetY, resetAlpha, resetAngle, startingNote, endingNote, resetTime)
+	for i = startingNote,endingNote do
+		if resetX then noteTweenX("resetStrumX" .. i, i, defaultNotePos[i + 1][1], resetTime, "quadOut") end
+		if resetY then noteTweenY("resetStrumY" .. i, i, defaultNotePos[i + 1][2], resetTime, "quadOut") end
+		if resetAlpha then noteTweenAlpha("resetStrumAlpha" .. i, i, defaultNotePos[i + 1][3], resetTime, "quadOut") end
+		if resetAngle then noteTweenAngle("resetStrumScale" .. i, i, defaultNotePos[i + 1][4], resetTime, "quadOut") end
+		setPropertyFromGroup('strumLineNotes', i, 'downScroll', downscroll)
+	end
 end

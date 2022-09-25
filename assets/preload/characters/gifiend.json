@@ -1,10 +1,14 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				43,
 				34
 			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "gefe idle",
 			"indices": [
 				27,
 				0,
@@ -21,17 +25,17 @@
 				11,
 				12,
 				13
-			],
-			"fps": 24,
-			"anim": "danceLeft",
-			"loop": false,
-			"name": "gefe idle"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				43,
 				34
 			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "gefe idle",
 			"indices": [
 				14,
 				15,
@@ -46,11 +50,7 @@
 				24,
 				25,
 				26
-			],
-			"fps": 24,
-			"anim": "danceRight",
-			"loop": false,
-			"name": "gefe idle"
+			]
 		}
 	],
 	"no_antialiasing": false,

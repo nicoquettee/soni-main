@@ -10,7 +10,7 @@ class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
-	public static var showFPS:Bool = true;
+	public static var showFPS:Bool = #if PRIVATE_BUILD true #else false #end;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -26,8 +26,8 @@ class ClientPrefs {
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
 	public static var disableLyrics:Bool = false;
-	public static var lyricsLanguage:String = 'English';
-	public static var lyricsColor:String = 'White';
+	public static var lyricsLanguagee:String = 'English';
+	public static var lyricsColorr:String = 'White';
 	public static var lyricsAlpha:Float = 1;
 	public static var scoreZoom:Bool = true;
 	public static var hideNoteCombo:Bool = false;
@@ -39,6 +39,7 @@ class ClientPrefs {
 	public static var noteScale:Float = 1;
 	public static var noteTransparencySoniNose:Float = 0.75;
 	public static var mechanics:Bool = true;
+	public static var shake:Bool = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -70,6 +71,12 @@ class ClientPrefs {
 	public static var autoPause:Bool = false;
 	public static var colorblindMode:String = 'None';
 	public static var slowdownPause:Bool = true;
+	public static var brightnesss:Float = 0;
+	public static var gammaa:Float = 1;
+	public static var fullscreen:Bool = false;
+	public static var resolutionn:String = '1920x1080';
+	public static var mouseSkinn:String = 'Haxe';
+	public static var wcolormode:String = 'Dark';
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -94,7 +101,9 @@ class ClientPrefs {
 		'volume_down'	=> [NUMPADMINUS, MINUS],
 		
 		'debug_1'		=> [SEVEN, NONE],
-		'debug_2'		=> [EIGHT, NONE]
+		'debug_2'		=> [EIGHT, NONE],
+
+		'fullscreen' => [F11, NONE]
 	];
 	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
 
@@ -141,8 +150,8 @@ class ClientPrefs {
 		FlxG.save.data.funnyShaders = funnyShaders;
 
 		FlxG.save.data.disableLyrics = disableLyrics;
-		FlxG.save.data.lyricsLanguage = lyricsLanguage;
-		FlxG.save.data.lyricsColor = lyricsColor;
+		FlxG.save.data.lyricsLanguagee = lyricsLanguagee;
+		FlxG.save.data.lyricsColorr = lyricsColorr;
 		FlxG.save.data.lyricsAlpha = lyricsAlpha;
 
 		FlxG.save.data.noteScale = noteScale;
@@ -150,9 +159,17 @@ class ClientPrefs {
 
 		FlxG.save.data.mechanics = mechanics;
 
+		FlxG.save.data.shake = shake;
+
 		FlxG.save.data.autoPause = autoPause;
 		FlxG.save.data.colorblindMode = colorblindMode;
 		FlxG.save.data.slowdownPause = slowdownPause;
+		FlxG.save.data.brightnesss = brightnesss;
+		FlxG.save.data.gammaa = gammaa;
+		FlxG.save.data.fullscreen = fullscreen;
+		FlxG.save.data.resolutionn = resolutionn;
+		FlxG.save.data.mouseSkinn = mouseSkinn;
+		FlxG.save.data.wcolormode = wcolormode;
 	
 		FlxG.save.flush();
 
@@ -268,11 +285,11 @@ class ClientPrefs {
 		if(FlxG.save.data.disableLyrics != null) {
 			disableLyrics = FlxG.save.data.disableLyrics;
 		}
-		if(FlxG.save.data.lyricsLanguage != null) {
-			lyricsLanguage = FlxG.save.data.lyricsLanguage;
+		if(FlxG.save.data.lyricsLanguagee != null) {
+			lyricsLanguagee = FlxG.save.data.lyricsLanguagee;
 		}
-		if(FlxG.save.data.lyricsColor != null) {
-			lyricsColor = FlxG.save.data.lyricsColor;
+		if(FlxG.save.data.lyricsColorr != null) {
+			lyricsColorr = FlxG.save.data.lyricsColorr;
 		}
 		if(FlxG.save.data.lyricsAlpha != null) {
 			lyricsAlpha = FlxG.save.data.lyricsAlpha;
@@ -286,6 +303,9 @@ class ClientPrefs {
 		if (FlxG.save.data.mechanics != null) {
 			mechanics = FlxG.save.data.mechanics;
 		}
+		if (FlxG.save.data.shake != null) {
+			shake = FlxG.save.data.shake;
+		}
 		if(FlxG.save.data.autoPause != null) {
 			autoPause = FlxG.save.data.autoPause;
 		}
@@ -294,6 +314,24 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.slowdownPause != null) {
 			slowdownPause = FlxG.save.data.slowdownPause;
+		}
+		if(FlxG.save.data.brightnesss != null) {
+			brightnesss = FlxG.save.data.brightnesss;
+		}
+		if(FlxG.save.data.gammaa != null) {
+			gammaa = FlxG.save.data.gammaa;
+		}
+		if(FlxG.save.data.fullscreen != null) {
+			fullscreen = FlxG.save.data.fullscreen;
+		}
+		if(FlxG.save.data.resolutionn != null) {
+			resolutionn = FlxG.save.data.resolutionn;
+		}
+		if(FlxG.save.data.mouseSkinn != null) {
+			mouseSkinn = FlxG.save.data.mouseSkinn;
+		}
+		if(FlxG.save.data.wcolormode != null) {
+			wcolormode = FlxG.save.data.wcolormode;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{
@@ -335,9 +373,11 @@ class ClientPrefs {
 		TitleState.muteKeys = copyKey(keyBinds.get('volume_mute'));
 		TitleState.volumeDownKeys = copyKey(keyBinds.get('volume_down'));
 		TitleState.volumeUpKeys = copyKey(keyBinds.get('volume_up'));
+		TitleState.fullscreenKeys = copyKey(keyBinds.get('fullscreen'));
 		FlxG.sound.muteKeys = TitleState.muteKeys;
 		FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
 		FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
+		FlxG.sound.fullscreenKeys = TitleState.fullscreenKeys;
 	}
 	public static function copyKey(arrayToCopy:Array<FlxKey>):Array<FlxKey> {
 		var copiedArray:Array<FlxKey> = arrayToCopy.copy();

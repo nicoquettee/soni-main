@@ -5,51 +5,73 @@ import openfl.filters.BitmapFilter;
 import openfl.filters.ColorMatrixFilter;
 
 class ColorblindFilters {
-    public static var filterArray:Array<BitmapFilter> = [];
-	public static var filterMap:Map<String, {filter:BitmapFilter, ?onUpdate:Void->Void}> = [
-        "Deuteranopia" => {
-            var matrix:Array<Float> = [
-                0.43, 0.72, -.15, 0, 0,
-                0.34, 0.57, 0.09, 0, 0,
-                -.02, 0.03,    1, 0, 0,
-                0,    0,    0, 1, 0,
-            ];
+    public static var matrix:Array<Float>;
+    public static var colorM:Array<Float>;
 
-            {filter: new ColorMatrixFilter(matrix)}
-        },
-        "Protanopia" => {
-            var matrix:Array<Float> = [
-                0.20, 0.99, -.19, 0, 0,
-                0.16, 0.79, 0.04, 0, 0,
-                0.01, -.01,    1, 0, 0,
-                0,    0,    0, 1, 0,
-            ];
+    public static function applyFiltersOnGame()
+    {
+        var a1:Float = 1;
+        var a2:Float = 0;
+        var a3:Float = 0;
 
-            {filter: new ColorMatrixFilter(matrix)}
-        },
-        "Tritanopia" => {
-            var matrix:Array<Float> = [
-                0.97, 0.11, -.08, 0, 0,
-                0.02, 0.82, 0.16, 0, 0,
-                0.06, 0.88, 0.18, 0, 0,
-                0,    0,    0, 1, 0,
-            ];
+        var b1:Float = 0;
+        var b2:Float = 1;
+        var b3:Float = 0;
 
-            {filter: new ColorMatrixFilter(matrix)}
+        var c1:Float = 0;
+        var c2:Float = 0;
+        var c3:Float = 1;
+
+        switch (ClientPrefs.colorblindMode)
+        {
+            case 'None':
+                a1 = 1; b1 = 0; c1 = 0;
+                a2 = 0; b2 = 1; c2 = 0;
+                a3 = 0; b3 = 0; c3 = 1;
+            case 'Deuteranopia':
+                a1 = 0.625; b1 = 0.375; c1 = 0;
+                a2 = 0.7; b2 = 0.3; c2 = 0;
+                a3 = 0; b3 = 0; c3 = 1.0;
+            case 'Deuteranomaly':
+                a1 = 0.8; b1 = 0.2; c1 = 0;
+                a2 = 0.258; b2 = 0.742; c2 = 0;
+                a3 = 0; b3 = 0.142; c3 = 0.858;
+            case 'Protanopia':
+                a1 = 0.567; b1 = 0.433; c1 = 0;
+                a2 = 0.558; b2 = 0.442; c2 = 0;
+                a3 = 0; b3 = 0.242; c3 = 0.758;
+            case 'Protanomaly':
+                a1 = 0.817; b1 = 0.183; c1 = 0;
+                a2 = 0.333; b2 = 0.667; c2 = 0;
+                a3 = 0; b3 = 0.125; c3 = 0.875;
+            case 'Tritanopia':
+                a1 = 0.95; b1 = 0.05; c1 = 0;
+                a2 = 0; b2 = 0.433; c2 = 0.567;
+                a3 = 0; b3 = 0.475; c3 = 0.525;
+            case 'Tritanomaly':
+                a1 = 0.967; b1 = 0.033; c1 = 0;
+                a2 = 0; b2 = 0.733; c2 = 0.267;
+                a3 = 0; b3 = 0.183; c3 = 0.817;
+            case 'Achromatopsia':
+                a1 = 0.299; b1 = 0.587; c1 = 0.114;
+                a2 = 0.299; b2 = 0.587; c2 = 0.114;
+                a3 = 0.299; b3 = 0.587; c3 = 0.114;
+            case 'Achromatomaly':
+                a1 = 0.618; b1 = 0.320; c1 = 0.062;
+                a2 = 0.163; b2 = 0.775; c2 = 0.062;
+                a3 = 0.163; b3 = 0.320; c3 = 0.516;
         }
-    ];
 
-    public static function applyFiltersOnGame() {
-        filterArray = [];
-        FlxG.game.setFilters(filterArray);
-        if (ClientPrefs.colorblindMode != "None") {
-            if (filterMap.get(ClientPrefs.colorblindMode) != null) {
-                var thisF = filterMap.get(ClientPrefs.colorblindMode).filter;
-                if (thisF != null) {
-                    filterArray.push(thisF);
-                }
-            }
-        }
-        FlxG.game.setFilters(filterArray);
+        matrix = [
+            a1 * ClientPrefs.gammaa, b1 * ClientPrefs.gammaa, c1 * ClientPrefs.gammaa, 0, ClientPrefs.brightnesss,
+            a2 * ClientPrefs.gammaa, b2 * ClientPrefs.gammaa, c2 * ClientPrefs.gammaa, 0, ClientPrefs.brightnesss,
+            a3 * ClientPrefs.gammaa, b3 * ClientPrefs.gammaa, c3 * ClientPrefs.gammaa, 0, ClientPrefs.brightnesss,
+            0, 0, 0, 1, 0,
+        ];
+
+        var filters:Array<BitmapFilter> = [];
+        filters.push(new ColorMatrixFilter(matrix));
+        FlxG.game.filtersEnabled = true;
+        FlxG.game.setFilters(filters);
     }
 }

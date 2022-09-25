@@ -1,0 +1,166 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle bf chilli"
+		},
+		{
+			"offsets": [
+				-38,
+				-3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left bf chilli"
+		},
+		{
+			"offsets": [
+				-34,
+				-8
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down bf chilli"
+		},
+		{
+			"offsets": [
+				-36,
+				38
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up bf chilli"
+		},
+		{
+			"offsets": [
+				-41,
+				-4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right bf chilli"
+		},
+		{
+			"offsets": [
+				-35,
+				-7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "fallo left bf"
+		},
+		{
+			"offsets": [
+				-20,
+				-25
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "fallo down bf"
+		},
+		{
+			"offsets": [
+				-43,
+				45
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "fallo up bf"
+		},
+		{
+			"offsets": [
+				-41,
+				-2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "fallo right bf"
+		},
+		{
+			"offsets": [
+				3,
+				7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "sus",
+			"indices": [],
+			"name": "sus"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				21,
+				322
+			],
+			"anim": "deathConfirm",
+			"fps": 24,
+			"name": "muerte bf tres",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				141,
+				426
+			],
+			"anim": "firstDeath",
+			"fps": 24,
+			"name": "muerte uno bf",
+			"indices": []
+		},
+		{
+			"offsets": [
+				2,
+				178
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "muerte bf dos"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/chilli_bf",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "befe",
+	"flip_x": true,
+	"healthbar_colors": [
+		55,
+		179,
+		233
+	],
+	"camera_position": [
+		370,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

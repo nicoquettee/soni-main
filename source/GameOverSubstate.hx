@@ -10,6 +10,8 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import openfl.Lib;
+import WeekData;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
@@ -26,6 +28,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	public static var endSoundName:String = 'gameOverEnd';
 
 	public static var instance:GameOverSubstate;
+	public static var healthLossDecreased:Bool = false;
 
 	public static function resetVariables() {
 		characterName = 'befe';
@@ -50,6 +53,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		super();
 
 		PlayState.instance.setOnLuas('inGameOver', true);
+		Lib.application.window.title = 'Freaky Night With Soni - GAME OVER';
 
 		Conductor.songPosition = 0;
 
@@ -87,9 +91,6 @@ class GameOverSubstate extends MusicBeatSubstate
 			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 		}
 
-		if(PlayState.isStoryMode)
-			Application.current.window.onClose.add(function(){FlxG.save.data.leftDaGameInTheMiddlee=true;FlxG.save.data.weekWhereYouLeave=PlayState.storyWeek;});
-
 		if (controls.ACCEPT)
 		{
 			endBullshit();
@@ -103,14 +104,15 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			if (PlayState.isStoryMode)
 				MusicBeatState.switchState(new StoryMenuState());
+			else if(PlayState.isCode)
+				MusicBeatState.switchState(new Codes());
 			else
 				MusicBeatState.switchState(new FreeplayState());
 
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			PlayState.instance.callOnLuas('onGameOverConfirm', [false]);
 
-			if(PlayState.isStoryMode)
-				FlxG.save.data.leftInTheMiddlee = true;
+			Lib.application.window.title = 'Freaky Night With Soni';
 		}
 
 		if (boyfriend.animation.curAnim.name == 'firstDeath')
@@ -155,17 +157,79 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (!isEnding)
 		{
 			isEnding = true;
-			boyfriend.playAnim('deathConfirm', true);
-			FlxG.sound.music.stop();
-			FlxG.sound.play(Paths.music(endSoundName));
-			new FlxTimer().start(0.7, function(tmr:FlxTimer)
+			if(PlayState.deathCounter >= 3 && PlayState.instance.healthLoss > 0.7)
 			{
-				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
+				openSubState(new KillmePls(function()
 				{
-					MusicBeatState.resetState();
-				});
-			});
-			PlayState.instance.callOnLuas('onGameOverConfirm', [true]);
+					shitshitshitshitshitshitshitshit();
+				}, function()
+				{
+					healthLossDecreased = true;
+					shitshitshitshitshitshitshitshit();
+				}, function()
+				{
+					isEnding = false;
+				},
+				'you have died ${PlayState.deathCounter} times in a row',
+				'want to decrease life drain?',
+				'Yes',
+				'No'));
+			}
+			else
+			{
+				shitshitshitshitshitshitshitshit();
+			}
 		}
+	}
+
+	function shitshitshitshitshitshitshitshit()
+	{
+		boyfriend.playAnim('deathConfirm', true);
+		FlxG.sound.music.stop();
+		FlxG.sound.play(Paths.music(endSoundName));
+		new FlxTimer().start(0.7, function(tmr:FlxTimer)
+		{
+			FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
+			{
+				Lib.application.window.title = 'Freaky Night With Soni';
+				if(!PlayState.isStoryMode)
+					backOutFromFreeplayOrCodesStateIdk();
+				else
+					spedFuckedMyLifeIFuckingWantToDieBecauseWhenYouDieInSpedTheScreenGoBlackAndYouCantResetTheState();
+			});
+		});
+		PlayState.instance.callOnLuas('onGameOverConfirm', [true]);
+	}
+
+	function spedFuckedMyLifeIFuckingWantToDieBecauseWhenYouDieInSpedTheScreenGoBlackAndYouCantResetTheState()
+	{
+		var songArray:Array<String> = [];
+		var leWeek:Array<Dynamic> = WeekData.weeksLoaded.get(WeekData.weeksList[PlayState.storyWeek]).songs;
+		for (i in 0...leWeek.length) {
+			songArray.push(leWeek[i][0]);
+		}
+
+		var resumeInfo = Progression.weekProgress.get(WeekData.weeksList[PlayState.storyWeek]);
+
+		if (!songArray.contains(resumeInfo.song))
+			songArray[songArray.length] = resumeInfo.song;
+
+		songArray = songArray.slice(songArray.indexOf(resumeInfo.song));
+		PlayState.campaignMisses = resumeInfo.weekMisses;
+		PlayState.campaignScore = resumeInfo.weekScore;
+
+		PlayState.storyPlaylist = songArray;
+
+		PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+
+		FlxG.mouse.visible = false;
+		LoadingState.loadAndSwitchState(new PlayState(), false);
+	}
+
+	function backOutFromFreeplayOrCodesStateIdk()
+	{
+		FlxG.sound.music.volume = 0;
+		FlxG.mouse.visible = false;
+		MusicBeatState.switchState(new PlayState());
 	}
 }

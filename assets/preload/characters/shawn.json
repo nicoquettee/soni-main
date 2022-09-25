@@ -1,77 +1,77 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "SHAWN-IDLE"
+			"fps": 24,
+			"name": "SHAWN-IDLE",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				199,
 				45
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Shawn Left"
+			"fps": 24,
+			"name": "Shawn Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				5,
 				-45
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Shawn-down pose"
+			"fps": 24,
+			"name": "Shawn-down pose",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				29,
 				123
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "shawn up"
+			"fps": 24,
+			"name": "shawn up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-26,
 				-3
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Shawn Right pose"
+			"fps": 24,
+			"name": "Shawn Right pose",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Shawn-the-ratmouse",
 	"position": [
-		0,
+		10,
 		0
 	],
-	"healthicon": "face",
+	"healthicon": "shawn",
 	"flip_x": false,
 	"healthbar_colors": [
-		161,
-		161,
-		161
+		230,
+		232,
+		244
 	],
 	"camera_position": [
 		0,
-		0
+		-100
 	],
 	"sing_duration": 4.00000000000001,
 	"scale": 1.2

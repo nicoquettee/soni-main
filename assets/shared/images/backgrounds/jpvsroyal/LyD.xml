@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="LyD.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="LyD0000" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0001" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0002" x="622" y="0" width="616" height="349" frameX="-35" frameY="-23" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0003" x="622" y="0" width="616" height="349" frameX="-35" frameY="-23" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0004" x="1238" y="0" width="628" height="354" frameX="-18" frameY="-18" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0005" x="0" y="372" width="628" height="354" frameX="-18" frameY="-18" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0006" x="628" y="372" width="623" height="364" frameX="-12" frameY="-8" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0007" x="628" y="372" width="623" height="364" frameX="-12" frameY="-8" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0008" x="1251" y="372" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0009" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0010" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0011" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0012" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0013" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+	<SubTexture name="LyD0014" x="0" y="0" width="622" height="372" frameX="0" frameY="0" frameWidth="651" frameHeight="372"/>
+</TextureAtlas>

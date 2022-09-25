@@ -10,10 +10,8 @@ local del = 0
 local del2 = 0
 
 function onUpdate(elapsed)
-	if modchart == true then
-		for i = 0,3 do
-			setPropertyFromGroup('strumLineNotes', i, 'alpha', 0)
-		end
+	for i = 0,3 do
+		setPropertyFromGroup('strumLineNotes', i, 'alpha', 0)
 	end
 	if followchars == true then
 		if mustHitSection == false then
@@ -73,20 +71,8 @@ function onUpdate(elapsed)
 end
 
 function onStartCountdown()
-	setProperty('gf.alpha', 0)
 	setProperty('dad.alpha', 0)
 	setProperty('iconP2.alpha', 0)
 
 	return Function_Continue
-end
-
-function onStepHit()
-	if curStep == 10 then
-		modchart = false
-	end
-end
-
-function onGameOver()
-	modchart = false
-	return Function_Continue;
 end

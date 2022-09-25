@@ -18,12 +18,12 @@
 		-113,
 		-15
 	],
-	"healthicon": "face",
+	"healthicon": "santiago",
 	"flip_x": false,
 	"healthbar_colors": [
+		0,
 		161,
-		161,
-		161
+		255
 	],
 	"camera_position": [
 		0,

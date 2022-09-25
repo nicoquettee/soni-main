@@ -5,5 +5,7 @@
 
 	"boyfriend": [760, 430],
 	"girlfriend": [600, 570],
-	"opponent": [660, 675]
+	"opponent": [660, 675],
+
+	"hide_girlfriend": true
 }

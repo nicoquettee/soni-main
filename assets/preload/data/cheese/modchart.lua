@@ -190,6 +190,17 @@ function onStepHit()
 				triggerEvent('Play Animation', 'singUP-alt', 'dad')
 			end
 		end
+
+		if curStep == 412 or curStep == 540 or curStep == 616 or curStep == 764 or curStep == 1160 or 
+		   curStep == 1216 or curStep == 1280 or curStep == 1292 or curStep == 1352 or curStep == 1392 or 
+		   curStep == 1472 or curStep == 1532 then
+			triggerEvent('Play Animation', 'singLEFT-alt', 'dad')
+		end
+		if curStep == 536 or curStep == 608 or curStep == 704 or curStep == 768 or curStep == 1176 or 
+		   curStep == 1224 or curStep == 1284 or curStep == 1312 or curStep == 1356 or curStep == 1400 or 
+		   curStep == 1528 or curStep == 1672 then
+			triggerEvent('Play Animation', 'singRIGHT-alt', 'dad')
+		end
 	end
 end
 
