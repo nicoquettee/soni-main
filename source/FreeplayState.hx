@@ -21,8 +21,12 @@ import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
 import WeekData;
 import openfl.Lib;
+import openfl.filters.BitmapFilter;
 #if MODS_ALLOWED
 import sys.FileSystem;
+#end
+#if !flash
+import openfl.filters.ShaderFilter;
 #end
 
 using StringTools;
@@ -84,6 +88,14 @@ class FreeplayState extends MusicBeatState
 	var charChoosen:String;
 	var color:FlxColor;
 
+	public static var bpm:Float = 102;
+
+	public function new()
+	{
+		super();
+		MusicBeatState.dumpcachetuff = false;
+	}
+
 	override function create()
 	{
 		Paths.clearStoredMemory();
@@ -100,6 +112,8 @@ class FreeplayState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Freeplay Menu", null);
 		#end
+
+		FlxG.camera.setFilters(filters);
 
 		/*for (i in 0...WeekData.weeksList.length) {
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
@@ -153,7 +167,11 @@ class FreeplayState extends MusicBeatState
 		addSong('Ovaloader Star', 0, 'letal soni', FlxColor.fromRGB(3, 14, 164), Progression.beatedLetal);
 		addSong('Scrapped Mouse', 0, 'shawn', FlxColor.fromRGB(230, 232, 244), Progression.beatedShawn);
 		addSong('Rude', 0, 'scourg', FlxColor.fromRGB(26, 224, 26), Progression.beatedScourg);
+		addSong('The Lean Iluminati', 0, 'solean', FlxColor.fromRGB(165, 53, 188), Progression.beatedSolean);
+		addSong('Precocious', 0, 'h', FlxColor.fromRGB(30, 30, 30), Progression.beatedHxSoni);
 		addSong('Pico', 0, 'chile', FlxColor.fromRGB(34, 58, 213), Progression.beatedChile);
+		addSong('3AM', 0, 'halloween', FlxColor.fromRGB(46, 0, 188), Progression.beatedHalloween);
+		addSong('Chilli Cats', 0, 'soni tm', FlxColor.fromRGB(74, 83, 212), Progression.beatedTM);
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
@@ -260,6 +278,8 @@ class FreeplayState extends MusicBeatState
 		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
 		text.scrollFactor.set();
 		add(text);
+
+		FlxG.camera.zoom = defaultZoom;
 		super.create();
 	}
 
@@ -356,8 +376,10 @@ class FreeplayState extends MusicBeatState
 	}*/
 
 	var instPlaying:Int = -1;
-	private static var vocals:FlxSound = null;
+	public static var vocals:FlxSound = null;
 	var holdTime:Float = 0;
+	var accepted:Bool;
+	var playingSong:Bool = false;
 	override function update(elapsed:Float)
 	{
 		if (FlxG.sound.music.volume < 0.7)
@@ -385,14 +407,16 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
+		if (songs[curSelected].songName.toLowerCase() == 'spines' && curBeat % 4 == 0 && ClientPrefs.funnyShaders) setChrome(chromVal);
+
 		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
 		positionHighscore();
 
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
-		var accepted = controls.ACCEPT || FlxG.mouse.justPressed;
-		var space = FlxG.keys.justPressed.SPACE;
+		var space = FlxG.keys.justPressed.SPACE || FlxG.mouse.justPressedMiddle;
 		var ctrl = FlxG.keys.justPressed.CONTROL;
+		accepted = controls.ACCEPT || FlxG.mouse.justPressed;
 
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
@@ -451,8 +475,11 @@ class FreeplayState extends MusicBeatState
 				FlxTween.cancelTweensOf(diffText);
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
+			destroyFreeplayVocals();
+			if(playingSong) FlxG.sound.playMusic(Paths.music('freakyMenu'), .7);
 			Lib.application.window.title = 'Freaky Night With Soni';
+			MusicBeatState.dumpcachetuff = true;
+			MusicBeatState.switchState(new MainMenuState());
 		}
 
 		if(ctrl)
@@ -462,7 +489,8 @@ class FreeplayState extends MusicBeatState
 		}
 		else if(space && songs[curSelected].unlocked)
 		{
-			if(instPlaying != curSelected)
+			playingSong = !playingSong;
+			if(playingSong)
 			{
 				#if PRELOAD_ALL
 				destroyFreeplayVocals();
@@ -474,15 +502,18 @@ class FreeplayState extends MusicBeatState
 					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 				else
 					vocals = new FlxSound();
-
+		
 				FlxG.sound.list.add(vocals);
 				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
 				vocals.play();
 				vocals.persist = true;
 				vocals.looped = true;
 				vocals.volume = 0.7;
-				instPlaying = curSelected;
 				#end
+			} else
+			{
+				destroyFreeplayVocals();
+				FlxG.sound.playMusic(Paths.music('freakyMenu'), .7);
 			}
 		}
 		else if (accepted)
@@ -520,8 +551,10 @@ class FreeplayState extends MusicBeatState
 				
 				Lib.application.window.title = 'Freaky Night With Soni';
 				if (FlxG.keys.pressed.SHIFT){
+					MusicBeatState.dumpcachetuff = true;
 					LoadingState.loadAndSwitchState(new ChartingState());
 				}else{
+					MusicBeatState.dumpcachetuff = true;
 					LoadingState.loadAndSwitchState(new PlayState());
 				}
 	
@@ -543,6 +576,8 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		super.update(elapsed);
+
+		FlxG.camera.zoom = FlxMath.lerp(defaultZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 	}
 
 	public static function destroyFreeplayVocals() {
@@ -551,6 +586,61 @@ class FreeplayState extends MusicBeatState
 			vocals.destroy();
 		}
 		vocals = null;
+	}
+
+	override function beatHit()
+	{
+		super.beatHit();
+
+		if(!accepted && playingSong)
+		{
+			bopOnBeat();
+		}
+	}
+
+	override function stepHit()
+	{
+		super.stepHit();
+
+		if (songs[curSelected].songName.toLowerCase() == 'spines' && playingSong)
+		{
+			
+		}
+	}
+
+	override function sectionHit()
+	{
+		super.sectionHit();
+
+		if(ClientPrefs.camZooms && FlxG.camera.zoom < 1.35 && playingSong) FlxG.camera.zoom += 0.015;
+	}
+
+	var defaultZoom:Float = 1;
+	var filters:Array<BitmapFilter> = [];
+	var pushedFilters:Bool = false;
+	var chromVal:Float = 0;
+	function bopOnBeat()
+	{
+		if (songs[curSelected].songName.toLowerCase() == 'spines'
+			&& curBeat % 4 == 0
+			&& ClientPrefs.funnyShaders)
+		{
+			if(!pushedFilters)
+			{
+				filters.push(chromaticAberration);
+				pushedFilters = true;
+			}
+			chromVal = 0.0005;
+			FlxTween.tween(this, {chromVal: 0}, 1.16);
+		} else
+		{
+			if(pushedFilters)
+			{
+				filters.remove(filters[0]);
+				pushedFilters = false;
+			}
+			FlxTween.tween(this, {chromVal: 0}, 1.16);
+		}
 	}
 
 	function changeDiff(change:Int = 0)
@@ -682,6 +772,34 @@ class FreeplayState extends MusicBeatState
 		if(newPos > -1)
 		{
 			curDifficulty = newPos;
+		}
+
+		if(playingSong)
+		{
+			#if PRELOAD_ALL
+			destroyFreeplayVocals();
+			FlxG.sound.music.volume = 0;
+			Paths.currentModDirectory = songs[curSelected].folder;
+			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
+			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+			if (PlayState.SONG.needsVoices)
+				vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
+			else
+				vocals = new FlxSound();
+
+			FlxG.sound.list.add(vocals);
+			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
+			vocals.play();
+			vocals.persist = true;
+			vocals.looped = true;
+			vocals.volume = 0.7;
+			#end
+		}
+
+		if(playingSong)
+		{
+			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
+			Conductor.changeBPM(Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase()).bpm);
 		}
 	}
 

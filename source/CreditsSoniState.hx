@@ -9,6 +9,7 @@ import flixel.text.FlxText;
 import Discord.DiscordClient;
 #end
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+import flixel.group.FlxSpriteGroup;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -24,11 +25,17 @@ class CreditsSoniState extends MusicBeatState
     var colorTween:FlxTween;
     var curSelected:Int = 0;
     var selected:Bool = false;
-    var creditsSprite:FlxTypedGroup<FlxSprite>;
+    var creditsSprite:FlxTypedSpriteGroup<FlxSprite>;
     var creditsArray:Array<Array<String>> = [];
 
     var causa:Int = FlxG.random.int(1,80); //una entre 80 probabilidades de sugar canon (causa)
     var giansona:Int = FlxG.random.int(1,80); //una entre 80 probabilidades de max giansona
+
+    public function new()
+	{
+		super();
+		MusicBeatState.dumpcachetuff = false;
+	}
 
     override function create()
     {
@@ -48,7 +55,7 @@ class CreditsSoniState extends MusicBeatState
         var sexo:Array<Array<String>> = [
             ['Drawe', 'Drawe', 'Creator of all the mod characters', 'https://www.youtube.com/c/BaldiSans/featured', 'C75824'],
             ['JP13XD', 'Jp', 'Owner of the mod and animator', 'https://twitter.com/XdJp13', '6D4FDA'],
-            ['ROYAL', 'Royal', 'Main Coder and sound effects supporter', 'https://twitter.com/CoderRoyal', '6412BB'],
+            ['ROYAL', 'Royal', 'Main Coder and sfx', 'https://twitter.com/CoderRoyal', '6412BB'],
             ['LuisF', 'Luis', 'Cool artist and animator', 'https://twitter.com/LuisF_0506', 'F13C35'],
             ['Sly Uva', 'Sly', 'artist, animator and atsuover clone', 'https://twitter.com/SlyOverxd', 'F3FD83'],
             ['Toxxer', 'Toxxer', 'So cool fnf style artist', 'https://twitter.com/T0xx3r', '13A34D'],
@@ -63,13 +70,13 @@ class CreditsSoniState extends MusicBeatState
             ['Yiter', 'Yiter', 'Cool Musician but from madness combat', 'https://twitter.com/sameyiter', '763ABC'],
             [causa == 69 ? 'SugarCausa' : 'SugarMoon', causa == 69 ? 'SugarCausa' : 'Sugar', causa == 69 ? 'pe' : 'Cool Musician and the mother of all the devs', 'https://twitter.com/sugarcoatedOwO', 'F20D5A'],
             ['Farsy', 'Farsy', 'Epic Charter with a gun, wow', 'https://twitter.com/Farsyyyyy', 'F19B4F'],
-            ['ManDuz', 'ManDuz', 'Soni and a lot of more characters voice', 'https://twitter.com/ManDuzSoni', 'BEC5E2'],
+            ['ManDuz', 'ManDuz', 'Soni and a lot of more characters voice actor', 'https://twitter.com/ManDuzSoni', 'BEC5E2'],
             ['Yina', 'Yina', 'a lot of chromatics scales creator', 'https://twitter.com/Yina_Tilin', 'C2645D'],
             ['Dylan', 'Dylan', 'same as yina but he likes pennis', 'https://twitter.com/LabanDylan', 'FCA063']
         ];
         for(i in sexo) creditsArray.push(i);
         
-        creditsSprite = new FlxTypedGroup<FlxSprite>();
+        creditsSprite = new FlxTypedSpriteGroup<FlxSprite>();
         for(i in 0...creditsArray.length)
         {
             var sprite:FlxSprite = new FlxSprite(-100 * (i * 578), 0).loadGraphic(Paths.image('credits/v2 credits/${creditsArray[i][1]}_Credits'));
@@ -137,6 +144,7 @@ class CreditsSoniState extends MusicBeatState
 		if(colorTween != null) colorTween.cancel();
         FlxG.sound.play(Paths.sound('cancelMenu'));
         Lib.application.window.title = 'Freaky Night With Soni';
+        MusicBeatState.dumpcachetuff = true;
         MusicBeatState.switchState(new MainMenuState());
     }
 

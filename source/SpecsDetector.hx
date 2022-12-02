@@ -24,7 +24,7 @@ class SpecsDetector extends MusicBeatState
 		super.create();
 
 		FlxG.save.data.cachestart = checkSpecs();
-		FlxG.switchState(new TitleState());
+		MusicBeatState.switchState(new TitleState());
 	}
 
 	function checkSpecs():Bool

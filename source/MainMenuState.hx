@@ -28,6 +28,7 @@ import GameJolt.GameJoltAPI;
 import GameJolt;
 import window.*;
 import openfl.Lib;
+import openfl.media.Sound;
 
 using StringTools;
 
@@ -71,6 +72,12 @@ class MainMenuState extends MusicBeatState
 	/*@:native("SetWindowLongA") @:extern
 	private static function setWindowLong(hWnd:HWND, nIndex:Int, dwNewLong:LONG) : LONG return null;*/
 
+	public function new()
+	{
+		super();
+		MusicBeatState.dumpcachetuff = false;
+	}
+
 	override function create()
 	{
 		WeekData.loadTheFirstEnabledMod();
@@ -101,8 +108,8 @@ class MainMenuState extends MusicBeatState
 		camAchievement.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camAchievement);
-		FlxCamera.defaultCameras = [camGame];
+		FlxG.cameras.add(camAchievement, false);
+		FlxG.cameras.setDefaultDrawTarget(camGame, true);
 		Conductor.changeBPM(110);
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -112,6 +119,8 @@ class MainMenuState extends MusicBeatState
 
 		Lib.application.window.title = 'Freaky Night With Soni - Main Menu';
 
+		for(i in 0...optionShit.length) Paths.image('mainmenu/soni/faces/${optionShit[i]}'); // Anti-crash methods
+
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mainmenu/soni/bg'));
 		bg.updateHitbox();
@@ -119,12 +128,12 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		face = new FlxBackdrop(Paths.image('mainmenu/soni/faces/story_mode'), 0.2, 0.2, true, true);
+		face = new FlxBackdrop(Paths.image('mainmenu/soni/faces/${optionShit[curSelected]}'), 0.2, 0.2, true, true);
 		face.x -= 35;
 		face.antialiasing = ClientPrefs.globalAntialiasing;
 		add(face);
 
-		var select:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('mainmenu/soni/select'));
+		var select:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mainmenu/soni/select'));
 		select.updateHitbox();
 		select.screenCenter(X);
 		select.antialiasing = ClientPrefs.globalAntialiasing;
@@ -144,7 +153,7 @@ class MainMenuState extends MusicBeatState
 		thing.x = thingX;
 		thing.y = thingY;
 		thing.antialiasing = ClientPrefs.globalAntialiasing;
-		//thing.animation.curAnim.curFrame = TitleState.curSoniFrame;
+		for(i in 0...optionShit.length) thing.animation.addByPrefix('idle$i', optionShit[i], 24);
 		add(thing);
 
 		thingi = new FlxSprite();
@@ -152,6 +161,7 @@ class MainMenuState extends MusicBeatState
 		thingi.screenCenter();
 		thingi.visible = false;
 		thingi.antialiasing = ClientPrefs.globalAntialiasing;
+		for(i in 0...6) thingi.animation.addByPrefix('idle$i', 'freeplay$i', 24);
 		add(thingi);
 
 		codes = new FlxSprite().loadGraphic(Paths.image('mainmenu/soni/soni_codes'));
@@ -220,18 +230,15 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 
-		#if ACHIEVEMENTS_ALLOWED
-		Achievements.loadAchievements();
-		var leDate = Date.now();
-		if (leDate.getDay() == 5 && leDate.getHours() >= 18) {
-			var achieveID:Int = Achievements.getAchievementIndex('friday_night_play');
-			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE //No more Friday Night Funkin' :DDDD -royal
-				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID][2], true);
-				giveAchievement();
-				ClientPrefs.saveSettings();
-			}
-		}
-		#end
+		/*FlxG.stage.window.onDropFile.add((songPath:String) -> {
+            songPath = StringTools.replace(songPath, '\\', '/');
+            FlxG.sound.music.fadeOut(.7, 0, function(tween){
+                FlxG.sound.music.stop();
+                var soundFile = Sound.fromFile(songPath);
+                FlxG.sound.playMusic(soundFile, .8, true);
+                FlxG.sound.music.fadeIn(1, 0, .7);
+            });
+        });*/
 
 		super.create();
 	}
@@ -252,6 +259,7 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+			if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
 
 		face.x += .5*(elapsed/(1/120));
@@ -349,6 +357,10 @@ class MainMenuState extends MusicBeatState
 				Progression.reset();
 				MusicBeatState.resetState();
 			}
+			if(FlxG.keys.justPressed.J)
+			{
+				MusicBeatState.switchState(new Jukebox());
+			}
 			#end
 		}
 
@@ -384,12 +396,13 @@ class MainMenuState extends MusicBeatState
 				{
 					var daChoice:String = optionShit[curSelected];
 
+					MusicBeatState.dumpcachetuff = true;
 					switch (daChoice)
 					{
 						case 'story_mode':
-								MusicBeatState.switchState(new StoryMenuState());
+							MusicBeatState.switchState(new StoryMenuState());
 						case 'freeplay':
-							MusicBeatState.switchState(new FreeplayState());
+							MusicBeatState.switchState(new FreeplaySelectionState());
 						case 'credits':
 							MusicBeatState.switchState(new CreditsSoniState());
 						case 'options':
@@ -412,20 +425,17 @@ class MainMenuState extends MusicBeatState
 		guy = FlxG.random.int(1,5);
 		if(guy > 5) guy = 1;
 
-		thing.animation.addByPrefix('idle', optionShit[curSelected], 24);
-		thingi.animation.addByPrefix('idle', 'freeplay' + guy, 24);
-
 		if(curSelected != 1)
 		{
 			thingi.visible = false;
 			thing.visible = true;
-			thing.animation.play('idle');
+			thing.animation.play('idle$curSelected');
 			thingi.animation.stop();
 		} else if (curSelected == 1)
 		{
 			thingi.visible = true;
 			thing.visible = false;
-			thingi.animation.play('idle');
+			thingi.animation.play('idle$guy');
 			thing.animation.stop();
 
 			switch(guy)

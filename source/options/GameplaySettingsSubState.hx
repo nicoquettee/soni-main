@@ -89,17 +89,17 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 
 		var option:Option = new Option('Botplay',
 			'If checked, botplay will be turned on.',
-			'',
+			'fakeBot',
 			'bool',
-			false);
+			bot);
 		option.onChange = reloadBotplay;
 		addOption(option);
 
 		var option:Option = new Option('Practice Mode',
 			'If checked, practice mode will be turned on.',
-			'',
+			'fakePractice',
 			'bool',
-			false);
+			pra);
 		option.onChange = reloadPractice;
 		addOption(option);
 
@@ -125,16 +125,18 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
-		/*var option:Option = new Option('Note Delay',
-			'Changes how late a note is spawned.\nUseful for preventing audio lag from wireless earphones.',
-			'noteOffset',
-			'int',
+		var option:Option = new Option('Hitsound Volume:',
+			'Funny notes does \"Tick!\" when you hit them."',
+			'hitsoundVolume',
+			'percent',
 			0);
-		option.displayFormat = '%vms';
-		option.scrollSpeed = 100;
-		option.minValue = 0;
-		option.maxValue = 500;
-		addOption(option);*/
+		addOption(option);
+		option.scrollSpeed = 1.6;
+		option.minValue = 0.0;
+		option.maxValue = 1;
+		option.changeValue = 0.1;
+		option.decimals = 1;
+		option.onChange = onChangeHitsoundVolume;
 
 		var option:Option = new Option('Rating Offset',
 			'Changes how late/early you have to hit for a "Sick!"\nHigher values mean you have to hit later.',
@@ -201,14 +203,19 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 	var bot:Bool = ClientPrefs.gameplaySettings.get('botplay');
 	public function reloadBotplay()
 	{
-		bot = !bot;
+		bot = ClientPrefs.fakeBot;
 		ClientPrefs.gameplaySettings.set('botplay', bot);
 	}
 
 	var pra:Bool = ClientPrefs.gameplaySettings.get('practice');
 	public function reloadPractice()
 	{
-		pra = !pra;
+		pra = ClientPrefs.fakePractice;
 		ClientPrefs.gameplaySettings.set('practice', pra);
+	}
+
+	function onChangeHitsoundVolume()
+	{
+		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
 	}
 }

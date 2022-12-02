@@ -33,6 +33,7 @@ typedef CharacterFile = {
 	var position:Array<Float>;
 	var camera_position:Array<Float>;
 
+	var dataType:String;
 	var charSplitFrames:Array<String>;
 	var flip_x:Bool;
 	var no_antialiasing:Bool;
@@ -83,6 +84,8 @@ class Character extends FlxSprite
 	public var originalFlipX:Bool = false;
 	public var healthColorArray:Array<Int> = [255, 0, 0];
 
+	public var dataType:DataType;
+
 	// Shader effects
 	public var chrom:ChromaticAberration;
 	public var chromEnabled:Bool = false;
@@ -101,7 +104,15 @@ class Character extends FlxSprite
 		curCharacter = character;
 		this.isPlayer = isPlayer;
 		antialiasing = ClientPrefs.globalAntialiasing;
-		var library:String = null;
+
+		var characterPath:String = 'characters/' + curCharacter + '.json';
+
+		var path:String = Paths.getPreloadPath(characterPath);
+
+		var rawJson = Assets.getText(path);
+
+		var json:CharacterFile = cast Json.parse(rawJson);
+
 		switch (curCharacter)
 		{
 			//case 'your character name in case you want to hardcode them instead':
@@ -109,74 +120,21 @@ class Character extends FlxSprite
 			default:
 				var characterPath:String = 'characters/' + curCharacter + '.json';
 
-				#if MODS_ALLOWED
-				var path:String = Paths.modFolders(characterPath);
-				if (!FileSystem.exists(path)) {
-					path = Paths.getPreloadPath(characterPath);
-				}
-
-				if (!FileSystem.exists(path))
-				#else
 				var path:String = Paths.getPreloadPath(characterPath);
-				if (!Assets.exists(path))
-				#end
-				{
-					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
-				}
 
-				#if MODS_ALLOWED
-				var rawJson = File.getContent(path);
-				#else
 				var rawJson = Assets.getText(path);
-				#end
 
 				var json:CharacterFile = cast Json.parse(rawJson);
-				var spriteType = "sparrow";
-				//sparrow
-				//packer
-				//texture
-				#if MODS_ALLOWED
-				var modTxtToFind:String = Paths.modsTxt(json.image);
-				var txtToFind:String = Paths.getPath('images/' + json.image + '.txt', TEXT);
-				
-				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
-				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
-				
-				if (FileSystem.exists(modTxtToFind) || FileSystem.exists(txtToFind) || Assets.exists(txtToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
-				#end
-				{
-					spriteType = "packer";
-				}
-				
-				#if MODS_ALLOWED
-				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
-				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
-				
-				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
-				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
-				
-				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || Assets.exists(animToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
-				#end
-				{
-					spriteType = "texture";
-				}
 
-				switch (spriteType){
-					
-					case "packer":
-						frames = Paths.getPackerAtlas(json.image);
-					
-					case "sparrow":
-						if (json.charSplitFrames != null) frames = CoolUtil.joinFrames(json.charSplitFrames); else frames = Paths.getSparrowAtlas(json.image);
-					
-					case "texture":
-						frames = AtlasFrameMaker.construct(json.image);
-				}
 				imageFile = json.image;
+
+				if (json.dataType != null)
+					dataType = DataType.createByName(json.dataType);
+				else
+					dataType = SPARROW;
+
+				if (imageFile != null && dataType != null)
+					frames = Paths.getAtlasFromData(imageFile, dataType);
 
 				if(json.scale != 1) {
 					jsonScale = json.scale;
@@ -262,7 +220,7 @@ class Character extends FlxSprite
 		{
 			if(heyTimer > 0)
 			{
-				heyTimer -= elapsed;
+				heyTimer -= elapsed * PlayState.instance.playbackRate;
 				if(heyTimer <= 0)
 				{
 					if(specialAnim && animation.curAnim.name == 'hey' || animation.curAnim.name == 'cheer')
@@ -285,7 +243,7 @@ class Character extends FlxSprite
 					holdTimer += elapsed;
 				}
 
-				if (holdTimer >= Conductor.stepCrochet * 0.0011 * singDuration)
+				if (holdTimer >= Conductor.stepCrochet * (0.0011 / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1)) * singDuration)
 				{
 					dance();
 					holdTimer = 0;

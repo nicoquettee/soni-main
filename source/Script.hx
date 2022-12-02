@@ -4,6 +4,8 @@ import flixel.FlxBasic;
 import hscript.Interp;
 import openfl.Lib;
 
+
+//hi lunar
 class Script extends FlxBasic
 {
 	public var hscript:Interp;

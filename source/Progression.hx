@@ -7,6 +7,7 @@ class Progression
 	public static var weekProgress:Map<String, {song:String, weekScore:Int, weekMisses:Int}> = [];
 
 	public static var beatedSoni:Bool = false;
+	public static var beatedTaisandnuckles:Bool = false;
 	public static var beatedWerhog:Bool = false;
 	public static var beatedOu:Bool = false;
 	public static var beatedBil:Bool = false;
@@ -20,6 +21,10 @@ class Progression
 	public static var beatedShawn:Bool = false;
 	public static var beatedScourg:Bool = false;
 	public static var beatedChile:Bool = false;
+	public static var beatedHxSoni:Bool = false;
+	public static var beatedSolean:Bool = false;
+	public static var beatedHalloween:Bool = false;
+	public static var beatedTM:Bool = false;
 
 	public static function load()
 	{
@@ -30,6 +35,10 @@ class Progression
 		if (FlxG.save.data.beatedSoni != null)
 		{
 			beatedSoni = FlxG.save.data.beatedSoni;
+		}
+		if (FlxG.save.data.beatedTaisandnuckles != null)
+		{
+			beatedTaisandnuckles = FlxG.save.data.beatedTaisandnuckles;
 		}
 		if (FlxG.save.data.beatedWerhog != null)
 		{
@@ -83,12 +92,29 @@ class Progression
 		{
 			beatedChile = FlxG.save.data.beatedChile;
 		}
+		if (FlxG.save.data.beatedHxSoni != null)
+		{
+			beatedHxSoni = FlxG.save.data.beatedHxSoni;
+		}
+		if (FlxG.save.data.beatedSolean != null)
+		{
+			beatedSolean = FlxG.save.data.beatedSolean;
+		}
+		if (FlxG.save.data.beatedHalloween != null)
+		{
+			beatedHalloween = FlxG.save.data.beatedHalloween;
+		}
+		if (FlxG.save.data.beatedTM != null)
+		{
+			beatedTM = FlxG.save.data.beatedTM;
+		}
 	}
 
 	public static function save()
 	{
 		FlxG.save.data.weekProgress = weekProgress;
 		FlxG.save.data.beatedSoni = beatedSoni;
+		FlxG.save.data.beatedTaisandnuckles = beatedTaisandnuckles;
 		FlxG.save.data.beatedWerhog = beatedWerhog;
 		FlxG.save.data.beatedOu = beatedOu;
 		FlxG.save.data.beatedBil = beatedBil;
@@ -102,6 +128,10 @@ class Progression
 		FlxG.save.data.beatedShawn = beatedShawn;
 		FlxG.save.data.beatedScourg = beatedScourg;
 		FlxG.save.data.beatedChile = beatedChile;
+		FlxG.save.data.beatedHxSoni = beatedHxSoni;
+		FlxG.save.data.beatedSolean = beatedSolean;
+		FlxG.save.data.beatedTM = beatedTM;
+		FlxG.save.data.beatedHalloween = beatedHalloween;
 
 		FlxG.save.flush();
 	}
@@ -110,6 +140,7 @@ class Progression
 	{
 		weekProgress = [];
 		beatedSoni = false;
+		beatedTaisandnuckles = false;
 		beatedWerhog = false;
 		beatedOu = false;
 		beatedBil = false;
@@ -123,12 +154,18 @@ class Progression
 		beatedShawn = false;
 		beatedScourg = false;
 		beatedChile = false;
+		beatedHxSoni = false;
+		beatedSolean = false;
+		beatedTM = false;
+		beatedHalloween = false;
+
 		save();
 	}
 
 	public static function all()
 	{
 		beatedSoni = true;
+		beatedTaisandnuckles = true;
 		beatedWerhog = true;
 		beatedOu = true;
 		beatedBil = true;
@@ -142,6 +179,11 @@ class Progression
 		beatedShawn = true;
 		beatedScourg = true;
 		beatedChile = true;
+		beatedHxSoni = true;
+		beatedSolean = true;
+		beatedTM = true;
+		beatedHalloween = true;
+
 		save();
 	}
 }

@@ -6,7 +6,6 @@ import openfl.filters.ColorMatrixFilter;
 
 class ColorblindFilters {
     public static var matrix:Array<Float>;
-    public static var colorM:Array<Float>;
 
     public static function applyFiltersOnGame()
     {
@@ -22,7 +21,7 @@ class ColorblindFilters {
         var c2:Float = 0;
         var c3:Float = 1;
 
-        switch (ClientPrefs.colorblindMode)
+        switch(ClientPrefs.colorblindMode)
         {
             case 'None':
                 a1 = 1; b1 = 0; c1 = 0;

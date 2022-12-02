@@ -1,0 +1,262 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				15,
+				-12
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Befe alt idle",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-9,
+				-43
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Befe alt down",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				56,
+				37
+			],
+			"anim": "deathLoop",
+			"fps": 24,
+			"name": "befe death idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-44,
+				21
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Befe alt up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				71,
+				20
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "befe miss up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				56,
+				-159
+			],
+			"anim": "firstDeath",
+			"fps": 24,
+			"name": "befe death animation",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				56,
+				37
+			],
+			"anim": "deathConfirm",
+			"fps": 24,
+			"name": "befe death idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				110,
+				-13
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Befe alt right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				110,
+				-15
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "befe miss left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-74,
+				7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Befe alt left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-74,
+				4
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "befe miss right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1,
+				-47
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "befe miss down",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				15,
+				-12
+			],
+			"anim": "idle-loop",
+			"fps": 24,
+			"name": "Befe alt idle",
+			"indices": [
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-9,
+				-43
+			],
+			"anim": "singDOWN-loop",
+			"fps": 24,
+			"name": "Befe alt down",
+			"indices": [
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-44,
+				21
+			],
+			"anim": "singUP-loop",
+			"fps": 24,
+			"name": "Befe alt up",
+			"indices": [
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": true,
+			"offsets": [
+				110,
+				-13
+			],
+			"anim": "singLEFT-loop",
+			"fps": 24,
+			"name": "Befe alt right",
+			"indices": [
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-74,
+				7
+			],
+			"anim": "singRIGHT-loop",
+			"fps": 24,
+			"name": "Befe alt left",
+			"indices": [
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		}
+	],
+	"dataType": "JSON",
+	"no_antialiasing": false,
+	"image": "characters/Befe_apk",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "befe",
+	"flip_x": true,
+	"healthbar_colors": [
+		55,
+		179,
+		233
+	],
+	"camera_position": [
+		0,
+		-50
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

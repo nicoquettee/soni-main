@@ -27,6 +27,7 @@ function onCreatePost()
 function onUpdatePost(elapsed)
 {
     if(curStep < 96) camHUD.alpha = 0;
+    if(curStep < 128) PlayState.camFollow.setPosition(623,404);
 }
 
 var tween;
@@ -36,9 +37,9 @@ function onSongStart()
     PlayState.songLength = 103 * 1000;
     trace(songLength);
     FlxG.camera.alpha = 1;
-    tweenZ = FlxTween.tween(blackScreen, {alpha: 0}, 13.71);
+    tweenZ = FlxTween.tween(blackScreen, {alpha: 0}, 13.71 / initialPlaybackRate);
     PlayState.eventTweens.push(tweenZ);
-    tween = FlxTween.tween(PlayState, {defaultCamZoom: 0.9}, 13.71);
+    tween = FlxTween.tween(PlayState, {defaultCamZoom: 0.9}, 13.71 / initialPlaybackRate);
     PlayState.eventTweens.push(tween);
 }
 
@@ -49,6 +50,7 @@ var tween4;
 var tweenZoom;
 var tweenZoom2;
 var tweenAlph;
+var tweenAl;
 function onStepHit()
 {
     switch(curStep)
@@ -64,7 +66,7 @@ function onStepHit()
             {
                 if(obj != null)
                 {
-                    tween1 = FlxTween.tween(obj, {alpha: 1}, 5.14);
+                    tween1 = FlxTween.tween(obj, {alpha: 1}, 5.14 / initialPlaybackRate);
                     PlayState.eventTweens.push(tween1);
                 }
             }
@@ -82,7 +84,7 @@ function onStepHit()
             {
                 if(obj != null)
                 {
-                    tween2 = FlxTween.tween(obj, {alpha: 1}, 3);
+                    tween2 = FlxTween.tween(obj, {alpha: 1}, 3 / initialPlaybackRate);
                     PlayState.eventTweens.push(tween2);
                 }
             }
@@ -106,12 +108,12 @@ function onStepHit()
             {
                 if(obj != null)
                 {
-                    tween3 = FlxTween.tween(obj, {alpha: 0}, 3.43);
+                    tween3 = FlxTween.tween(obj, {alpha: 0}, 3.43 / initialPlaybackRate);
                     PlayState.eventTweens.push(tween3);
                 }
             }
 
-            tween4 = FlxTween.tween(PlayState, {defaultCamZoom: 1.2}, 3.43);
+            tween4 = FlxTween.tween(PlayState, {defaultCamZoom: 1.2}, 3.43 / initialPlaybackRate);
             PlayState.eventTweens.push(tween4);
 
         case 288:
@@ -130,26 +132,24 @@ function onStepHit()
             {
                 if(obj != null)
                 {
-                    tween3 = FlxTween.tween(obj, {alpha: 1}, 1.5);
+                    tween3 = FlxTween.tween(obj, {alpha: 1}, 1.5 / initialPlaybackRate);
                     PlayState.eventTweens.push(tween3);
                 }
             }
 
-            tween4 = FlxTween.tween(PlayState, {defaultCamZoom: 0.9}, 1.5);
+            tween4 = FlxTween.tween(PlayState, {defaultCamZoom: 0.9}, 1.5 / initialPlaybackRate);
             PlayState.eventTweens.push(tween4);
 
         case 416:
-            tweenZoom = FlxTween.tween(PlayState, {defaultCamZoom: 0.85}, 0.43);
+            tweenZoom = FlxTween.tween(PlayState, {defaultCamZoom: 0.85}, 0.43 / initialPlaybackRate);
             PlayState.eventTweens.push(tweenZoom);
 
         case 420:
-            tweenZoom2 = FlxTween.tween(PlayState, {defaultCamZoom: 0.85}, 1);
+            tweenZoom2 = FlxTween.tween(PlayState, {defaultCamZoom: 0.85}, 1 / initialPlaybackRate);
             PlayState.eventTweens.push(tweenZoom2);
 
         case 544:
-            FlxG.camera.flash(fromRGB(0,0,0), 1);
-
-        case 545:
+            FlxG.camera.flash(fromRGB(0,0,0), 1 / initialPlaybackRate);
             var objs = [
                 PlayState.bmmo,
                 PlayState.mymanuel
@@ -180,8 +180,12 @@ function onStepHit()
             blackScreen.alpha = 0.3;
 
         case 928:
-            tweenAlph = FlxTween.tween(blackScreen, {alpha: 1}, 1.71);
-            PlayState.eventTweens.push(blackScreen);
+            tweenAlph = FlxTween.tween(blackScreen, {alpha: 1}, 1.71 / initialPlaybackRate);
+            PlayState.eventTweens.push(tweenAlph);
+
+        case 957:
+            tweenAl = FlxTween.tween(blackScreen, {alpha: 0}, .8 / initialPlaybackRate);
+            PlayState.eventTweens.push(tweenAl);
 
         case 960:
             var objs = [
@@ -197,7 +201,12 @@ function onStepHit()
                     obj.alpha = 1;
                 }
             }
-            blackScreen.alpha = 0;
             PlayState.songLength = FlxG.sound.music.length;
+
+        case 1181 | 1183 | 1186 | 1200 | 1202 | 1204 | 1209 | 1214 | 1219:
+            PlayState.camZoomingDecay += .1;
+
+        case 1224:
+            PlayState.camZoomingDecay = 1;
     }    
 }

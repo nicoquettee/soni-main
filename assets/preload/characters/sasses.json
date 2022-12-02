@@ -45,6 +45,7 @@
 			"name": "sasses_disp"
 		}
 	],
+	"dataType": "JSON",
 	"no_antialiasing": false,
 	"image": "characters/Sasses",
 	"position": [

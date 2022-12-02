@@ -24,6 +24,12 @@ using StringTools;
 
 class MasterEditorMenu extends MusicBeatState
 {
+	public function new()
+	{
+		super();
+		MusicBeatState.dumpcachetuff = false;
+	}
+	
 	var options:Array<String> = [
 		'Week Editor',
 		'Menu Character Editor',

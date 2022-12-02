@@ -171,6 +171,8 @@ class FunkinLua {
 		set('practice', PlayState.instance.practiceMode);
 		set('mechanics', PlayState.instance.mechanics);
 		set('noteScale', ClientPrefs.noteScale);
+		set('playbackRate', PlayState.instance.playbackRate);
+		set('initialPlaybackRate', PlayState.instance.initialPlaybackRate);
 
 		for (i in 0...4) {
 			set('defaultPlayerStrumX' + i, 0);

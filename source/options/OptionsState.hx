@@ -36,6 +36,12 @@ class OptionsState extends MusicBeatState
 	public static var menuBG:FlxSprite;
 	var oldPos = FlxG.mouse.getScreenPosition();
 
+	public function new()
+	{
+		super();
+		MusicBeatState.dumpcachetuff = false;
+	}
+
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case 'Controls':
@@ -63,6 +69,8 @@ class OptionsState extends MusicBeatState
 
 		Lib.application.window.title = 'Freaky Night With Soni - Options';
 		FlxG.mouse.visible = true;
+
+		if(PlayState.instance != null && PlayState.instance.backOutfromOptions) FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;
@@ -139,11 +147,13 @@ class OptionsState extends MusicBeatState
 				FlxG.sound.music.volume = 0;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				FlxG.mouse.visible = false;
+				MusicBeatState.dumpcachetuff = true;
 				MusicBeatState.switchState(new PlayState());
 			}
 			else
 			{
 				FlxG.sound.play(Paths.sound('cancelMenu'));
+				MusicBeatState.dumpcachetuff = true;
 				MusicBeatState.switchState(new MainMenuState());
 			}
 		}

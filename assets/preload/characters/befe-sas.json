@@ -1,14 +1,13 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Idle_Befe",
+			"anim": "idle",
 			"indices": [
 				0,
 				1,
@@ -30,89 +29,50 @@
 				17,
 				18,
 				19
-			]
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				0
 			],
-			"anim": "idle-loop",
-			"fps": 24,
-			"name": "Idle_Befe",
-			"indices": [
-				12,
-				13,
-				14,
-				15,
-				16,
-				17,
-				18,
-				19
-			]
+			"name": "Idle_Befe"
 		},
 		{
+			"offsets": [
+				-53,
+				-31
+			],
 			"loop": false,
-			"offsets": [
-				-52,
-				-32
-			],
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Down_Befe",
-			"indices": []
+			"indices": [],
+			"name": "Down_Befe"
 		},
 		{
-			"loop": true,
-			"offsets": [
-				-52,
-				-32
-			],
-			"anim": "singDOWN-loop",
-			"fps": 24,
-			"name": "Down_Befe",
-			"indices": [
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
-			]
-		},
-		{
-			"loop": true,
 			"offsets": [
 				5,
 				-177
 			],
+			"loop": true,
+			"fps": 24,
 			"anim": "deathLoop",
-			"fps": 24,
-			"name": "Retry_Loop",
-			"indices": []
+			"indices": [],
+			"name": "Retry_Loop"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-10,
-				26
+				-11,
+				27
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Up_Befe",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up_Befe"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				13,
 				1
 			],
-			"anim": "firstDeath",
+			"loop": false,
 			"fps": 24,
-			"name": "Dead_Befe",
+			"anim": "firstDeath",
 			"indices": [
 				0,
 				1,
@@ -156,127 +116,75 @@
 				39,
 				40,
 				41
+			],
+			"name": "Dead_Befe"
+		},
+		{
+			"offsets": [
+				5,
+				-168
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "Retry_Confirm"
+		},
+		{
+			"offsets": [
+				59,
+				11
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left_Befe"
+		},
+		{
+			"offsets": [
+				-20,
+				-5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right_Befe"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				30,
+				-31
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "Down_Miss",
+			"indices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
 			]
 		},
 		{
 			"loop": false,
 			"offsets": [
-				5,
-				-168
-			],
-			"anim": "deathConfirm",
-			"fps": 24,
-			"name": "Retry_Confirm",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				62,
-				-8
-			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Left_Befe",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-22,
-				-6
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "Right_Befe",
-			"indices": []
-		},
-		{
-			"offsets": [
-				-10,
-				26
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "singUP-loop",
-			"indices": [
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
-			],
-			"name": "Up_Befe"
-		},
-		{
-			"offsets": [
-				62,
-				-8
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "singLEFT-loop",
-			"indices": [
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
-			],
-			"name": "Left_Befe"
-		},
-		{
-			"offsets": [
-				-22,
-				-6
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "singRIGHT-loop",
-			"indices": [
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
-			],
-			"name": "Right_Befe"
-		},
-		{
-			"offsets": [
-				30,
-				-31
-			],
-			"indices": [
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
-			],
-			"fps": 24,
-			"anim": "singDOWNmiss",
-			"loop": false,
-			"name": "Down_Miss"
-		},
-		{
-			"offsets": [
 				13,
 				21
 			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "Up_Miss",
 			"indices": [
 				1,
 				2,
@@ -290,17 +198,17 @@
 				10,
 				11,
 				12
-			],
-			"fps": 24,
-			"anim": "singUPmiss",
-			"loop": false,
-			"name": "Up_Miss"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				126,
 				26
 			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "Left_Miss",
 			"indices": [
 				1,
 				2,
@@ -314,17 +222,17 @@
 				10,
 				11,
 				12
-			],
-			"fps": 24,
-			"anim": "singLEFTmiss",
-			"loop": false,
-			"name": "Left_Miss"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-90,
 				0
 			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "Right_Miss",
 			"indices": [
 				1,
 				2,
@@ -338,13 +246,101 @@
 				10,
 				11,
 				12
+			]
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19
 			],
 			"fps": 24,
-			"anim": "singRIGHTmiss",
-			"loop": false,
-			"name": "Right_Miss"
+			"anim": "idle-loop",
+			"loop": true,
+			"name": "Idle_Befe"
+		},
+		{
+			"offsets": [
+				-53,
+				-31
+			],
+			"indices": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"fps": 24,
+			"anim": "singDOWN-loop",
+			"loop": true,
+			"name": "Down_Befe"
+		},
+		{
+			"offsets": [
+				-11,
+				27
+			],
+			"indices": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"fps": 24,
+			"anim": "singUP-loop",
+			"loop": true,
+			"name": "Up_Befe"
+		},
+		{
+			"offsets": [
+				59,
+				11
+			],
+			"indices": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"fps": 24,
+			"anim": "singLEFT-loop",
+			"loop": true,
+			"name": "Left_Befe"
+		},
+		{
+			"offsets": [
+				-20,
+				-5
+			],
+			"indices": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"fps": 24,
+			"anim": "singRIGHT-loop",
+			"loop": true,
+			"name": "Right_Befe"
 		}
 	],
+	"dataType": "JSON",
 	"no_antialiasing": false,
 	"image": "characters/befesas",
 	"position": [

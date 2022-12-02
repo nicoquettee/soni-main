@@ -9,8 +9,7 @@ import openfl.utils.Assets;
 using StringTools;
 
 /**
- * A class that works with GPU's VRAM.
- * thx smokey my man
+ * Stolen from indie cross sorry
  */
 class GPUFunctions
 {
@@ -37,7 +36,7 @@ class GPUFunctions
 				return BitmapData.fromTexture(tex.texture);
 			}
 		}
-		trace('Creating texture $_cacheKey');
+		//trace('Creating texture $_cacheKey');
 
 		var _bmp = Assets.getBitmapData(path, false);
 		var _texture = FlxG.stage.context3D.createTexture(_bmp.width, _bmp.height, texFormat, optimizeForRender);

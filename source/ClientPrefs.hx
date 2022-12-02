@@ -9,6 +9,7 @@ import Controls;
 class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
+	public static var wideScreen:Bool = false;
 	public static var opponentStrums:Bool = true;
 	public static var showFPS:Bool = #if PRIVATE_BUILD true #else false #end;
 	public static var flashing:Bool = true;
@@ -34,7 +35,7 @@ class ClientPrefs {
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = false;
-	public static var pauseMusic:String = 'Tea Time';
+	public static var pauseMusicSoni:String = 'Tea Time';
 	public static var funnyShaders:Bool = true;
 	public static var noteScale:Float = 1;
 	public static var noteTransparencySoniNose:Float = 0.75;
@@ -77,6 +78,11 @@ class ClientPrefs {
 	public static var resolutionn:String = '1920x1080';
 	public static var mouseSkinn:String = 'Haxe';
 	public static var wcolormode:String = 'Dark';
+	public static var fakeBot:Bool = false;
+	public static var fakePractice:Bool = false;
+	public static var hitsoundVolume:Float = 0;
+	public static var comboStacking = true;
+	public static var menuMusic:String = 'freakyMenu';
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -115,6 +121,7 @@ class ClientPrefs {
 	public static function saveSettings() {
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
+		FlxG.save.data.wideScreen = wideScreen;
 		FlxG.save.data.opponentStrums = opponentStrums;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.flashing = flashing;
@@ -146,7 +153,7 @@ class ClientPrefs {
 		FlxG.save.data.safeFrames = safeFrames;
 		FlxG.save.data.gameplaySettings = gameplaySettings;
 		FlxG.save.data.controllerMode = controllerMode;
-		FlxG.save.data.pauseMusic = pauseMusic;
+		FlxG.save.data.pauseMusicSoni = pauseMusicSoni;
 		FlxG.save.data.funnyShaders = funnyShaders;
 
 		FlxG.save.data.disableLyrics = disableLyrics;
@@ -170,6 +177,11 @@ class ClientPrefs {
 		FlxG.save.data.resolutionn = resolutionn;
 		FlxG.save.data.mouseSkinn = mouseSkinn;
 		FlxG.save.data.wcolormode = wcolormode;
+		FlxG.save.data.fakeBot = fakeBot;
+		FlxG.save.data.fakePractice = fakePractice;
+		FlxG.save.data.hitsoundVolume = hitsoundVolume;
+		FlxG.save.data.comboStacking = comboStacking;
+		FlxG.save.data.menuMusic = menuMusic;
 	
 		FlxG.save.flush();
 
@@ -186,6 +198,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
+		}
+		if(FlxG.save.data.wideScreen != null) {
+			wideScreen = FlxG.save.data.wideScreen;
 		}
 		if(FlxG.save.data.opponentStrums != null) {
 			opponentStrums = FlxG.save.data.opponentStrums;
@@ -276,8 +291,8 @@ class ClientPrefs {
 		if(FlxG.save.data.controllerMode != null) {
 			controllerMode = FlxG.save.data.controllerMode;
 		}
-		if(FlxG.save.data.pauseMusic != null) {
-			pauseMusic = FlxG.save.data.pauseMusic;
+		if(FlxG.save.data.pauseMusicSoni != null) {
+			pauseMusicSoni = FlxG.save.data.pauseMusicSoni;
 		}
 		if(FlxG.save.data.funnyShaders != null) {
 			funnyShaders = FlxG.save.data.funnyShaders;
@@ -332,6 +347,21 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.wcolormode != null) {
 			wcolormode = FlxG.save.data.wcolormode;
+		}
+		if(FlxG.save.data.fakeBot != null) {
+			fakeBot = FlxG.save.data.fakeBot;
+		}
+		if(FlxG.save.data.fakePractice != null) {
+			fakePractice = FlxG.save.data.fakePractice;
+		}
+		if(FlxG.save.data.hitsoundVolume != null) {
+			hitsoundVolume = FlxG.save.data.hitsoundVolume;
+		}
+		if(FlxG.save.data.comboStacking != null) {
+			comboStacking = FlxG.save.data.comboStacking;
+		}
+		if(FlxG.save.data.menuMusic != null) {
+			menuMusic = FlxG.save.data.menuMusic;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{

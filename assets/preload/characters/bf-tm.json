@@ -1,149 +1,199 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "idle bf chilli"
+			"fps": 24,
+			"name": "idle bf chilli",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-38,
 				-3
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left bf chilli"
+			"fps": 24,
+			"name": "left bf chilli",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-34,
 				-8
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down bf chilli"
+			"fps": 24,
+			"name": "down bf chilli",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-36,
 				38
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up bf chilli"
+			"fps": 24,
+			"name": "up bf chilli",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-41,
 				-4
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right bf chilli"
+			"fps": 24,
+			"name": "right bf chilli",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-35,
 				-7
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "fallo left bf"
+			"fps": 24,
+			"name": "fallo left bf",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-20,
 				-25
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "fallo down bf"
+			"fps": 24,
+			"name": "fallo down bf",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-43,
 				45
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUPmiss",
-			"indices": [],
-			"name": "fallo up bf"
+			"fps": 24,
+			"name": "fallo up bf",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-41,
 				-2
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "fallo right bf"
+			"fps": 24,
+			"name": "fallo right bf",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				3,
 				7
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "sus",
-			"indices": [],
-			"name": "sus"
+			"fps": 24,
+			"name": "sus",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				21,
 				322
 			],
-			"anim": "deathConfirm",
-			"fps": 24,
-			"name": "muerte bf tres",
-			"indices": []
-		},
-		{
 			"loop": false,
-			"offsets": [
-				141,
-				426
-			],
-			"anim": "firstDeath",
 			"fps": 24,
-			"name": "muerte uno bf",
-			"indices": []
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "muerte bf tres"
 		},
 		{
+			"loop": true,
 			"offsets": [
 				2,
 				178
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "deathLoop",
-			"indices": [],
-			"name": "muerte bf dos"
+			"fps": 24,
+			"name": "muerte bf dos",
+			"indices": []
+		},
+		{
+			"offsets": [
+				141,
+				426
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47
+			],
+			"name": "muerte bf"
 		}
 	],
+	"dataType": "JSON",
 	"no_antialiasing": false,
 	"image": "characters/chilli_bf",
 	"position": [
@@ -158,8 +208,8 @@
 		233
 	],
 	"camera_position": [
-		370,
-		0
+		400,
+		-200
 	],
 	"sing_duration": 4,
 	"scale": 1

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="logo_bumpin.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Símbolo 10000" x="0" y="0" width="845" height="567" frameX="-39" frameY="-26" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10001" x="0" y="0" width="845" height="567" frameX="-39" frameY="-26" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10002" x="855" y="0" width="924" height="620"/>
+	<SubTexture name="Símbolo 10003" x="855" y="0" width="924" height="620"/>
+	<SubTexture name="Símbolo 10004" x="0" y="630" width="889" height="596" frameX="-18" frameY="-12" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10005" x="0" y="630" width="889" height="596" frameX="-18" frameY="-12" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10006" x="899" y="630" width="875" height="587" frameX="-25" frameY="-17" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10007" x="899" y="630" width="875" height="587" frameX="-25" frameY="-17" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10008" x="0" y="1236" width="863" height="579" frameX="-31" frameY="-21" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10009" x="0" y="1236" width="863" height="579" frameX="-31" frameY="-21" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10010" x="873" y="1236" width="859" height="576" frameX="-33" frameY="-22" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10011" x="873" y="1236" width="859" height="576" frameX="-33" frameY="-22" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10012" x="873" y="1236" width="859" height="576" frameX="-33" frameY="-22" frameWidth="924" frameHeight="620"/>
+	<SubTexture name="Símbolo 10013" x="873" y="1236" width="859" height="576" frameX="-33" frameY="-22" frameWidth="924" frameHeight="620"/>
+</TextureAtlas>

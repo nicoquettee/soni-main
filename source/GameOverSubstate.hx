@@ -101,6 +101,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.sound.music.stop();
 			PlayState.deathCounter = 0;
 			PlayState.seenCutscene = false;
+			PlayState.chartingMode = false;
 
 			if (PlayState.isStoryMode)
 				MusicBeatState.switchState(new StoryMenuState());
@@ -115,7 +116,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			Lib.application.window.title = 'Freaky Night With Soni';
 		}
 
-		if (boyfriend.animation.curAnim.name == 'firstDeath')
+		if (boyfriend.animation.curAnim != null && boyfriend.animation.curAnim.name == 'firstDeath')
 		{
 			if(boyfriend.animation.curAnim.curFrame >= 12 && !isFollowingAlready)
 			{
@@ -150,6 +151,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	function coolStartDeath(?volume:Float = 1):Void
 	{
 		FlxG.sound.playMusic(Paths.music(loopSoundName), volume);
+		if(characterName == 'befe_apk') FlxG.sound.music.pitch = .3;
 	}
 
 	function endBullshit():Void
@@ -192,44 +194,16 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 			{
 				Lib.application.window.title = 'Freaky Night With Soni';
-				if(!PlayState.isStoryMode)
-					backOutFromFreeplayOrCodesStateIdk();
-				else
-					spedFuckedMyLifeIFuckingWantToDieBecauseWhenYouDieInSpedTheScreenGoBlackAndYouCantResetTheState();
+				backOutFromFreeplayOrCodesStateIdkOkTheSpedThingDidntWorkSoThisAlsoWorkForStoryMode();
 			});
 		});
 		PlayState.instance.callOnLuas('onGameOverConfirm', [true]);
 	}
 
-	function spedFuckedMyLifeIFuckingWantToDieBecauseWhenYouDieInSpedTheScreenGoBlackAndYouCantResetTheState()
-	{
-		var songArray:Array<String> = [];
-		var leWeek:Array<Dynamic> = WeekData.weeksLoaded.get(WeekData.weeksList[PlayState.storyWeek]).songs;
-		for (i in 0...leWeek.length) {
-			songArray.push(leWeek[i][0]);
-		}
-
-		var resumeInfo = Progression.weekProgress.get(WeekData.weeksList[PlayState.storyWeek]);
-
-		if (!songArray.contains(resumeInfo.song))
-			songArray[songArray.length] = resumeInfo.song;
-
-		songArray = songArray.slice(songArray.indexOf(resumeInfo.song));
-		PlayState.campaignMisses = resumeInfo.weekMisses;
-		PlayState.campaignScore = resumeInfo.weekScore;
-
-		PlayState.storyPlaylist = songArray;
-
-		PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
-
-		FlxG.mouse.visible = false;
-		LoadingState.loadAndSwitchState(new PlayState(), false);
-	}
-
-	function backOutFromFreeplayOrCodesStateIdk()
+	function backOutFromFreeplayOrCodesStateIdkOkTheSpedThingDidntWorkSoThisAlsoWorkForStoryMode()
 	{
 		FlxG.sound.music.volume = 0;
 		FlxG.mouse.visible = false;
-		MusicBeatState.switchState(new PlayState());
+		FlxG.resetState();
 	}
 }

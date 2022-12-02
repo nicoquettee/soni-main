@@ -65,6 +65,22 @@ import flixel.system.frontEnds.HTML5FrontEnd;
 class FlxG
 {
 	/**
+	 * Whenever black bars for cameras shouldn't show up.
+	 */
+	public static var widescreen(default, set):Bool = false;
+
+	private static function set_widescreen(v:Bool)
+	{
+		widescreen = v;
+		for (e in FlxG.cameras.list)
+		{
+			@:privateAccess
+			e.updateScrollRect();
+		}
+		return widescreen;
+	}
+	
+	/**
 	 * Whether the game should be paused when focus is lost or not. Use `-D FLX_NO_FOCUS_LOST_SCREEN`
 	 * if you only want to get rid of the default pause screen.
 	 * Override `onFocus()` and `onFocusLost()` for your own behaviour in your state.

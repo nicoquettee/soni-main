@@ -93,11 +93,16 @@ class FlxAnimationController implements IFlxDestroyable
 		_animations = new Map<String, FlxAnimation>();
 	}
 
+	public static var globalSpeed:Float = 1;
+	public var followGlobalSpeed:Bool = true;
 	public function update(elapsed:Float):Void
 	{
 		if (_curAnim != null)
 		{
-			_curAnim.update(elapsed);
+			var e:Float = elapsed;
+			if(followGlobalSpeed) e *= globalSpeed;
+
+			_curAnim.update(e);
 		}
 		else if (_prerotated != null)
 		{
@@ -465,7 +470,6 @@ class FlxAnimationController implements IFlxDestroyable
 	 */
 	public function addByPrefix(Name:String, Prefix:String, FrameRate:Int = 30, Looped:Bool = true, FlipX:Bool = false, FlipY:Bool = false):Void
 	{
-		
 		if (_sprite.frames != null)
 		{
 			var animFrames:Array<FlxFrame> = new Array<FlxFrame>();
@@ -871,4 +875,3 @@ class FlxAnimationController implements IFlxDestroyable
 		return _sprite.frames.frames.indexOf(Frame);
 	}
 }
-

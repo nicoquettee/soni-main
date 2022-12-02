@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Soni_Phone.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Phone_Soni0000" x="0" y="0" width="608" height="261" frameX="0" frameY="-12" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0001" x="0" y="0" width="608" height="261" frameX="0" frameY="-12" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0002" x="608" y="0" width="608" height="266" frameX="0" frameY="-7" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0003" x="608" y="0" width="608" height="266" frameX="0" frameY="-7" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0004" x="1216" y="0" width="608" height="269" frameX="0" frameY="-4" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0005" x="1216" y="0" width="608" height="269" frameX="0" frameY="-4" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0006" x="0" y="269" width="608" height="272" frameX="0" frameY="-1" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0007" x="0" y="269" width="608" height="272" frameX="0" frameY="-1" frameWidth="608" frameHeight="273"/>
+	<SubTexture name="Phone_Soni0008" x="608" y="269" width="608" height="273"/>
+	<SubTexture name="Phone_Soni0009" x="608" y="269" width="608" height="273"/>
+	<SubTexture name="Phone_Soni0010" x="608" y="269" width="608" height="273"/>
+	<SubTexture name="Phone_Soni0011" x="608" y="269" width="608" height="273"/>
+	<SubTexture name="Phone_Soni0012" x="608" y="269" width="608" height="273"/>
+</TextureAtlas>

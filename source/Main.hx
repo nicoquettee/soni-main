@@ -23,9 +23,13 @@ import openfl.display.StageScaleMode;
 import openfl.events.Event;
 import openfl.events.UncaughtErrorEvent;
 import openfl.system.System;
+#if sys
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
+#end
+
+using StringTools;
 
 class Main extends Sprite
 {
@@ -48,6 +52,7 @@ class Main extends Sprite
 	var focusMusicTween:FlxTween;
 
 	public static var gjToastManager:GJToastManager; // gamejolt
+	public static var menuMusic:String = 'freakyMenu';
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -99,8 +104,6 @@ class Main extends Sprite
 		#if !debug
 		initialState = TitleState;
 		#end
-		// fuck you, persistent caching stays ON during sex
-		FlxGraphic.defaultPersist = true;
 		// the reason for this is we're going to be handling our own cache smartly
 		addChild(new FlxGame(gameWidth, gameHeight, Init, zoom, framerate, framerate, skipSplash, startFullscreen));
 
@@ -113,10 +116,6 @@ class Main extends Sprite
 		{
 			fpsVar.visible = false;
 		}
-		#end
-
-		#if desktop
-		FlxG.autoPause = ClientPrefs.autoPause;
 		#end
 
 		#if html5
@@ -139,6 +138,16 @@ class Main extends Sprite
 
 		Application.current.window.onFocusOut.add(onWindowFocusOut);
 		Application.current.window.onFocusIn.add(onWindowFocusIn);
+	}
+
+	public static function fixWorkingDirectory() {
+		var curDir = Sys.getCwd();
+		var execPath = Sys.programPath();
+		var p = execPath.replace("\\", "/").split("/");
+		var execName = p.pop(); // interesting
+		Sys.setCwd(p.join("\\") + "\\");
+
+		//CppUse.enableVisualStyles();
 	}
 
 	var oldVol:Float = 1.0;
@@ -172,9 +181,9 @@ class Main extends Sprite
 			if (focusMusicTween != null)
 				focusMusicTween.cancel();
 			focusMusicTween = FlxTween.tween(FlxG.sound, {volume: newVol}, 0.5);
-		}
 
-		FlxG.drawFramerate = 30; //Optimization
+			FlxG.drawFramerate = 30; //Optimization
+		}
 	}
 
 	function onWindowFocusIn()
@@ -190,15 +199,60 @@ class Main extends Sprite
 				focusMusicTween.cancel();
 
 			focusMusicTween = FlxTween.tween(FlxG.sound, {volume: oldVol}, 0.5);
-		}
 
-		FlxG.drawFramerate = ClientPrefs.framerate;
+			FlxG.drawFramerate = 120;
+		}
 	}
 
-	/*public function setTransparency(windName:String)
+	// Stolen from indie cross because i dont fucking know how to optimize a mod
+	public static var persistentAssets:Array<FlxGraphic> = [];
+	public static var idk:Array<String> = ['', 'assets/'];
+	public static var dumping:Bool = false;
+	public static function dumpCache()
+	{
+		if (Main.dumping)
 		{
-			Transparency.setTransparency(windName);
-	}*/
+			@:privateAccess
+			for (key in FlxG.bitmap._cache.keys())
+			{
+				var obj = FlxG.bitmap._cache.get(key);
+				if (obj != null && !persistentAssets.contains(obj))
+				{
+					Assets.cache.removeBitmapData(key);
+					FlxG.bitmap._cache.remove(key);
+					obj.destroy();
+					openfl.Assets.cache.removeBitmapData(key);
+				}
+			}
+
+			GPUFunctions.disposeAllTextures();
+			for (i in 0...idk.length)
+			{
+				Assets.cache.clear(idk[i] + "songs");
+				Assets.cache.clear(idk[i] + "shared/sounds");
+			}
+			openfl.Assets.cache.clear("songs");
+			openfl.Assets.cache.clear("assets/songs");
+			System.gc();
+		}
+		Main.dumping = false;
+	}
+
+	public function setFPSCap(cap:Float)
+	{
+		Lib.current.stage.frameRate = cap;
+	}
+
+	public function getFPSCap():Float
+	{
+		return Lib.current.stage.frameRate;
+	}
+
+	public function getFPS():Float
+	{
+		return fpsVar.currentFPS;
+	}
+
 	function onCrash(e:UncaughtErrorEvent):Void
 	{
 		var errMsg:String = "";
@@ -220,7 +274,7 @@ class Main extends Sprite
 				case FilePos(s, file, line, column):
 					errMsg += file + " (line " + line + ")\n";
 				default:
-					Sys.println(stackItem);
+					#if sys Sys.println(stackItem); #end
 			}
 		}
 
@@ -257,46 +311,4 @@ class Main extends Sprite
 
 		Sys.exit(1);
 	}
-
-	public static var persistentAssets:Array<FlxGraphic> = [];
-	public static var idk:Array<String> = ['', 'assets/'];
-
-	public static function dumpCache()
-	{
-		// /*
-		if (Main.dumping)
-		{
-			trace('removed ur mom');
-			// haya's stuff again lol
-			@:privateAccess
-			for (key in FlxG.bitmap._cache.keys())
-			{
-				var obj = FlxG.bitmap._cache.get(key);
-				if (obj != null && !persistentAssets.contains(obj))
-				{
-					Assets.cache.removeBitmapData(key);
-					FlxG.bitmap._cache.remove(key);
-					obj.destroy();
-					openfl.Assets.cache.removeBitmapData(key);
-				}
-			}
-
-			// clear gpu vram
-			GPUFunctions.disposeAllTextures();
-			// clear songs
-			for (i in 0...idk.length)
-			{
-				Assets.cache.clear(idk[i] + "songs");
-				Assets.cache.clear(idk[i] + "shared/sounds");
-			}
-			openfl.Assets.cache.clear("songs");
-			openfl.Assets.cache.clear("assets/songs");
-			// garbage disposal
-			System.gc();
-		}
-		Main.dumping = false;
-		// */
-	}
-
-	public static var dumping:Bool = false;
 }

@@ -10,7 +10,7 @@ class Smoke extends FlxSprite
     {
         super(x,y);
 
-        frames = Paths.getSparrowAtlas('backgrounds/soni/Humo', 'shared');
+        frames = Paths.getJSONAtlas('backgrounds/soni/Humo', 'shared');
 		animation.addByPrefix('nuse', 'Todo', 24, false);
         active = false;
         visible = false;

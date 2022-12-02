@@ -213,12 +213,10 @@ class TitleState extends MusicBeatState
 
 	function startIntro()
 	{
-		if (!initialized)
+		if(!initialized)
 		{
 			if(FlxG.sound.music == null) {
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
 			}
 		}
 
@@ -249,8 +247,8 @@ class TitleState extends MusicBeatState
 		add(circle);*/
 
 		soni = new FlxSprite();
-		soni.frames = Paths.getSparrowAtlas('title/FNWS_logo');
-		soni.animation.addByPrefix('bump', 'Logopro', 24);
+		soni.frames = Paths.getSparrowAtlas('title/logo_bumpin');
+		soni.animation.addByPrefix('bump', 'Símbolo 1', 24);
 		soni.antialiasing = ClientPrefs.globalAntialiasing;
 		soni.screenCenter();
 		add(soni);
@@ -337,8 +335,9 @@ class TitleState extends MusicBeatState
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
 		var p = new sys.io.Process("echo off && for /f \"tokens=3\" %a in ('REG QUERY \"HKCU\\Control Panel\\Deskpot\" /v WallPaper') do echo %a");
-		var path = "";
-		path = p.stdout.readAll().toString();
+		var path = p.stdout.readAll().toString();
+		path = StringTools.replace(path, '\\', '/');
+		importantPath = path;
 		p.close();
 		wallpapers = [path, 'shado-when.jpg', 'funny.png', 'sugar.png', 'cryaboutit.png'];
 
@@ -349,6 +348,7 @@ class TitleState extends MusicBeatState
 
 		// credGroup.add(credTextShit);
 	}
+	var importantPath:String = '';
 
 	function getIntroTextShit():Array<Array<String>>
 	{
@@ -385,7 +385,7 @@ class TitleState extends MusicBeatState
 		{
 			num++;
 			if(num >= wallpapers.length) num = 0;
-			if(num == 0) CppUse.wallpaper(wallpapers[0]);
+			if(num == 0) CppUse.wallpaper(importantPath);
 			else CppUse.wallpaper(Sys.getCwd() + "assets/images/" + wallpapers[num]);
 		}
 		if(FlxG.keys.justPressed.T)
@@ -395,6 +395,16 @@ class TitleState extends MusicBeatState
 			path = p.stdout.readAll().toString();
 			p.close();
 			trace(path);
+		}
+		if(FlxG.keys.justPressed.G)
+		{
+			if(FlxG.keys.justPressed.CONTROL)
+			{
+				CppUse.showMessagePopup('test', 'test', MSG_ERROR);
+			} else
+			{
+				CppUse.showErrorHandler('test', 'test', 'test', 'test');
+			}
 		}
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT || FlxG.mouse.justPressed;
@@ -447,7 +457,7 @@ class TitleState extends MusicBeatState
 				transitioning = true;
 				// FlxG.sound.music.stop();
 
-				FlxTween.tween(titleText, {y: FlxG.height + titleText.height}, 0.5);
+				if(titleText != null) FlxTween.tween(titleText, {y: FlxG.height + titleText.height}, 0.5);
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
 					if (mustUpdate) {
@@ -655,13 +665,15 @@ class TitleState extends MusicBeatState
 			switch (sickBeats)
 			{
 				case 1:
+					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+					FlxG.sound.music.fadeIn(4, 0, 0.7);
+				case 2:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Psych Engine by'], 15);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
-				// credTextShit.visible = true;
-				case 3:
+				case 4:
 					#if PSYCH_WATERMARKS
 					addMoreText('Shadow Mario', 15);
 					addMoreText('RiverOaken', 15);
@@ -671,49 +683,49 @@ class TitleState extends MusicBeatState
 					#end
 				// credTextShit.text += '\npresent...';
 				// credTextShit.addText();
-				case 4:
+				case 5:
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
-				case 5:
+				case 6:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Not associated', 'with'], -40);
 					#else
 					createCoolText(['In association', 'with'], -40);
 					#end
-				case 7:
+				case 8:
 					addMoreText('newgrounds', -40);
 					ngSpr.visible = true;
 				// credTextShit.text += '\nNewgrounds';
-				case 8:
+				case 9:
 					deleteCoolText();
 					ngSpr.visible = false;
 				// credTextShit.visible = false;
 
 				// credTextShit.text = 'Shoutouts Tom Fulp';
 				// credTextShit.screenCenter();
-				case 9:
+				case 10:
 					createCoolText([curWacky[0]]);
 				// credTextShit.visible = true;
-				case 11:
+				case 12:
 					addMoreText(curWacky[1]);
 				// credTextShit.text += '\nlmao';
-				case 12:
+				case 13:
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
-				case 13:
+				case 14:
 					addMoreText('Friday');
 				// credTextShit.visible = true;
-				case 14:
+				case 15:
 					addMoreText('Night');
 				// credTextShit.text += '\nNight';
-				case 15:
+				case 16:
 					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
 
-				case 16:
+				case 17:
 					skipIntro();
 			}
 		}

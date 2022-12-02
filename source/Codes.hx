@@ -23,6 +23,12 @@ class Codes extends MusicBeatState
 
     var canSelect:Bool = true;
 
+    public function new()
+	{
+		super();
+		MusicBeatState.dumpcachetuff = false;
+	}
+
     override function create()
     {
         FlxG.mouse.visible = true;
@@ -111,9 +117,10 @@ class Codes extends MusicBeatState
 
         if ((controls.BACK || FlxG.mouse.justPressedRight) && canSelect) //me when the so
         {
-            MusicBeatState.switchState(new MainMenuState());
             if(Progression.beatedSoni) FlxG.mouse.visible = false;
             Lib.application.window.title = 'Freaky Night With Soni';
+            MusicBeatState.dumpcachetuff = true;
+            MusicBeatState.switchState(new MainMenuState());
         }
 
         for (i in numbersSpr)
@@ -159,6 +166,10 @@ class Codes extends MusicBeatState
                     enterToSong('rude');
                 case '1809': //metal sonic chileno xd
                     enterToSong('pico');
+                case '3110': //metal sonic chileno xd
+                    enterToSong('3am');
+                case '2806': //terminal montaje soni
+                    enterToSong('chilli-cats');
                 case '7545': //Shadow fucking die bruhhh
                     startDaVideo('die');
                 case '6969': //Funni peter griffin running code
@@ -182,9 +193,10 @@ class Codes extends MusicBeatState
     function enterToSong(song:String, ?hasLoad = true)
     {
         PlayState.SONG = Song.loadFromJson(song, song);
-        LoadingState.loadAndSwitchState(new PlayState(), true, hasLoad);
+        MusicBeatState.dumpcachetuff = true;
         Lib.application.window.title = 'Freaky Night With Soni';
         FlxG.mouse.visible = false;
+        LoadingState.loadAndSwitchState(new PlayState(), true, hasLoad);
     }
     function startDaVideo(vid:String)
     {
@@ -201,9 +213,10 @@ class Codes extends MusicBeatState
     function enterToSongWithCutscene(song:String) //In PlayState the cutscenes crash the game so uhh
     {
         PlayState.SONG = Song.loadFromJson(song, song);
-        LoadingState.loadAndSwitchState(new StoryVideo(), true);
+        MusicBeatState.dumpcachetuff = true;
         Lib.application.window.title = 'Freaky Night With Soni';
         FlxG.mouse.visible = false;
+        LoadingState.loadAndSwitchState(new StoryVideo(), true);
     }
     function getUsername()
 	{

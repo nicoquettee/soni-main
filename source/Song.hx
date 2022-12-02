@@ -28,13 +28,13 @@ typedef SwagSong =
 
 	var player1:String;
 	var player2:String;
-	var player3:String; //deprecated, now replaced by gfVersion
 	var gfVersion:String;
 	var stage:String;
 
 	var arrowSkin:String;
 	var splashSkin:String;
 	var validScore:Bool;
+
 	@:optional var sliderVelocities:Array<VelocityChange>;
 	@:optional var initialSpeed:Float;
 }
@@ -52,19 +52,13 @@ class Song
 	public var initialSpeed:Float = 1;
 	public var sliderVelocities:Array<VelocityChange>=[];
 	public var stage:String;
-
 	public var player1:String = 'befe';
-	public var player2:String = 'dad';
-	public var player3:String = null; //deprecated
+	public var player2:String = 'soni';
 	public var gfVersion:String = 'gifiend';
 
 	private static function onLoadJson(songJson:SwagSong) // Convert old charts to newest format
 	{
-		if(songJson.gfVersion == null)
-		{
-			songJson.gfVersion = songJson.player3;
-			songJson.player3 = null;
-		}
+		if(songJson.gfVersion == null) songJson.gfVersion = 'gifiend';
 
 		if(songJson.events == null)
 		{

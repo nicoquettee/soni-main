@@ -218,6 +218,7 @@
 			"indices": []
 		}
 	],
+	"dataType": "JSON",
 	"no_antialiasing": false,
 	"image": "characters/SoniDate",
 	"position": [

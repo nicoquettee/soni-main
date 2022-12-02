@@ -29,6 +29,7 @@ import openfl.text.TextFormat;
 import openfl.Lib;
 import flixel.FlxG;
 import openfl.display.Sprite;
+import lime.system.Clipboard;
 
 #if desktop
 import Discord.DiscordClient;
@@ -390,7 +391,7 @@ class GameJoltLogin extends MusicBeatState
         {
             GameJoltAPI.deAuthDaUser();
         });
-        logOutBox.color = FlxColor.RED /*FlxColor.fromRGB(255,134,61)*/ ;
+        logOutBox.color = FlxColor.RED;
 
         cancelBox = new FlxButton(0,625, "Not Right Now", function()
         {
@@ -400,10 +401,6 @@ class GameJoltLogin extends MusicBeatState
             if (GameJoltLogin.fromOptions)
             {
                 durag = 0.5;
-                if (FlxG.sound.music != null)
-                {
-                    FlxG.sound.music.fadeOut(0.5, 0);
-                }
             }
             new FlxTimer().start(durag, (tmr)->{
                 GameJoltLogin.fromOptions = false;
@@ -477,7 +474,26 @@ class GameJoltLogin extends MusicBeatState
         if (!FlxG.sound.music.playing)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+        }
+        
+        var inputTexts:Array<FlxUIInputText> = [usernameBox, tokenBox];
+        for (i in 0...inputTexts.length) {
+			if(inputTexts[i].hasFocus) {
+				if(FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.V && Clipboard.text != null) {
+					inputTexts[i].text = ClipboardAdd(inputTexts[i].text);
+					inputTexts[i].caretIndex = inputTexts[i].text.length;
+					getEvent(FlxUIInputText.CHANGE_EVENT, inputTexts[i], null, []);
+				}
+				FlxG.sound.muteKeys = [];
+				FlxG.sound.volumeDownKeys = [];
+				FlxG.sound.volumeUpKeys = [];
+				super.update(elapsed);
+				return;
+			}
 		}
+		FlxG.sound.muteKeys = TitleState.muteKeys;
+		FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
+		FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
 
         if (FlxG.keys.justPressed.ESCAPE)
         {
@@ -494,6 +510,16 @@ class GameJoltLogin extends MusicBeatState
 
         super.update(elapsed);
     }
+
+    function ClipboardAdd(prefix:String = ''):String {
+		if(prefix.toLowerCase().endsWith('v')) //probably copy paste attempt
+		{
+			prefix = prefix.substring(0, prefix.length-1);
+		}
+
+		var text:String = prefix + Clipboard.text.replace('\n', '');
+		return text;
+	}
 
     override function beatHit()
     {

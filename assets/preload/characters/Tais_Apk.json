@@ -1,73 +1,74 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				-42,
 				-9
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Tais_Dead_IDLE",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Tais_Dead_IDLE"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				105,
 				-10
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Tais_Dead_LEFT",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Tais_Dead_LEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-21,
 				-54
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Tais_Dead_DOWN",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Tais_Dead_DOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				11,
 				32
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Tais_Dead_UP",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Tais_Dead_UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-62,
 				-12
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Tais_Dead_RIGHT",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Tais_Dead_RIGHT"
 		}
 	],
+	"dataType": "SPARROW",
 	"no_antialiasing": false,
 	"image": "characters/tais_apk",
 	"position": [
 		0,
 		0
 	],
-	"healthicon": "soni-apk",
+	"healthicon": "tais-apk",
 	"flip_x": false,
 	"healthbar_colors": [
-		8,
-		12,
-		98
+		111,
+		105,
+		99
 	],
 	"camera_position": [
 		0,

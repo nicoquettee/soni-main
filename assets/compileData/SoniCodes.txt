@@ -1,8 +1,8 @@
 PUT THIS CODES IN THE CODES MENU
-(The "UPDATED" text means that song got updated in the v2, and if you see "NEW" is a new song)
+(The "UPDATED" text means that the song got updated for this version, and if you see "NEW" is a new song)
 
 --EXTRAS--
-1811 - Unleashed (Vs Soni Werhog)
+1811 - Unleashed (Vs Soni Werhog) OLD
 0907 - ou (Vs TGT Shadow) UPDATED
 2012 - Broken Reality (Vs bil-letes) UPDATED
 1234 - Origishit (Vs Original Soni) NEW
@@ -11,12 +11,15 @@ PUT THIS CODES IN THE CODES MENU
 2307 - Spines (Vs Soni.apk) NEW
 0841 - Dev Troubles (Selft insert song lol) NEW
 3201 - Ovaloader Star (Vs Letal Soni) NEW
+5030 - Scrapped Mouse (Vs Shawn) NEW
 0161 - Rude (Vs Scourg) NEW
 1809 - Pico (Fiestas Patrias de Chile xd) NEW
+--FANTRACKS--
+2806 - Chilli Cats (Vs terminal montaje soni) NEW
 --COVERS--
-0069 - Sonibars (Fazbars cover)
+0069 - Sonibars (Fazbars cover) OLD
 --VIDEOS--
-7545 - Die (Shadow dies lol)
-6969 - Peter Griffin in City Escape (Funni peter griffin running code)
+7545 - Die (Shadow dies lol) OLD
+6969 - Peter Griffin in City Escape (Funni peter griffin running code) OLD
 1984 - Soni Real (The soni characters in real life :scream:) NEW
 1993 - holamigos (Hola amigos estoy aqui con mis amigos) NEW

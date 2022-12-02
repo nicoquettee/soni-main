@@ -124,7 +124,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Disable Auto Pause',
-			'If checked, the game will stop when minimizing the window.',
+			'If unchecked, the game will stop when minimizing the window.',
 			'autoPause',
 			'bool',
 			true);

@@ -1,0 +1,231 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle tais"
+		},
+		{
+			"offsets": [
+				41,
+				-3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				-10,
+				-38
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				-15,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				9,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				43,
+				-3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "left efe"
+		},
+		{
+			"offsets": [
+				-9,
+				-32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "down efe"
+		},
+		{
+			"offsets": [
+				-11,
+				11
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "up efe"
+		},
+		{
+			"offsets": [
+				12,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "right efe"
+		},
+		{
+			"offsets": [
+				-84,
+				-84
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "gameover part tree"
+		},
+		{
+			"offsets": [
+				-84,
+				-84
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "gameover part two"
+		},
+		{
+			"offsets": [
+				-1,
+				-84
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "gameover tais"
+		},
+		{
+			"offsets": [
+				-27,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "sus",
+			"indices": [],
+			"name": "pipipi"
+		}
+	],
+	"dataType": "JSON",
+	"no_antialiasing": false,
+	"image": "characters/tais_amongus",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "tais-amongus",
+	"flip_x": true,
+	"healthbar_colors": [
+		255,
+		0,
+		63
+	],
+	"camera_position": [
+		-350,
+		30
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

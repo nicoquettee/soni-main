@@ -14,6 +14,8 @@ import lime.utils.Assets as LimeAssets;
 import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
 import flixel.util.FlxAxes;
+import flixel.graphics.FlxGraphic;
+import sys.thread.Thread;
 
 #if desktop
 import Discord.DiscordClient;
@@ -38,6 +40,10 @@ class LoadingState extends MusicBeatState
 	var danceLeft = false;
 
 	var hasLoad:Bool = true;
+
+	static var imagesToCache:Array<String> = [];
+	static var soundsToCache:Array<String> = [];
+	static var library:String = "";
 	
 	function new(target:FlxState, stopMusic:Bool, directory:String, ?loadingScreen:Bool = true)
 	{
@@ -113,6 +119,59 @@ class LoadingState extends MusicBeatState
 				new FlxTimer().start(fadeTime + MIN_TIME, function(_) introComplete());
 			}
 		);
+
+		super.create();
+
+		if(target == new PlayState())
+		{
+			switch(Paths.formatToSongPath(PlayState.SONG.song))
+			{
+				case 'sonicando':
+					library = 'preload';
+					imagesToCache = ['cryaboutit'];
+				case 'sped':
+					library = 'shared';
+					imagesToCache = ['backgrounds/soni/BackgroundA', 'backgrounds/soni/dead tais reported !!!!', 'backgrounds/soni/Humo'];
+				case 'cheese':
+					library = 'shared';
+					var where:String = 'backgrounds/sas/black/';
+					imagesToCache = ['${where}Sky_noblue_alt', '${where}sun_alt', '${where}Bg_Back_alt', '${where}BG_grillby_alt', '${where}Bg_Front_alt'];
+				case 'precocious':
+					library = 'shared';
+					imagesToCache = ['glowShit/particle-hearth'];
+				case 'spines':
+					library = 'preload';
+					imagesToCache = ['icons/tais-apk'];
+				case 'impersonation':
+					library = 'shared';
+					soundsToCache = ['santiago/paper', 'santiago/bfBeep'];
+				case '3am':
+					library = 'shared';
+					imagesToCache = ['backgrounds/halloween/pianoekis', 'backgrounds/halloween/BG_Anim', 'backgrounds/halloween/Moon_Corrida', 'backgrounds/halloween/Bg_S', 'backgrounds/events/spotlight'];
+			}
+		}
+
+		Paths.setCurrentLevel('shared');
+		FlxGraphic.defaultPersist = true;
+		Thread.create(() ->
+		{
+			for (sound in soundsToCache)
+			{
+				FlxG.sound.cache(Paths.sound(sound, library));
+			}
+
+			for (image in imagesToCache)
+			{
+				FlxG.bitmap.add(Paths.image(image, library));
+			}
+
+			FlxGraphic.defaultPersist = false;
+
+			new FlxTimer().start(1, function(_:FlxTimer)
+			{
+				loadAndSwitchState2(target, false);
+			});
+		});
 	}
 	
 	function checkLoadSong(path:String)
@@ -181,12 +240,6 @@ class LoadingState extends MusicBeatState
 		if(loaded)
 			loadAndSwitchState2(target, stopMusic);
 		#end
-
-		Paths.setCurrentLevel('shared');
-		new FlxTimer().start(1, function(tmr:FlxTimer)
-		{
-			loadAndSwitchState2(target, stopMusic);
-		});
 	}
 	
 	function onLoad()
@@ -364,6 +417,17 @@ class LoadingState extends MusicBeatState
 		});
 
 		return promise.future;
+	}
+
+	public static function dumpAdditionalAssets()
+	{
+		for (image in imagesToCache)
+		{
+			trace("Dumping image " + image);
+			FlxG.bitmap.removeByKey(Paths.image(image, library));
+		}
+		soundsToCache = [];
+		imagesToCache = [];
 	}
 }
 

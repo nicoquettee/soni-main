@@ -1,103 +1,47 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "idle",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15,
-				16,
-				17
-			],
-			"name": "Bf"
-		},
-		{
 			"offsets": [
 				30,
 				-61
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Bf down"
+			"fps": 24,
+			"name": "Bf down",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				521,
 				-358
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "deathLoop",
-			"indices": [],
-			"name": "Bf gameover loop"
+			"fps": 24,
+			"name": "Bf gameover loop",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				-29,
+				-37,
 				46
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Bf up"
+			"fps": 24,
+			"name": "Bf up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				43,
-				-66
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "singDOWNmiss",
-			"indices": [
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15,
-				16
-			],
-			"name": "Miss bf down"
-		},
-		{
 			"offsets": [
-				-17,
-				61
+				-32,
+				55
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "miss bf up",
 			"indices": [
 				2,
 				3,
@@ -114,17 +58,17 @@
 				14,
 				15,
 				16
-			],
-			"name": "miss bf up"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				521,
 				496
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "firstDeath",
+			"fps": 24,
+			"name": "Bf gameover",
 			"indices": [
 				0,
 				1,
@@ -230,39 +174,39 @@
 				101,
 				102,
 				103
-			],
-			"name": "Bf gameover"
+			]
 		},
 		{
-			"loop": false,
 			"offsets": [
 				525,
 				-312
 			],
-			"anim": "deathConfirm",
+			"loop": false,
 			"fps": 24,
-			"name": "Bf gameover confirm",
-			"indices": []
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "Bf gameover confirm"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				110,
 				32
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Bf right"
+			"fps": 24,
+			"name": "Bf right",
+			"indices": []
 		},
 		{
-			"offsets": [
-				92,
-				26
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				111,
+				33
+			],
 			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "miss bf right",
 			"indices": [
 				4,
 				5,
@@ -277,28 +221,81 @@
 				14,
 				15,
 				16
-			],
-			"name": "miss bf right"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-69,
 				-3
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Bf left"
+			"fps": 24,
+			"name": "Bf left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-73,
 				-2
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "miss bf left",
+			"indices": [
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			]
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17
+			],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Bf idle"
+		},
+		{
+			"offsets": [
+				54,
+				-66
+			],
 			"indices": [
 				2,
 				3,
@@ -316,7 +313,10 @@
 				15,
 				16
 			],
-			"name": "miss bf left"
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"loop": false,
+			"name": "miss bf down"
 		},
 		{
 			"offsets": [
@@ -324,6 +324,26 @@
 				0
 			],
 			"indices": [
+				13,
+				14,
+				15,
+				16,
+				17
+			],
+			"fps": 24,
+			"anim": "idle-loop",
+			"loop": true,
+			"name": "Bf idle"
+		},
+		{
+			"offsets": [
+				30,
+				-61
+			],
+			"indices": [
+				7,
+				8,
+				9,
 				10,
 				11,
 				12,
@@ -334,40 +354,16 @@
 				17
 			],
 			"fps": 24,
-			"anim": "idle-loop",
-			"loop": true,
-			"name": "Bf"
-		},
-		{
-			"offsets": [
-				30,
-				-61
-			],
-			"indices": [
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15,
-				16
-			],
-			"fps": 24,
 			"anim": "singDOWN-loop",
 			"loop": true,
 			"name": "Bf down"
 		},
 		{
 			"offsets": [
-				-29,
+				-37,
 				46
 			],
 			"indices": [
-				6,
 				7,
 				8,
 				9,
@@ -390,7 +386,6 @@
 				32
 			],
 			"indices": [
-				6,
 				7,
 				8,
 				9,
@@ -413,7 +408,6 @@
 				-3
 			],
 			"indices": [
-				6,
 				7,
 				8,
 				9,
@@ -431,6 +425,7 @@
 			"name": "Bf left"
 		}
 	],
+	"dataType": "JSON",
 	"no_antialiasing": false,
 	"image": "characters/befe_soni_nose",
 	"position": [

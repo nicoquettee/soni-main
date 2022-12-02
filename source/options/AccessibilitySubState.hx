@@ -149,6 +149,7 @@ class AccessibilitySubState extends BaseOptionsMenu
 			'',
 			['']);
 		option.onPress = gameJoltLogIn;
+		option.locked = GameJoltAPI.getStatus();
 		addOption(option);
 
 		var option:Option = new Option('Log Out Of GameJolt',
