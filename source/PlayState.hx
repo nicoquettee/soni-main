@@ -559,7 +559,7 @@ class PlayState extends MusicBeatState
 	}
 
 	// Hscript
-	public var script:Script;
+	public var script:HScript;
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
@@ -9439,7 +9439,7 @@ class PlayState extends MusicBeatState
 		if (hxdata != "")
 		{
 			script = null;
-			script = new Script();
+			script = new HScript();
 
 			script.setVariable("onCreate", function()
 			{

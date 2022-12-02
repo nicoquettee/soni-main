@@ -4,9 +4,7 @@ import flixel.FlxBasic;
 import hscript.Interp;
 import openfl.Lib;
 
-
-//hi lunar
-class Script extends FlxBasic
+class HScript extends FlxBasic
 {
 	public var hscript:Interp;
 
@@ -28,7 +26,7 @@ class Script extends FlxBasic
 		}
 		catch (e)
 		{
-			Lib.application.window.alert(e.message, "HSCRIPT ERROR!1111");
+			Lib.application.window.alert(e.message, "deja de llorar maldita puta");
 		}
 	}
 
