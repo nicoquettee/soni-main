@@ -128,7 +128,8 @@ class Main extends Sprite
 		FlxG.console.registerObject("Conductor", Conductor);
 		FlxG.console.registerObject("PlayState", PlayState);
 		FlxG.console.registerObject("Note", Note);
-		FlxG.console.registerObject("PlayStateChangeables", PlayStateChangeables);
+		// FlxG.console.registerObject("PlayStateChangeables", PlayStateChangeables);
+		// esta mierda es de kade engine, que hicieron
 
 		FlxG.console.registerObject("MainMenuState", MainMenuState);
 		#end

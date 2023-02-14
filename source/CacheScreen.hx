@@ -11,7 +11,7 @@ import flixel.util.FlxTimer;
 class CacheScreen extends FlxTypedGroup<FlxSprite>
 {
     public var progress:Int = 0;
-	public var max:Int = 10;
+	public var max:Int = 7;
     
     var loadingImage:FlxSprite;
     var loadTxt:FlxText;

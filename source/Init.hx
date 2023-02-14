@@ -186,16 +186,6 @@ class Init extends MusicBeatState
 		Main.persistentAssets.push(letrero);
 		loadS.progress = 6;
 
-		loadS.setLoadingText("Loading sounds");
-
-		// GameOver
-		FlxG.sound.cache(Paths.sound('fnf_loss_sfx', 'shared'));
-		loadS.progress = 7;
-		FlxG.sound.cache(Paths.sound('gameOver', 'shared'));
-		loadS.progress = 8;
-		FlxG.sound.cache(Paths.sound('gameOverEnd', 'shared'));
-		loadS.progress = 9;
-
 		FlxGraphic.defaultPersist = false;
 
 		loadS.setLoadingText("Initializing");

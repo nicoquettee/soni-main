@@ -1,25 +1,25 @@
 package;
 
-import openfl.utils.AssetCache;
 import Conductor.BPMChangeEvent;
-import flixel.FlxG;
-import flixel.addons.ui.FlxUIState;
-import flixel.math.FlxRect;
-import flixel.util.FlxTimer;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.FlxSprite;
-import flixel.util.FlxColor;
-import flixel.util.FlxGradient;
-import openfl.filters.ShaderFilter;
 import Shaders;
-import flixel.FlxState;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
-import openfl.utils.Assets;
-import openfl.Lib;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxState;
+import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.ui.FlxUIState;
+import flixel.math.FlxRect;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
+import flixel.util.FlxGradient;
+import flixel.util.FlxTimer;
 import lime.utils.Assets as LimeAssets;
+import openfl.Lib;
+import openfl.filters.ShaderFilter;
+import openfl.utils.AssetCache;
+import openfl.utils.Assets;
 
 class MusicBeatState extends FlxUIState
 {
@@ -121,7 +121,8 @@ class MusicBeatState extends FlxUIState
 			}
 		}
 
-		if(FlxG.save.data != null) FlxG.save.data.fullscreen = FlxG.fullscreen;
+		// if(FlxG.save.data != null) FlxG.save.data.fullscreen = FlxG.fullscreen;
+		// epilepsia
 
 		super.update(elapsed);
 	}

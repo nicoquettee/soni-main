@@ -3573,7 +3573,6 @@ class PlayState extends MusicBeatState
 		for(sound in countdownSounds) if(sound != null) sound.pitch = value;
 		playbackRate = value;
 		FlxAnimationController.globalSpeed = value;
-		trace('Anim speed: ' + FlxAnimationController.globalSpeed);
 		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000 * value;
 		setOnLuas('playbackRate', playbackRate);
 		if(script != null) script.setVariable('playbackRate', playbackRate);

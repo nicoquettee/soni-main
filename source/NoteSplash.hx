@@ -27,7 +27,7 @@ class NoteSplash extends FlxSprite
 
 	public function setupNoteSplash(x:Float, y:Float, note:Int = 0, texture:String = null) {
 		setPosition(x - Note.swagWidth() * 0.95, y - Note.swagWidth());
-		alpha = ClientPrefs.noteTransparencySoniNose-.4;
+		alpha = ClientPrefs.noteTransparencySoniNose*.4;
 		scale.set(ClientPrefs.noteScale, ClientPrefs.noteScale);
 		updateHitbox();
 
