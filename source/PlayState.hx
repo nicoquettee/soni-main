@@ -1727,7 +1727,7 @@ class PlayState extends MusicBeatState
 							case 1540:
 								var t:FlxTween = null;
 								for(strum in playerStrums.members)
-								t = FlxTween.tween(strum, {alpha: ClientPrefs.noteTransparencySoniNose}, .7 / initialPlaybackRate);
+								t = FlxTween.tween(strum, {alpha: 1}, .7 / initialPlaybackRate);
 								eventTweens.push(t);
 							case 1648:
 								var ts:FlxTween = null;
@@ -1739,9 +1739,9 @@ class PlayState extends MusicBeatState
 								var t2:FlxTween = null;
 								var tweenHUD:FlxTween = FlxTween.tween(camHUD, {alpha: 1}, 1 / initialPlaybackRate);
 								for(strum in opponentStrums.members)
-								t1 = FlxTween.tween(strum, {alpha: isMiddlescroll ? ClientPrefs.opponentStrums ? 0.35 : 0 : ClientPrefs.opponentStrums ? ClientPrefs.noteTransparencySoniNose : 0}, 1 / initialPlaybackRate);
+									t1 = FlxTween.tween(strum, {alpha: isMiddlescroll ? (ClientPrefs.opponentStrums ? 0.35 : 0) : (ClientPrefs.opponentStrums ? 1 : 0)}, 1 / initialPlaybackRate);
 								for(strum in playerStrums.members)
-								t2 = FlxTween.tween(strum, {alpha: ClientPrefs.noteTransparencySoniNose}, 1 / initialPlaybackRate);
+									t2 = FlxTween.tween(strum, {alpha: 1}, 1 / initialPlaybackRate);
 								eventTweens.push(tweenHUD);
 								eventTweens.push(t1);
 								eventTweens.push(t2);
@@ -1868,7 +1868,7 @@ class PlayState extends MusicBeatState
 					daStatic.alpha = 0;
 					dad.alpha = 1;
 					camHUD.alpha = 1;
-					for(strum in opponentStrums.members) strum.alpha = isMiddlescroll ? ClientPrefs.opponentStrums ? 0.35 : 0 : ClientPrefs.opponentStrums ? ClientPrefs.noteTransparencySoniNose : 0;
+					for(strum in opponentStrums.members) strum.alpha = isMiddlescroll ? ClientPrefs.opponentStrums ? 0.35 : 0 : ClientPrefs.opponentStrums ? 1 : 0;
 					var objs:Array<FlxSprite> = [sky,luna,callejon,casa,calavera,asfalto,thingiLight];
 					for(obj in objs)
 					{
@@ -4685,7 +4685,7 @@ class PlayState extends MusicBeatState
 	{
 		for (i in 0...4)
 		{
-			var targetAlpha:Float = ClientPrefs.noteTransparencySoniNose;
+			var targetAlpha:Float = 1;
 			if (player < 1)
 			{
 				if (!ClientPrefs.opponentStrums)
@@ -5924,7 +5924,6 @@ class PlayState extends MusicBeatState
 		});
 		pauseTween.onUpdate = (twn)-> 
 		{
-			trace(playbackRate);
 			set_playbackRate(playbackRate);
 		}
 	}
@@ -7389,7 +7388,7 @@ class PlayState extends MusicBeatState
 				if (isMiddlescroll)
 					i.alpha = 0.35;
 				else
-					i.alpha = ClientPrefs.noteTransparencySoniNose;
+					i.alpha = 1;
 
 		for (i in 0...8)
 			strumLineNotes.members[i].y = (ClientPrefs.downScroll ? 570 : 50);
@@ -8578,17 +8577,17 @@ class PlayState extends MusicBeatState
 				var camSwayX:Float = 0;
 				var camSwayY:Float = 0;
 
-				switch (note.noteData)
-				{
-					case 0:
-						camSwayX = -20 * camSwaymult;
-					case 1:
-						camSwayY = 20 * camSwaymult;
-					case 2:
-						camSwayY = -20 * camSwaymult;
-					case 3:
-						camSwayX = 20 * camSwaymult;
-				}
+				// switch (note.noteData)
+				// {
+				// 	case 0:
+				// 		camSwayX = -20 * camSwaymult;
+				// 	case 1:
+				// 		camSwayY = 20 * camSwaymult;
+				// 	case 2:
+				// 		camSwayY = -20 * camSwaymult;
+				// 	case 3:
+				// 		camSwayX = 20 * camSwaymult;
+				// }
 
 				var char:Character = boyfriend;
 				if (note.gfNote && gf != null)

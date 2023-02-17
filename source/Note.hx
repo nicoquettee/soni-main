@@ -383,4 +383,13 @@ class Note extends FlxSprite
 				alpha = 0.3;
 		}
 	}
+
+	override function draw()
+	{
+		if (active)
+			alpha *= ClientPrefs.noteTransparencySoniNose;
+		super.draw();
+		if (active)
+			alpha /= ClientPrefs.noteTransparencySoniNose;
+	}
 }

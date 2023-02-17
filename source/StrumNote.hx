@@ -179,4 +179,13 @@ class StrumNote extends FlxSprite
 			}
 		}
 	}
+
+	override function draw()
+	{
+		if (active)
+			alpha *= ClientPrefs.noteTransparencySoniNose;
+		super.draw();
+		if (active)
+			alpha /= ClientPrefs.noteTransparencySoniNose;
+	}
 }

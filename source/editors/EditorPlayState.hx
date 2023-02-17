@@ -936,7 +936,7 @@ class EditorPlayState extends MusicBeatState
 		for (i in 0...4)
 		{
 			// FlxG.log.add(i);
-			var targetAlpha:Float = ClientPrefs.noteTransparencySoniNose;
+			var targetAlpha:Float = 1;
 			if (player < 1 && PlayState.isMiddlescroll) targetAlpha = 0.35;
 
 			var babyArrow:StrumNote = new StrumNote(PlayState.isMiddlescroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X, strumLine.y, i, player);
